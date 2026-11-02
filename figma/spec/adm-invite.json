@@ -1,0 +1,5705 @@
+{
+ "name": "ADM-02 邀请码管理",
+ "group": "adm",
+ "w": 1440,
+ "h": 1047,
+ "file": "admin/invite.html",
+ "nodes": [
+  {
+   "type": "box",
+   "tag": "body",
+   "name": "body.adm",
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 1047,
+   "style": {
+    "bg": {
+     "r": 0.9607843137254902,
+     "g": 0.9607843137254902,
+     "b": 0.9607843137254902,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "aside",
+   "name": "aside.adm-sider",
+   "x": 0,
+   "y": 0,
+   "w": 200,
+   "h": 1047,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "div",
+   "name": "div.adm-logo 文本",
+   "x": 0,
+   "y": 0,
+   "w": 199,
+   "h": 64,
+   "text": "抽奖后台管理",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 20,
+    "fontWeight": 600,
+    "fontFamily": "\"PingFang SC\", \"Microsoft YaHei\", -apple-system, sans-serif",
+    "lineHeight": 31.428,
+    "letterSpacing": 0.4,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item",
+   "x": 8,
+   "y": 68,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item 文本",
+   "x": 8,
+   "y": 68,
+   "w": 183,
+   "h": 40,
+   "text": "福卡管理",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 81,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 15h4\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item.is-active",
+   "x": 8,
+   "y": 112,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": {
+     "r": 0.9019607843137255,
+     "g": 0.9568627450980393,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item.is-active 文本",
+   "x": 8,
+   "y": 112,
+   "w": 183,
+   "h": 40,
+   "text": "邀请码管理",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 500,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 125,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2\"></path><path d=\"M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item",
+   "x": 8,
+   "y": 156,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item 文本",
+   "x": 8,
+   "y": 156,
+   "w": 183,
+   "h": 40,
+   "text": "抽奖管理",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 169,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M5 10v4l9 4V6L5 10z\"></path><path d=\"M14 9a3.5 3.5 0 0 1 0 6\"></path><path d=\"M7 14v4\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item",
+   "x": 8,
+   "y": 200,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item 文本",
+   "x": 8,
+   "y": 200,
+   "w": 183,
+   "h": 40,
+   "text": "奖品管理",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 213,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11h16v9H4z\"></path><path d=\"M3 7h18v4H3z\"></path><path d=\"M12 7v13\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item",
+   "x": 8,
+   "y": 244,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item 文本",
+   "x": 8,
+   "y": 244,
+   "w": 183,
+   "h": 40,
+   "text": "中奖记录",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 257,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"></rect><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.adm-menu__item",
+   "x": 8,
+   "y": 288,
+   "w": 183,
+   "h": 40,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.adm-menu__item 文本",
+   "x": 8,
+   "y": 288,
+   "w": 183,
+   "h": 40,
+   "text": "邮件日志",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 20,
+   "y": 301,
+   "w": 15,
+   "h": 15,
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"></rect><path d=\"M3 8l9 6 9-6\"></path></svg>",
+   "section": "sider"
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button.adm-sider__collapse",
+   "x": 8,
+   "y": 995,
+   "w": 183,
+   "h": 44,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "sider"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.adm-sider__collapse 文本",
+   "x": 8,
+   "y": 995,
+   "w": 183,
+   "h": 44,
+   "text": "‹",
+   "section": "sider",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 16,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 25.1424,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "main",
+   "name": "main.adm-main",
+   "x": 200,
+   "y": 0,
+   "w": 1240,
+   "h": 1047,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-avatar",
+   "x": 1384,
+   "y": 16,
+   "w": 32,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 50,
+     "tr": 50,
+     "br": 50,
+     "bl": 50
+    },
+    "border": null
+   },
+   "section": "topbar"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-avatar 文本",
+   "x": 1384,
+   "y": 16,
+   "w": 32,
+   "h": 32,
+   "text": "A",
+   "section": "topbar",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "svg",
+   "tag": "svg",
+   "name": "svg",
+   "x": 224,
+   "y": 68,
+   "w": 14,
+   "h": 14,
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7\"></path><path d=\"M6 10v9h12v-9\"></path></svg>",
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span 文本",
+   "x": 246,
+   "y": 64,
+   "w": 4,
+   "h": 22,
+   "text": "/",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "name": "b 文本",
+   "x": 258,
+   "y": 64,
+   "w": 70,
+   "h": 22,
+   "text": "邀请码管理",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.inv-tab.is-active 文本",
+   "x": 224,
+   "y": 102,
+   "w": 74,
+   "h": 40,
+   "text": "邀请码列表",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 500,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.inv-tab 文本",
+   "x": 322,
+   "y": 102,
+   "w": 133,
+   "h": 40,
+   "text": "使用记录（绑定）",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "em",
+   "name": "em#tab-use-count 文本",
+   "x": 440,
+   "y": 114,
+   "w": 13,
+   "h": 15,
+   "text": "12",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 18.8568,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "label",
+   "name": "label 文本",
+   "x": 224,
+   "y": 170,
+   "w": 42,
+   "h": 22,
+   "text": "邀请码",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "input",
+   "name": "input#f-code.adm-input",
+   "x": 274,
+   "y": 165,
+   "w": 180,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input#f-code.adm-input 内容",
+   "x": 288,
+   "y": 165,
+   "w": 152,
+   "h": 32,
+   "text": "请输入邀请码",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.25
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "label",
+   "name": "label 文本",
+   "x": 478,
+   "y": 170,
+   "w": 75,
+   "h": 22,
+   "text": "客户号 / CIF",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "input",
+   "name": "input#f-cif.adm-input",
+   "x": 561,
+   "y": 165,
+   "w": 180,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input#f-cif.adm-input 内容",
+   "x": 575,
+   "y": 165,
+   "w": 152,
+   "h": 32,
+   "text": "请输入客户号或 CIF",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.25
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "label",
+   "name": "label 文本",
+   "x": 765,
+   "y": 170,
+   "w": 42,
+   "h": 22,
+   "text": "码类型",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "select",
+   "name": "select#f-type.adm-select",
+   "x": 815,
+   "y": 165,
+   "w": 180,
+   "h": 32,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 45,
+     "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      }
+     ]
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "select",
+   "name": "select#f-type.adm-select 内容",
+   "x": 827,
+   "y": 165,
+   "w": 156,
+   "h": 32,
+   "text": "全部类型",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "label",
+   "name": "label 文本",
+   "x": 1019,
+   "y": 170,
+   "w": 28,
+   "h": 22,
+   "text": "状态",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "select",
+   "name": "select#f-status.adm-select",
+   "x": 1055,
+   "y": 165,
+   "w": 180,
+   "h": 32,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 45,
+     "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      }
+     ]
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "select",
+   "name": "select#f-status.adm-select 内容",
+   "x": 1067,
+   "y": 165,
+   "w": 156,
+   "h": 32,
+   "text": "全部状态",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "label",
+   "name": "label 文本",
+   "x": 224,
+   "y": 218,
+   "w": 42,
+   "h": 22,
+   "text": "使用量",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "select",
+   "name": "select#f-usage.adm-select",
+   "x": 274,
+   "y": 213,
+   "w": 180,
+   "h": 32,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 45,
+     "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      }
+     ]
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "select",
+   "name": "select#f-usage.adm-select 内容",
+   "x": 286,
+   "y": 213,
+   "w": 156,
+   "h": 32,
+   "text": "全部",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "vertical": true
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-search.adm-btn.adm-btn--primary",
+   "x": 1280,
+   "y": 217,
+   "w": 64,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.08627450980392157,
+      "g": 0.4666666666666667,
+      "b": 1,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-search.adm-btn.adm-btn--primary 文本",
+   "x": 1280,
+   "y": 217,
+   "w": 64,
+   "h": 32,
+   "text": "查 询",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-reset.adm-btn",
+   "x": 1352,
+   "y": 217,
+   "w": 64,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "filter"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-reset.adm-btn 文本",
+   "x": 1352,
+   "y": 217,
+   "w": 64,
+   "h": 32,
+   "text": "重 置",
+   "section": "filter",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-export.adm-btn",
+   "x": 224,
+   "y": 265,
+   "w": 64,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-export.adm-btn 文本",
+   "x": 224,
+   "y": 265,
+   "w": 64,
+   "h": 32,
+   "text": "导 出",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-batch-disable.adm-btn",
+   "x": 296,
+   "y": 265,
+   "w": 88,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-batch-disable.adm-btn 文本",
+   "x": 296,
+   "y": 265,
+   "w": 88,
+   "h": 32,
+   "text": "批量停用",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-official.adm-btn.adm-actions__right",
+   "x": 1176,
+   "y": 265,
+   "w": 102,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-official.adm-btn.adm-actions__right 文本",
+   "x": 1176,
+   "y": 265,
+   "w": 102,
+   "h": 32,
+   "text": "官方码配置",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-gen.adm-btn.adm-btn--primary",
+   "x": 1286,
+   "y": 265,
+   "w": 130,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.08627450980392157,
+      "g": 0.4666666666666667,
+      "b": 1,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-gen.adm-btn.adm-btn--primary 文本",
+   "x": 1286,
+   "y": 265,
+   "w": 130,
+   "h": 32,
+   "text": "批量生成邀请码",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "name": "div#strip.adm-pool",
+   "x": 224,
+   "y": 313,
+   "w": 1192,
+   "h": 46,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.9411764705882353,
+      "g": 0.9411764705882353,
+      "b": 0.9411764705882353,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-pool__item 文本",
+   "x": 239,
+   "y": 326,
+   "w": 100,
+   "h": 20,
+   "text": "客户总数",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "name": "b 文本",
+   "x": 295,
+   "y": 328,
+   "w": 44,
+   "h": 16,
+   "text": "10,000",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-pool__item 文本",
+   "x": 363,
+   "y": 326,
+   "w": 120,
+   "h": 20,
+   "text": "已生成邀请码",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "name": "b#strip-gen 文本",
+   "x": 445,
+   "y": 328,
+   "w": 38,
+   "h": 16,
+   "text": "8,494",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-pool__item 文本",
+   "x": 507,
+   "y": 326,
+   "w": 57,
+   "h": 20,
+   "text": "已停用",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "name": "b#strip-off 文本",
+   "x": 550,
+   "y": 328,
+   "w": 14,
+   "h": 16,
+   "text": "12",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-pool__item 文本",
+   "x": 588,
+   "y": 326,
+   "w": 153,
+   "h": 20,
+   "text": "官方码用量",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "name": "b#strip-ocap 文本",
+   "x": 657,
+   "y": 328,
+   "w": 84,
+   "h": 16,
+   "text": "1,238 / 2,000",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-pool__progress",
+   "x": 765,
+   "y": 332,
+   "w": 263,
+   "h": 8,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.06
+    },
+    "radius": {
+     "tl": 100,
+     "tr": 100,
+     "br": 100,
+     "bl": 100
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span#strip-bar.adm-pool__bar",
+   "x": 765,
+   "y": 332,
+   "w": 163,
+   "h": 8,
+   "style": {
+    "bg": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 100,
+     "tr": 100,
+     "br": 100,
+     "bl": 100
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span#strip-tip.adm-pool__item 文本",
+   "x": 1052,
+   "y": 326,
+   "w": 349,
+   "h": 20,
+   "text": "require_new_customer 是 · total_cap 2,000 · 单码上限 100",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "name": "div.adm-table-wrap",
+   "x": 224,
+   "y": 373,
+   "w": 1192,
+   "h": 578,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th.col-check",
+   "x": 224,
+   "y": 373,
+   "w": 44,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input#check-all 内容",
+   "x": 252,
+   "y": 388,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 268,
+   "y": 373,
+   "w": 121,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 268,
+   "y": 373,
+   "w": 121,
+   "h": 49,
+   "text": "邀请码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 389,
+   "y": 373,
+   "w": 171,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 389,
+   "y": 373,
+   "w": 171,
+   "h": 49,
+   "text": "所属客户号 / CIF",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 559,
+   "y": 373,
+   "w": 105,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 559,
+   "y": 373,
+   "w": 105,
+   "h": 49,
+   "text": "码类型",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 665,
+   "y": 373,
+   "w": 226,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 665,
+   "y": 373,
+   "w": 226,
+   "h": 49,
+   "text": "已用 / 上限",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 890,
+   "y": 373,
+   "w": 91,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 890,
+   "y": 373,
+   "w": 91,
+   "h": 49,
+   "text": "状态",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 981,
+   "y": 373,
+   "w": 189,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 981,
+   "y": 373,
+   "w": 189,
+   "h": 49,
+   "text": "生成时间",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "th",
+   "name": "th",
+   "x": 1170,
+   "y": 373,
+   "w": 246,
+   "h": 49,
+   "style": {
+    "bg": {
+     "r": 0.9803921568627451,
+     "g": 0.9803921568627451,
+     "b": 0.9803921568627451,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "th",
+   "name": "th 文本",
+   "x": 1170,
+   "y": 373,
+   "w": 246,
+   "h": 49,
+   "text": "操作",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 439,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 422,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9Q",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 422,
+   "w": 171,
+   "h": 51,
+   "text": "10009502",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 437,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 437,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 422,
+   "w": 226,
+   "h": 51,
+   "text": "12",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 698,
+   "y": 440,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 439,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 422,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:12",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 436,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 436,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 490,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 474,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9R",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 474,
+   "w": 171,
+   "h": 51,
+   "text": "10008496",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 488,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 488,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 474,
+   "w": 226,
+   "h": 51,
+   "text": "100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 706,
+   "y": 491,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--exhausted 文本",
+   "x": 900,
+   "y": 490,
+   "w": 42,
+   "h": 17,
+   "text": "已用满",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 474,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:12",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 487,
+   "w": 68,
+   "h": 24,
+   "text": "上调上限",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1260,
+   "y": 487,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 542,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 525,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9S",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 525,
+   "w": 171,
+   "h": 51,
+   "text": "10019544",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 540,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 540,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 525,
+   "w": 226,
+   "h": 51,
+   "text": "0",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 690,
+   "y": 543,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 542,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 525,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:12",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 539,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 539,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 593,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 577,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9T",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 577,
+   "w": 171,
+   "h": 51,
+   "text": "10013992",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 591,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 591,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 577,
+   "w": 226,
+   "h": 51,
+   "text": "3",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 690,
+   "y": 594,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--disabled 文本",
+   "x": 900,
+   "y": 593,
+   "w": 42,
+   "h": 17,
+   "text": "已停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8117647058823529,
+     "g": 0.07450980392156863,
+     "b": 0.13333333333333333,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 577,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:12",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 590,
+   "w": 40,
+   "h": 24,
+   "text": "恢复",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 590,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 652,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 628,
+   "w": 121,
+   "h": 65,
+   "text": "OFC2027A",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 628,
+   "w": 171,
+   "h": 65,
+   "text": "—（官方）",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--official",
+   "x": 569,
+   "y": 650,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 0.9764705882352941,
+     "g": 0.9411764705882353,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8274509803921568,
+      "g": 0.6784313725490196,
+      "b": 0.9686274509803922,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--official 文本",
+   "x": 569,
+   "y": 650,
+   "w": 52,
+   "h": 22,
+   "text": "官方码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.3254901960784314,
+     "g": 0.11372549019607843,
+     "b": 0.6705882352941176,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 628,
+   "w": 226,
+   "h": 65,
+   "text": "1238",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 714,
+   "y": 644,
+   "w": 47,
+   "h": 15,
+   "text": "/ 2000",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.inv-note 文本",
+   "x": 675,
+   "y": 662,
+   "w": 206,
+   "h": 18,
+   "text": "官方码总量 · 已用 62%",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 18,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 652,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 628,
+   "w": 189,
+   "h": 65,
+   "text": "2026-11-18 14:05",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 649,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 649,
+   "w": 40,
+   "h": 24,
+   "text": "配置",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 710,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 693,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9U",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 693,
+   "w": 171,
+   "h": 51,
+   "text": "10022871",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 708,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 708,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 693,
+   "w": 226,
+   "h": 51,
+   "text": "47",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 698,
+   "y": 711,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 710,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 693,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:13",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 707,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 707,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 761,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 745,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9V",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 745,
+   "w": 171,
+   "h": 51,
+   "text": "10031805",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 760,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 760,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 745,
+   "w": 226,
+   "h": 51,
+   "text": "99",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 698,
+   "y": 762,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 762,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 745,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:13",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 759,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 759,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 813,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 796,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9W",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 796,
+   "w": 171,
+   "h": 51,
+   "text": "10041236",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 811,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 811,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 796,
+   "w": 226,
+   "h": 51,
+   "text": "100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 706,
+   "y": 814,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--exhausted 文本",
+   "x": 900,
+   "y": 813,
+   "w": 42,
+   "h": 17,
+   "text": "已用满",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 796,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:14",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 810,
+   "w": 68,
+   "h": 24,
+   "text": "上调上限",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1260,
+   "y": 810,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 864,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 848,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9X",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 848,
+   "w": 171,
+   "h": 51,
+   "text": "10050712",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 862,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 862,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 848,
+   "w": 226,
+   "h": 51,
+   "text": "1",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 690,
+   "y": 865,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--active 文本",
+   "x": 900,
+   "y": 864,
+   "w": 42,
+   "h": 17,
+   "text": "生效中",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 848,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:14",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 861,
+   "w": 40,
+   "h": 24,
+   "text": "停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 861,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input 内容",
+   "x": 252,
+   "y": 916,
+   "w": -12,
+   "h": 16,
+   "text": "on",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "vertical": true
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 268,
+   "y": 899,
+   "w": 121,
+   "h": 51,
+   "text": "CH7K2M9Y",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 389,
+   "y": 899,
+   "w": 171,
+   "h": 51,
+   "text": "10060428",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite",
+   "x": 569,
+   "y": 914,
+   "w": 52,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
+      "a": 1
+     }
+    }
+   },
+   "section": "table"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-source.adm-source--invite 文本",
+   "x": 569,
+   "y": 914,
+   "w": 52,
+   "h": 22,
+   "text": "普通码",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.num 文本",
+   "x": 665,
+   "y": 899,
+   "w": 226,
+   "h": 51,
+   "text": "0",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.muted 文本",
+   "x": 690,
+   "y": 917,
+   "w": 39,
+   "h": 15,
+   "text": "/ 100",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, Consolas, monospace",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-status.inv-st--disabled 文本",
+   "x": 900,
+   "y": 916,
+   "w": 42,
+   "h": 17,
+   "text": "已停用",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.8117647058823529,
+     "g": 0.07450980392156863,
+     "b": 0.13333333333333333,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "td",
+   "name": "td.nowrap.muted 文本",
+   "x": 981,
+   "y": 899,
+   "w": 189,
+   "h": 51,
+   "text": "2026-11-20 09:15",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.45
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.4282,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1180,
+   "y": 913,
+   "w": 40,
+   "h": 24,
+   "text": "恢复",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1232,
+   "y": 913,
+   "w": 68,
+   "h": 24,
+   "text": "使用记录",
+   "section": "table",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.adm-pager__total 文本",
+   "x": 1100,
+   "y": 972,
+   "w": 50,
+   "h": 22,
+   "text": "共 12 条",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.65
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button",
+   "x": 1166,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1166,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "text": "‹",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button.is-active",
+   "x": 1206,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.08627450980392157,
+      "g": 0.4666666666666667,
+      "b": 1,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.is-active 文本",
+   "x": 1206,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "text": "1",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button",
+   "x": 1246,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1246,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "text": "2",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button",
+   "x": 1286,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button 文本",
+   "x": 1286,
+   "y": 967,
+   "w": 32,
+   "h": 32,
+   "text": "›",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "select",
+   "name": "select",
+   "x": 1330,
+   "y": 967,
+   "w": 86,
+   "h": 32,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 45,
+     "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0.45
+       },
+       "pos": 0.5
+      }
+     ]
+    },
+    "radius": {
+     "tl": 6,
+     "tr": 6,
+     "br": 6,
+     "bl": 6
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8509803921568627,
+      "g": 0.8509803921568627,
+      "b": 0.8509803921568627,
+      "a": 1
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "select",
+   "name": "select 内容",
+   "x": 1342,
+   "y": 967,
+   "w": 62,
+   "h": 32,
+   "text": "10 条/页",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.65
+    },
+    "fontSize": 14,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21.9996,
+    "letterSpacing": 0,
+    "textAlign": "left",
+    "vertical": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "name": "H5-01 首页",
+    "group": "h5",
+    "w": 390,
+    "h": 864,
+    "slug": "h5-activity",
+    "spec": "figma/spec/h5-activity.json"
+  },
+  {
+    "name": "H5-02 查询福卡·中奖",
+    "group": "h5",
+    "w": 390,
+    "h": 844,
+    "slug": "h5-query",
+    "spec": "figma/spec/h5-query.json"
+  },
+  {
+    "name": "H5-03 领取福卡",
+    "group": "h5",
+    "w": 390,
+    "h": 844,
+    "slug": "h5-claim",
+    "spec": "figma/spec/h5-claim.json"
+  },
+  {
+    "name": "H5-04 活动奖项",
+    "group": "h5",
+    "w": 390,
+    "h": 1359,
+    "slug": "h5-prizes",
+    "spec": "figma/spec/h5-prizes.json"
+  },
+  {
+    "name": "H5-05 中奖公示",
+    "group": "h5",
+    "w": 390,
+    "h": 1163,
+    "slug": "h5-publicity",
+    "spec": "figma/spec/h5-publicity.json"
+  },
+  {
+    "name": "H5-06 中奖登记（二等奖）",
+    "group": "h5",
+    "w": 390,
+    "h": 1264,
+    "slug": "h5-winner-form",
+    "spec": "figma/spec/h5-winner-form.json"
+  },
+  {
+    "name": "H5-07 活动细则与赞助",
+    "group": "h5",
+    "w": 390,
+    "h": 2606,
+    "slug": "h5-rules",
+    "spec": "figma/spec/h5-rules.json"
+  },
+  {
+    "name": "ADM-01 福卡管理",
+    "group": "adm",
+    "w": 1440,
+    "h": 978,
+    "slug": "adm-cards",
+    "spec": "figma/spec/adm-cards.json"
+  },
+  {
+    "name": "ADM-02 邀请码管理",
+    "group": "adm",
+    "w": 1440,
+    "h": 1047,
+    "slug": "adm-invite",
+    "spec": "figma/spec/adm-invite.json"
+  },
+  {
+    "name": "ADM-03 抽奖管理",
+    "group": "adm",
+    "w": 1440,
+    "h": 937,
+    "slug": "adm-draw",
+    "spec": "figma/spec/adm-draw.json"
+  },
+  {
+    "name": "ADM-04 奖品管理",
+    "group": "adm",
+    "w": 1440,
+    "h": 1175,
+    "slug": "adm-prizes",
+    "spec": "figma/spec/adm-prizes.json"
+  },
+  {
+    "name": "ADM-05 中奖记录",
+    "group": "adm",
+    "w": 1440,
+    "h": 1112,
+    "slug": "adm-winners",
+    "spec": "figma/spec/adm-winners.json"
+  },
+  {
+    "name": "ADM-06 邮件日志",
+    "group": "adm",
+    "w": 1440,
+    "h": 986,
+    "slug": "adm-email",
+    "spec": "figma/spec/adm-email.json"
+  },
+  {
+    "name": "原型入口",
+    "group": "index",
+    "w": 1440,
+    "h": 1730,
+    "slug": "index",
+    "spec": "figma/spec/index.json"
+  }
+]

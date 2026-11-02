@@ -1,0 +1,555 @@
+{
+ "name": "H5-01 首页",
+ "group": "h5",
+ "w": 390,
+ "h": 864,
+ "file": "h5/activity.html",
+ "nodes": [
+  {
+   "type": "box",
+   "tag": "body",
+   "name": "body.h5",
+   "x": 0,
+   "y": 20,
+   "w": 390,
+   "h": 864,
+   "style": {
+    "bg": {
+     "r": 0.0392156862745098,
+     "g": 0.0392156862745098,
+     "b": 0.0392156862745098,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "name": "div.h5-veil",
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 864,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 180,
+     "stops": [
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.55
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.25
+       },
+       "pos": 0.3
+      },
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.82
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "image",
+   "tag": "img",
+   "name": "img.h5-home__logo",
+   "x": 96,
+   "y": 20,
+   "w": 198,
+   "h": 28,
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
+   "fit": "fill",
+   "radius": 0,
+   "section": "page"
+  },
+  {
+   "type": "image",
+   "tag": "img",
+   "name": "img.h5-home__hero",
+   "x": 62,
+   "y": 78,
+   "w": 267,
+   "h": 267,
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/card-2027.png",
+   "fit": "fill",
+   "radius": 0,
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.h5-home__item",
+   "x": 25,
+   "y": 364,
+   "w": 340,
+   "h": 69,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "menu"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.h5-home__item 文本",
+   "x": 25,
+   "y": 364,
+   "w": 340,
+   "h": 69,
+   "text": "领取福卡",
+   "section": "menu",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8745098039215686,
+     "b": 0.6823529411764706,
+     "a": 1
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a::after",
+   "x": 59,
+   "y": 432,
+   "w": 272,
+   "h": 1,
+   "style": {
+    "color": null,
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.35
+      },
+      {
+       "color": {
+        "r": 0.9647058823529412,
+        "g": 0.8901960784313725,
+        "b": 0.6901960784313725,
+        "a": 1
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.65
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center"
+   },
+   "name": "a::after"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.h5-home__item",
+   "x": 25,
+   "y": 433,
+   "w": 340,
+   "h": 69,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "menu"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.h5-home__item 文本",
+   "x": 25,
+   "y": 433,
+   "w": 340,
+   "h": 69,
+   "text": "查询福卡/中奖",
+   "section": "menu",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8745098039215686,
+     "b": 0.6823529411764706,
+     "a": 1
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a::after",
+   "x": 59,
+   "y": 500,
+   "w": 272,
+   "h": 1,
+   "style": {
+    "color": null,
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.35
+      },
+      {
+       "color": {
+        "r": 0.9647058823529412,
+        "g": 0.8901960784313725,
+        "b": 0.6901960784313725,
+        "a": 1
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.65
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center"
+   },
+   "name": "a::after"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.h5-home__item",
+   "x": 25,
+   "y": 501,
+   "w": 340,
+   "h": 69,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "menu"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.h5-home__item 文本",
+   "x": 25,
+   "y": 501,
+   "w": 340,
+   "h": 69,
+   "text": "活动奖项",
+   "section": "menu",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8745098039215686,
+     "b": 0.6823529411764706,
+     "a": 1
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a::after",
+   "x": 59,
+   "y": 569,
+   "w": 272,
+   "h": 1,
+   "style": {
+    "color": null,
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.35
+      },
+      {
+       "color": {
+        "r": 0.9647058823529412,
+        "g": 0.8901960784313725,
+        "b": 0.6901960784313725,
+        "a": 1
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.65
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center"
+   },
+   "name": "a::after"
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "name": "a.h5-home__item",
+   "x": 25,
+   "y": 570,
+   "w": 340,
+   "h": 69,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "menu"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.h5-home__item 文本",
+   "x": 25,
+   "y": 570,
+   "w": 340,
+   "h": 69,
+   "text": "活动细则与赞助",
+   "section": "menu",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8745098039215686,
+     "b": 0.6823529411764706,
+     "a": 1
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a::after",
+   "x": 59,
+   "y": 638,
+   "w": 272,
+   "h": 1,
+   "style": {
+    "color": null,
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.35
+      },
+      {
+       "color": {
+        "r": 0.9647058823529412,
+        "g": 0.8901960784313725,
+        "b": 0.6901960784313725,
+        "a": 1
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 0.9
+       },
+       "pos": 0.65
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "fontSize": 26,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
+    "lineHeight": 41.6,
+    "letterSpacing": 3.64,
+    "textAlign": "center"
+   },
+   "name": "a::after"
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "name": "p.h5-home__foot 文本",
+   "x": 24,
+   "y": 665,
+   "w": 342,
+   "h": 18,
+   "text": "活动时间 2026.12.01 — 2027.02.09 · 开奖 2027.02.10",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.5
+    },
+    "fontSize": 11.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 18.4,
+    "letterSpacing": 0.69,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  }
+ ]
+}

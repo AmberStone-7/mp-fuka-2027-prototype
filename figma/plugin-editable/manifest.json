@@ -1,0 +1,14 @@
+{
+  "name": "中汇新年福卡原型（可编辑导入）",
+  "id": "mp-fuka-editable-import-2027",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": [
+    "figma"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "https://amberstone-7.github.io"
+    ]
+  }
+}

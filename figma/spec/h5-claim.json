@@ -1,0 +1,793 @@
+{
+ "name": "H5-03 领取福卡",
+ "group": "h5",
+ "w": 390,
+ "h": 844,
+ "file": "h5/claim.html",
+ "nodes": [
+  {
+   "type": "box",
+   "tag": "body",
+   "name": "body.h5",
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "style": {
+    "bg": {
+     "r": 0.0392156862745098,
+     "g": 0.0392156862745098,
+     "b": 0.0392156862745098,
+     "a": 1
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "name": "div.h5-veil",
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 180,
+     "stops": [
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.55
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.25
+       },
+       "pos": 0.3
+      },
+      {
+       "color": {
+        "r": 0.047058823529411764,
+        "g": 0.01568627450980392,
+        "b": 0.023529411764705882,
+        "a": 0.82
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "a",
+   "name": "a.h5-back 文本",
+   "x": 16,
+   "y": 15,
+   "w": 39,
+   "h": 24,
+   "text": "‹ 返回",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0.9490196078431372,
+     "g": 0.8313725490196079,
+     "b": 0.6078431372549019,
+     "a": 1
+    },
+    "fontSize": 15,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 24,
+    "letterSpacing": 0.6,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "image",
+   "tag": "img",
+   "name": "img.h5-wordmark.h5-wordmark--red",
+   "x": 116,
+   "y": 18,
+   "w": 158,
+   "h": 22,
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
+   "fit": "fill",
+   "radius": 0,
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "h2",
+   "name": "h2.h5-sec 文本",
+   "x": 16,
+   "y": 80,
+   "w": 358,
+   "h": 46,
+   "text": "领取福卡",
+   "section": "title",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8901960784313725,
+     "b": 0.6901960784313725,
+     "a": 1
+    },
+    "fontSize": 22,
+    "fontWeight": 900,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 35.2,
+    "letterSpacing": 2.2,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "h2::after",
+   "x": 171,
+   "y": 125,
+   "w": 48,
+   "h": 1,
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8901960784313725,
+     "b": 0.6901960784313725,
+     "a": 1
+    },
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 1
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.9098039215686274,
+        "g": 0.7803921568627451,
+        "b": 0.47843137254901963,
+        "a": 1
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "fontSize": 22,
+    "fontWeight": 900,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 35.2,
+    "letterSpacing": 2.2,
+    "textAlign": "center"
+   },
+   "name": "h2::after"
+  },
+  {
+   "type": "box",
+   "tag": "section",
+   "name": "section.h5-card",
+   "x": 16,
+   "y": 142,
+   "w": 358,
+   "h": 204,
+   "style": {
+    "bg": {
+     "r": 0.09411764705882353,
+     "g": 0.03137254901960784,
+     "b": 0.043137254901960784,
+     "a": 0.5
+    },
+    "radius": {
+     "tl": 10,
+     "tr": 10,
+     "br": 10,
+     "bl": 10
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.9215686274509803,
+      "b": 0.7803921568627451,
+      "a": 0.22
+     }
+    }
+   },
+   "section": "card"
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.h5-card__title 文本",
+   "x": 33,
+   "y": 161,
+   "w": 64,
+   "h": 24,
+   "text": "邀请有礼",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 0.9490196078431372,
+     "g": 0.8313725490196079,
+     "b": 0.6078431372549019,
+     "a": 1
+    },
+    "fontSize": 15,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 24,
+    "letterSpacing": 0.9,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.h5-card__hint 文本",
+   "x": 265,
+   "y": 164,
+   "w": 92,
+   "h": 18,
+   "text": "新客首单达标即得",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 0.9294117647058824,
+     "g": 0.9294117647058824,
+     "b": 0.9294117647058824,
+     "a": 0.42
+    },
+    "fontSize": 11.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 18.4,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "li",
+   "name": "li 文本",
+   "x": 33,
+   "y": 197,
+   "w": 324,
+   "h": 23,
+   "text": "1. 分享您的邀请码给新客户，新客户下单即参与活动。",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.82
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 22.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "li",
+   "name": "li 文本",
+   "x": 33,
+   "y": 228,
+   "w": 324,
+   "h": 46,
+   "text": "2. 新客户在活动期内有单张 ≥ 1,000 €（不含 IVA）的发票， 。",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.82
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 22.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "name": "span.h5-text-gold 文本",
+   "x": 59,
+   "y": 254,
+   "w": 105,
+   "h": 15,
+   "text": "双方各得 1 张福卡",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 0.9490196078431372,
+     "g": 0.8313725490196079,
+     "b": 0.6078431372549019,
+     "a": 1
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 22.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "li",
+   "name": "li 文本",
+   "x": 33,
+   "y": 281,
+   "w": 324,
+   "h": 46,
+   "text": "3. 提交时未达标也能先记录邀请关系，达标后系统自动发放，截止 2027-02-10 00:00。",
+   "section": "card",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.82
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 22.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "name": "div#mode-tabs.h5-mode-tabs",
+   "x": 16,
+   "y": 360,
+   "w": 358,
+   "h": 45,
+   "style": {
+    "bg": {
+     "r": 0.07058823529411765,
+     "g": 0.03137254901960784,
+     "b": 0.043137254901960784,
+     "a": 0.55
+    },
+    "radius": {
+     "tl": 999,
+     "tr": 999,
+     "br": 999,
+     "bl": 999
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.9215686274509803,
+      "b": 0.7803921568627451,
+      "a": 0.32
+     }
+    }
+   },
+   "section": "page"
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button.h5-mode-tab.is-active",
+   "x": 20,
+   "y": 364,
+   "w": 175,
+   "h": 37,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 90,
+     "stops": [
+      {
+       "color": {
+        "r": 0.8509803921568627,
+        "g": 0.6627450980392157,
+        "b": 0.3176470588235294,
+        "a": 1
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.9647058823529412,
+        "g": 0.8745098039215686,
+        "b": 0.6627450980392157,
+        "a": 1
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 999,
+     "tr": 999,
+     "br": 999,
+     "bl": 999
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.h5-mode-tab.is-active 文本",
+   "x": 20,
+   "y": 364,
+   "w": 175,
+   "h": 37,
+   "text": "输入邀请码领取",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0.42745098039215684,
+     "g": 0.13725490196078433,
+     "b": 0.07058823529411765,
+     "a": 1
+    },
+    "fontSize": 13,
+    "fontWeight": 700,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.8,
+    "letterSpacing": 0.26,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button.h5-mode-tab",
+   "x": 195,
+   "y": 364,
+   "w": 175,
+   "h": 37,
+   "style": {
+    "bg": null,
+    "radius": {
+     "tl": 999,
+     "tr": 999,
+     "br": 999,
+     "bl": 999
+    },
+    "border": null
+   },
+   "section": "page"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button.h5-mode-tab 文本",
+   "x": 195,
+   "y": 364,
+   "w": 175,
+   "h": 37,
+   "text": "我的邀请码",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.6
+    },
+    "fontSize": 13,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.8,
+    "letterSpacing": 0.26,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "input",
+   "name": "input#cif.h5-input",
+   "x": 18,
+   "y": 411,
+   "w": 354,
+   "h": 50,
+   "style": {
+    "bg": {
+     "r": 0.1411764705882353,
+     "g": 0.09803921568627451,
+     "b": 0.08235294117647059,
+     "a": 0.72
+    },
+    "radius": {
+     "tl": 140,
+     "tr": 140,
+     "br": 140,
+     "bl": 140
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.9215686274509803,
+      "b": 0.7803921568627451,
+      "a": 0.62
+     }
+    }
+   },
+   "section": "form"
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input#cif.h5-input 内容",
+   "x": 32,
+   "y": 411,
+   "w": 326,
+   "h": 50,
+   "text": "请输入您的 CIF",
+   "section": "form",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 0.45
+    },
+    "fontSize": 15,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 24,
+    "letterSpacing": 0.45,
+    "textAlign": "center",
+    "vertical": true
+   }
+  },
+  {
+   "type": "box",
+   "tag": "input",
+   "name": "input#invite_code.h5-input.h5-input--code",
+   "x": 18,
+   "y": 474,
+   "w": 354,
+   "h": 50,
+   "style": {
+    "bg": {
+     "r": 0.1411764705882353,
+     "g": 0.09803921568627451,
+     "b": 0.08235294117647059,
+     "a": 0.72
+    },
+    "radius": {
+     "tl": 140,
+     "tr": 140,
+     "br": 140,
+     "bl": 140
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 1,
+      "g": 0.9215686274509803,
+      "b": 0.7803921568627451,
+      "a": 0.62
+     }
+    }
+   },
+   "section": "form"
+  },
+  {
+   "type": "text",
+   "tag": "input",
+   "name": "input#invite_code.h5-input.h5-input--code 内容",
+   "x": 32,
+   "y": 474,
+   "w": 326,
+   "h": 50,
+   "text": "请输入邀请码",
+   "section": "form",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 0.45
+    },
+    "fontSize": 17,
+    "fontWeight": 400,
+    "fontFamily": "\"SF Mono\", Menlo, monospace",
+    "lineHeight": 27.2,
+    "letterSpacing": 4.76,
+    "textAlign": "center",
+    "vertical": true
+   }
+  },
+  {
+   "type": "box",
+   "tag": "button",
+   "name": "button#btn-claim.h5-btn",
+   "x": 18,
+   "y": 537,
+   "w": 354,
+   "h": 50,
+   "style": {
+    "bg": null,
+    "grad": {
+     "angle": 180,
+     "stops": [
+      {
+       "color": {
+        "r": 0.7411764705882353,
+        "g": 0.30980392156862746,
+        "b": 0.3176470588235294,
+        "a": 1
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.5411764705882353,
+        "g": 0.21568627450980393,
+        "b": 0.11764705882352941,
+        "a": 1
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 25,
+     "tr": 25,
+     "br": 25,
+     "bl": 25
+    },
+    "border": null
+   },
+   "section": "form"
+  },
+  {
+   "type": "text",
+   "tag": "button",
+   "name": "button#btn-claim.h5-btn 文本",
+   "x": 18,
+   "y": 537,
+   "w": 354,
+   "h": 50,
+   "text": "提交领取",
+   "section": "form",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 18,
+    "fontWeight": 600,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 28.8,
+    "letterSpacing": 2.16,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "name": "p.h5-tip 文本",
+   "x": 18,
+   "y": 599,
+   "w": 354,
+   "h": 42,
+   "text": "一个被邀请客户仅可绑定一个邀请人；发放成功后不可重复领取。",
+   "section": "form",
+   "style": {
+    "color": {
+     "r": 0.9294117647058824,
+     "g": 0.9294117647058824,
+     "b": 0.9294117647058824,
+     "a": 0.6
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "name": "p.h5-tip 文本",
+   "x": 16,
+   "y": 671,
+   "w": 358,
+   "h": 42,
+   "text": "活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；新客指活动前 12 个月内无有效发票的企业客户。",
+   "section": "page",
+   "style": {
+    "color": {
+     "r": 0.9294117647058824,
+     "g": 0.9294117647058824,
+     "b": 0.9294117647058824,
+     "a": 0.6
+    },
+    "fontSize": 12,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 21,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  }
+ ]
+}
