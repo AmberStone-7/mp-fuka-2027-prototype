@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>领取福卡 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="activity.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <h2 class="h5-sec"><i>◆</i>领取福卡<i>◆</i></h2>
+
+    <!-- 规则摘要（沿用去年深色卡片） -->
+    <section class="h5-card">
+      <div class="h5-card__head">
+        <span class="h5-card__title">邀请有礼</span>
+        <span class="h5-card__hint">新客首单达标即得</span>
+      </div>
+      <ul style="display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.75;color:rgba(255,243,228,.82)">
+        <li>1. 分享您的邀请码给新客户，新客户下单即参与活动。</li>
+        <li>2. 新客户在活动期内有单张 ≥ 1,000 €（不含 IVA）的发票，<span class="h5-text-gold">双方各得 1 张福卡</span>。</li>
+        <li>3. 提交时未达标也能先记录邀请关系，达标后系统自动发放，截止 2027-02-10 00:00。</li>
+      </ul>
+    </section>
+
+    <!-- 模式切换：新客领取 / 老客看自己的邀请码 -->
+    <div class="h5-mode-tabs" id="mode-tabs">
+      <button class="h5-mode-tab is-active" data-mode="claim" type="button">输入邀请码领取</button>
+      <button class="h5-mode-tab" data-mode="code" type="button">我的邀请码</button>
+    </div>
+
+    <!-- 领取表单 -->
+    <section class="h5-form" id="mode-claim">
+      <div class="h5-field">
+        <input class="h5-input" id="cif" placeholder="请输入您的 CIF" autocomplete="off">
+      </div>
+      <div class="h5-field">
+        <input class="h5-input h5-input--code" id="invite_code" placeholder="请输入邀请码" maxlength="12" autocomplete="off">
+      </div>
+      <p class="h5-err" id="claim-err"></p>
+      <button class="h5-btn" id="btn-claim" type="button">提交领取</button>
+      <p class="h5-tip">一个被邀请客户仅可绑定一个邀请人；发放成功后不可重复领取。</p>
+    </section>
+
+    <!-- 我的邀请码：验证 + 结果 -->
+    <section class="h5-form" id="mode-code" hidden>
+      <div class="h5-card" style="padding:14px">
+        <p class="h5-tip" style="margin:0">每个客户对应一个专属邀请码；为保护客户信息，查看前需验证 CIF 与邮箱后四位。</p>
+      </div>
+      <div class="h5-field" style="margin-top:14px">
+        <input class="h5-input" id="code-cif" placeholder="请输入您的 CIF，示例 B12345678" autocomplete="off">
+      </div>
+      <div class="h5-field">
+        <input class="h5-input h5-input--code" id="code-email" placeholder="邮箱后四位，示例 8842" maxlength="4" inputmode="numeric" autocomplete="off">
+      </div>
+      <p class="h5-err" id="code-err"></p>
+      <button class="h5-btn" id="btn-code" type="button">查看我的邀请码</button>
+      <p class="h5-tip">邀请码仅用于本次活动；如未收到邀请码，请先确认活动是否已开始或联系业务员。</p>
+    </section>
+
+    <section id="code-result" hidden>
+      <h3 class="h5-sec" style="font-size:18px;margin:22px 0 12px"><i>◆</i>我的邀请码<i>◆</i></h3>
+      <div class="h5-card h5-code-card">
+        <div class="h5-code-card__label">我的专属邀请码</div>
+        <div class="h5-code" id="my-code">MP2027K8H3</div>
+        <div class="h5-code-card__hint">分享给新客户，在其下单达标后双方各得 1 张福卡</div>
+        <div class="h5-code-stats">
+          <div><b id="invited-used">3</b><span>已用名额</span></div>
+          <div><b id="invited-left">97</b><span>剩余名额</span></div>
+          <div><b id="invited-success">2</b><span>已成功邀请</span></div>
+        </div>
+        <button class="h5-btn h5-btn--ghost" id="btn-copy-code" type="button" style="margin-top:14px">复制邀请码</button>
+        <button class="h5-btn" id="btn-share" type="button" style="margin-top:10px">分享给新客户</button>
+        <p class="h5-tip">邀请人上限 100 张；新客达标后系统自动发放，无需再次操作。</p>
+      </div>
+      <div class="h5-card">
+        <div class="h5-card__head">
+          <span class="h5-card__title">邀请记录</span>
+          <span class="h5-card__hint">脱敏展示</span>
+        </div>
+        <div id="invite-list"></div>
+      </div>
+    </section>
+
+    <!-- 结果 -->
+    <section id="result" hidden>
+      <h3 class="h5-sec" style="font-size:18px;margin:22px 0 12px"><i>◆</i>领取结果<i>◆</i></h3>
+      <div id="result-body"></div>
+    </section>
+
+    <p class="h5-tip" style="margin-top:18px">活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；新客指活动前 12 个月内无有效发票的企业客户。</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-03",
+      title: "领取福卡",
+      live: "yes",
+      note: "06 FE-03",
+      fr: ["FR-012"],
+      ac: ["AC-009 ~ AC-014", "AC-051 ~ AC-056"],
+      goal: "新客输入 CIF + 邀请码领取双方奖励；老客户在同一页「我的邀请码」查看自己的码与邀请记录；未达标先记意向、达标后自动发放。",
+      states: [
+        "成功：双方各得 1 张，展示福卡号与说明。",
+        "待达标：已记录邀请关系，提示达标后自动发放及截止时间。",
+        "已领取：success 绑定后拒绝再次提交。",
+        "统一错误：码不存在/停用/非新客/自邀自/超上限，统一提示。",
+        "邀请人已达上限：新客照发，邀请人不发。",
+        "活动未开始 / 已结束：按钮禁用并提示。"
+      ],
+      notes: [
+        "校验顺序按 PRD：码存在 → 未停用 → CIF 存在 → 非自邀自 → 未达上限 → 无 success 绑定 → 查发票。",
+        "错误提示统一为「信息不匹配，请核对后重试」，不暴露具体原因。",
+        "pending 期间本人可换码覆盖；success 后锁定。",
+        "奖励卡来源为 invite，邀请人上限默认 100 张。",
+        "老客户查看邀请码需 CIF + 邮箱后四位验证（沿用 DEC-020），避免按 CIF 枚举；验证通过展示码、已用/剩余名额、邀请记录。"
+      ],
+      todo: [
+        "新客定义窗口（2025-12-01 ~ 2026-11-30）待市场部 11/12 确认。",
+        "邀请码长度 6–12 位按 PRD，具体码规则由系统生成。"
+      ]
+    };
+
+  </script>
+  <script>
+    Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "POST",
+      "path": "/api/rewards/claim",
+      "desc": "入参 {cif, invite_code}；出参 {result: success|pending|rejected, message, cards[]}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/invite/my",
+      "desc": "入参 {cif, email_suffix}；出参 {code, used, quota, success, records[{cif_masked,status,time}]}"
+    }
+  ],
+  "fields": [
+    "cif：必填；邀请码：6–12 位字母数字",
+    "邮箱后四位：4 位数字（仅查看自己的邀请码时）",
+    "领取校验顺序：码存在 → 码未停用 → CIF 存在 → 非自邀自 → 码未达上限 → 无 success 绑定 → 检索活动期单张 ≥1,000€ 发票"
+  ],
+  "rules": [
+    "success 后锁定，不可再提交；pending 允许本人覆盖换码，以最后一次为准",
+    "未达标先记 pending，达标后自动发放双方各 1 张，截止 2027-02-10 00:00",
+    "邀请人上限 100 张：达上限时新客照发、邀请人不发并记录",
+    "错误统一提示「信息不匹配，请核对后重试」，不暴露具体原因",
+    "invetee_cif 唯一；双方发卡同事务，任一失败全回滚"
+  ],
+  "permissions": [
+    "免登录；查看邀请码需 CIF + 邮箱后四位（DEC-020）"
+  ],
+  "events": [
+    "reward_claim（result, code_type, fail_reason）",
+    "invite_bind（binding_status, has_invoice）",
+    "invite_code_view",
+    "email_sent"
+  ],
+  "devNotes": [
+    "并发：invitee_cif 唯一约束 + 码计数行锁；超 100 张时最后一人失败回滚",
+    "邀请码与客户 1:1；official 码不建绑定、不占名额、每 CIF 限 1 张",
+    "邮箱后四位验证口径待数据方确认（Q-07）；无邮箱客户走兜底"
+  ]
+});
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var $ = U.$;
+      var state = { demo: "success" };
+
+      function showErr(msg) {
+        var el = $("#claim-err");
+        el.textContent = msg;
+        el.classList.add("is-show");
+      }
+      function clearErr() { $("#claim-err").classList.remove("is-show"); }
+
+      function ticket(no, label) {
+        return '<article class="ticket">' +
+          '<div class="ticket__top">' +
+          '<div class="ticket__no"><small>' + label + '</small>' + no + '</div>' +
+          '<div class="ticket__stamp">中汇<br>福卡</div>' +
+          '</div>' +
+          '<dl class="ticket__rows">' +
+          '<div class="ticket__row"><dt>来源</dt><dd>邀请奖励</dd></div>' +
+          '<div class="ticket__row"><dt>发放时间</dt><dd>2026-12-08</dd></div>' +
+          '<div class="ticket__row"><dt>状态</dt><dd>待开奖</dd></div>' +
+          '<div class="ticket__row"><dt>发票</dt><dd>ES25000149</dd></div>' +
+          '</dl>' +
+          '<span class="ticket__status">待开奖</span>' +
+          '</article>';
+      }
+
+      function render(kind) {
+        state.demo = kind;
+        $("#result").hidden = false;
+        var box = $("#result-body");
+        clearErr();
+        if (kind === "success") {
+          box.innerHTML =
+            '<div class="h5-notice h5-notice--success" style="margin-bottom:12px">邀请成功！您与新客各得 1 张福卡，已发送至双方账户。</div>' +
+            ticket("01136", "我的福卡号") + ticket("01137", "新客福卡号") +
+            '<p class="h5-tip">福卡已进入 2027-02-10 抽奖池，可在「活动查询」查看状态。</p>';
+        } else if (kind === "pending") {
+          box.innerHTML =
+            '<div class="h5-notice h5-notice--warn" style="margin-bottom:12px">已记录您的邀请关系，待发票金额满 1,000 欧元后自动发放。</div>' +
+            '<div class="h5-card"><dl class="h5-kv">' +
+            '<dt>绑定状态</dt><dd>待达标（pending）</dd>' +
+            '<dt>邀请人</dt><dd>10009502</dd>' +
+            '<dt>自动发放截止</dt><dd>2027-02-10 00:00</dd>' +
+            '<dt>说明</dt><dd>达标后双方各得 1 张，无需再次提交</dd>' +
+            '</dl></div>';
+        } else if (kind === "claimed") {
+          showErr("您已完成邀请奖励领取");
+          box.innerHTML = '<div class="h5-empty"><div class="h5-empty__ico">✓</div><div class="h5-empty__t">您已完成邀请奖励领取</div><div class="h5-empty__d">一个被邀请客户仅可绑定一个邀请人</div></div>';
+        } else if (kind === "rejected") {
+          showErr("信息不匹配，请核对后重试");
+          box.innerHTML = '<div class="h5-empty"><div class="h5-empty__ico">!</div><div class="h5-empty__t">信息不匹配</div><div class="h5-empty__d">码不存在 / 已停用 / 非新客 / 自邀自 / 超上限，均按统一提示处理</div></div>';
+        } else if (kind === "limit") {
+          box.innerHTML = '<div class="h5-notice h5-notice--warn" style="margin-bottom:12px">邀请人已达 100 张上限，本次仅新客获得 1 张福卡。</div>' +
+            ticket("01138", "我的福卡号") +
+            '<p class="h5-tip">后台将标记「邀请人已达上限」，不影响新客领取。</p>';
+        } else if (kind === "pre") {
+          $("#result").hidden = true;
+          showErr("活动将于 12 月 1 日开始");
+          $("#btn-claim").disabled = true;
+          $("#btn-claim").textContent = "活动尚未开始";
+        }
+        window.scrollTo({ top: $("#result").offsetTop - 20, behavior: "smooth" });
+      }
+
+      function demo(kind) {
+        $("#btn-claim").disabled = false;
+        $("#btn-claim").textContent = "提交领取";
+        render(kind);
+      }
+
+      /* ---------- 我的邀请码 ---------- */
+      var INVITE = {
+        code: "MP2027K8H3",
+        used: 3,
+        quota: 100,
+        success: 2,
+        records: [
+          { cif: "B1***78", status: "pending", text: "待达标", time: "2026-12-08" },
+          { cif: "B4***21", status: "success", text: "已发放", time: "2026-12-05" },
+          { cif: "B7***90", status: "success", text: "已发放", time: "2026-12-02" }
+        ]
+      };
+
+      function showCodeErr(msg) {
+        var el = $("#code-err");
+        el.textContent = msg;
+        el.classList.add("is-show");
+      }
+      function clearCodeErr() { $("#code-err").classList.remove("is-show"); }
+
+      function switchMode(mode) {
+        U.$$("#mode-tabs .h5-mode-tab").forEach(function (b) {
+          b.classList.toggle("is-active", b.getAttribute("data-mode") === mode);
+        });
+        $("#mode-claim").hidden = mode !== "claim";
+        $("#mode-code").hidden = mode !== "code";
+        $("#result").hidden = true;
+        if (mode !== "code") $("#code-result").hidden = true;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderCode() {
+        $("#code-result").hidden = false;
+        $("#my-code").textContent = INVITE.code;
+        $("#invited-used").textContent = INVITE.used;
+        $("#invited-left").textContent = INVITE.quota - INVITE.used;
+        $("#invited-success").textContent = INVITE.success;
+        $("#invite-list").innerHTML = INVITE.records.map(function (r) {
+          return '<div class="h5-invite-row">' +
+            '<div class="h5-invite-row__cif">' + r.cif + '</div>' +
+            '<div class="h5-invite-row__meta">' + r.time + ' · 邀请奖励</div>' +
+            '<span class="h5-invite-row__status h5-invite-row__status--' + r.status + '">' + r.text + '</span>' +
+            '</div>';
+        }).join("");
+        window.scrollTo({ top: $("#code-result").offsetTop - 20, behavior: "smooth" });
+      }
+
+      function demoCode(kind) {
+        clearCodeErr();
+        $("#code-result").hidden = true;
+        if (kind === "success") {
+          renderCode();
+        } else if (kind === "fail") {
+          showCodeErr("验证失败，请核对 CIF 与邮箱后四位");
+        } else if (kind === "none") {
+          showCodeErr("活动尚未开始，邀请码生成中");
+        } else if (kind === "ended") {
+          showCodeErr("活动已结束，感谢参与");
+        }
+      }
+
+      $("#btn-claim").addEventListener("click", function () {
+        var cif = $("#cif").value.trim();
+        var code = $("#invite_code").value.trim();
+        clearErr();
+        if (!cif) { showErr("请输入 CIF"); return; }
+        if (!code) { showErr("请输入邀请码"); return; }
+        if (!/^[A-Za-z0-9]{6,12}$/.test(code)) { showErr("邀请码为 6–12 位字母或数字"); return; }
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = "提交中…";
+        setTimeout(function () {
+          btn.disabled = false;
+          btn.textContent = "提交领取";
+          render(/^X/i.test(cif) ? "rejected" : state.demo === "success" ? "success" : state.demo);
+        }, 600);
+      });
+
+      U.$$("#mode-tabs .h5-mode-tab").forEach(function (b) {
+        b.addEventListener("click", function () { switchMode(b.getAttribute("data-mode")); });
+      });
+
+      $("#btn-code").addEventListener("click", function () {
+        var cif = $("#code-cif").value.trim();
+        var suffix = $("#code-email").value.trim();
+        clearCodeErr();
+        if (!cif) { showCodeErr("请输入 CIF"); return; }
+        if (!/^[0-9]{4}$/.test(suffix)) { showCodeErr("请输入邮箱后四位数字"); return; }
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = "验证中…";
+        setTimeout(function () {
+          btn.disabled = false;
+          btn.textContent = "查看我的邀请码";
+          if (/^X/i.test(cif) || suffix !== "8842") { demoCode("fail"); return; }
+          demoCode("success");
+        }, 600);
+      });
+
+      $("#btn-copy-code").addEventListener("click", function () {
+        U.toast("邀请码 " + INVITE.code + " 已复制");
+      });
+      $("#btn-share").addEventListener("click", function () {
+        U.toast("已生成分享内容（演示）：邀请你参加中汇新年福卡活动，邀请码 " + INVITE.code);
+      });
+
+      if (new URLSearchParams(location.search).get("mode") === "code") switchMode("code");
+
+      window.DEMOS = [
+        { label: "查看我的邀请码", fn: function () { switchMode("code"); $("#code-cif").value = "B12345678"; $("#code-email").value = "8842"; renderCode(); } },
+        { label: "邀请码验证失败", fn: function () { switchMode("code"); demoCode("fail"); } },
+        { label: "邀请码未生成", fn: function () { switchMode("code"); demoCode("none"); } },
+        { label: "领取成功", fn: function () { demo("success"); } },
+        { label: "待达标", fn: function () { demo("pending"); } },
+        { label: "已领取（success）", fn: function () { demo("claimed"); } },
+        { label: "统一错误", fn: function () { demo("rejected"); } },
+        { label: "邀请人已达上限", fn: function () { demo("limit"); } },
+        { label: "活动未开始", fn: function () { demo("pre"); } }
+      ];
+
+    })();
+  </script>
+</body>
+</html>

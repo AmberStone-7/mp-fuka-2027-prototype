@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame h5-home">
+    <img class="h5-home__logo" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    <img class="h5-home__hero" src="../assets/img/card-2027.png" alt="2027 中汇新年福卡">
+
+    <nav class="h5-home__menu" aria-label="活动入口">
+      <a class="h5-home__item" href="claim.html">领取福卡</a>
+      <a class="h5-home__item" href="query.html">查询福卡/中奖</a>
+      <a class="h5-home__item" href="prizes.html">活动奖项</a>
+      <a class="h5-home__item" href="rules.html">活动细则与赞助</a>
+    </nav>
+
+    <p class="h5-home__foot">活动时间 2026.12.01 — 2027.02.09 · 开奖 2027.02.10</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-01",
+      title: "首页（活动入口）",
+      live: "yes",
+      note: "按 2027 设计图重做；4 个入口替代底部 tab",
+      fr: ["FR-010", "FR-012", "FR-014", "FR-022"],
+      ac: ["AC-017", "AC-022"],
+      goal: "按设计图：顶部红色 MAIN★PAPER + 2027 福卡主视觉 + 四行金色菜单，作为全站入口。",
+      states: [
+        "活动进行中：四个入口可用。",
+        "活动未开始：领取/查询入口点击后提示未开始（子页处理）。",
+        "活动已结束：查询入口可看历史结果，领取入口提示已结束。"
+      ],
+      notes: [
+        "入口：领取福卡 / 查询福卡·中奖 / 活动奖项 / 活动细则与赞助，替代原来的底部 5 tab。",
+        "子页顶部统一为红色 MAIN★PAPER，左上角返回本页。",
+        "中奖公示入口放在「查询福卡/中奖」页与「活动细则与赞助」页。"
+      ],
+      todo: [
+        "首页主视觉使用现有 2027 福卡素材（card-2027.png），如市场部另出主视觉图可替换。",
+        "设计图第四项含「赞助」，若今年取消赞助需确认是否改为「活动细则」。"
+      ]
+    };
+
+    window.DEMOS = [
+      { label: "说明：入口结构", fn: function () { U.toast("4 个入口替代底部 tab；子页返回首页"); } }
+    ];
+  </script>
+  <script>
+    Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/campaign/status",
+      "desc": "活动状态（未开始/进行中/已结束）、起止时间、抽奖时间；用于入口提示"
+    }
+  ],
+  "fields": [
+    "无表单字段；4 个入口为固定链接（领取福卡 / 查询福卡·中奖 / 活动奖项 / 活动细则与赞助）"
+  ],
+  "rules": [
+    "活动未开始/已结束只影响入口提示，不隐藏入口",
+    "主视觉素材：assets/img/card-2027.png（红色字标 mp-wordmark-red.png）",
+    "入口顺序按 2027 设计图，不随意调整"
+  ],
+  "permissions": [
+    "公开页，无鉴权"
+  ],
+  "events": [
+    "page_view（page=home, lang, device）"
+  ],
+  "devNotes": [
+    "首页为静态页，不查询客户数据",
+    "活动状态取 /api/campaign/status，前端只做文案与禁用态",
+    "换主视觉只需替换图片，不动结构"
+  ]
+});
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+</body>
+</html>

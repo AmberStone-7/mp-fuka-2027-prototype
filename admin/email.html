@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邮件日志 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    /* 本页局部样式（邮件日志） */
+    .em-wrap { overflow-x: auto; }
+    .em-table { min-width: 1180px; font-size: 13px; }
+    .em-table th, .em-table td { padding: 12px 8px; }
+    .em-table .adm-table__op { gap: 10px; }
+    .em-table .adm-table__op button { font-size: 13px; }
+    .em-email {
+      display: inline-block;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: bottom;
+    }
+    .em-reason {
+      display: inline-block;
+      max-width: 100px;
+      font-size: 12px;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .em-modal--detail .adm-modal__box { width: min(700px, 100%); }
+    .em-modal--wide .adm-modal__box { width: min(980px, 100%); }
+    .em-kv {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin-bottom: 14px;
+      padding: 12px 14px;
+      border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      background: #fafafa;
+      font-size: 13px;
+    }
+    .em-kv span { margin-right: 8px; color: rgba(0, 0, 0, 0.45); }
+    .em-kv b { font-weight: 500; color: rgba(0, 0, 0, 0.88); word-break: break-all; }
+    .em-warn {
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border: 1px solid #ffa39e;
+      border-radius: 6px;
+      background: #fff1f0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cf1322;
+    }
+    .em-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .em-tab {
+      height: 34px;
+      padding: 0 12px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: none;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .em-tab:hover { color: #1677ff; }
+    .em-tab.is-active { color: #1677ff; border-bottom-color: #1677ff; font-weight: 500; }
+    .em-body {
+      display: none;
+      max-height: 300px;
+      overflow: auto;
+      padding: 14px 16px;
+      border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(0, 0, 0, 0.75);
+    }
+    .em-body.is-active { display: block; }
+    .em-body p { margin: 0 0 8px; }
+    .em-mail__subject { font-weight: 600 !important; color: rgba(0, 0, 0, 0.88) !important; }
+    .em-mail__card {
+      margin: 8px 0 !important;
+      padding: 10px 12px;
+      border: 1px dashed #ffd591;
+      border-radius: 6px;
+      background: #fffbe6;
+      text-align: center;
+    }
+    .em-mail__cta {
+      display: inline-block;
+      margin: 4px 0 8px;
+      padding: 7px 18px;
+      border-radius: 4px;
+      background: #bd4f51;
+      color: #f2d49b;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    .em-mail__small { color: rgba(0, 0, 0, 0.35) !important; font-size: 11px; }
+    .em-hint {
+      margin: 0 0 10px;
+      font-size: 12px;
+      line-height: 1.7;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .em-contact-table td, .em-contact-table th { padding: 10px 12px; }
+    .em-tpl-table td, .em-tpl-table th { padding: 10px 12px; }
+    .em-count {
+      display: inline-block;
+      min-width: 18px;
+      margin-left: 2px;
+      padding: 0 4px;
+      border-radius: 9px;
+      background: #1677ff;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+    }
+    /* 列表较长时给右下角说明按钮留出空间 */
+    body.adm .adm-main { padding-bottom: 96px; }
+    /* 侧栏收起（沿用去年后台交互） */
+    .adm.is-collapsed .adm-sider { width: 64px; }
+    .adm.is-collapsed .adm-logo { padding: 0; justify-content: center; font-size: 0; }
+    .adm.is-collapsed .adm-logo::after { content: "抽"; font-size: 18px; color: #1677ff; }
+    .adm.is-collapsed .adm-menu { padding: 4px; }
+    .adm.is-collapsed .adm-menu__item { justify-content: center; gap: 0; padding: 0; font-size: 0; }
+    .adm.is-collapsed .adm-main { margin-left: 64px; }
+    .adm.is-collapsed .adm-sider__collapse { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="adm">
+
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item" href="cards.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+      福卡管理
+    </a>
+    <a class="adm-menu__item" href="invite.html">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
+      邀请码管理
+    </a>
+    <a class="adm-menu__item" href="draw.html">
+      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
+      抽奖管理
+    </a>
+    <a class="adm-menu__item" href="prizes.html">
+      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
+      奖品管理
+    </a>
+    <a class="adm-menu__item" href="winners.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      中奖记录
+    </a>
+    <a class="adm-menu__item is-active" href="email.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+      邮件日志
+    </a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+
+  <div class="adm-crumb">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+    <span>/</span>
+    <b>邮件日志</b>
+  </div>
+
+  <div class="adm-alert adm-alert--warn" id="tpl-alert">
+    <span class="adm-alert__ico">!</span>
+    <span>本期仅保留 2 类邮件模板：<b>福卡发放</b>、<b>中奖通知</b>；邀请码告知 / 邀请绑定确认 / 邀请奖励到账 / 逾期提醒标「后续版本」。失败自动重试 3 次由后台任务完成，日志只展示最终结果。</span>
+  </div>
+
+  <form class="adm-filters" id="filters" onsubmit="return false">
+    <div class="adm-field">
+      <label for="f-card">福卡编号</label>
+      <input class="adm-input" id="f-card" placeholder="请输入福卡编号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-cif">客户号</label>
+      <input class="adm-input" id="f-cif" placeholder="请输入客户号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-email">客户邮箱</label>
+      <input class="adm-input" id="f-email" placeholder="请输入客户邮箱" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-invoice">发票号</label>
+      <input class="adm-input" id="f-invoice" placeholder="请输入发票号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-status">发送状态</label>
+      <select class="adm-select" id="f-status">
+        <option value="">全部状态</option>
+        <option value="sent">已发送</option>
+        <option value="sending">发送中</option>
+        <option value="failed">失败</option>
+        <option value="pending">待发送</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-start">发送时间</label>
+      <span class="adm-daterange">
+        <input class="adm-input" id="f-start" placeholder="开始日期">
+        <span>→</span>
+        <input class="adm-input" id="f-end" placeholder="结束日期">
+      </span>
+    </div>
+    <div class="adm-filters__btns">
+      <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
+      <button class="adm-btn" id="btn-reset" type="button">重 置</button>
+    </div>
+  </form>
+
+  <div class="adm-actions">
+    <button class="adm-btn" id="btn-export" type="button">导 出</button>
+    <button class="adm-btn" id="btn-templates" type="button">邮件模板</button>
+    <button class="adm-btn adm-btn--primary adm-actions__right" id="btn-contacts" type="button">待人工联系清单<span class="em-count" id="contact-count">4</span></button>
+  </div>
+
+  <div class="adm-table-wrap em-wrap">
+    <table class="adm-table em-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>账套</th>
+          <th>客户号</th>
+          <th>客户邮箱</th>
+          <th>幸运福卡编号</th>
+          <th>绑定发票</th>
+          <th>发票金额（不含税）</th>
+          <th>发票创建时间</th>
+          <th>发送时间</th>
+          <th>发送状态</th>
+          <th>失败原因</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="adm-pager" id="pager"></div>
+</main>
+
+<!-- 邮件详情 -->
+<div class="adm-modal em-modal--detail" id="modal-detail" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-detail-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-detail-title">邮件详情</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="em-warn" id="det-reason" style="display: none"></div>
+      <div class="em-kv" id="det-kv"></div>
+      <div class="em-tabs" role="tablist">
+        <button class="em-tab is-active" type="button" data-lang="es" role="tab">Español（西语 · 主）</button>
+        <button class="em-tab" type="button" data-lang="zh" role="tab">中文</button>
+      </div>
+      <div class="em-body is-active" data-lang-body="es" id="det-body-es"></div>
+      <div class="em-body" data-lang-body="zh" id="det-body-zh"></div>
+      <p class="em-hint" style="margin-top: 10px">西语为主 + 中文；正文为演示渲染，正式文案待市场部 11/15 回填。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>关 闭</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-det-resend" style="display: none">重发邮件</button>
+    </div>
+  </div>
+</div>
+
+<!-- 邮件模板 -->
+<div class="adm-modal em-modal--wide" id="modal-templates" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-templates-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-templates-title">邮件模板</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <p class="em-hint">FR-023 共 6 类模板，本期仅 2 类上线（福卡发放 / 中奖通知）；其余 4 类随邀请与逾期功能在后续版本启用。语言：西语为主 + 中文。</p>
+      <div class="adm-table-wrap em-wrap">
+        <table class="adm-table em-tpl-table" style="min-width: 640px">
+          <thead>
+            <tr><th>模板</th><th>触发时机</th><th>语言</th><th>状态</th><th>操作</th></tr>
+          </thead>
+          <tbody id="tpl-rows"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>关 闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 待人工联系清单 -->
+<div class="adm-modal em-modal--wide" id="modal-contacts" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-contacts-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-contacts-title">待人工联系清单</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <p class="em-hint">默认邮箱（@mainpaper.com、EJEMPLO@GMAIL.COM）与空邮箱不发信，标记原因后进入本清单（AC-041），由客服人工联系客户补录邮箱。</p>
+      <div class="adm-table-wrap em-wrap">
+        <table class="adm-table em-contact-table" style="min-width: 860px">
+          <thead>
+            <tr><th>类型</th><th>客户号</th><th>客户邮箱</th><th>幸运福卡编号</th><th>绑定发票</th><th>记录时间</th><th>处理状态</th><th>操作</th></tr>
+          </thead>
+          <tbody id="contact-rows"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>关 闭</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-contact-export">导出清单</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.PAGE_META = {
+    id: "ADM-09",
+    title: "邮件日志",
+    live: "part",
+    note: "沿用去年邮件日志，本期仅 2 类模板（福卡发放 / 中奖通知）",
+    fr: ["FR-023"],
+    ac: ["AC-041"],
+    goal: "沿用去年邮件日志的筛选 + 列表 + 详情 + 重发，补模板状态与待人工联系清单；本期只展示 2 类已上线模板。",
+    states: [
+      "已发送：展示发送时间与成功状态。",
+      "失败：展示失败原因（默认邮箱 / 空邮箱 / 发送超时），可重发。",
+      "发送中：重发后状态先「发送中」，完成后变「已发送」（演示）。",
+      "待人工联系：默认邮箱与空邮箱进入清单，可标记已联系。"
+    ],
+    notes: [
+      "列沿用去年：ID / 账套 / 客户号 / 客户邮箱 / 幸运福卡编号 / 绑定发票 / 发票金额（不含税）/ 发票创建时间 / 发送时间 / 发送状态 / 失败原因 / 操作。",
+      "详情弹窗展示邮件正文预览，西语为主、可切换中文；演示正文随记录变化。",
+      "重发：失败记录可重发，状态「失败 → 发送中 → 已发送」并更新发送时间。",
+      "默认邮箱判失败沿用去年规则；空邮箱不发信，直接进入待人工联系清单（AC-041）。",
+      "失败自动重试 3 次由后台任务完成，界面只展示最终结果，不展示每次重试明细。"
+    ],
+    todo: [
+      "邀请相关 2 类模板（邀请码告知 / 邀请绑定确认 / 邀请奖励到账）随邀请功能排期上线，本页标「后续版本」。",
+      "逾期提醒模板依赖兑奖期限配置，待市场部确认后补。",
+      "邮件正文正式西语文案待市场部 11/15 回填；本页为演示渲染。",
+      "重发是否限次 / 是否需要二次确认，PRD 未定义，待确认。"
+    ]
+  };
+
+  window.DEMOS = [
+    { label: "查看失败邮件详情", fn: function () { window.EMAIL_UI.openDetailFailed(); } },
+    { label: "演示重发（发送中 → 已发送）", fn: function () { window.EMAIL_UI.demoResend(); } },
+    { label: "待人工联系清单", fn: function () { window.EMAIL_UI.openContacts(); } },
+    { label: "邮件模板状态", fn: function () { window.EMAIL_UI.openTemplates(); } },
+    { label: "中奖通知模板示例", fn: function () { window.EMAIL_UI.openWinSample(); } },
+    { label: "恢复演示数据", fn: function () { window.EMAIL_UI.demoReset(); } }
+  ];
+</script>
+<script>
+  Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/admin/email/logs",
+      "desc": "筛选：card_no, cif, email, invoice_no, send_time, status"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/email/resend",
+      "desc": "重发单封邮件；状态 发送中→成功/失败"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/email/templates",
+      "desc": "6 类模板，本期上线 2 类（福卡发放/中奖通知）"
+    }
+  ],
+  "fields": [
+    "日志 12 列：ID/账套/客户号/邮箱/福卡号/发票/金额/创建时间/发送时间/状态/失败原因/操作",
+    "模板：名称/触发时机/语言/状态"
+  ],
+  "rules": [
+    "默认邮箱（@mainpaper.com、EJEMPLO@GMAIL.COM）与空邮箱判失败，转人工联系清单",
+    "失败自动重试 3 次；可手动重发",
+    "西语为主 + 中文切换",
+    "本期只保留 2 类模板，其余 4 类后续版本"
+  ],
+  "permissions": [
+    "运营：查询/重发",
+    "管理员：全部",
+    "只读：查看"
+  ],
+  "events": [
+    "email_sent（template, result, fail_reason）"
+  ],
+  "devNotes": [
+    "日志不记录明文邮箱（展示脱敏）",
+    "重发限次/间隔待确认",
+    "模板变量与西语文案由市场部 11/15 提供"
+  ]
+});
+</script>
+<script src="../assets/js/legacy.js"></script>
+<script>
+  (function () {
+    var $ = U.$;
+
+    var RAW = [
+      { id: 10086, account: "ES01", cif: "10009502", email: "cliente.fernandez@empresa.es", card: "01136", invoice: "ES25000149", amount: "2,580.00", invTime: "2026-12-01 10:22", sentTime: "2026-12-01 10:23", status: "sent", reason: "", tpl: "card" },
+      { id: 10085, account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es", card: "01135", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
+      { id: 10084, account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es", card: "01134", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
+      { id: 10083, account: "ES02", cif: "10019544", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10082, account: "ES02", cif: "10019544", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（EJEMPLO@GMAIL.COM）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10081, account: "ES02", cif: "10019544", email: "", card: "01130", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "空邮箱", reasonShort: "空邮箱", tpl: "card" },
+      { id: 10080, account: "ES01", cif: "10013992", email: "ana.gil@distribuciones.es", card: "01129", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
+      { id: 10079, account: "ES01", cif: "10013992", email: "ana.gil@distribuciones.es", card: "01128", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
+      { id: 10078, account: "ES03", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01127", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "sending", reason: "", tpl: "card" },
+      { id: 10077, account: "ES03", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "failed", reason: "发送超时（已重试 3 次）", reasonShort: "发送超时", tpl: "card" },
+      { id: 10076, account: "ES02", cif: "10031505", email: "lucia.moreno@hotel.es", card: "01125", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
+      { id: 10075, account: "ES02", cif: "10031505", email: "lucia.moreno@hotel.es", card: "01124", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
+      { id: 10074, account: "ES01", cif: "10040112", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10073, account: "ES03", cif: "10040112", email: "rosa.diaz@empresa.pt", card: "01122", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "2026-11-30 17:41", status: "sent", reason: "", tpl: "card" }
+    ];
+
+    var CONTACTS_RAW = [
+      { type: "默认邮箱", cif: "10019544", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "默认邮箱", cif: "10019544", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "空邮箱", cif: "10019544", email: "", card: "01130", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "默认邮箱", cif: "10040112", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", time: "2026-11-30 17:40", done: true },
+      { type: "发送超时", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", time: "2026-12-01 09:33", done: false }
+    ];
+
+    var WIN_SAMPLE = {
+      id: "10088", account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es",
+      card: "01135", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18",
+      sentTime: "2027-02-10 09:12", status: "sent", reason: "", tpl: "win", sample: true
+    };
+
+    var STATUS = {
+      sent: { text: "已发送", cls: "" },
+      sending: { text: "发送中", cls: "adm-status--won" },
+      failed: { text: "失败", cls: "adm-status--invalid" },
+      pending: { text: "待发送", cls: "adm-status--lost" }
+    };
+
+    var state = {
+      emails: JSON.parse(JSON.stringify(RAW)),
+      contacts: JSON.parse(JSON.stringify(CONTACTS_RAW)),
+      filtered: false,
+      criteria: null,
+      page: 1,
+      pageSize: 10,
+      detailRow: null,
+      timers: []
+    };
+
+    function fmtNum(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+    function nowStr() {
+      var d = new Date();
+      var p = function (n) { return (n < 10 ? "0" : "") + n; };
+      return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes()) + ":" + p(d.getSeconds());
+    }
+
+    function readCriteria() {
+      return {
+        card: $("#f-card").value.trim(),
+        cif: $("#f-cif").value.trim(),
+        email: $("#f-email").value.trim().toLowerCase(),
+        invoice: $("#f-invoice").value.trim(),
+        status: $("#f-status").value,
+        start: $("#f-start").value.trim(),
+        end: $("#f-end").value.trim()
+      };
+    }
+
+    function datePart(s) { return s && s !== "—" ? s.slice(0, 10) : ""; }
+
+    function matchRow(r, c) {
+      return (!c.card || r.card.indexOf(c.card) >= 0) &&
+        (!c.cif || r.cif.indexOf(c.cif) >= 0) &&
+        (!c.email || r.email.toLowerCase().indexOf(c.email) >= 0) &&
+        (!c.invoice || r.invoice.indexOf(c.invoice) >= 0) &&
+        (!c.status || r.status === c.status) &&
+        (!c.start || datePart(r.sentTime) >= c.start) &&
+        (!c.end || (datePart(r.sentTime) && datePart(r.sentTime) <= c.end));
+    }
+
+    function currentRows() {
+      return state.filtered ? state.emails.filter(function (r) { return matchRow(r, state.criteria); }) : state.emails.slice();
+    }
+
+    function pageRows() {
+      var arr = currentRows();
+      var start = (state.page - 1) * state.pageSize;
+      return arr.slice(start, start + state.pageSize);
+    }
+
+    function statusHtml(st) {
+      var s = STATUS[st] || STATUS.pending;
+      return '<span class="adm-status ' + s.cls + '">' + s.text + "</span>";
+    }
+
+    function render() {
+      var tb = $("#rows");
+      if (!currentRows().length) {
+        tb.innerHTML = '<tr><td colspan="12"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
+      } else {
+        tb.innerHTML = pageRows().map(function (r) {
+          return "<tr>" +
+            '<td class="num">' + r.id + "</td>" +
+            "<td>" + r.account + "</td>" +
+            '<td class="num">' + r.cif + "</td>" +
+            "<td>" + (r.email ? '<span class="em-email" title="' + r.email + '">' + r.email + "</span>" : '<span class="muted">（空）</span>') + "</td>" +
+            '<td class="num">' + r.card + "</td>" +
+            '<td class="num">' + r.invoice + "</td>" +
+            '<td class="num">' + r.amount + " €</td>" +
+            '<td class="num nowrap muted">' + r.invTime + "</td>" +
+            '<td class="num nowrap muted">' + (r.sentTime === "—" ? "—" : r.sentTime) + "</td>" +
+            "<td>" + statusHtml(r.status) + "</td>" +
+            '<td><span class="em-reason"' + (r.reason ? ' title="' + r.reason + '"' : '') + ">" + (r.reasonShort || r.reason || "—") + "</span></td>" +
+            '<td><span class="adm-table__op">' +
+            '<button type="button" data-detail="' + r.id + '">详情</button>' +
+            (r.status === "failed" ? '<button type="button" data-resend="' + r.id + '">重发</button>' : "") +
+            "</span></td>" +
+            "</tr>";
+        }).join("");
+      }
+      renderPager();
+      bindRows();
+      updateContactCount();
+    }
+
+    function renderPager() {
+      var total = currentRows().length;
+      var pages = Math.max(1, Math.ceil(total / state.pageSize));
+      if (state.page > pages) state.page = pages;
+      var html = '<span class="adm-pager__total" id="pager-total">共 ' + fmtNum(total) + " 条</span>";
+      html += '<button type="button" data-page="prev"' + (state.page === 1 ? " disabled" : "") + ">‹</button>";
+      for (var i = 1; i <= pages; i++) {
+        if (pages > 7 && i > 3 && i < pages - 1) {
+          if (i === 4) html += "<span>•••</span>";
+          continue;
+        }
+        html += '<button type="button" data-page="' + i + '"' + (i === state.page ? ' class="is-active"' : "") + ">" + i + "</button>";
+      }
+      html += '<button type="button" data-page="next"' + (state.page === pages ? " disabled" : "") + ">›</button>";
+      html += '<select id="page-size" aria-label="每页条数">' +
+        [10, 20, 50].map(function (n) {
+          return '<option value="' + n + '"' + (n === state.pageSize ? " selected" : "") + ">" + n + " 条/页</option>";
+        }).join("") + "</select>";
+      $("#pager").innerHTML = html;
+      U.$$("#pager button[data-page]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.getAttribute("data-page");
+          if (v === "prev") state.page = Math.max(1, state.page - 1);
+          else if (v === "next") state.page = Math.min(pages, state.page + 1);
+          else state.page = parseInt(v, 10);
+          render();
+        });
+      });
+      var ps = $("#page-size");
+      ps.addEventListener("change", function () {
+        state.pageSize = parseInt(ps.value, 10);
+        state.page = 1;
+        render();
+      });
+    }
+
+    function bindRows() {
+      U.$$("[data-detail]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var id = parseInt(b.getAttribute("data-detail"), 10);
+          var r = state.emails.find(function (x) { return x.id === id; });
+          if (r) openDetail(r);
+        });
+      });
+      U.$$("[data-resend]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          resend(parseInt(b.getAttribute("data-resend"), 10));
+        });
+      });
+    }
+
+    function updateContactCount() {
+      var n = state.contacts.filter(function (c) { return !c.done; }).length;
+      $("#contact-count").textContent = n;
+    }
+
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.classList.add("is-open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(m) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+
+    function mailBodyEs(r) {
+      if (r.tpl === "win") {
+        return '<p class="em-mail__subject">Asunto: ¡Enhorabuena! Has ganado en el sorteo de la Suerte 2027</p>' +
+          "<p>Hola, cliente <b>" + r.cif + "</b>:</p>" +
+          "<p>Tu tarjeta n.º <b>" + r.card + "</b> ha resultado premiada con el <b>Segundo premio · Lingote de oro de 10 g</b>.</p>" +
+          "<p>Nuestro equipo se pondrá en contacto contigo para coordinar la entrega. Plazo de confirmación: 15 días naturales desde la publicación.</p>" +
+          '<p><span class="em-mail__cta">VER LOS DETALLES DEL PREMIO</span></p>' +
+          '<p class="em-mail__small">Mainpaper S.L · Correo automático, no responda a este mensaje.</p>';
+      }
+      return '<p class="em-mail__subject">Asunto: ¡Tus Tarjetas de la Suerte 2027 ya están disponibles!</p>' +
+        "<p>Hola, cliente <b>" + r.cif + "</b>:</p>" +
+        "<p>Tu factura <b>" + r.invoice + "</b> por importe de <b>" + r.amount + " €</b> (sin IVA) te ha dado <b>1</b> Tarjeta de la Suerte.</p>" +
+        '<div class="em-mail__card">N.º de tarjeta · <b>' + r.card + "</b></div>" +
+        "<p>Guarda tu número y consúltalo antes del <b>10 de febrero de 2027</b>; el sorteo se realizará ese mismo día.</p>" +
+        '<p><span class="em-mail__cta">VER MIS TARJETAS</span></p>' +
+        '<p class="em-mail__small">Mainpaper S.L · Correo automático, no responda a este mensaje.</p>';
+    }
+
+    function mailBodyZh(r) {
+      if (r.tpl === "win") {
+        return '<p class="em-mail__subject">主题：恭喜您获得 2027 新春福卡抽奖奖项</p>' +
+          "<p>尊敬的客户 <b>" + r.cif + "</b>：</p>" +
+          "<p>您的福卡 <b>" + r.card + "</b> 中得 <b>二等奖 · 10g 投资金条</b>。</p>" +
+          "<p>我们将尽快与您联系安排领奖。请于公布后 15 日内确认，逾期视为放弃。</p>" +
+          '<p><span class="em-mail__cta">查看奖品详情</span></p>' +
+          '<p class="em-mail__small">Mainpaper S.L · 本邮件由系统自动发送，请勿直接回复。</p>';
+      }
+      return '<p class="em-mail__subject">主题：您的 2027 新春福卡已到账</p>' +
+        "<p>尊敬的客户 <b>" + r.cif + "</b>：</p>" +
+        "<p>您的发票 <b>" + r.invoice + "</b>（不含税金额 <b>" + r.amount + " €</b>）已获得 <b>1</b> 张新春福卡。</p>" +
+        '<div class="em-mail__card">福卡编号 · <b>' + r.card + "</b></div>" +
+        "<p>请于 <b>2027 年 2 月 10 日</b>开奖前保存并查询您的福卡；开奖当日可在活动页查看结果。</p>" +
+        '<p><span class="em-mail__cta">查看我的福卡</span></p>' +
+        '<p class="em-mail__small">Mainpaper S.L · 本邮件由系统自动发送，请勿直接回复。</p>';
+    }
+
+    function openDetail(r, sample) {
+      state.detailRow = r;
+      $("#modal-detail-title").textContent = sample ? "邮件详情（模板示例）" : "邮件详情";
+      var reason = $("#det-reason");
+      if (r.reason) {
+        reason.style.display = "block";
+        reason.textContent = "失败原因：" + r.reason + "。默认邮箱 / 空邮箱不发信，已进入待人工联系清单（AC-041）。";
+      } else {
+        reason.style.display = "none";
+      }
+      var st = STATUS[r.status] || STATUS.pending;
+      var cells = [
+        ["邮件 ID", r.id],
+        ["账套", r.account],
+        ["客户号", r.cif],
+        ["收件人", r.email || "（空）"],
+        ["幸运福卡编号", r.card],
+        ["绑定发票", r.invoice],
+        ["发票金额（不含税）", r.amount + " €"],
+        ["发票创建时间", r.invTime],
+        ["发送时间", r.sentTime === "—" ? "—" : r.sentTime],
+        ["发送状态", st.text],
+        ["模板", r.tpl === "win" ? "中奖通知" : "福卡发放"]
+      ];
+      $("#det-kv").innerHTML = cells.map(function (c) {
+        return "<div><span>" + c[0] + "</span><b>" + c[1] + "</b></div>";
+      }).join("");
+      $("#det-body-es").innerHTML = mailBodyEs(r);
+      $("#det-body-zh").innerHTML = mailBodyZh(r);
+      U.$$("#modal-detail .em-tab").forEach(function (t) {
+        t.classList.toggle("is-active", t.getAttribute("data-lang") === "es");
+      });
+      U.$$("#modal-detail .em-body").forEach(function (b) {
+        b.classList.toggle("is-active", b.getAttribute("data-lang-body") === "es");
+      });
+      $("#btn-det-resend").style.display = (r.status === "failed" && !sample) ? "inline-flex" : "none";
+      openModal("modal-detail");
+    }
+
+    function resend(id) {
+      var r = state.emails.find(function (x) { return x.id === id; });
+      if (!r) return;
+      if (r.status === "sending") { U.toast("该邮件正在发送中，请稍候（演示）"); return; }
+      if (r.status === "sent") { U.toast("该邮件已发送成功，无需重发（演示）"); return; }
+      r.status = "sending";
+      r.reason = "";
+      render();
+      U.toast("已提交重发，邮件进入发送队列（演示）");
+      var timer = setTimeout(function () {
+        r.status = "sent";
+        r.sentTime = nowStr();
+        render();
+        U.toast("邮件 " + r.id + " 重发成功（演示）");
+      }, 1200);
+      state.timers.push(timer);
+    }
+
+    function openTemplates() {
+      var tpls = [
+        { name: "福卡发放", key: "card_issued_2027", trigger: "发卡成功", live: true },
+        { name: "中奖通知", key: "prize_won_2027", trigger: "开奖结果发布", live: true },
+        { name: "邀请码告知", key: "invite_code", trigger: "邀请码生成 / 更新", live: false },
+        { name: "邀请绑定确认", key: "invite_bound", trigger: "邀请绑定成功", live: false },
+        { name: "邀请奖励到账", key: "invite_reward", trigger: "邀请奖励发放", live: false },
+        { name: "逾期提醒", key: "claim_reminder", trigger: "领奖期限前 3 天", live: false }
+      ];
+      $("#tpl-rows").innerHTML = tpls.map(function (t) {
+        return "<tr>" +
+          "<td>" + t.name + '<span class="muted" style="font-size:12px;margin-left:6px">' + t.key + "</span></td>" +
+          '<td class="muted">' + t.trigger + "</td>" +
+          "<td>西语 + 中文</td>" +
+          "<td>" + (t.live ? '<span class="adm-source adm-source--new">本期上线</span>' : '<span class="adm-source">后续版本</span>') + "</td>" +
+          '<td><span class="adm-table__op">' + (t.live ? '<button type="button" data-tpl-view="' + t.key + '">查看示例</button>' : '<span class="muted">—</span>') + "</span></td>" +
+          "</tr>";
+      }).join("");
+      U.$$("[data-tpl-view]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          closeModal($("#modal-templates"));
+          if (b.getAttribute("data-tpl-view") === "prize_won_2027") {
+            openDetail(WIN_SAMPLE, true);
+          } else {
+            var first = state.emails.find(function (x) { return x.tpl === "card" && x.status === "sent"; });
+            openDetail(first || state.emails[0], true);
+          }
+        });
+      });
+      openModal("modal-templates");
+    }
+
+    function renderContacts() {
+      $("#contact-rows").innerHTML = state.contacts.map(function (c, i) {
+        return "<tr>" +
+          '<td><span class="adm-source">' + c.type + "</span></td>" +
+          '<td class="num">' + c.cif + "</td>" +
+          "<td>" + (c.email ? '<span class="em-email" title="' + c.email + '">' + c.email + "</span>" : '<span class="muted">（空）</span>') + "</td>" +
+          '<td class="num">' + c.card + "</td>" +
+          '<td class="num">' + c.invoice + "</td>" +
+          '<td class="num nowrap muted">' + c.time + "</td>" +
+          "<td>" + (c.done ? '<span class="adm-status adm-status--lost">已联系</span>' : '<span class="adm-status adm-status--won">待联系</span>') + "</td>" +
+          '<td><span class="adm-table__op">' +
+          (c.done ? '<span class="muted">—</span>' : '<button type="button" data-contact-mark="' + i + '">标记已联系</button>') +
+          "</span></td>" +
+          "</tr>";
+      }).join("");
+      U.$$("[data-contact-mark]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var i = parseInt(b.getAttribute("data-contact-mark"), 10);
+          state.contacts[i].done = true;
+          renderContacts();
+          updateContactCount();
+          U.toast("已标记为已联系（演示）");
+        });
+      });
+      updateContactCount();
+    }
+
+    function openContacts() {
+      renderContacts();
+      openModal("modal-contacts");
+    }
+
+    function openWinSample() {
+      openDetail(WIN_SAMPLE, true);
+    }
+
+    function filter() {
+      state.criteria = readCriteria();
+      state.filtered = true;
+      state.page = 1;
+      render();
+      U.toast("查询完成，共 " + currentRows().length + " 条（演示数据）");
+    }
+
+    function reset() {
+      $("#filters").reset();
+      state.filtered = false;
+      state.criteria = null;
+      state.page = 1;
+      render();
+      U.toast("已重置");
+    }
+
+    function demoResend() {
+      var r = state.emails.find(function (x) { return x.status === "failed"; });
+      if (!r) { U.toast("暂无可重发的失败邮件（演示）"); return; }
+      resend(r.id);
+    }
+
+    function demoReset() {
+      state.timers.forEach(function (t) { clearTimeout(t); });
+      state.timers = [];
+      state.emails = JSON.parse(JSON.stringify(RAW));
+      state.contacts = JSON.parse(JSON.stringify(CONTACTS_RAW));
+      state.filtered = false;
+      state.criteria = null;
+      state.page = 1;
+      state.pageSize = 10;
+      $("#filters").reset();
+      render();
+      U.toast("演示数据已恢复");
+    }
+
+    window.EMAIL_UI = {
+      openDetailFailed: function () {
+        var r = state.emails.find(function (x) { return x.status === "failed"; });
+        if (r) openDetail(r);
+      },
+      demoResend: demoResend,
+      openContacts: openContacts,
+      openTemplates: openTemplates,
+      openWinSample: openWinSample,
+      demoReset: demoReset
+    };
+
+    $("#btn-search").addEventListener("click", filter);
+    $("#btn-reset").addEventListener("click", reset);
+    $("#btn-export").addEventListener("click", function () { U.toast("已导出当前筛选结果（演示，12 列全字段）"); });
+    $("#btn-templates").addEventListener("click", openTemplates);
+    $("#btn-contacts").addEventListener("click", openContacts);
+    $("#btn-contact-export").addEventListener("click", function () { U.toast("已导出待人工联系清单（演示）"); });
+    $("#btn-det-resend").addEventListener("click", function () {
+      var r = state.detailRow;
+      if (!r) return;
+      closeModal($("#modal-detail"));
+      resend(r.id);
+    });
+    U.$$("#modal-detail .em-tab").forEach(function (t) {
+      t.addEventListener("click", function () {
+        var lang = t.getAttribute("data-lang");
+        U.$$("#modal-detail .em-tab").forEach(function (x) { x.classList.toggle("is-active", x === t); });
+        U.$$("#modal-detail .em-body").forEach(function (b) {
+          b.classList.toggle("is-active", b.getAttribute("data-lang-body") === lang);
+        });
+      });
+    });
+    U.$$("[data-close]").forEach(function (b) {
+      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") U.$$(".adm-modal.is-open").forEach(function (m) { closeModal(m); });
+    });
+    $(".adm-sider__collapse").addEventListener("click", function () {
+      document.body.classList.toggle("is-collapsed");
+      this.setAttribute("title", document.body.classList.contains("is-collapsed") ? "展开菜单" : "收起菜单");
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>

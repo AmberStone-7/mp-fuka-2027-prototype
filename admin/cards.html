@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>福卡管理 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    /* 列较多：沿用去年紧凑排布，日期两行显示 */
+    .adm-table th,
+    .adm-table td { padding-left: 10px; padding-right: 10px; font-size: 13px; }
+    .adm-table th { font-size: 13px; }
+    .adm-table { min-width: 1560px; }
+    .adm-table-wrap { overflow-x: auto; }
+    /* 操作列固定右侧，横向滚动时始终可见 */
+    .adm-table th:last-child,
+    .adm-table td:last-child {
+      position: sticky;
+      right: 0;
+      z-index: 2;
+      background: #fff;
+      box-shadow: -6px 0 8px -6px rgba(0, 0, 0, 0.14);
+      white-space: nowrap;
+    }
+    .adm-table thead th:last-child { background: #fafafa; }
+  </style>
+</head>
+<body class="adm">
+
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item is-active" href="cards.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+      福卡管理
+    </a>
+    <a class="adm-menu__item" href="invite.html">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
+      邀请码管理
+    </a>
+    <a class="adm-menu__item" href="draw.html">
+      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
+      抽奖管理
+    </a>
+    <a class="adm-menu__item" href="prizes.html">
+      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
+      奖品管理
+    </a>
+    <a class="adm-menu__item" href="winners.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      中奖记录
+    </a>
+    <a class="adm-menu__item" href="email.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+      邮件日志
+    </a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+
+  <div class="adm-crumb">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+    <span>/</span>
+    <b>福卡管理</b>
+  </div>
+
+  <form class="adm-filters" id="filters" onsubmit="return false">
+    <div class="adm-field">
+      <label for="f-no">福卡编号</label>
+      <input class="adm-input" id="f-no" placeholder="请输入福卡编号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-cif">客户号 / CIF</label>
+      <input class="adm-input" id="f-cif" placeholder="请输入客户号或 CIF" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-sales">业务员号</label>
+      <input class="adm-input" id="f-sales" placeholder="请输入业务员号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-invoice">发票号</label>
+      <input class="adm-input" id="f-invoice" placeholder="请输入发票号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-source">来源</label>
+      <select class="adm-select" id="f-source">
+        <option value="">全部来源</option>
+        <option value="order">订单</option>
+        <option value="new">新客奖励</option>
+        <option value="invite">邀请奖励</option>
+        <option value="official">官方码</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-status">状态</label>
+      <select class="adm-select" id="f-status">
+        <option value="">全部状态</option>
+        <option value="pending">待开奖</option>
+        <option value="won">已中奖</option>
+        <option value="lost">未中奖</option>
+        <option value="invalid">已失效</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-start">发放时间</label>
+      <span class="adm-daterange">
+        <input class="adm-input" id="f-start" placeholder="开始日期">
+        <span>→</span>
+        <input class="adm-input" id="f-end" placeholder="结束日期">
+      </span>
+    </div>
+    <div class="adm-filters__btns">
+      <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
+      <button class="adm-btn" id="btn-reset" type="button">重 置</button>
+    </div>
+  </form>
+
+  <div class="adm-actions">
+    <button class="adm-btn" id="btn-export" type="button">导 出</button>
+    <button class="adm-btn" id="btn-batch-void" type="button">批量失效</button>
+    <button class="adm-btn adm-btn--primary adm-btn__right" id="btn-add" type="button" style="margin-left:auto">添加福卡</button>
+  </div>
+
+  <div class="adm-pool" id="pool">
+    <span class="adm-pool__item">号码池<b>00001 – 20000</b></span>
+    <span class="adm-pool__item">已发<b id="pool-used">8,420</b></span>
+    <span class="adm-pool__item">余量<b id="pool-left">11,580</b></span>
+    <span class="adm-pool__progress"><span class="adm-pool__bar" id="pool-bar" style="width:42.1%"></span></span>
+    <span class="adm-pool__item" id="pool-tip">已用 42.1% · 不回收已失效号码</span>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
+          <th>福卡编号</th>
+          <th>账套</th>
+          <th>客户号 / CIF</th>
+          <th>来源</th>
+          <th>客户手机号</th>
+          <th>业务员号</th>
+          <th>绑定发票</th>
+          <th>发票金额（不含税）</th>
+          <th>发票创建时间</th>
+          <th>状态</th>
+          <th>备注</th>
+          <th>发放时间</th>
+          <th>最近修改时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="adm-pager">
+    <span class="adm-pager__total" id="pager-total">共 8,420 条</span>
+    <button type="button" disabled>‹</button>
+    <button type="button" class="is-active">1</button>
+    <button type="button">2</button>
+    <button type="button">3</button>
+    <button type="button">4</button>
+    <button type="button">5</button>
+    <span>•••</span>
+    <button type="button">842</button>
+    <button type="button">›</button>
+    <select aria-label="每页条数"><option>10 条/页</option><option>20 条/页</option><option>50 条/页</option></select>
+  </div>
+</main>
+
+<!-- 添加福卡 -->
+<div class="adm-modal" id="modal-add" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-add-title">创建幸运福卡</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label class="required" for="add-account">账套</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="add-account">
+            <option value="">请选择账套</option>
+            <option>ES01</option>
+            <option>ES02</option>
+            <option>ES03</option>
+          </select>
+          <p class="adm-form-item__err">请选择账套</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="add-cif">客户号</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="add-cif" placeholder="请输入客户号">
+          <p class="adm-form-item__err">请输入客户号</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="add-invoice">发票号</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="add-invoice" placeholder="请输入发票号">
+          <p class="adm-form-item__err">请输入发票号</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="add-count">福卡数量</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="add-count" value="1" inputmode="numeric">
+          <p class="adm-form-item__err">请输入大于 0 的整数</p>
+        </div>
+      </div>
+      <p class="adm-form-tip">仅管理员可手动补录，需填写原因并留审计（本期用数据库操作，界面为后续版本）。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-add-ok">确 定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 失效 -->
+<div class="adm-modal" id="modal-void" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-void-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-void-title">福卡失效</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label>福卡编号</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="void-no" readonly></div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="void-reason">失效原因</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="void-reason">
+            <option value="">请选择原因</option>
+            <option>退单</option>
+            <option>红冲 / 取消</option>
+            <option>手工纠错</option>
+            <option>其他</option>
+          </select>
+          <p class="adm-form-item__err">请选择失效原因</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label for="void-note">备注</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="void-note" placeholder="选填，例如退单号"></div>
+      </div>
+      <p class="adm-form-tip">失效后号码不回收；已中奖福卡失效将触发候补（本期由人工处理）。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--danger" type="button" id="btn-void-ok">确 定</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.PAGE_META = {
+    id: "ADM-01",
+    title: "福卡管理",
+    live: "yes",
+    note: "沿用去年「幸运福卡管理」，加来源 / 号码池 / 失效",
+    fr: ["FR-001", "FR-002", "FR-017"],
+    ac: ["AC-001 ~ AC-005", "AC-035", "AC-036"],
+    goal: "沿用去年后台的筛选 + 表格 + 分页 + 添加弹窗，只补今年需要的「来源」「号码池余量」「失效」三项。",
+    states: [
+      "正常：分页列表 + 号码池余量。",
+      "号码池用尽：红字告警并阻止新发卡（演示：说明抽屉切换）。",
+      "失效：原因必填，失效后号码保留占用；已中奖福卡失效触发候补提示。",
+      "空态：筛选无结果时展示空表。"
+    ],
+    notes: [
+      "筛选、重置、分页、导出、批量失效、行内失效均可用。",
+      "「添加福卡」沿用去年弹窗结构（账套 / 客户号 / 发票号 / 数量），仅管理员可操作。",
+      "来源标签：订单 / 新客奖励 / 邀请奖励 / 官方码。",
+      "表格与分页沿用去年 Ant Design 样式，不额外加装饰。"
+    ],
+    todo: [
+      "失效原因枚举 PRD 未定义（演示：退单/红冲/手工纠错/其他）。",
+      "手动添加/异常补录本期用数据库操作，界面为后续版本。"
+    ]
+  };
+
+</script>
+<script>
+  Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/admin/cards",
+      "desc": "筛选分页：card_no, cif, sales, invoice_no, source_type, status, issued_from/to, page, size"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/cards/void",
+      "desc": "入参 {card_no, void_reason, note}；失效不可逆，号码不回收"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/cards/restore",
+      "desc": "管理员恢复失效卡，需审计"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/cards/batch-issue",
+      "desc": "管理员异常补录/发票补发，需原因"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/export/cards",
+      "desc": "按当前筛选导出 CSV，字段按角色限制"
+    }
+  ],
+  "fields": [
+    "筛选：福卡编号 / 客户号·CIF / 业务员号 / 发票号 / 来源 / 状态 / 发放时间",
+    "失效：原因必填（退单/红冲/手工纠错/其他），备注选填",
+    "添加福卡：账套、客户号、发票号、福卡数量（>0 整数）"
+  ],
+  "rules": [
+    "来源四类：订单福卡/新客福卡/邀请福卡/官方福卡",
+    "状态：待开奖/已中奖/未中奖/已失效",
+    "号码池 00001–20000，禁用 00000；失效号码不回收",
+    "号码池用尽时停止发卡并告警",
+    "金额口径不含 IVA；时间 Europe/Madrid"
+  ],
+  "permissions": [
+    "管理员：恢复、添加、补录、导出",
+    "运营：查询、导出、失效",
+    "只读：仅查看（不可写）"
+  ],
+  "events": [
+    "服务端记录查询/失效/导出日志（本期审计简化）"
+  ],
+  "devNotes": [
+    "列多：表格容器横向滚动、操作列 sticky right",
+    "列表默认 10 条/页，总条数取服务端",
+    "导出按角色限制字段；CIF/手机号脱敏展示"
+  ]
+});
+</script>
+<script src="../assets/js/legacy.js"></script>
+<script>
+  (function () {
+    var $ = U.$;
+
+    var ROWS = [
+      { no: "01136", account: "ES01", cif: "10009502", source: "order", phone: "666666666", sales: "5025", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:22", modified: "2026-12-01 10:22" },
+      { no: "01135", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
+      { no: "01134", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "won", note: "二等奖", time: "2026-12-01 10:18", modified: "2027-02-10 15:02" },
+      { no: "01133", account: "ES01", cif: "10008496", source: "new", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "首单新客奖励", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
+      { no: "01132", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "lost", note: "邀请奖励", time: "2026-12-01 10:12", modified: "2027-02-10 15:40" },
+      { no: "01131", account: "ES01", cif: "10019544", source: "official", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "pending", note: "媒体官方码", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
+      { no: "01130", account: "ES01", cif: "10019544", source: "order", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "invalid", note: "退单", time: "2026-12-01 10:12", modified: "2027-02-12 09:20" },
+      { no: "01129", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
+      { no: "01128", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
+      { no: "01127", account: "ES02", cif: "10022871", source: "order", phone: "611223344", sales: "5062", invoice: "ES25000033", amount: "999.99", created: "2025-06-08 00:00:00", status: "pending", note: "金额未达 1,000€ 不发卡", time: "2026-12-01 09:33", modified: "2026-12-01 09:33" }
+    ];
+    var STATUS = { pending: "待开奖", won: "已中奖", lost: "未中奖", invalid: "已失效" };
+    var SOURCE = { order: "订单福卡", new: "新客福卡", invite: "邀请福卡", official: "官方福卡" };
+    var state = { rows: ROWS.slice(), checked: {}, voidNo: null };
+
+    function render() {
+      var tb = $("#rows");
+      if (!state.rows.length) {
+        tb.innerHTML = '<tr><td colspan="15"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
+      } else {
+        tb.innerHTML = state.rows.map(function (r) {
+          var st = r.status;
+          return "<tr>" +
+            '<td class="col-check"><input type="checkbox" data-check="' + r.no + '"' + (state.checked[r.no] ? " checked" : "") + "></td>" +
+            '<td class="num">' + r.no + "</td>" +
+            '<td class="num">' + r.account + "</td>" +
+            '<td class="num">' + r.cif + "</td>" +
+            '<td><span class="adm-source adm-source--' + r.source + '">' + SOURCE[r.source] + "</span></td>" +
+            '<td class="num">' + r.phone + "</td>" +
+            '<td class="num">' + r.sales + "</td>" +
+            '<td class="num">' + r.invoice + "</td>" +
+            '<td class="num">' + r.amount + " €</td>" +
+            '<td class="nowrap muted">' + r.created + "</td>" +
+            '<td><span class="adm-status adm-status--' + st + '">' + STATUS[st] + "</span></td>" +
+            '<td class="muted">' + r.note + "</td>" +
+            '<td class="nowrap muted">' + r.time + "</td>" +
+            '<td class="nowrap muted">' + r.modified + "</td>" +
+            '<td><span class="adm-table__op">' +
+            (st === "invalid" ? '<button type="button" data-restore="' + r.no + '">恢复</button>' : '<button type="button" data-void="' + r.no + '">失效</button>') +
+            '<button type="button" data-detail="' + r.no + '">详情</button>' +
+            "</span></td>" +
+            "</tr>";
+        }).join("");
+      }
+      $("#pager-total").textContent = "共 " + (state.filtered ? state.rows.length : "8,420") + " 条";
+      bindRowActions();
+    }
+
+    function bindRowActions() {
+      U.$$("[data-void]").forEach(function (b) {
+        b.onclick = function () { openVoid(b.getAttribute("data-void")); };
+      });
+      U.$$("[data-restore]").forEach(function (b) {
+        b.onclick = function () {
+          var no = b.getAttribute("data-restore");
+          var r = state.rows.find(function (x) { return x.no === no; });
+          if (r) r.status = "pending";
+          render();
+          U.toast("已恢复为待开奖（管理员操作，需留痕）");
+        };
+      });
+      U.$$("[data-detail]").forEach(function (b) {
+        b.onclick = function () {
+          U.toast("福卡详情（号池占用 / 发票 / 邮件记录）在批量阶段提供");
+        };
+      });
+      U.$$("[data-check]").forEach(function (c) {
+        c.onchange = function () { state.checked[c.getAttribute("data-check")] = c.checked; };
+      });
+    }
+
+    function filter() {
+      var no = $("#f-no").value.trim();
+      var cif = $("#f-cif").value.trim();
+      var inv = $("#f-invoice").value.trim();
+      var sales = $("#f-sales").value.trim();
+      var src = $("#f-source").value;
+      var st = $("#f-status").value;
+      state.rows = ROWS.filter(function (r) {
+        return (!no || r.no.indexOf(no) === 0) &&
+          (!cif || r.cif.indexOf(cif) >= 0) &&
+          (!inv || r.invoice.indexOf(inv) >= 0) && (!sales || r.sales.indexOf(sales) >= 0) &&
+          (!src || r.source === src) &&
+          (!st || r.status === st);
+      });
+      state.filtered = true;
+      render();
+      U.toast("查询完成，共 " + state.rows.length + " 条（演示数据）");
+    }
+
+    function reset() {
+      $("#filters").reset();
+      state.rows = ROWS.slice();
+      state.filtered = false;
+      render();
+      U.toast("已重置");
+    }
+
+    function emptyState() {
+      state.rows = [];
+      state.filtered = true;
+      render();
+    }
+
+    function poolAlert() {
+      $("#pool-bar").style.width = "100%";
+      $("#pool-bar").classList.add("adm-pool__bar--warn");
+      $("#pool-used").textContent = "20,000";
+      $("#pool-left").textContent = "0";
+      $("#pool-tip").innerHTML = '<span style="color:#cf1322">号码池已用尽，已停止发卡</span>';
+    }
+
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.classList.add("is-open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(m) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+
+    function openVoid(no) {
+      state.voidNo = no;
+      $("#void-no").value = no;
+      $("#void-reason").value = "";
+      $("#void-note").value = "";
+      U.$$("#modal-void .adm-form-item").forEach(function (f) { f.classList.remove("is-error"); });
+      openModal("modal-void");
+    }
+
+    $("#btn-search").addEventListener("click", filter);
+    $("#btn-reset").addEventListener("click", reset);
+    $("#btn-export").addEventListener("click", function () { U.toast("已导出当前筛选结果（演示）"); });
+    $("#btn-add").addEventListener("click", function () { openModal("modal-add"); });
+    $("#btn-batch-void").addEventListener("click", function () {
+      var n = Object.keys(state.checked).filter(function (k) { return state.checked[k]; }).length;
+      if (!n) { U.toast("请先勾选需要失效的福卡"); return; }
+      U.toast("已提交 " + n + " 张福卡失效（演示，需填原因并留审计）");
+    });
+    $("#btn-add-ok").addEventListener("click", function () {
+      var ok = true;
+      [["add-account", ""], ["add-cif", ""], ["add-invoice", ""], ["add-count", ""]].forEach(function (pair) {
+        var el = document.getElementById(pair[0]);
+        var item = el.closest(".adm-form-item");
+        if (!el.value.trim()) { item.classList.add("is-error"); ok = false; }
+        else item.classList.remove("is-error");
+      });
+      var cnt = parseInt($("#add-count").value, 10);
+      if (!cnt || cnt < 1) { $("#add-count").closest(".adm-form-item").classList.add("is-error"); ok = false; }
+      if (!ok) return;
+      closeModal($("#modal-add"));
+      U.toast("已创建福卡（演示）");
+    });
+    $("#btn-void-ok").addEventListener("click", function () {
+      var reason = $("#void-reason");
+      if (!reason.value) {
+        reason.closest(".adm-form-item").classList.add("is-error");
+        return;
+      }
+      var r = state.rows.find(function (x) { return x.no === state.voidNo; });
+      if (r) r.status = "invalid";
+      var target = ROWS.find(function (x) { return x.no === state.voidNo; });
+      if (target) target.status = "invalid";
+      closeModal($("#modal-void"));
+      render();
+      U.toast("福卡 " + state.voidNo + " 已失效（原因：" + reason.value + "，演示）");
+    });
+
+    U.$$("[data-close]").forEach(function (b) {
+      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
+    });
+    document.getElementById("check-all").addEventListener("change", function () {
+      var on = this.checked;
+      U.$$("[data-check]").forEach(function (c) { c.checked = on; state.checked[c.getAttribute("data-check")] = on; });
+    });
+
+    U.$$("[data-todo]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        U.toast("样例阶段：该模块在批量阶段提供");
+      });
+    });
+
+    window.DEMOS = [
+      { label: "打开添加福卡", fn: function () { openModal("modal-add"); } },
+      { label: "打开失效弹窗", fn: function () { openVoid(ROWS[0].no); } },
+      { label: "号码池告警", fn: function () { poolAlert(); } },
+      { label: "筛选空态", fn: function () { emptyState(); } }
+    ];
+
+    render();
+  })();
+</script>
+</body>
+</html>

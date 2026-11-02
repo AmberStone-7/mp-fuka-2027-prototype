@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邀请码管理 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    /* 本页增量样式（页面前缀 inv-，不改全局组件） */
+    .adm-table th,
+    .adm-table td { padding-left: 10px; padding-right: 10px; font-size: 13px; }
+    .adm-table-wrap { overflow-x: auto; }
+    [hidden] { display: none !important; }
+    .inv-tabs { display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #f0f0f0; margin: 4px 0 14px; }
+    .inv-tab { height: 40px; padding: 0 2px; border-bottom: 2px solid transparent; font-size: 14px; color: rgba(0, 0, 0, 0.88); }
+    .inv-tab:hover { color: #1677ff; }
+    .inv-tab.is-active { color: #1677ff; border-bottom-color: #1677ff; font-weight: 500; }
+    .inv-tab em { margin-left: 4px; font-style: normal; font-size: 12px; color: rgba(0, 0, 0, 0.45); }
+    .inv-st--active { color: #389e0d; }
+    .inv-st--exhausted { color: #d46b08; }
+    .inv-st--disabled { color: #cf1322; }
+    .inv-st--pending { color: rgba(0, 0, 0, 0.65); }
+    .inv-st--success { color: #389e0d; }
+    .inv-st--expired { color: rgba(0, 0, 0, 0.45); }
+    .inv-note { display: block; font-size: 12px; line-height: 1.5; color: rgba(0, 0, 0, 0.45); }
+    .adm-pool__bar,
+    .inv-prog__bar { display: block; }
+    .inv-prog { height: 8px; border-radius: 100px; background: rgba(0, 0, 0, 0.06); overflow: hidden; }
+    .inv-prog__bar { width: 0; height: 100%; border-radius: 100px; background: #1677ff; transition: width 0.1s linear; }
+    .inv-prog__meta { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: rgba(0, 0, 0, 0.45); }
+    .inv-sum { border: 1px solid #f0f0f0; border-radius: 8px; overflow: hidden; }
+    .inv-sum__row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
+    .inv-sum__row:last-child { border-bottom: 0; }
+    .inv-sum__row span { color: rgba(0, 0, 0, 0.45); }
+    .inv-sum__row b { font-weight: 600; }
+    .inv-lines { font-size: 13px; line-height: 1.9; color: rgba(0, 0, 0, 0.65); }
+    .inv-lines b { color: rgba(0, 0, 0, 0.88); font-weight: 600; }
+    .inv-radio { display: flex; align-items: center; gap: 20px; padding-top: 6px; font-size: 14px; }
+    .inv-radio label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+    .inv-radio input { width: 16px; height: 16px; accent-color: #1677ff; cursor: pointer; }
+    .inv-desc { display: grid; grid-template-columns: 88px 1fr; gap: 8px 12px; margin: 0 0 14px; font-size: 13px; line-height: 1.7; }
+    .inv-desc dt { text-align: right; color: rgba(0, 0, 0, 0.45); }
+    .inv-desc dd { margin: 0; color: rgba(0, 0, 0, 0.88); word-break: break-all; }
+  </style>
+</head>
+<body class="adm">
+
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item" href="cards.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+      福卡管理
+    </a>
+    <a class="adm-menu__item is-active" href="invite.html">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
+      邀请码管理
+    </a>
+    <a class="adm-menu__item" href="draw.html">
+      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
+      抽奖管理
+    </a>
+    <a class="adm-menu__item" href="prizes.html">
+      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
+      奖品管理
+    </a>
+    <a class="adm-menu__item" href="winners.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      中奖记录
+    </a>
+    <a class="adm-menu__item" href="email.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+      邮件日志
+    </a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+
+  <div class="adm-crumb">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+    <span>/</span>
+    <b>邀请码管理</b>
+  </div>
+
+  <div class="inv-tabs" role="tablist">
+    <button class="inv-tab is-active" type="button" role="tab" data-tab="list">邀请码列表</button>
+    <button class="inv-tab" type="button" role="tab" data-tab="use">使用记录（绑定）<em id="tab-use-count">12</em></button>
+  </div>
+
+  <!-- ============ 邀请码列表 ============ -->
+  <section class="inv-pane" id="pane-list">
+    <form class="adm-filters" id="filters-list" onsubmit="return false">
+      <div class="adm-field">
+        <label for="f-code">邀请码</label>
+        <input class="adm-input" id="f-code" placeholder="请输入邀请码" autocomplete="off">
+      </div>
+      <div class="adm-field">
+        <label for="f-cif">客户号 / CIF</label>
+        <input class="adm-input" id="f-cif" placeholder="请输入客户号或 CIF" autocomplete="off">
+      </div>
+      <div class="adm-field">
+        <label for="f-type">码类型</label>
+        <select class="adm-select" id="f-type">
+          <option value="">全部类型</option>
+          <option value="normal">普通码</option>
+          <option value="official">官方码</option>
+        </select>
+      </div>
+      <div class="adm-field">
+        <label for="f-status">状态</label>
+        <select class="adm-select" id="f-status">
+          <option value="">全部状态</option>
+          <option value="active">生效中</option>
+          <option value="exhausted">已用满</option>
+          <option value="disabled">已停用</option>
+        </select>
+      </div>
+      <div class="adm-field">
+        <label for="f-usage">使用量</label>
+        <select class="adm-select" id="f-usage">
+          <option value="">全部</option>
+          <option value="zero">未使用（0）</option>
+          <option value="part">使用中（未满）</option>
+          <option value="full">已达上限</option>
+        </select>
+      </div>
+      <div class="adm-filters__btns">
+        <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
+        <button class="adm-btn" id="btn-reset" type="button">重 置</button>
+      </div>
+    </form>
+
+    <div class="adm-actions">
+      <button class="adm-btn" id="btn-export" type="button">导 出</button>
+      <button class="adm-btn" id="btn-batch-disable" type="button">批量停用</button>
+      <button class="adm-btn adm-actions__right" id="btn-official" type="button">官方码配置</button>
+      <button class="adm-btn adm-btn--primary" id="btn-gen" type="button">批量生成邀请码</button>
+    </div>
+
+    <div class="adm-pool" id="strip">
+      <span class="adm-pool__item">客户总数<b>10,000</b></span>
+      <span class="adm-pool__item">已生成邀请码<b id="strip-gen">8,494</b></span>
+      <span class="adm-pool__item">已停用<b id="strip-off">12</b></span>
+      <span class="adm-pool__item">官方码用量<b id="strip-ocap">1,238 / 2,000</b></span>
+      <span class="adm-pool__progress"><span class="adm-pool__bar" id="strip-bar" style="width:61.9%"></span></span>
+      <span class="adm-pool__item" id="strip-tip">require_new_customer 是 · total_cap 2,000 · 单码上限 100</span>
+    </div>
+
+    <div class="adm-table-wrap">
+      <table class="adm-table">
+        <thead>
+          <tr>
+            <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
+            <th>邀请码</th>
+            <th>所属客户号 / CIF</th>
+            <th>码类型</th>
+            <th>已用 / 上限</th>
+            <th>状态</th>
+            <th>生成时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="list-rows"></tbody>
+      </table>
+    </div>
+    <div class="adm-pager" id="list-pager"></div>
+  </section>
+
+  <!-- ============ 使用记录（绑定） ============ -->
+  <section class="inv-pane" id="pane-use" hidden>
+    <div class="adm-alert" style="margin-top:4px">
+      <span class="adm-alert__ico">✓</span>
+      <span>一被邀请人仅一个邀请人；<b>success</b> 后锁定不可再提交；<b>pending</b> 期间本人可覆盖换码（以最后一次为准）；2027-02-10 00:00 后 pending 统一转 expired。官方码不建立绑定。</span>
+    </div>
+
+    <form class="adm-filters" id="filters-use" onsubmit="return false">
+      <div class="adm-field">
+        <label for="f-invitee">被邀请人 CIF</label>
+        <input class="adm-input" id="f-invitee" placeholder="请输入被邀请人 CIF" autocomplete="off">
+      </div>
+      <div class="adm-field">
+        <label for="f-inviter">邀请人 CIF</label>
+        <input class="adm-input" id="f-inviter" placeholder="请输入邀请人 CIF" autocomplete="off">
+      </div>
+      <div class="adm-field">
+        <label for="f-ucode">邀请码</label>
+        <input class="adm-input" id="f-ucode" placeholder="请输入邀请码" autocomplete="off">
+      </div>
+      <div class="adm-field">
+        <label for="f-ustatus">绑定状态</label>
+        <select class="adm-select" id="f-ustatus">
+          <option value="">全部状态</option>
+          <option value="pending">待达标 pending</option>
+          <option value="success">已发放 success</option>
+          <option value="expired">已过期 expired</option>
+        </select>
+      </div>
+      <div class="adm-field">
+        <label for="f-udate">创建时间</label>
+        <span class="adm-daterange">
+          <input class="adm-input" id="f-udate" placeholder="开始日期">
+          <span>→</span>
+          <input class="adm-input" id="f-udate-end" placeholder="结束日期">
+        </span>
+      </div>
+      <div class="adm-filters__btns">
+        <button class="adm-btn adm-btn--primary" id="btn-use-search" type="button">查 询</button>
+        <button class="adm-btn" id="btn-use-reset" type="button">重 置</button>
+      </div>
+    </form>
+
+    <div class="adm-actions">
+      <button class="adm-btn" id="btn-use-export" type="button">导 出</button>
+    </div>
+
+    <div class="adm-table-wrap">
+      <table class="adm-table">
+        <thead>
+          <tr>
+            <th>被邀请人 CIF</th>
+            <th>邀请人 CIF</th>
+            <th>邀请码</th>
+            <th>绑定状态</th>
+            <th>匹配发票</th>
+            <th>双方卡号（被邀 / 邀请）</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="use-rows"></tbody>
+      </table>
+    </div>
+    <div class="adm-pager" id="use-pager"></div>
+  </section>
+</main>
+
+<!-- 批量生成邀请码 -->
+<div class="adm-modal" id="modal-gen" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-gen-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-gen-title">批量生成邀请码</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div id="gen-form">
+        <div class="adm-alert adm-alert--warn">
+          <span class="adm-alert__ico">!</span>
+          <span>异步任务，同一时间只允许 1 个任务运行；中断可<b>断点续跑</b>，已生成客户自动跳过，不重复生成；owner_customer_id 唯一冲突 → 跳过并记录。</span>
+        </div>
+        <div class="adm-form-item">
+          <label class="required" for="gen-scope">生成范围</label>
+          <div class="adm-form-item__ctrl">
+            <select class="adm-select" id="gen-scope">
+              <option value="all">全部存量客户（10,000）</option>
+              <option value="new">本月新开客户（1,506）</option>
+              <option value="range">指定客户号段（10080000–10099999）</option>
+            </select>
+          </div>
+        </div>
+        <div class="adm-form-item">
+          <label class="required" for="gen-cap">单码上限</label>
+          <div class="adm-form-item__ctrl">
+            <input class="adm-input" id="gen-cap" value="100" inputmode="numeric">
+            <p class="adm-form-item__err">请输入大于 0 的整数（默认 100）</p>
+          </div>
+        </div>
+        <p class="adm-form-tip">码为 6–12 位字母数字，随机生成并全局唯一；生成后客户可在 H5 查看自己的码。单码上限默认 100 张，达上限自动转 exhausted。</p>
+      </div>
+      <div id="gen-prog" hidden>
+        <p class="inv-lines" style="margin-bottom:10px">正在生成邀请码，可关闭弹窗后台运行…</p>
+        <div class="inv-prog"><span class="inv-prog__bar" id="gen-bar"></span></div>
+        <div class="inv-prog__meta">
+          <span id="gen-meta">已处理 0 / 10,000</span>
+          <span id="gen-meta2">新增 0 · 跳过 0</span>
+        </div>
+      </div>
+      <div id="gen-result" hidden>
+        <div class="inv-sum">
+          <div class="inv-sum__row"><span>任务 ID</span><b id="gen-task">TASK-INV-20261120-01</b></div>
+          <div class="inv-sum__row"><span>目标客户</span><b>10,000</b></div>
+          <div class="inv-sum__row"><span>本次新增</span><b><span style="color:#389e0d">1,506 个</span></b></div>
+          <div class="inv-sum__row"><span>跳过（已存在邀请码）</span><b>8,494 个</b></div>
+          <div class="inv-sum__row"><span>失败</span><b>0 个</b></div>
+          <div class="inv-sum__row"><span>耗时</span><b>42s（演示）</b></div>
+        </div>
+        <p class="adm-form-tip" style="margin-top:10px">本次为断点续跑：上次中断前已生成 8,494 个，续跑补齐剩余 1,506 个；如需重建请先导出并确认影响面。</p>
+      </div>
+    </div>
+    <div class="adm-modal__foot" id="gen-foot-form">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-gen-ok">开 始 生 成</button>
+    </div>
+    <div class="adm-modal__foot" id="gen-foot-done" hidden>
+      <button class="adm-btn adm-btn--primary" type="button" data-close>关 闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 官方码配置 -->
+<div class="adm-modal" id="modal-official" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-official-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-official-title">官方码配置（DEC-035）</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-alert">
+        <span class="adm-alert__ico">✓</span>
+        <span>官方码不建立邀请绑定，不占用「一新人一邀请人」名额，仅按每 CIF 限 1 张校验。</span>
+      </div>
+      <div class="adm-form-item">
+        <label>当前官方码</label>
+        <div class="adm-form-item__ctrl">
+          <p class="inv-lines" style="line-height:32px">OFC2027A · 已用 <b>1,238</b> / 上限 <b id="cfg-used-cap">2,000</b></p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required">要求新客</label>
+        <div class="adm-form-item__ctrl">
+          <div class="inv-radio">
+            <label><input type="radio" name="cfg-new" value="yes" checked> 是（默认）</label>
+            <label><input type="radio" name="cfg-new" value="no"> 否</label>
+          </div>
+          <p class="adm-form-tip" style="margin-top:4px">require_new_customer：为「是」时，非新客 CIF 使用官方码同样提示统一错误。</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="cfg-cap">总量上限</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="cfg-cap" value="2000" inputmode="numeric">
+          <p class="adm-form-item__err">请输入大于等于已用量（1,238）的整数</p>
+        </div>
+      </div>
+      <p class="adm-form-tip">total_cap 默认 2,000 张；高风险配置，保存需二次确认并记录操作人 / 时间 / 前后值 / IP。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-official-ok">保 存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 上调上限（exhausted 恢复） -->
+<div class="adm-modal" id="modal-cap" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-cap-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-cap-title">上调单码上限</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label>邀请码</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="cap-code" readonly></div>
+      </div>
+      <div class="adm-form-item">
+        <label>已用 / 上限</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="cap-now" readonly></div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="cap-new">新上限</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="cap-new" inputmode="numeric">
+          <p class="adm-form-item__err">新上限必须大于已用量</p>
+        </div>
+      </div>
+      <p class="adm-form-tip">已转 exhausted 的码上调上限后自动恢复 active，可继续领取（PRD 7.2 邀请码状态）。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-cap-ok">确 定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 使用记录详情 -->
+<div class="adm-modal" id="modal-binding" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-binding-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-binding-title">邀请绑定详情</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <dl class="inv-desc">
+        <dt>被邀请人 CIF</dt><dd id="bd-invitee">—</dd>
+        <dt>邀请人 CIF</dt><dd id="bd-inviter">—</dd>
+        <dt>邀请码</dt><dd id="bd-code">—</dd>
+        <dt>绑定状态</dt><dd id="bd-status">—</dd>
+        <dt>匹配发票</dt><dd id="bd-invoice">—</dd>
+        <dt>发票金额</dt><dd id="bd-amt">—</dd>
+        <dt>双方卡号</dt><dd id="bd-cards">—</dd>
+        <dt>创建时间</dt><dd id="bd-created">—</dd>
+        <dt>最近更新</dt><dd id="bd-updated">—</dd>
+      </dl>
+      <div class="adm-alert adm-alert--warn" id="bd-note" hidden>
+        <span class="adm-alert__ico">!</span><span></span>
+      </div>
+      <div class="adm-form-item" style="margin-bottom:8px">
+        <label class="required" for="bd-reason">解除原因</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="bd-reason" placeholder="仅管理员可解除绑定，原因必填并留审计">
+          <p class="adm-form-item__err">请输入解除原因</p>
+        </div>
+      </div>
+      <p class="adm-form-tip">success 为终态不可逆；管理员解除绑定仅用于数据纠错（如被邀请人身份错误），操作需留审计。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>关 闭</button>
+      <button class="adm-btn adm-btn--danger" type="button" id="btn-binding-ok">解除绑定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 通用二次确认 -->
+<div class="adm-modal" id="modal-confirm" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="confirm-title">二次确认</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body" id="confirm-body"></div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-confirm-ok">确 定</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.PAGE_META = {
+    id: "ADM-02",
+    title: "邀请码管理",
+    live: "yes",
+    note: "新增：批量生成（进度 / 断点续跑）+ 使用记录（绑定）+ 官方码配置",
+    fr: ["FR-013", "FR-012"],
+    ac: ["AC-015", "AC-016", "AC-009 ~ AC-014", "AC-051 ~ AC-056"],
+    goal: "运营在后台批量生成、检索、停用邀请码，并查看「一被邀请人一邀请人」的绑定与发放情况；官方码的两个开关（是否要求新客 / 总量上限）在此配置。",
+    states: [
+      "码状态：active（生效中）⇄ disabled（人工停用）；达上限自动 exhausted（已用满），可人工上调上限恢复。",
+      "绑定状态：pending（待达标，可覆盖换码）/ success（已发放，终态锁定）/ expired（超 2027-02-10 00:00 未达标）。",
+      "批量生成：运行中展示进度；中断后可断点续跑，已生成客户跳过。",
+      "筛选无结果：表格空态；未勾选批量停用：toast 提示。"
+    ],
+    notes: [
+      "页签切换「邀请码列表 / 使用记录」，两个页签各有独立筛选与分页。",
+      "列表行操作按状态给出：生效中 → 停用；已停用 → 恢复；已用满 → 上调上限后恢复。",
+      "「使用记录」由邀请码行操作直接跳转并带入码过滤（跨页签联动）。",
+      "官方码保存走二次确认弹窗，展示变更前后值；总量上限不得低于已用量（1,238）。",
+      "管理员可解除绑定（需填原因 + 留审计）；success 终态，仅用于数据纠错。"
+    ],
+    todo: [
+      "批量生成耗时口径（10,000 个 / 42s）与「1,506 个」演示结果需按真实客户量校准；PRD AC-015 为 10,000 个全量。",
+      "官方码是否也适用「单码上限」与生成入口（PRD 只写数量可控）待确认。",
+      "码停用后是否通知已持有该码的客户（PRD 未定义，本期不做）。"
+    ]
+  };
+
+  window.DEMOS = [
+    { label: "打开批量生成", fn: function () { window.INV.openGen(); } },
+    { label: "演示生成进度 → 结果", fn: function () { window.INV.demoGen(); } },
+    { label: "打开官方码配置", fn: function () { window.INV.openOfficial(); } },
+    { label: "切到使用记录", fn: function () { window.INV.toUseTab(); } },
+    { label: "停用一个邀请码", fn: function () { window.INV.disableDemo(); } },
+    { label: "筛选空态", fn: function () { window.INV.emptyList(); } }
+  ];
+</script>
+<script>
+  Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "POST",
+      "path": "/api/admin/invite/generate",
+      "desc": "批量生成客户唯一码：异步任务，可查看进度、断点续跑"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/invite/list",
+      "desc": "筛选：code, cif, code_type, status, used"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/invite/disable",
+      "desc": "停用/恢复；需原因"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/invite/bindings",
+      "desc": "绑定记录：invitee/inviter/code/status/invoice/cards"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/invite/official-config",
+      "desc": "官方码配置 require_new_customer / total_cap"
+    }
+  ],
+  "fields": [
+    "单码上限默认 100；官方码 require_new_customer 默认是；total_cap 默认 2,000",
+    "解除绑定需原因 + 审计"
+  ],
+  "rules": [
+    "码 active → exhausted（达上限）/ disabled（人工停用）→ 可恢复 active",
+    "一被邀请人仅一个邀请人；pending 可覆盖；success 锁定",
+    "官方码不建绑定、不占名额、每 CIF 限 1 张",
+    "批量生成与客户 1:1，任务互斥锁"
+  ],
+  "permissions": [
+    "管理员：全部",
+    "运营：查询/停用/恢复",
+    "只读：仅查看"
+  ],
+  "events": [
+    "invite_bind、reward_claim（服务端）"
+  ],
+  "devNotes": [
+    "批量任务只允许 1 个运行；中断可续跑；owner 唯一冲突跳过并记录",
+    "解除 success 绑定后已发卡是否回收待确认",
+    "总量/单码上限均需服务端强校验"
+  ]
+});
+</script>
+<script src="../assets/js/legacy.js"></script>
+<script>
+  (function () {
+    var $ = U.$;
+    var $$ = U.$$;
+
+    var CODES = [
+      { code: "CH7K2M9Q", cif: "10009502", type: "normal", used: 12, max: 100, status: "active", time: "2026-11-20 09:12" },
+      { code: "CH7K2M9R", cif: "10008496", type: "normal", used: 100, max: 100, status: "exhausted", time: "2026-11-20 09:12" },
+      { code: "CH7K2M9S", cif: "10019544", type: "normal", used: 0, max: 100, status: "active", time: "2026-11-20 09:12" },
+      { code: "CH7K2M9T", cif: "10013992", type: "normal", used: 3, max: 100, status: "disabled", time: "2026-11-20 09:12" },
+      { code: "OFC2027A", cif: "—（官方）", type: "official", used: 1238, max: 2000, status: "active", time: "2026-11-18 14:05" },
+      { code: "CH7K2M9U", cif: "10022871", type: "normal", used: 47, max: 100, status: "active", time: "2026-11-20 09:13" },
+      { code: "CH7K2M9V", cif: "10031805", type: "normal", used: 99, max: 100, status: "active", time: "2026-11-20 09:13" },
+      { code: "CH7K2M9W", cif: "10041236", type: "normal", used: 100, max: 100, status: "exhausted", time: "2026-11-20 09:14" },
+      { code: "CH7K2M9X", cif: "10050712", type: "normal", used: 1, max: 100, status: "active", time: "2026-11-20 09:14" },
+      { code: "CH7K2M9Y", cif: "10060428", type: "normal", used: 0, max: 100, status: "disabled", time: "2026-11-20 09:15" },
+      { code: "CH7K2M9Z", cif: "10070913", type: "normal", used: 8, max: 100, status: "active", time: "2026-11-20 09:15" },
+      { code: "CH7K2N2A", cif: "10081540", type: "normal", used: 56, max: 100, status: "active", time: "2026-11-20 09:16" }
+    ];
+
+    var BINDS = [
+      { invitee: "10099901", inviter: "10009502", code: "CH7K2M9Q", status: "success", invoice: "ES25000149", amt: "2,580.00", icard: "01136", vcard: "01134", created: "2026-12-02 11:04", updated: "2026-12-02 11:04", note: "" },
+      { invitee: "10099904", inviter: "10008496", code: "CH7K2M9R", status: "success", invoice: "ES25000169", amt: "1,479.58", icard: "01141", vcard: "—", created: "2026-12-03 09:22", updated: "2026-12-03 09:22", note: "邀请人已达 100 张上限：新客照发 1 张，邀请人不得（AC-056）。" },
+      { invitee: "10099912", inviter: "10019544", code: "CH7K2M9S", status: "success", invoice: "ES25000001", amt: "5,156.13", icard: "01145", vcard: "01132", created: "2026-12-03 15:40", updated: "2026-12-03 15:40", note: "" },
+      { invitee: "10099915", inviter: "10022871", code: "CH7K2M9U", status: "success", invoice: "ES25000033", amt: "1,120.00", icard: "01148", vcard: "01127", created: "2026-12-04 10:07", updated: "2026-12-04 10:07", note: "" },
+      { invitee: "10099921", inviter: "10031805", code: "CH7K2M9V", status: "success", invoice: "ES25000016", amt: "2,850.69", icard: "01152", vcard: "01129", created: "2026-12-05 16:12", updated: "2026-12-05 16:12", note: "" },
+      { invitee: "10099933", inviter: "10050712", code: "CH7K2M9X", status: "pending", invoice: "—", amt: "—", icard: "—", vcard: "—", created: "2026-12-08 12:31", updated: "2026-12-08 12:31", note: "未检索到单张 ≥1,000€（不含 IVA）的有效发票，绑定置 pending，发票同步后自动发放（AC-054）。" },
+      { invitee: "10099940", inviter: "10070913", code: "CH7K2M9Z", status: "pending", invoice: "—", amt: "—", icard: "—", vcard: "—", created: "2026-12-09 09:15", updated: "2026-12-09 09:15", note: "待发票同步；超 2027-02-10 00:00 未达标将转 expired（AC-055）。" },
+      { invitee: "10099941", inviter: "10009502", code: "CH7K2M9Q", status: "pending", invoice: "—", amt: "—", icard: "—", vcard: "—", created: "2026-12-09 17:02", updated: "2026-12-10 08:20", note: "曾提交其他邀请人的码后覆盖为本条（pending 期间可覆盖换码，以最后一次为准，AC-053）。" },
+      { invitee: "10099948", inviter: "10041236", code: "CH7K2M9W", status: "expired", invoice: "—", amt: "—", icard: "—", vcard: "—", created: "2026-12-10 08:44", updated: "2027-02-10 00:00", note: "超过 2027-02-10 00:00 仍未达标，绑定统一转 expired，不发卡（AC-055）。" },
+      { invitee: "10099952", inviter: "10081540", code: "CH7K2N2A", status: "expired", invoice: "—", amt: "—", icard: "—", vcard: "—", created: "2026-12-11 14:26", updated: "2027-02-10 00:00", note: "" },
+      { invitee: "10099960", inviter: "10013992", code: "CH7K2M9T", status: "success", invoice: "ES25000016", amt: "2,850.69", icard: "01160", vcard: "01131", created: "2026-12-12 10:55", updated: "2026-12-12 10:55", note: "码后续被停用，但绑定已建立不回溯校验码状态（PRD FR-012 规则 11）。" },
+      { invitee: "10099968", inviter: "10041236", code: "CH7K2M9W", status: "success", invoice: "ES25000149", amt: "2,580.00", icard: "01164", vcard: "01166", created: "2026-12-13 11:38", updated: "2026-12-13 11:38", note: "" }
+    ];
+
+    var TYPE_TXT = { normal: "普通码", official: "官方码" };
+    var CODE_ST = { active: "生效中", exhausted: "已用满", disabled: "已停用" };
+    var BIND_ST = { pending: "待达标 pending", success: "已发放 success", expired: "已过期 expired" };
+    var state = {
+      tab: "list",
+      list: { rows: CODES.slice(), page: 1, size: 10, checked: {}, filtered: false },
+      use: { rows: BINDS.slice(), page: 1, size: 10, filtered: false },
+      cfg: { requireNew: true, cap: 2000, used: 1238 },
+      capCode: null,
+      bind: null,
+      confirmOk: null
+    };
+
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.classList.add("is-open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(m) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+    function findCode(code) {
+      for (var i = 0; i < CODES.length; i++) if (CODES[i].code === code) return CODES[i];
+      return null;
+    }
+    function num(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+
+    function pager(root, total, page, size, go) {
+      var pages = Math.max(1, Math.ceil(total / size));
+      if (page > pages) page = pages;
+      if (page < 1) page = 1;
+      var h = '<span class="adm-pager__total">共 ' + num(total) + ' 条</span>';
+      h += '<button type="button" data-go="' + (page - 1) + '"' + (page <= 1 ? " disabled" : "") + ">‹</button>";
+      for (var i = 1; i <= pages; i++) {
+        if (pages > 7 && i > 2 && i < pages - 1 && Math.abs(i - page) > 1) {
+          if (i === 3) h += "<span>•••</span>";
+          continue;
+        }
+        h += '<button type="button" data-go="' + i + '"' + (i === page ? ' class="is-active"' : "") + ">" + i + "</button>";
+      }
+      h += '<button type="button" data-go="' + (page + 1) + '"' + (page >= pages ? " disabled" : "") + ">›</button>";
+      h += '<select aria-label="每页条数">' +
+        [10, 20, 50].map(function (n) {
+          return '<option value="' + n + '"' + (n === size ? " selected" : "") + ">" + n + " 条/页</option>";
+        }).join("") + "</select>";
+      root.innerHTML = h;
+      $$("[data-go]", root).forEach(function (b) {
+        b.addEventListener("click", function () { go(b.getAttribute("data-go")); });
+      });
+      var sel = $("select", root);
+      sel.addEventListener("change", function () { go("size:" + sel.value); });
+    }
+
+    /* ---------- 邀请码列表 ---------- */
+    function renderList() {
+      var st = state.list;
+      var pages = Math.max(1, Math.ceil(st.rows.length / st.size));
+      if (st.page > pages) st.page = pages;
+      var start = (st.page - 1) * st.size;
+      var rows = st.rows.slice(start, start + st.size);
+      var tb = $("#list-rows");
+      if (!st.rows.length) {
+        tb.innerHTML = '<tr><td colspan="8"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无邀请码，可调整筛选条件或点击「批量生成邀请码」</div></td></tr>';
+      } else {
+        tb.innerHTML = rows.map(function (r) {
+          var pct = Math.min(100, Math.round(r.used / r.max * 100));
+          var statusOp = r.status === "active"
+            ? '<button type="button" data-act="disable" data-code="' + r.code + '">停用</button>'
+            : r.status === "disabled"
+              ? '<button type="button" data-act="enable" data-code="' + r.code + '">恢复</button>'
+              : '<button type="button" data-act="cap" data-code="' + r.code + '">上调上限</button>';
+          var ops = statusOp;
+          if (r.type === "official") ops += '<button type="button" data-act="cfg" data-code="' + r.code + '">配置</button>';
+          else ops += '<button type="button" data-act="use" data-code="' + r.code + '">使用记录</button>';
+          return "<tr>" +
+            '<td class="col-check"><input type="checkbox" data-check="' + r.code + '"' + (st.checked[r.code] ? " checked" : "") + "></td>" +
+            '<td class="num">' + r.code + "</td>" +
+            '<td class="num">' + r.cif + "</td>" +
+            '<td><span class="adm-source adm-source--' + (r.type === "official" ? "official" : "invite") + '">' + TYPE_TXT[r.type] + "</span></td>" +
+            '<td class="num">' + r.used + ' <span class="muted">/ ' + r.max + "</span>" +
+            (r.type === "official" ? '<span class="inv-note">官方码总量 · 已用 ' + pct + "%</span>" : "") + "</td>" +
+            '<td><span class="adm-status inv-st--' + r.status + '">' + CODE_ST[r.status] + "</span></td>" +
+            '<td class="nowrap muted">' + r.time + "</td>" +
+            '<td><span class="adm-table__op">' + ops + "</span></td>" +
+            "</tr>";
+        }).join("");
+      }
+      pager($("#list-pager"), st.rows.length, st.page, st.size, function (go) {
+        if (String(go).indexOf("size:") === 0) {
+          st.size = parseInt(String(go).slice(5), 10);
+          st.page = 1;
+          st.checked = {};
+          $("#check-all").checked = false;
+        } else {
+          st.page = parseInt(go, 10);
+        }
+        renderList();
+      });
+      syncCheckAll();
+    }
+
+    function syncCheckAll() {
+      var boxes = $$("#list-rows input[data-check]");
+      if (!boxes.length) { $("#check-all").checked = false; return; }
+      $("#check-all").checked = boxes.every(function (b) { return b.checked; });
+    }
+
+    function renderUse() {
+      var st = state.use;
+      var pages = Math.max(1, Math.ceil(st.rows.length / st.size));
+      if (st.page > pages) st.page = pages;
+      var start = (st.page - 1) * st.size;
+      var rows = st.rows.slice(start, start + st.size);
+      var tb = $("#use-rows");
+      if (!st.rows.length) {
+        tb.innerHTML = '<tr><td colspan="8"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无邀请绑定记录</div></td></tr>';
+      } else {
+        tb.innerHTML = rows.map(function (r) {
+          var cards = r.icard + " / " + r.vcard;
+          var note = "";
+          if (r.status === "success" && r.vcard === "—") note = '<span class="inv-note" style="color:#d46b08">邀请人已达上限</span>';
+          return "<tr>" +
+            '<td class="num">' + r.invitee + "</td>" +
+            '<td class="num">' + r.inviter + "</td>" +
+            '<td class="num">' + r.code + "</td>" +
+            '<td><span class="adm-status inv-st--' + r.status + '">' + BIND_ST[r.status] + "</span></td>" +
+            '<td class="num">' + r.invoice + "</td>" +
+            '<td class="num">' + cards + note + "</td>" +
+            '<td class="nowrap muted">' + r.created + "</td>" +
+            '<td><span class="adm-table__op"><button type="button" data-act="binding" data-cif="' + r.invitee + '">详情</button></span></td>' +
+            "</tr>";
+        }).join("");
+      }
+      pager($("#use-pager"), st.rows.length, st.page, st.size, function (go) {
+        if (String(go).indexOf("size:") === 0) {
+          st.size = parseInt(String(go).slice(5), 10);
+          st.page = 1;
+        } else {
+          st.page = parseInt(go, 10);
+        }
+        renderUse();
+      });
+      $("#tab-use-count").textContent = BINDS.length;
+    }
+
+    function render() { renderList(); renderUse(); }
+
+    /* ---------- 页签 ---------- */
+    function switchTab(tab) {
+      state.tab = tab;
+      $$(".inv-tab").forEach(function (b) {
+        b.classList.toggle("is-active", b.getAttribute("data-tab") === tab);
+      });
+      $("#pane-list").hidden = tab !== "list";
+      $("#pane-use").hidden = tab !== "use";
+    }
+    function toUseTab() { switchTab("use"); }
+
+    /* ---------- 列表筛选 / 操作 ---------- */
+    function applyListFilter(silent) {
+      var code = $("#f-code").value.trim().toUpperCase();
+      var cif = $("#f-cif").value.trim();
+      var type = $("#f-type").value;
+      var status = $("#f-status").value;
+      var usage = $("#f-usage").value;
+      state.list.rows = CODES.filter(function (r) {
+        var usageOk = !usage ||
+          (usage === "zero" && r.used === 0) ||
+          (usage === "part" && r.used > 0 && r.used < r.max) ||
+          (usage === "full" && r.used >= r.max);
+        return (!code || r.code.indexOf(code) >= 0) &&
+          (!cif || r.cif.indexOf(cif) >= 0) &&
+          (!type || r.type === type) &&
+          (!status || r.status === status) &&
+          usageOk;
+      });
+      state.list.filtered = true;
+      state.list.page = 1;
+      state.list.checked = {};
+      $("#check-all").checked = false;
+      renderList();
+      if (!silent) U.toast("查询完成，共 " + state.list.rows.length + " 条（演示数据）");
+    }
+
+    function resetList() {
+      $("#filters-list").reset();
+      state.list.rows = CODES.slice();
+      state.list.filtered = false;
+      state.list.page = 1;
+      state.list.checked = {};
+      $("#check-all").checked = false;
+      renderList();
+      U.toast("已重置");
+    }
+
+    function setCodeStatus(code, st) {
+      var r = findCode(code);
+      if (!r) return;
+      r.status = st;
+      renderList();
+      U.toast("邀请码 " + code + " 已" + (st === "disabled" ? "停用（客户提交将返回统一错误，AC-016）" : "恢复生效"));
+    }
+
+    function openCap(code) {
+      var r = findCode(code);
+      if (!r) return;
+      state.capCode = code;
+      $("#cap-code").value = r.code;
+      $("#cap-now").value = r.used + " / " + r.max;
+      $("#cap-new").value = r.max + 20;
+      $("#cap-new").closest(".adm-form-item").classList.remove("is-error");
+      openModal("modal-cap");
+    }
+
+    /* ---------- 使用记录筛选 / 详情 ---------- */
+    function applyUseFilter(silent) {
+      var invitee = $("#f-invitee").value.trim();
+      var inviter = $("#f-inviter").value.trim();
+      var code = $("#f-ucode").value.trim().toUpperCase();
+      var status = $("#f-ustatus").value;
+      var from = $("#f-udate").value.trim();
+      var to = $("#f-udate-end").value.trim();
+      state.use.rows = BINDS.filter(function (r) {
+        var d = r.created.slice(0, 10);
+        return (!invitee || r.invitee.indexOf(invitee) >= 0) &&
+          (!inviter || r.inviter.indexOf(inviter) >= 0) &&
+          (!code || r.code.indexOf(code) >= 0) &&
+          (!status || r.status === status) &&
+          (!from || d >= from) &&
+          (!to || d <= to);
+      });
+      state.use.filtered = true;
+      state.use.page = 1;
+      renderUse();
+      if (!silent) U.toast("查询完成，共 " + state.use.rows.length + " 条（演示数据）");
+    }
+
+    function resetUse() {
+      $("#filters-use").reset();
+      state.use.rows = BINDS.slice();
+      state.use.filtered = false;
+      state.use.page = 1;
+      renderUse();
+      U.toast("已重置");
+    }
+
+    function goUseByCode(code) {
+      switchTab("use");
+      $("#f-ucode").value = code;
+      $("#f-invitee").value = "";
+      $("#f-inviter").value = "";
+      $("#f-ustatus").value = "";
+      $("#f-udate").value = "";
+      $("#f-udate-end").value = "";
+      applyUseFilter(true);
+      U.toast("已筛选邀请码 " + code + " 的使用记录");
+    }
+
+    function openBinding(cif) {
+      var b = null;
+      for (var i = 0; i < BINDS.length; i++) if (BINDS[i].invitee === cif) b = BINDS[i];
+      if (!b) return;
+      state.bind = b;
+      $("#bd-invitee").textContent = b.invitee;
+      $("#bd-inviter").textContent = b.inviter;
+      $("#bd-code").textContent = b.code;
+      $("#bd-status").innerHTML = '<span class="adm-status inv-st--' + b.status + '">' + BIND_ST[b.status] + "</span>";
+      $("#bd-invoice").textContent = b.invoice;
+      $("#bd-amt").textContent = b.amt === "—" ? "—" : b.amt + " €（不含 IVA）";
+      $("#bd-cards").textContent = b.icard + " / " + b.vcard;
+      $("#bd-created").textContent = b.created;
+      $("#bd-updated").textContent = b.updated;
+      if (b.note) {
+        $("#bd-note").hidden = false;
+        $("#bd-note").querySelector("span:last-child").textContent = b.note;
+      } else {
+        $("#bd-note").hidden = true;
+      }
+      $("#bd-reason").value = "";
+      $("#bd-reason").closest(".adm-form-item").classList.remove("is-error");
+      openModal("modal-binding");
+    }
+
+    /* ---------- 批量生成 ---------- */
+    var genTimer = null;
+    function openGen() {
+      $("#gen-form").hidden = false;
+      $("#gen-prog").hidden = true;
+      $("#gen-result").hidden = true;
+      $("#gen-foot-form").hidden = false;
+      $("#gen-foot-done").hidden = true;
+      $("#gen-bar").style.width = "0%";
+      $("#gen-meta").textContent = "已处理 0 / 10,000";
+      $("#gen-meta2").textContent = "新增 0 · 跳过 0";
+      $("#gen-cap").closest(".adm-form-item").classList.remove("is-error");
+      openModal("modal-gen");
+    }
+
+    function startGen() {
+      var cap = parseInt($("#gen-cap").value, 10);
+      var item = $("#gen-cap").closest(".adm-form-item");
+      if (!cap || cap < 1) { item.classList.add("is-error"); return; }
+      if (cap > 1000) { item.classList.add("is-error"); return; }
+      item.classList.remove("is-error");
+      $("#gen-form").hidden = true;
+      $("#gen-prog").hidden = false;
+      $("#gen-result").hidden = true;
+      $("#gen-foot-form").hidden = true;
+      $("#gen-foot-done").hidden = true;
+      var p = 0;
+      if (genTimer) clearInterval(genTimer);
+      genTimer = setInterval(function () {
+        p += 8;
+        if (p > 100) p = 100;
+        var processed = Math.round(10000 * p / 100);
+        var generated = Math.round(1506 * p / 100);
+        var skipped = processed - generated;
+        $("#gen-bar").style.width = p + "%";
+        $("#gen-meta").textContent = "已处理 " + num(processed) + " / 10,000（" + p + "%）";
+        $("#gen-meta2").textContent = "新增 " + num(generated) + " · 跳过 " + num(skipped);
+        if (p >= 100) {
+          clearInterval(genTimer);
+          genTimer = null;
+          $("#gen-prog").hidden = true;
+          $("#gen-result").hidden = false;
+          $("#gen-foot-done").hidden = false;
+          $("#strip-gen").textContent = "10,000";
+          U.toast("批量生成完成：新增 1,506 个邀请码（演示）");
+        }
+      }, 90);
+    }
+
+    function demoGen() {
+      openGen();
+      setTimeout(startGen, 120);
+    }
+
+    /* ---------- 官方码配置 ---------- */
+    function openOfficial() {
+      $$("input[name=cfg-new]").forEach(function (r) {
+        r.checked = (r.value === "yes") === state.cfg.requireNew;
+      });
+      $("#cfg-cap").value = state.cfg.cap;
+      $("#cfg-used-cap").textContent = num(state.cfg.cap);
+      $("#cfg-cap").closest(".adm-form-item").classList.remove("is-error");
+      openModal("modal-official");
+    }
+
+    function applyOfficialStrip() {
+      $("#strip-ocap").textContent = num(state.cfg.used) + " / " + num(state.cfg.cap);
+      $("#strip-bar").style.width = (state.cfg.used / state.cfg.cap * 100) + "%";
+      $("#strip-tip").textContent = "require_new_customer " + (state.cfg.requireNew ? "是" : "否") +
+        " · total_cap " + num(state.cfg.cap) + " · 单码上限 100";
+    }
+
+    function saveOfficial() {
+      var requireNew = $("input[name=cfg-new]:checked").value === "yes";
+      var cap = parseInt($("#cfg-cap").value, 10);
+      var item = $("#cfg-cap").closest(".adm-form-item");
+      if (!cap || cap < state.cfg.used) { item.classList.add("is-error"); return; }
+      item.classList.remove("is-error");
+      if (requireNew === state.cfg.requireNew && cap === state.cfg.cap) {
+        U.toast("配置未变更");
+        closeModal($("#modal-official"));
+        return;
+      }
+      confirmBox({
+        title: "官方码配置变更确认",
+        html: '<p class="inv-lines" style="margin-bottom:10px">高风险配置，变更立即生效并写入审计日志（操作人 / 时间 / 前后值 / IP）。</p>' +
+          '<div class="inv-lines">是否要求新客资格：<b>' + (state.cfg.requireNew ? "是" : "否") + "</b> → <b>" + (requireNew ? "是" : "否") + "</b></div>" +
+          '<div class="inv-lines">总量上限 total_cap：<b>' + num(state.cfg.cap) + "</b> → <b>" + num(cap) + "</b>（已用 " + num(state.cfg.used) + "）</div>",
+        okText: "确 认 变 更",
+        onOk: function () {
+          state.cfg.requireNew = requireNew;
+          state.cfg.cap = cap;
+          closeModal($("#modal-official"));
+          applyOfficialStrip();
+          U.toast("官方码配置已保存（require_new_customer=" + (requireNew ? "是" : "否") + "，total_cap=" + num(cap) + "，已留审计）");
+        }
+      });
+    }
+
+    /* ---------- 通用二次确认 ---------- */
+    function confirmBox(opts) {
+      $("#confirm-title").textContent = opts.title || "二次确认";
+      $("#confirm-body").innerHTML = opts.html || "";
+      var ok = $("#btn-confirm-ok");
+      ok.textContent = opts.okText || "确 定";
+      ok.className = "adm-btn " + (opts.danger ? "adm-btn--danger" : "adm-btn--primary");
+      state.confirmOk = opts.onOk || null;
+      openModal("modal-confirm");
+    }
+
+    /* ---------- 演示动作 ---------- */
+    function disableDemo() {
+      switchTab("list");
+      setCodeStatus("CH7K2M9Q", "disabled");
+    }
+    function emptyList() {
+      switchTab("list");
+      $("#f-code").value = "ZZZZ";
+      applyListFilter(true);
+      U.toast("已演示筛选空态");
+    }
+
+    /* ---------- 事件绑定 ---------- */
+    $("#btn-search").addEventListener("click", function () { applyListFilter(); });
+    $("#btn-reset").addEventListener("click", resetList);
+    $("#btn-export").addEventListener("click", function () {
+      U.toast("已导出当前筛选结果（" + state.list.rows.length + " 条，演示）");
+    });
+    $("#btn-batch-disable").addEventListener("click", function () {
+      var codes = Object.keys(state.list.checked).filter(function (k) { return state.list.checked[k]; });
+      if (!codes.length) { U.toast("请先勾选需要停用的邀请码"); return; }
+      confirmBox({
+        title: "批量停用邀请码",
+        html: '<div class="inv-lines">已勾选 <b>' + codes.length + "</b> 个邀请码：" + codes.join("、") +
+          '。<br>停用后客户提交该码将返回统一错误 <b>信息不匹配，请核对后重试</b>（AC-016），已建立的绑定不受影响。</div>',
+        okText: "确 认 停 用",
+        onOk: function () {
+          codes.forEach(function (c) {
+            var r = findCode(c);
+            if (r) r.status = "disabled";
+          });
+          state.list.checked = {};
+          $("#check-all").checked = false;
+          renderList();
+          U.toast("已停用 " + codes.length + " 个邀请码（演示）");
+        }
+      });
+    });
+    $("#btn-official").addEventListener("click", openOfficial);
+    $("#btn-gen").addEventListener("click", openGen);
+    $("#btn-gen-ok").addEventListener("click", startGen);
+    $("#btn-official-ok").addEventListener("click", saveOfficial);
+    $("#btn-cap-ok").addEventListener("click", function () {
+      var r = findCode(state.capCode);
+      if (!r) return;
+      var n = parseInt($("#cap-new").value, 10);
+      var item = $("#cap-new").closest(".adm-form-item");
+      if (!n || n <= r.used) { item.classList.add("is-error"); return; }
+      item.classList.remove("is-error");
+      r.max = n;
+      r.status = "active";
+      closeModal($("#modal-cap"));
+      renderList();
+      U.toast("邀请码 " + r.code + " 上限已上调至 " + n + "（演示）");
+    });
+    $("#btn-use-search").addEventListener("click", function () { applyUseFilter(); });
+    $("#btn-use-reset").addEventListener("click", resetUse);
+    $("#btn-use-export").addEventListener("click", function () {
+      U.toast("已导出当前绑定记录（" + state.use.rows.length + " 条，演示）");
+    });
+    $("#btn-binding-ok").addEventListener("click", function () {
+      var b = state.bind;
+      if (!b) return;
+      var reason = $("#bd-reason").value.trim();
+      var item = $("#bd-reason").closest(".adm-form-item");
+      if (!reason) { item.classList.add("is-error"); return; }
+      item.classList.remove("is-error");
+      var idx = -1;
+      for (var i = 0; i < BINDS.length; i++) if (BINDS[i] === b) idx = i;
+      if (idx >= 0) BINDS.splice(idx, 1);
+      state.use.rows = BINDS.slice();
+      state.use.page = 1;
+      closeModal($("#modal-binding"));
+      renderUse();
+      U.toast("已解除绑定（原因：" + reason + "，已留审计）");
+    });
+    $("#btn-confirm-ok").addEventListener("click", function () {
+      var fn = state.confirmOk;
+      state.confirmOk = null;
+      closeModal($("#modal-confirm"));
+      if (fn) fn();
+    });
+
+    $("#list-rows").addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("button[data-act]") : null;
+      if (!b) return;
+      var act = b.getAttribute("data-act");
+      var code = b.getAttribute("data-code");
+      if (act === "disable") setCodeStatus(code, "disabled");
+      else if (act === "enable") setCodeStatus(code, "active");
+      else if (act === "cap") openCap(code);
+      else if (act === "cfg") openOfficial();
+      else if (act === "use") goUseByCode(code);
+    });
+    $("#list-rows").addEventListener("change", function (e) {
+      var c = e.target.closest ? e.target.closest("input[data-check]") : null;
+      if (!c) return;
+      state.list.checked[c.getAttribute("data-check")] = c.checked;
+      syncCheckAll();
+    });
+    $("#use-rows").addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("button[data-act=binding]") : null;
+      if (!b) return;
+      openBinding(b.getAttribute("data-cif"));
+    });
+
+    $("#check-all").addEventListener("change", function () {
+      var on = this.checked;
+      $$("#list-rows input[data-check]").forEach(function (c) {
+        c.checked = on;
+        state.list.checked[c.getAttribute("data-check")] = on;
+      });
+      syncCheckAll();
+    });
+
+    $$(".inv-tab").forEach(function (b) {
+      b.addEventListener("click", function () { switchTab(b.getAttribute("data-tab")); });
+    });
+
+    $$("[data-close]").forEach(function (b) {
+      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
+    });
+
+    window.INV = {
+      openGen: openGen,
+      demoGen: demoGen,
+      openOfficial: openOfficial,
+      toUseTab: toUseTab,
+      disableDemo: disableDemo,
+      emptyList: emptyList
+    };
+
+    render();
+  })();
+</script>
+</body>
+</html>

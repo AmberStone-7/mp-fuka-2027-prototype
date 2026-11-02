@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中奖记录 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    /* ---------- 中奖记录页内样式（仅本页，前缀 win-） ---------- */
+    .win-banner {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin: 12px 0 16px;
+      padding: 10px 12px;
+      border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(0, 0, 0, 0.65);
+      background: #fafafa;
+    }
+    .win-banner--warn { background: #fffbe6; border-color: #ffe58f; }
+    .win-banner__ico { flex: none; font-weight: 600; color: #1677ff; }
+    .win-banner--warn .win-banner__ico { color: #faad14; }
+    .win-banner__muted { margin-left: auto; flex: none; color: rgba(0, 0, 0, 0.45); }
+
+    /* 列较多：沿用去年紧凑排布；操作列固定右侧，横向滚动时始终可见 */
+    .win-table-wrap { overflow-x: auto; overflow-y: hidden; }
+    .win-table { min-width: 1560px; }
+    .win-table th,
+    .win-table td { padding-left: 10px; padding-right: 10px; font-size: 13px; }
+    .win-table th { font-size: 13px; }
+    .win-table .win-cust { line-height: 1.45; white-space: nowrap; }
+    .win-table .win-cust__no {
+      display: block;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .win-table .win-prize { max-width: 208px; }
+    .win-table .win-remark { max-width: 196px; }
+    .win-table .win-sales { white-space: nowrap; }
+    .win-ellipsis { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    /* 操作列固定在右侧，避免多列表格必须横向滚动才能编辑 */
+    .win-table th:last-child,
+    .win-table td:last-child {
+      position: sticky;
+      right: 0;
+      z-index: 2;
+      background: #fff;
+      box-shadow: -6px 0 8px -6px rgba(0, 0, 0, 0.14);
+      white-space: nowrap;
+    }
+    .win-table thead th:last-child { background: #fafafa; }
+    .win-table tbody tr:hover td:last-child { background: #fafafa; }
+
+    .win-st--to { color: rgba(0, 0, 0, 0.65); }
+    .win-st--contacted { color: #1677ff; }
+    .win-st--fulfilled { color: #389e0d; }
+    .win-st--expired { color: #cf1322; }
+    .win-st--auto { color: rgba(0, 0, 0, 0.45); }
+
+    .win-pg { display: flex; align-items: center; gap: 8px; }
+    .adm-form-item__ctrl .win-note { height: auto; min-height: 68px; padding: 6px 11px; resize: vertical; line-height: 1.6; }
+    .win-batch-count { margin-bottom: 16px; font-size: 14px; color: rgba(0, 0, 0, 0.88); }
+    .win-batch-count b { color: #1677ff; }
+    .win-modal-alert { margin-bottom: 16px; }
+    .win-modal-sub { margin: -4px 0 12px; font-size: 13px; color: rgba(0, 0, 0, 0.45); }
+    #form-body[hidden], #form-empty[hidden] { display: none !important; }
+    #modal-form .adm-modal__box { width: min(560px, 100%); }
+    #modal-form .adm-form-item > label { width: 132px; }
+  </style>
+</head>
+<body class="adm">
+
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item" href="cards.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+      福卡管理
+    </a>
+    <a class="adm-menu__item" href="invite.html">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
+      邀请码管理
+    </a>
+    <a class="adm-menu__item" href="draw.html">
+      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
+      抽奖管理
+    </a>
+    <a class="adm-menu__item" href="prizes.html">
+      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
+      奖品管理
+    </a>
+    <a class="adm-menu__item is-active" href="winners.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      中奖记录
+    </a>
+    <a class="adm-menu__item" href="email.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+      邮件日志
+    </a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+
+  <div class="adm-crumb">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+    <span>/</span>
+    <b>中奖记录</b>
+  </div>
+
+  <div class="win-banner" id="banner">
+    <span class="win-banner__ico" id="banner-ico">i</span>
+    <span id="banner-text">本期开奖已于 2027-02-10 完成；二等奖登记截止 2027-02-25 23:59；五等奖随单发放、系统不追踪（DEC-037）。</span>
+    <span class="win-banner__muted" id="banner-extra">演示数据 14 条</span>
+  </div>
+
+  <form class="adm-filters" id="filters" onsubmit="return false">
+    <div class="adm-field">
+      <label for="f-card">福卡编号</label>
+      <input class="adm-input" id="f-card" placeholder="请输入福卡编号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-cust">客户号 / CIF</label>
+      <input class="adm-input" id="f-cust" placeholder="1000xxxx 或 B12xxxxxx" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-sales">业务员编号</label>
+      <input class="adm-input" id="f-sales" placeholder="请输入业务员编号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-level">奖品级别</label>
+      <select class="adm-select" id="f-level">
+        <option value="">全部级别</option>
+        <option value="1">一等奖</option>
+        <option value="2">二等奖</option>
+        <option value="3">三等奖</option>
+        <option value="4">四等奖</option>
+        <option value="5">五等奖</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-dispatch">派发方式</label>
+      <select class="adm-select" id="f-dispatch">
+        <option value="">全部方式</option>
+        <option value="快递">快递</option>
+        <option value="随单">随单</option>
+        <option value="自提">自提</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-status">领取状态</label>
+      <select class="adm-select" id="f-status">
+        <option value="">全部状态</option>
+        <option value="to_contact">待联系</option>
+        <option value="contacted">已联系</option>
+        <option value="fulfilled">已发放</option>
+        <option value="expired">已失效</option>
+        <option value="auto_ship">随单发放（不追踪）</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-won-start">中奖时间</label>
+      <span class="adm-daterange">
+        <input class="adm-input" id="f-won-start" placeholder="开始日期">
+        <span>→</span>
+        <input class="adm-input" id="f-won-end" placeholder="结束日期">
+      </span>
+    </div>
+    <div class="adm-filters__btns">
+      <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
+      <button class="adm-btn" id="btn-reset" type="button">重 置</button>
+    </div>
+  </form>
+
+  <div class="adm-actions">
+    <button class="adm-btn" id="btn-batch" type="button">批量编辑</button>
+    <button class="adm-btn adm-btn--primary adm-actions__right" id="btn-export" type="button">导 出</button>
+  </div>
+
+  <div class="adm-table-wrap win-table-wrap">
+    <table class="adm-table win-table">
+      <thead>
+        <tr>
+          <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
+          <th>幸运福卡编号</th>
+          <th>账套</th>
+          <th>所属客户</th>
+          <th>客户手机号</th>
+          <th>业务员号</th>
+          <th>业务员名称</th>
+          <th>奖品名称</th>
+          <th>奖品级别</th>
+          <th>派发方式</th>
+          <th>领取状态</th>
+          <th>备注</th>
+          <th>中奖时间</th>
+          <th>最近修改时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="adm-pager">
+    <span class="adm-pager__total" id="pager-total">共 14 条</span>
+    <button type="button" id="pg-prev" aria-label="上一页">‹</button>
+    <span class="win-pg" id="pg-nums"></span>
+    <button type="button" id="pg-next" aria-label="下一页">›</button>
+    <select aria-label="每页条数" id="pg-size">
+      <option value="10">10 条/页</option>
+      <option value="20">20 条/页</option>
+      <option value="50">50 条/页</option>
+    </select>
+  </div>
+</main>
+
+<!-- 编辑单条 -->
+<div class="adm-modal" id="modal-edit" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-edit-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-edit-title">编辑中奖记录</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label>幸运福卡编号</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="e-card" readonly></div>
+      </div>
+      <div class="adm-form-item">
+        <label>奖品级别</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="e-level" readonly></div>
+      </div>
+      <div class="adm-form-item">
+        <label>所属客户</label>
+        <div class="adm-form-item__ctrl"><input class="adm-input" id="e-customer" readonly></div>
+      </div>
+      <div class="adm-form-item" id="item-dispatch">
+        <label class="required" for="e-dispatch">派发方式</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="e-dispatch">
+            <option value="快递">快递</option>
+            <option value="随单">随单</option>
+            <option value="自提">自提</option>
+          </select>
+        </div>
+      </div>
+      <div class="adm-form-item" id="item-status">
+        <label class="required" for="e-status">领取状态</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="e-status">
+            <option value="to_contact">待联系</option>
+            <option value="contacted">已联系</option>
+            <option value="fulfilled">已发放</option>
+            <option value="expired">已失效</option>
+          </select>
+          <input class="adm-input" id="e-status-ro" readonly>
+          <p class="adm-form-tip" id="e-status-tip"></p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label for="e-remark">备注</label>
+        <div class="adm-form-item__ctrl">
+          <textarea class="adm-input win-note" id="e-remark" placeholder="选填，例如联系记录、物流单号、代金券发送记录"></textarea>
+        </div>
+      </div>
+      <p class="adm-form-tip">保存后更新「最近修改时间」与操作人（演示）；二等奖登记信息由客户提交，后台只读。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-edit-ok">保 存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 二等奖登记信息（只读） -->
+<div class="adm-modal" id="modal-form" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-form-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-form-title">二等奖登记信息（只读）</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <p class="win-modal-sub" id="form-sub"></p>
+      <div id="form-body">
+        <div class="adm-form-item">
+          <label>业务员姓名</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-salesperson" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>CIF</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-cif" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>领取人姓名</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-receiver" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>领取人电话</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-phone" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>领取人地址</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-address" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>邮编</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-postcode" readonly></div>
+        </div>
+        <div class="adm-form-item">
+          <label>是否升级容量或颜色</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="fm-upgrade" readonly></div>
+        </div>
+        <p class="adm-form-tip">表单由客户在 H5 提交，后台只读；选「是」后由业务员线下提供颜色 / 容量及差价选项，系统不处理差价（DEC-036）。</p>
+      </div>
+      <div class="adm-empty" id="form-empty" hidden>
+        <div class="adm-empty__ico">—</div>
+        客户尚未提交登记信息（发布后 15 日内提交，2027-02-25 23:59 截止）
+      </div>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>关 闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 批量编辑 -->
+<div class="adm-modal" id="modal-batch" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-batch-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-batch-title">批量编辑中奖记录</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <p class="win-batch-count">已勾选 <b id="batch-count">0</b> 条记录（跨页勾选合并计算）</p>
+      <div class="adm-alert adm-alert--warn win-modal-alert">
+        <span class="adm-alert__ico">!</span>
+        <span>批量修改需二次确认；五等奖记录不追踪发放状态（DEC-037），批量修改领取状态时将自动跳过。</span>
+      </div>
+      <div class="adm-form-item" id="item-b-dispatch">
+        <label for="b-dispatch">派发方式</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="b-dispatch">
+            <option value="">不修改</option>
+            <option value="快递">快递</option>
+            <option value="随单">随单</option>
+            <option value="自提">自提</option>
+          </select>
+        </div>
+      </div>
+      <div class="adm-form-item" id="item-b-status">
+        <label for="b-status">领取状态</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="b-status">
+            <option value="">不修改</option>
+            <option value="to_contact">待联系</option>
+            <option value="contacted">已联系</option>
+            <option value="fulfilled">已发放</option>
+            <option value="expired">已失效</option>
+          </select>
+          <p class="adm-form-item__err">请选择至少一项要修改的内容</p>
+        </div>
+      </div>
+      <p class="adm-form-tip">一等奖至四等奖：待联系 → 已联系 → 已发放，异常分支已失效（FR-016）；二等奖另需运营审核客户登记信息。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-batch-next">确认修改</button>
+    </div>
+  </div>
+</div>
+
+<!-- 批量编辑二次确认 -->
+<div class="adm-modal" id="modal-batch-confirm" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-batch-confirm-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-batch-confirm-title">确认批量修改</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <p class="win-batch-count" id="batch-confirm-text"></p>
+      <p class="win-batch-count" id="batch-confirm-skip" hidden></p>
+      <p class="adm-form-tip">批量操作会写入最近修改时间与操作人，并记录审计（演示）。</p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-batch-ok">确认修改</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.PAGE_META = {
+    id: "ADM-06",
+    title: "中奖记录",
+    live: "part",
+    note: "沿用去年列表，补派发方式 / 领取状态 / 备注 / 二等奖登记只读 / 五等奖不追踪",
+    fr: ["FR-014", "FR-016"],
+    ac: ["AC-029 ~ AC-034"],
+    goal: "沿用去年中奖列表，把运营的兑奖跟进（联系 → 发放）和二等奖登记信息放在一页完成；五等奖只展示、不追踪。",
+    states: [
+      "已开奖：默认列表，可筛选、分页、行内编辑、批量编辑、导出。",
+      "未开奖：顶部提示「抽奖将于 2027-02-10 进行」，列表空态「暂无中奖记录」（演示切换）。",
+      "二等奖：登记信息只读 7 字段；客户未提交时显示「客户尚未提交登记信息」。",
+      "五等奖：领取状态固定「随单发放（不追踪）」，编辑弹窗只读，批量编辑自动跳过（DEC-037）。",
+      "筛选无结果：空态表；导出按当前筛选结果（演示）。"
+    ],
+    notes: [
+      "列保留去年全部字段：幸运福卡编号 / 账套 / 所属客户 / 客户手机号 / 业务员号 / 业务员名称 / 奖品名称 / 奖品级别 / 派发方式 / 领取状态 / 备注 / 中奖时间 / 最近修改时间。",
+      "派发方式：快递 / 随单 / 自提；领取状态：待联系 → 已联系 → 已发放，异常分支已失效（FR-016）。",
+      "二等奖登记信息只读：业务员姓名 / CIF / 领取人姓名 / 电话 / 地址 / 邮编 / 是否升级容量或颜色；运营不改写客户填写内容，差价线下处理（DEC-036）。",
+      "五等奖系统不追踪发放状态（DEC-037），不进入候补与统计；实际发放由业务员按订单备注核销。",
+      "批量编辑需勾选 + 二次确认；导出字段按角色限制（演示 toast）。"
+    ],
+    todo: [
+      "二等奖「待审核 / 已确认」审核态与领取状态（待联系…）的对应关系待确认；本期列表按四个运营状态展示，登记信息只读。",
+      "候补启动（同奖级未中奖卡按卡号升序，人工确认 + 审计）本期人工处理，界面为后续版本。",
+      "导出字段按角色限制的清单待定；本页演示数据 14 条，生产约 2,226 条。"
+    ]
+  };
+
+  window.DEMOS = [
+    { label: "筛选一等奖", fn: function () { window.__win.demoFilter(); } },
+    { label: "未开奖状态（2027-02-10 前）", fn: function () { window.__win.setNotDrawn(true); } },
+    { label: "恢复已开奖数据", fn: function () { window.__win.setNotDrawn(false); } },
+    { label: "编辑五等奖（状态只读）", fn: function () { window.__win.editLevel5(); } },
+    { label: "二等奖登记信息（已提交）", fn: function () { window.__win.formSubmitted(); } },
+    { label: "二等奖未提交登记", fn: function () { window.__win.formEmpty(); } },
+    { label: "批量编辑（勾选前 3 条）", fn: function () { window.__win.demoBatch(); } },
+    { label: "筛选空态", fn: function () { window.__win.demoEmpty(); } },
+    { label: "导出（演示）", fn: function () { window.__win.exportNow(); } }
+  ];
+</script>
+<script>
+  Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/admin/winners",
+      "desc": "筛选：card_no, cif, sales, prize_level, delivery_type, receive_status, win_time"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/winners/{id}/status",
+      "desc": "状态流转 + 备注；带版本号防并发"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/winners/batch",
+      "desc": "批量编辑派发方式/领取状态；五等奖跳过"
+    },
+    {
+      "method": "GET",
+      "path": "/api/admin/export/winners",
+      "desc": "导出中奖记录（含二等奖表单字段，按角色限制）"
+    }
+  ],
+  "fields": [
+    "14 列：福卡号/账套/所属客户/手机号/业务员号/名称/手机号/奖品/级别/派发方式/领取状态/中奖时间/最近修改/操作",
+    "二等奖只读 7 字段登记信息"
+  ],
+  "rules": [
+    "一~四等奖：待联系→已联系→已发放；异常→已失效（可恢复）",
+    "二等奖：待确认→待审核→已确认→已发放；驳回/逾期进候补",
+    "候补仅一~四等奖，同奖级未中奖卡按卡号升序人工确认",
+    "五等奖随单发放、系统不追踪，领取状态只读"
+  ],
+  "permissions": [
+    "运营：状态流转/候补",
+    "管理员：作废/恢复",
+    "只读：查看；导出受权限"
+  ],
+  "events": [
+    "claim_status（from, to, operator_role）"
+  ],
+  "devNotes": [
+    "状态流转加版本号，防两人同时改",
+    "二等奖表单为敏感信息，加密存储、导出限管理员",
+    "本期兑奖状态机人工（05 裁剪），页面为后续版本设计基准"
+  ]
+});
+</script>
+<script src="../assets/js/legacy.js"></script>
+<script>
+  (function () {
+    "use strict";
+    var $ = U.$;
+    var $$ = U.$$;
+
+    var NOW = "2027-02-22 15:30";
+    var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
+    var PRIZE = {
+      1: "Livan X3 / Tesla Model 3（二选一）",
+      2: "iPhone 手机 1 台",
+      3: "机票 / 代金券（二选一）",
+      4: "iPad 平板 1 台",
+      5: "新春礼包（10 €/人）"
+    };
+    var STATUS = { to_contact: "待联系", contacted: "已联系", fulfilled: "已发放", expired: "已失效", auto_ship: "随单发放（不追踪）" };
+    var STATUS_CLASS = { to_contact: "win-st--to", contacted: "win-st--contacted", fulfilled: "win-st--fulfilled", expired: "win-st--expired", auto_ship: "win-st--auto" };
+
+    var SEED = [
+      { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户考虑 Livan X3 / Tesla 二选一，由业务员线下确认", form: null },
+      { id: "W-2027-0002", card: "00231", account: "ES01", customer: "OFICINA GLOBAL, S.L.", custNo: "10003188", cif: "B12098765", phone: "+34 634 118 902", salesNo: "V0117", salesName: "MARÍA JOSÉ", level: 2, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-14 11:40", remark: "客户已提交登记（v2），待运营审核", form: { salesperson: "MARÍA JOSÉ", cif: "B12098765", receiver: "ANTONIO PÉREZ", phone: "+34 634 118 902", address: "C/ Mayor 45, 46001 Valencia", postcode: "46001", upgrade: "是" } },
+      { id: "W-2027-0003", card: "03126", account: "ES02", customer: "GRÁFICAS LEVANTE, S.L.", custNo: "10004762", cif: "B12456321", phone: "+34 655 209 771", salesNo: "V0342", salesName: "ANA BELÉN", level: 3, dispatch: "快递", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "机票已出票（经济舱，含税费，不可退改）", form: null },
+      { id: "W-2027-0004", card: "07734", account: "ES01", customer: "MUEBLES RUIZ, S.L.", custNo: "10005891", cif: "B12587496", phone: "+34 677 331 204", salesNo: "V0208", salesName: "CARLOS MARTÍN", level: 4, dispatch: "自提", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系；自提点 Valencia 仓", form: null },
+      { id: "W-2027-0005", card: "01998", account: "ES03", customer: "PAPELERA SUR, S.L.", custNo: "10006612", cif: "B12698523", phone: "+34 688 442 117", salesNo: "V0286", salesName: "LUCÍA FERNÁNDEZ", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
+      { id: "W-2027-0006", card: "01842", account: "ES02", customer: "DISTRIBUCIONES AVE, S.L.", custNo: "10007345", cif: "B12741258", phone: "+34 699 553 208", salesNo: "V0319", salesName: "JAVIER ORTEGA", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
+      { id: "W-2027-0007", card: "01633", account: "ES01", customer: "TPV SOLUTIONS, S.L.", custNo: "10008123", cif: "B12852369", phone: "+34 610 664 329", salesNo: "V0402", salesName: "ELENA RUIZ", level: 4, dispatch: "快递", status: "expired", won: "2027-02-10 10:12", updated: "2027-02-16 18:00", remark: "客户放弃领奖 → 已失效（可逆，需管理员留痕）", form: null },
+      { id: "W-2027-0008", card: "01022", account: "ES03", customer: "IMPRENTA MAR, S.L.", custNo: "10009256", cif: "B12963470", phone: "+34 621 775 430", salesNo: "V0224", salesName: "PAU SERRANO", level: 3, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "代金券已发至客户邮箱（模板 E-03）", form: null },
+      { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "客户尚未提交登记（截止 2027-02-25 23:59）", form: null },
+      { id: "W-2027-0010", card: "00456", account: "ES02", customer: "MATERIAL ESCOLAR PRO, S.L.", custNo: "10011472", cif: "B12185296", phone: "+34 643 997 652", salesNo: "V0367", salesName: "DAVID NAVARRO", level: 4, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
+      { id: "W-2027-0011", card: "00009", account: "ES03", customer: "SUMINISTROS NORTE, S.L.", custNo: "10012563", cif: "B12296307", phone: "+34 654 108 763", salesNo: "V0298", salesName: "MARTA SOLER", level: 1, dispatch: "自提", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-19 16:40", remark: "已交付，签收单 SA-0231", form: null },
+      { id: "W-2027-0012", card: "01276", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
+      { id: "W-2027-0013", card: "00591", account: "ES02", customer: "LIBRERÍA ATLAS, S.L.", custNo: "10013648", cif: "B12418529", phone: "+34 665 219 874", salesNo: "V0178", salesName: "SERGIO MOLINA", level: 3, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
+      { id: "W-2027-0014", card: "00177", account: "ES03", customer: "ESTUDIO GRAF, S.L.", custNo: "10014739", cif: "B12529630", phone: "+34 676 320 985", salesNo: "V0391", salesName: "NOELIA VEGA", level: 4, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-18 10:00", remark: "平板已寄出，物流 ES-77120", form: null }
+    ];
+
+    var state = {
+      master: SEED.slice(),
+      rows: SEED.slice(),
+      page: 1,
+      pageSize: 10,
+      filtered: false,
+      checked: {},
+      editId: null,
+      formId: null,
+      notDrawn: false
+    };
+
+    function find(id) {
+      for (var i = 0; i < state.master.length; i++) if (state.master[i].id === id) return state.master[i];
+      return null;
+    }
+    function checkedIds() {
+      return Object.keys(state.checked).filter(function (k) { return state.checked[k]; });
+    }
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    /* ---------------- 渲染 ---------------- */
+    function pageRows() {
+      var start = (state.page - 1) * state.pageSize;
+      return state.rows.slice(start, start + state.pageSize);
+    }
+
+    function rowHtml(r) {
+      var stCls = STATUS_CLASS[r.status];
+      var isAuto = r.status === "auto_ship";
+      var ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button>';
+      if (r.level === 2) ops += '<button type="button" data-act="form" data-id="' + r.id + '">登记信息</button>';
+      return "<tr>" +
+        '<td class="col-check"><input type="checkbox" data-check="' + r.id + '"' + (state.checked[r.id] ? " checked" : "") + "></td>" +
+        '<td class="num">' + r.card + "</td>" +
+        "<td>" + r.account + "</td>" +
+        '<td><span class="win-cust">' + esc(r.customer) + '<span class="win-cust__no">' + r.custNo + "</span></span></td>" +
+        '<td class="num nowrap">' + r.phone + "</td>" +
+        '<td class="num">' + r.salesNo + "</td>" +
+        '<td class="win-sales">' + esc(r.salesName) + "</td>" +
+        '<td class="win-prize"><span class="win-ellipsis" title="' + esc(PRIZE[r.level]) + '">' + esc(PRIZE[r.level]) + "</span></td>" +
+        '<td><span class="adm-source">' + LEVEL[r.level] + "</span></td>" +
+        "<td>" + r.dispatch + "</td>" +
+        '<td><span class="adm-status ' + stCls + '"' + (isAuto ? ' title="五等奖系统不追踪发放状态，随单发放（DEC-037）"' : "") + ">" + STATUS[r.status] + "</span></td>" +
+        '<td class="win-remark"><span class="win-ellipsis" title="' + esc(r.remark) + '">' + esc(r.remark) + "</span></td>" +
+        '<td class="nowrap">' + r.won + "</td>" +
+        '<td class="nowrap muted">' + r.updated + "</td>" +
+        '<td><span class="adm-table__op">' + ops + "</span></td>" +
+        "</tr>";
+    }
+
+    function render() {
+      var tb = $("#rows");
+      if (state.notDrawn) {
+        tb.innerHTML = '<tr><td colspan="15"><div class="adm-empty"><div class="adm-empty__ico">—</div>抽奖将于 2027-02-10 进行，暂无中奖记录</div></td></tr>';
+      } else if (!state.rows.length) {
+        tb.innerHTML = '<tr><td colspan="15"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无中奖记录</div></td></tr>';
+      } else {
+        tb.innerHTML = pageRows().map(rowHtml).join("");
+      }
+      renderBanner();
+      renderPager();
+      syncCheckAll();
+    }
+
+    function renderBanner() {
+      var banner = $("#banner");
+      if (state.notDrawn) {
+        banner.classList.add("win-banner--warn");
+        $("#banner-ico").textContent = "!";
+        $("#banner-text").textContent = "抽奖将于 2027-02-10 进行，开奖后可查看中奖记录。";
+        $("#banner-extra").textContent = "未开奖 · 0 条";
+      } else {
+        banner.classList.remove("win-banner--warn");
+        $("#banner-ico").textContent = "i";
+        $("#banner-text").textContent = "本期开奖已于 2027-02-10 完成；二等奖登记截止 2027-02-25 23:59；五等奖随单发放、系统不追踪（DEC-037）。";
+        $("#banner-extra").textContent = "演示数据 " + state.rows.length + " 条";
+      }
+    }
+
+    function renderPager() {
+      var total = state.notDrawn ? 0 : state.rows.length;
+      var pages = Math.max(1, Math.ceil(total / state.pageSize));
+      if (state.page > pages) state.page = pages;
+      $("#pager-total").textContent = "共 " + total.toLocaleString("en-US") + " 条";
+      var html = "";
+      for (var i = 1; i <= pages; i++) {
+        html += '<button type="button" data-page="' + i + '"' + (i === state.page ? ' class="is-active"' : "") + ">" + i + "</button>";
+      }
+      $("#pg-nums").innerHTML = html;
+      $("#pg-prev").disabled = state.page <= 1;
+      $("#pg-next").disabled = state.page >= pages;
+    }
+
+    function syncCheckAll() {
+      var rows = state.notDrawn ? [] : pageRows();
+      var all = rows.length > 0 && rows.every(function (r) { return state.checked[r.id]; });
+      $("#check-all").checked = all;
+      $("#check-all").disabled = state.notDrawn;
+    }
+
+    /* ---------------- 筛选 ---------------- */
+    function filter() {
+      var card = $("#f-card").value.trim();
+      var cust = $("#f-cust").value.trim().toLowerCase();
+      var sales = $("#f-sales").value.trim().toLowerCase();
+      var level = $("#f-level").value;
+      var dispatch = $("#f-dispatch").value;
+      var status = $("#f-status").value;
+      var start = $("#f-won-start").value.trim();
+      var end = $("#f-won-end").value.trim();
+      state.rows = state.master.filter(function (r) {
+        var day = r.won.slice(0, 10);
+        return (!card || r.card.indexOf(card) >= 0) &&
+          (!cust || r.custNo.toLowerCase().indexOf(cust) >= 0 || r.cif.toLowerCase().indexOf(cust) >= 0) &&
+          (!sales || r.salesNo.toLowerCase().indexOf(sales) >= 0) &&
+          (!level || String(r.level) === level) &&
+          (!dispatch || r.dispatch === dispatch) &&
+          (!status || r.status === status) &&
+          (!start || day >= start) &&
+          (!end || day <= end);
+      });
+      state.filtered = true;
+      state.page = 1;
+      render();
+      U.toast("查询完成，共 " + (state.notDrawn ? 0 : state.rows.length) + " 条（演示数据）");
+    }
+
+    function resetFilter() {
+      $("#filters").reset();
+      state.rows = state.master.slice();
+      state.filtered = false;
+      state.page = 1;
+      render();
+      U.toast("已重置筛选");
+    }
+
+    /* ---------------- 单条编辑 ---------------- */
+    function openEdit(id) {
+      var r = find(id);
+      if (!r) return;
+      state.editId = id;
+      $("#e-card").value = r.card;
+      $("#e-level").value = LEVEL[r.level] + " · " + PRIZE[r.level];
+      $("#e-customer").value = r.customer + " · " + r.custNo;
+      $("#e-dispatch").value = r.dispatch;
+      var isAuto = r.level === 5;
+      $("#e-status").style.display = isAuto ? "none" : "";
+      $("#e-status-ro").style.display = isAuto ? "" : "none";
+      if (isAuto) {
+        $("#e-status-ro").value = "随单发放（不追踪）";
+        $("#e-status-tip").textContent = "五等奖系统不追踪发放状态（DEC-037），领取状态只读。";
+      } else {
+        $("#e-status").value = r.status;
+        $("#e-status-tip").textContent = "领取状态：待联系 → 已联系 → 已发放；异常分支已失效（FR-016）。";
+      }
+      $("#e-remark").value = r.remark;
+      openModal("modal-edit");
+    }
+
+    function saveEdit() {
+      var r = find(state.editId);
+      if (!r) return;
+      r.dispatch = $("#e-dispatch").value;
+      if (r.level !== 5) r.status = $("#e-status").value;
+      r.remark = $("#e-remark").value.trim();
+      r.updated = NOW;
+      closeModal($("#modal-edit"));
+      render();
+      U.toast("已保存（演示）：" + r.id + " 派发方式 / 领取状态 / 备注已更新");
+    }
+
+    /* ---------------- 二等奖登记信息 ---------------- */
+    function openForm(id) {
+      var r = find(id);
+      if (!r || r.level !== 2) { U.toast("仅二等奖记录有客户登记信息"); return; }
+      state.formId = id;
+      $("#form-sub").textContent = r.id + " · 幸运福卡 " + r.card + " · " + r.customer;
+      var f = r.form;
+      $("#form-body").hidden = !f;
+      $("#form-empty").hidden = !!f;
+      if (f) {
+        $("#fm-salesperson").value = f.salesperson;
+        $("#fm-cif").value = f.cif;
+        $("#fm-receiver").value = f.receiver;
+        $("#fm-phone").value = f.phone;
+        $("#fm-address").value = f.address;
+        $("#fm-postcode").value = f.postcode;
+        $("#fm-upgrade").value = f.upgrade;
+      }
+      openModal("modal-form");
+    }
+
+    /* ---------------- 批量编辑 ---------------- */
+    function openBatch() {
+      if (state.notDrawn) { U.toast("抽奖将于 2027-02-10 进行，暂无中奖记录可编辑"); return; }
+      var ids = checkedIds();
+      if (!ids.length) { U.toast("请先勾选需要编辑的中奖记录"); return; }
+      $("#batch-count").textContent = ids.length;
+      $("#b-dispatch").value = "";
+      $("#b-status").value = "";
+      $("#item-b-dispatch").classList.remove("is-error");
+      $("#item-b-status").classList.remove("is-error");
+      openModal("modal-batch");
+    }
+
+    function batchNext() {
+      var dispatch = $("#b-dispatch").value;
+      var status = $("#b-status").value;
+      if (!dispatch && !status) {
+        $("#item-b-status").classList.add("is-error");
+        U.toast("请选择至少一项要修改的内容");
+        return;
+      }
+      $("#item-b-status").classList.remove("is-error");
+      var ids = checkedIds();
+      var parts = [];
+      if (dispatch) parts.push("派发方式 → " + dispatch);
+      if (status) parts.push("领取状态 → " + STATUS[status]);
+      $("#batch-confirm-text").innerHTML = "将 <b>" + ids.length + "</b> 条中奖记录统一修改为：" + parts.join("；") + "。";
+      var autoCount = 0;
+      if (status) {
+        ids.forEach(function (id) {
+          var r = find(id);
+          if (r && r.level === 5) autoCount += 1;
+        });
+      }
+      var skip = $("#batch-confirm-skip");
+      if (autoCount) {
+        skip.hidden = false;
+        skip.textContent = "其中 " + autoCount + " 条五等奖记录不追踪发放状态，将跳过领取状态修改。";
+      } else {
+        skip.hidden = true;
+        skip.textContent = "";
+      }
+      openModal("modal-batch-confirm");
+    }
+
+    function batchApply() {
+      var dispatch = $("#b-dispatch").value;
+      var status = $("#b-status").value;
+      var changed = 0;
+      var skipped = 0;
+      checkedIds().forEach(function (id) {
+        var r = find(id);
+        if (!r) return;
+        var did = false;
+        if (dispatch && r.dispatch !== dispatch) { r.dispatch = dispatch; did = true; }
+        if (status) {
+          if (r.level === 5) skipped += 1;
+          else if (r.status !== status) { r.status = status; did = true; }
+        }
+        if (did) { r.updated = NOW; changed += 1; }
+      });
+      state.checked = {};
+      closeModal($("#modal-batch-confirm"));
+      closeModal($("#modal-batch"));
+      render();
+      if (!changed) {
+        U.toast("所选记录无需修改（" + skipped + " 条五等奖跳过领取状态，演示）");
+        return;
+      }
+      U.toast("已批量更新 " + changed + " 条中奖记录" + (skipped ? "（五等奖跳过领取状态 " + skipped + " 条）" : "") + "（演示）");
+    }
+
+    /* ---------------- 弹窗基础 ---------------- */
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.classList.add("is-open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(m) {
+      if (!m) return;
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+
+    /* ---------------- 事件 ---------------- */
+    $$("[data-close]").forEach(function (b) {
+      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
+    });
+
+    $("#btn-search").addEventListener("click", filter);
+    $("#btn-reset").addEventListener("click", resetFilter);
+    $("#btn-batch").addEventListener("click", openBatch);
+    $("#btn-export").addEventListener("click", function () {
+      if (state.notDrawn) { U.toast("抽奖将于 2027-02-10 进行，暂无可导出的中奖记录"); return; }
+      U.toast("已导出当前筛选结果 " + state.rows.length + " 条（演示）；导出字段按角色限制（FR-016）");
+    });
+    $("#btn-edit-ok").addEventListener("click", saveEdit);
+    $("#btn-batch-next").addEventListener("click", batchNext);
+    $("#btn-batch-ok").addEventListener("click", batchApply);
+
+    $("#rows").addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("button[data-act]") : null;
+      if (!b) return;
+      var id = b.getAttribute("data-id");
+      if (b.getAttribute("data-act") === "edit") openEdit(id);
+      else if (b.getAttribute("data-act") === "form") openForm(id);
+    });
+    $("#rows").addEventListener("change", function (e) {
+      var c = e.target;
+      if (c && c.getAttribute && c.getAttribute("data-check")) {
+        state.checked[c.getAttribute("data-check")] = c.checked;
+        syncCheckAll();
+      }
+    });
+    $("#check-all").addEventListener("change", function () {
+      var on = this.checked;
+      pageRows().forEach(function (r) {
+        state.checked[r.id] = on;
+      });
+      $$("#rows [data-check]").forEach(function (c) { c.checked = on; });
+    });
+    $("#pg-nums").addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("button[data-page]") : null;
+      if (!b) return;
+      state.page = parseInt(b.getAttribute("data-page"), 10);
+      render();
+    });
+    $("#pg-prev").addEventListener("click", function () {
+      if (state.page > 1) { state.page -= 1; render(); }
+    });
+    $("#pg-next").addEventListener("click", function () {
+      var pages = Math.max(1, Math.ceil(state.rows.length / state.pageSize));
+      if (state.page < pages) { state.page += 1; render(); }
+    });
+    $("#pg-size").addEventListener("change", function () {
+      state.pageSize = parseInt(this.value, 10) || 10;
+      state.page = 1;
+      render();
+    });
+
+    U.$$(".adm-menu a[href]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (a.getAttribute("href") === "winners.html") e.preventDefault();
+      });
+    });
+
+    /* ---------------- 演示 ---------------- */
+    window.__win = {
+      demoFilter: function () {
+        state.notDrawn = false;
+        $("#f-level").value = "1";
+        filter();
+      },
+      setNotDrawn: function (on) {
+        state.notDrawn = on;
+        state.page = 1;
+        render();
+        U.toast(on ? "已切到未开奖状态：抽奖将于 2027-02-10 进行（演示）" : "已恢复已开奖数据（演示）");
+      },
+      editLevel5: function () {
+        var r = null;
+        for (var i = 0; i < state.master.length; i++) if (state.master[i].level === 5) { r = state.master[i]; break; }
+        if (r) openEdit(r.id);
+      },
+      formSubmitted: function () {
+        var r = null;
+        for (var i = 0; i < state.master.length; i++) if (state.master[i].level === 2 && state.master[i].form) { r = state.master[i]; break; }
+        if (r) openForm(r.id);
+      },
+      formEmpty: function () {
+        var r = null;
+        for (var i = 0; i < state.master.length; i++) if (state.master[i].level === 2 && !state.master[i].form) { r = state.master[i]; break; }
+        if (r) openForm(r.id);
+      },
+      demoBatch: function () {
+        state.notDrawn = false;
+        state.page = 1;
+        state.checked = {};
+        pageRows().forEach(function (r, i) { state.checked[r.id] = i < 3; });
+        render();
+        openBatch();
+      },
+      demoEmpty: function () {
+        state.notDrawn = false;
+        $("#f-card").value = "99999";
+        filter();
+      },
+      exportNow: function () {
+        U.toast("已导出当前筛选结果（演示）；导出字段按角色限制（FR-016）");
+      }
+    };
+
+    render();
+  })();
+</script>
+</body>
+</html>

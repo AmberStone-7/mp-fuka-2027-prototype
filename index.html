@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-2027 中汇新年福卡 · 交互原型</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    body { background: #f5f5f5; color: rgba(0,0,0,.88); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px 64px; }
+    .head h1 { font-family: "Songti SC", "STSong", serif; font-size: 28px; letter-spacing: .02em; }
+    .head p { margin-top: 8px; font-size: 14px; line-height: 1.8; color: rgba(0,0,0,.55); max-width: 780px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .tag { padding: 2px 10px; border-radius: 999px; font-size: 12px; color: #a11224; background: #fff1f0; border: 1px solid #ffccc7; }
+    .tag--blue { color: #0958d9; background: #f0f5ff; border-color: #adc6ff; }
+    h2 { margin: 32px 0 12px; font-family: "Songti SC", "STSong", serif; font-size: 20px; display: flex; align-items: baseline; gap: 10px; }
+    h2 small { font-family: inherit; font-size: 12px; font-weight: 400; color: rgba(0,0,0,.45); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+    .card { display: flex; flex-direction: column; gap: 6px; padding: 15px 16px; border-radius: 10px; background: #fff; border: 1px solid #f0f0f0; box-shadow: 0 2px 8px rgba(0,0,0,.04); transition: all .16s; }
+    .card:hover { border-color: #ffccc7; box-shadow: 0 6px 18px rgba(0,0,0,.08); transform: translateY(-2px); }
+    .card__k { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11.5px; color: rgba(0,0,0,.42); }
+    .card__k b { padding: 1px 7px; border-radius: 4px; font-weight: 500; color: #389e0d; background: #f6ffed; border: 1px solid #b7eb8f; }
+    .card__k b.part { color: #d46b08; background: #fff7e6; border-color: #ffd591; }
+    .card__k b.no { color: #cf1322; background: #fff1f0; border-color: #ffccc7; }
+    .card__t { font-size: 15px; font-weight: 600; }
+    .card__d { font-size: 12.5px; line-height: 1.65; color: rgba(0,0,0,.52); }
+    .card__l { margin-top: auto; padding-top: 6px; font-size: 12.5px; color: #1677ff; }
+    .note { margin-top: 16px; padding: 12px 16px; border-radius: 8px; font-size: 13px; line-height: 1.85; color: #7a4a0d; background: #fffbe6; border: 1px solid #ffe58f; }
+    .note b { color: #ad4e00; }
+    .how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    @media (max-width: 900px) { .how { grid-template-columns: 1fr; } }
+    .how__item { padding: 13px 15px; background: #fff; border: 1px solid #f0f0f0; border-radius: 8px; font-size: 12.5px; line-height: 1.8; color: rgba(0,0,0,.6); }
+    .how__item b { display: block; margin-bottom: 3px; color: rgba(0,0,0,.88); font-size: 13px; }
+    .refs { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; }
+    .refs a { color: #1677ff; }
+    .foot { margin-top: 34px; padding-top: 16px; border-top: 1px solid #f0f0f0; font-size: 12px; color: rgba(0,0,0,.4); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .foot code { padding: 1px 5px; border-radius: 3px; background: #f5f5f5; font-family: "SF Mono", Menlo, monospace; font-size: 11.5px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>2026-2027 中汇新年福卡 · 交互原型</h1>
+    <p>按 2026 线上系统重做：H5 沿用深红金活动页（单页 + 底部 5 tab），后台沿用 Ant Design 浅色后台（白侧栏 + 蓝主按钮 + 筛选/表格/分页/弹窗）。去年已满足的功能保留，今年只做增量。</p>
+    <div class="tags">
+      <span class="tag">全量 V1.0</span>
+      <span class="tag tag--blue">基于 PRD V1.3</span>
+      <span class="tag tag--blue">参考 2026 线上系统</span>
+    </div>
+  </div>
+
+  <h2>前台 H5 <small>单页 + 底部 5 tab；二级页带「← 返回」；右下角 ✎ 可看说明与演示</small></h2>
+  <div class="grid">
+    <a class="card" href="h5/activity.html">
+      <span class="card__k">H5-01 · 首页 <b>本期上线</b></span>
+      <span class="card__t">H5 首页（4 个入口）</span>
+      <span class="card__d">按 2027 设计图：红色 MAIN★PAPER + 2027 福卡主视觉 + 领取福卡 / 查询福卡·中奖 / 活动奖项 / 活动细则与赞助。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/query.html">
+      <span class="card__k">H5-02 · 活动查询 <b>本期上线</b></span>
+      <span class="card__t">活动查询（含中奖查询）</span>
+      <span class="card__d">输入发票号 + 税号（CIF）验证后返回名下全部福卡（含其他发票）+ 我的邀请码；中奖状态直接显示在福卡上。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/claim.html">
+      <span class="card__k">H5-03 · 领取福卡 <b>本期上线</b></span>
+      <span class="card__t">领取福卡（邀请有礼）</span>
+      <span class="card__d">CIF + 邀请码领取；成功 / 待达标 / 已领取 / 统一错误 / 邀请人上限。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/prizes.html">
+      <span class="card__k">H5-04 · 礼品展示 <b>本期上线</b></span>
+      <span class="card__t">礼品展示</span>
+      <span class="card__d">五档奖品：图片 + 名额 + 匹配方式 + 领奖说明；口径待市场部 11/5 确认。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/publicity.html">
+      <span class="card__k">H5-05 · 中奖公示 <b>本期上线</b></span>
+      <span class="card__t">中奖公示</span>
+      <span class="card__d">脱敏名单（奖项 + CIF 打码 + 奖品），按奖项筛选，公示期提示。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/rules.html">
+      <span class="card__k">H5-07 · 活动细则与赞助 <b>本期上线</b></span>
+      <span class="card__t">活动细则与赞助</span>
+      <span class="card__d">活动时间 / 获卡方式 / 新客与邀请 / 福卡类型 / 规则全文（折叠）+ 赞助商（占位）。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+    <a class="card" href="h5/winner-form.html">
+      <span class="card__k">H5-06 · 中奖登记 <b>本期上线</b></span>
+      <span class="card__t">中奖登记（二等奖）</span>
+      <span class="card__d">仅二等奖 7 字段在线登记；校验 / 提交成功 / 修改 / 逾期放弃。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+  </div>
+
+  <h2>后台 <small>6 个模块（V1.4 已删除新客资格 / 退单与失效 / 用户端首页）；「✎ 原型说明」含接口与开发规格</small></h2>
+  <div class="grid">
+        <a class="card" href="admin/cards.html">
+      <span class="card__k">ADM-01 · 福卡管理 <b>本期上线</b></span>
+      <span class="card__t">福卡管理</span>
+      <span class="card__d">沿用去年列（账套/客户/手机号/业务员/发票/金额/状态/备注/时间）+ 来源标签、号码池余量、失效。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+
+    <a class="card" href="admin/invite.html">
+      <span class="card__k">ADM-02 · 邀请码管理 <b>本期上线</b></span>
+      <span class="card__t">邀请码管理</span>
+      <span class="card__d">批量生成 / 停用恢复 / 使用记录（pending-success-expired）/ 官方码配置。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+
+    <a class="card" href="admin/draw.html">
+      <span class="card__k">ADM-03 · 抽奖管理 <b>本期上线</b></span>
+      <span class="card__t">抽奖管理</span>
+      <span class="card__d">快照 → 录入号码 → 预览命中 → 复核 → 发布 → 撤回；超额截取 / 不足补抽 / 空开奖。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+
+    <a class="card" href="admin/prizes.html">
+      <span class="card__k">ADM-04 · 奖品管理 <b>本期上线</b></span>
+      <span class="card__t">奖品管理</span>
+      <span class="card__d">沿用去年列表 + 编辑弹窗；补名额、匹配位数、二选一与名额校验。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+
+    <a class="card" href="admin/winners.html">
+      <span class="card__k">ADM-05 · 中奖记录 <b class="part">部分上线</b></span>
+      <span class="card__t">中奖记录</span>
+      <span class="card__d">沿用去年列与批量编辑；新增二等奖登记信息、五等奖「随单发放（不追踪）」。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+
+    <a class="card" href="admin/email.html">
+      <span class="card__k">ADM-06 · 邮件日志 <b class="part">部分上线</b></span>
+      <span class="card__t">邮件日志</span>
+      <span class="card__d">沿用去年日志与重发；补 6 类模板（本期 2 类）、失败原因、待人工联系清单。</span>
+      <span class="card__l">打开页面 →</span>
+    </a>
+  </div>
+
+  <div class="note">
+    <b>怎么用：</b>每个页面右下角 ✎ 打开「原型说明」，可看对应 FR/AC、发布范围、状态与异常、待确认项，以及演示按钮（切成功/失败/空态等）。H5 页面同时支持手机与桌面浏览器浏览；后台为 1440 桌面版。
+  </div>
+
+  <h2>使用与交付说明</h2>
+  <div class="how">
+    <div class="how__item"><b>本地打开</b>双击本目录 `打开原型.command`，或浏览器访问 <code>http://127.0.0.1:8899/index.html</code>；也可直接双击 `index.html`。</div>
+    <div class="how__item"><b>数据说明</b>全部为演示数据，不接后端；状态切换仅前端演示，刷新后恢复。</div>
+    <div class="how__item"><b>设计依据</b>PRD V1.3 + 2026 线上系统；旧版 24 页原型已归档在 `_archive/v0.9-旧版/`。</div>
+  </div>
+
+  <h2>2026 线上系统参考截图</h2>
+  <div class="refs">
+    <a href="_ref/old-system/h5-home.png">H5 首页 / 快速查询</a>
+    <a href="_ref/old-system/h5-activity-info.png">H5 活动信息</a>
+    <a href="_ref/old-system/h5-query-result.png">H5 查询结果（福卡票券）</a>
+    <a href="_ref/old-system/h5-prizes.png">H5 礼品展示</a>
+    <a href="_ref/old-system/admin-lucky-card.png">后台 幸运福卡管理</a>
+    <a href="_ref/old-system/admin-prize.png">后台 奖品管理</a>
+    <a href="_ref/old-system/admin-home.png">后台 菜单框架</a>
+  </div>
+
+  <div class="foot">
+    <span>2026-2027 中汇新年福卡 · 交互原型 V1.0 · 基于 <a href="../01-需求与决策/04_PRD_V1.4.docx">PRD V1.4</a></span>
+    <span>交付目录：<code>2026-2027新春活动-产品文档/07-交互设计/</code></span>
+  </div>
+</div>
+</body>
+</html>

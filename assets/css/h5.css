@@ -1,0 +1,1303 @@
+/* ==========================================================================
+   前台 H5 · 对齐 2026 线上活动页
+   深红底 + 金色描边 + 宋体标题 + 胶囊输入 + 红金渐变按钮 + 底部 5 tab
+   ========================================================================== */
+
+:root {
+  --h5-gold: #f2d49b;
+  --h5-gold-2: #e2b562;
+  --h5-gold-3: #c99b4f;
+  --h5-gold-line: rgba(255, 235, 199, 0.62);
+  --h5-red-1: #bd4f51;
+  --h5-red-2: #8a371e;
+  --h5-text: #ededed;
+  --h5-dim: rgba(237, 237, 237, 0.6);
+  --h5-dim-2: rgba(237, 237, 237, 0.42);
+  --h5-serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+body.h5 {
+  background: #0a0a0a;
+  color: var(--h5-text);
+  font-family: Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+.h5-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.02) brightness(0.82);
+  pointer-events: none;
+}
+
+.h5-veil {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 55% at 50% 0%, rgba(90, 12, 20, 0.35), transparent 60%),
+    linear-gradient(180deg, rgba(12, 4, 6, 0.55) 0%, rgba(12, 4, 6, 0.25) 30%, rgba(12, 4, 6, 0.82) 100%);
+}
+
+.h5-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 16px 104px;
+}
+
+@media (min-width: 720px) {
+  body.h5 {
+    background: #16080b;
+  }
+  .h5-frame {
+    box-shadow: 0 0 0 1px rgba(226, 181, 98, 0.18), 0 0 80px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ---------- 顶部 ---------- */
+.h5-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0 4px;
+}
+
+.h5-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--h5-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--h5-gold);
+  letter-spacing: 0.04em;
+}
+
+.h5-back:hover {
+  color: #ffe9c2;
+}
+
+.h5-wordmark {
+  height: 20px;
+  width: auto;
+}
+
+/* ---------- 品牌块 ---------- */
+.h5-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0;
+}
+
+.h5-brand__logo {
+  flex: none;
+  width: 84px;
+  height: 84px;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+}
+
+.h5-brand__main {
+  min-width: 0;
+}
+
+.h5-brand__title {
+  font-family: var(--h5-serif);
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  background: linear-gradient(100deg, #ffffff 0%, #fdf1d6 38%, #efcf95 70%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.h5-brand__badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-family: var(--h5-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #6d2312;
+  background: linear-gradient(90deg, #d9a951 0%, #f6dfa9 48%, #d9a951 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 金色章节标题 ---------- */
+.h5-sec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0 16px;
+  font-family: var(--h5-serif);
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #f6dda9;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.h5-sec i {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--h5-gold-2);
+}
+
+/* ---------- 卡片 / 表单 ---------- */
+.h5-card {
+  padding: 18px 16px;
+  border-radius: 10px;
+  background: rgba(24, 8, 11, 0.5);
+  border: 1px solid rgba(255, 235, 199, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.h5-card + .h5-card {
+  margin-top: 12px;
+}
+
+.h5-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.h5-card__title {
+  font-family: var(--h5-serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--h5-gold);
+}
+
+.h5-card__hint {
+  font-size: 11.5px;
+  color: var(--h5-dim-2);
+}
+
+.h5-field {
+  margin-bottom: 13px;
+}
+
+.h5-input {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 140px;
+  border: 1px solid var(--h5-gold-line);
+  background: rgba(36, 25, 21, 0.72);
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.h5-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.h5-input:focus {
+  outline: none;
+  border-color: #ffe9c2;
+  box-shadow: 0 0 0 3px rgba(226, 181, 98, 0.16);
+}
+
+.h5-input.is-error {
+  border-color: #e06a6a;
+}
+
+.h5-input--code {
+  font-family: "SF Mono", Menlo, monospace;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  font-size: 17px;
+}
+
+.h5-err {
+  display: none;
+  margin: 8px 2px 0;
+  font-size: 12.5px;
+  color: #ffb3b3;
+}
+
+.h5-err.is-show {
+  display: block;
+}
+
+.h5-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #fff;
+  background: linear-gradient(180deg, var(--h5-red-1) 0%, var(--h5-red-2) 100%);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+  transition: filter 0.18s;
+}
+
+.h5-btn:hover {
+  filter: brightness(1.06);
+}
+
+.h5-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.h5-btn--ghost {
+  margin-top: 12px;
+  height: 46px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--h5-gold);
+  background: rgba(30, 12, 14, 0.45);
+  border: 1px solid rgba(255, 235, 199, 0.4);
+  box-shadow: none;
+}
+
+.h5-btn--ghost:hover {
+  background: rgba(226, 181, 98, 0.12);
+}
+
+.h5-btn--sm {
+  width: auto;
+  height: 36px;
+  padding: 0 18px;
+  font-size: 13.5px;
+  border-radius: 18px;
+  letter-spacing: 0.04em;
+}
+
+.h5-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--h5-dim);
+}
+
+.h5-link {
+  color: var(--h5-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(226, 181, 98, 0.45);
+}
+
+.h5-tip {
+  display: block;
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--h5-dim);
+}
+
+.h5-tip::before {
+  content: "※";
+  margin-right: 6px;
+  color: rgba(226, 181, 98, 0.8);
+}
+
+.h5-notice {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: rgba(255, 235, 214, 0.82);
+  background: rgba(226, 181, 98, 0.08);
+  border: 1px solid rgba(226, 181, 98, 0.24);
+}
+
+.h5-notice--success {
+  color: #d3f0df;
+  background: rgba(47, 128, 96, 0.14);
+  border-color: rgba(141, 214, 177, 0.28);
+}
+
+.h5-notice--warn {
+  color: #ffe3b8;
+  background: rgba(190, 120, 40, 0.14);
+  border-color: rgba(240, 190, 120, 0.3);
+}
+
+.h5-notice--danger {
+  color: #ffcdcd;
+  background: rgba(160, 40, 40, 0.16);
+  border-color: rgba(224, 120, 120, 0.32);
+}
+
+/* ---------- 查询/领取表单（去年为直接铺在背景上，无卡片） ---------- */
+.h5-form {
+  padding: 2px 2px 12px;
+}
+
+.h5-form .h5-card__head {
+  margin-bottom: 10px;
+}
+
+.h5-card + .h5-form {
+  margin-top: 16px;
+}
+
+/* ---------- 状态 tab ---------- */
+.h5-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 16px 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 235, 199, 0.16);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.h5-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.h5-tab {
+  flex: none;
+  padding: 2px 8px;
+  font-family: var(--h5-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(237, 237, 237, 0.5);
+  white-space: nowrap;
+}
+
+.h5-tab.is-active {
+  color: var(--h5-gold);
+  text-shadow: 0 0 12px rgba(226, 181, 98, 0.35);
+}
+
+/* ---------- 福卡票券 ---------- */
+.ticket {
+  position: relative;
+  padding: 16px 16px 14px;
+  border-radius: 10px;
+  color: #7b2b18;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.55), transparent 55%),
+    linear-gradient(160deg, #f9edcf 0%, #f1d9a9 62%, #e7c894 100%);
+  border: 1px solid #e3c286;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+.ticket + .ticket {
+  margin-top: 12px;
+}
+
+.ticket__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ticket__no {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #6f2010;
+}
+
+.ticket__no small {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--h5-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(111, 32, 16, 0.65);
+}
+
+.ticket__stamp {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(179, 46, 31, 0.65);
+  color: rgba(179, 46, 31, 0.78);
+  font-family: var(--h5-serif);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transform: rotate(-14deg);
+  opacity: 0.9;
+}
+
+.ticket__rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(123, 43, 24, 0.28);
+  font-size: 12.5px;
+}
+
+.ticket__row {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ticket__row dt {
+  flex: none;
+  color: rgba(123, 43, 24, 0.62);
+}
+
+.ticket__row dd {
+  margin: 0;
+  color: #6f2010;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ticket__invoices {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(123, 43, 24, 0.28);
+  font-size: 11.5px;
+  width: 100%;
+}
+
+.ticket__invoices th {
+  padding: 3px 6px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(123, 43, 24, 0.62);
+  border-bottom: 1px solid rgba(123, 43, 24, 0.2);
+}
+
+.ticket__invoices td {
+  padding: 4px 6px;
+  color: #6f2010;
+  font-weight: 600;
+}
+
+.ticket__status {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a371e;
+  background: rgba(179, 46, 31, 0.12);
+  border: 1px solid rgba(179, 46, 31, 0.3);
+}
+
+.ticket__status--win {
+  color: #8a1c0c;
+  background: rgba(226, 181, 98, 0.45);
+  border-color: rgba(138, 55, 30, 0.45);
+}
+
+/* 票券内的提示条：深色文字保证米金底上的可读性 */
+.ticket .h5-notice {
+  color: #8a371e;
+  background: rgba(179, 46, 31, 0.08);
+  border-color: rgba(179, 46, 31, 0.24);
+}
+
+.ticket--win {
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.55), transparent 55%),
+    linear-gradient(160deg, #fbf0d3 0%, #f4dda9 55%, #e9c78d 100%);
+}
+
+/* ---------- 空态 ---------- */
+.h5-empty {
+  padding: 30px 14px 24px;
+  text-align: center;
+}
+
+.h5-empty__ico {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  color: rgba(226, 181, 98, 0.8);
+  background: rgba(226, 181, 98, 0.08);
+  border: 1px dashed rgba(226, 181, 98, 0.4);
+  font-size: 20px;
+}
+
+.h5-empty__t {
+  font-size: 14px;
+  color: rgba(237, 237, 237, 0.72);
+}
+
+.h5-empty__d {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--h5-dim-2);
+}
+
+/* ---------- 底部 5 tab ---------- */
+.h5-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  max-width: 430px;
+  padding: 7px 4px calc(7px + env(safe-area-inset-bottom));
+  background: rgba(10, 4, 6, 0.92);
+  border-top: 1px solid rgba(255, 235, 199, 0.18);
+  backdrop-filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.h5-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 0;
+  color: rgba(237, 237, 237, 0.55);
+}
+
+.h5-nav__item svg {
+  width: 22px;
+  height: 22px;
+  stroke: rgba(226, 181, 98, 0.72);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.h5-nav__item span {
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: rgba(237, 237, 237, 0.6);
+  white-space: nowrap;
+}
+
+.h5-nav__item.is-active svg {
+  stroke: #ffd9a0;
+  filter: drop-shadow(0 0 6px rgba(226, 181, 98, 0.5));
+}
+
+.h5-nav__item.is-active span {
+  color: #f6dda9;
+}
+
+/* ---------- 其他 ---------- */
+.h5-kv {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 7px 12px;
+  font-size: 12.5px;
+}
+
+.h5-kv dt {
+  color: var(--h5-dim-2);
+}
+
+.h5-kv dd {
+  margin: 0;
+  color: rgba(255, 243, 228, 0.9);
+}
+
+.h5-divider {
+  height: 1px;
+  margin: 16px 0;
+  background: linear-gradient(90deg, transparent, rgba(226, 181, 98, 0.4), transparent);
+}
+
+.h5-text-gold {
+  color: var(--h5-gold);
+}
+
+
+/* ---------- 活动信息页 / 折叠规则 ---------- */
+.h5-home-quick {
+  margin-top: 4px;
+}
+
+.h5-home-quick .h5-input {
+  margin-bottom: 12px;
+}
+
+.h5-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.h5-info {
+  padding: 13px 14px;
+  border-radius: 8px;
+  background: rgba(24, 8, 11, 0.46);
+  border: 1px solid rgba(255, 235, 199, 0.18);
+}
+
+.h5-info__t {
+  font-family: var(--h5-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--h5-gold);
+  letter-spacing: 0.04em;
+}
+
+.h5-info__d {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: rgba(255, 243, 228, 0.78);
+}
+
+.h5-info__d b {
+  color: #ffe1ad;
+  font-weight: 600;
+}
+
+.h5-acc {
+  border-bottom: 1px solid rgba(255, 235, 199, 0.16);
+}
+
+.h5-acc summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 2px;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--h5-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255, 243, 228, 0.88);
+}
+
+.h5-acc summary::-webkit-details-marker {
+  display: none;
+}
+
+.h5-acc summary::before {
+  content: "◆";
+  font-size: 9px;
+  color: var(--h5-gold-2);
+}
+
+.h5-acc summary::after {
+  content: "+";
+  margin-left: auto;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: var(--h5-gold-2);
+}
+
+.h5-acc[open] summary::after {
+  content: "−";
+}
+
+.h5-acc__body {
+  padding: 0 2px 14px 18px;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: rgba(255, 243, 228, 0.7);
+}
+
+.h5-acc__body p + p {
+  margin-top: 6px;
+}
+
+.h5-acc__body b {
+  color: #ffe1ad;
+}
+
+
+/* ---------- 礼品展示 ---------- */
+.h5-prize {
+  margin-top: 12px;
+  padding: 14px 14px 16px;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(24, 8, 11, 0.5);
+  border: 1px solid rgba(255, 235, 199, 0.2);
+}
+
+.h5-prize__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(255, 235, 199, 0.2);
+}
+
+.h5-prize__level {
+  font-family: var(--h5-serif);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--h5-gold);
+}
+
+.h5-prize__quota {
+  font-size: 12px;
+  color: rgba(255, 243, 228, 0.6);
+}
+
+.h5-prize__img {
+  width: min(280px, 82%);
+  margin: 12px auto 6px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+}
+
+.h5-prize__name {
+  font-family: var(--h5-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #f6dda9;
+}
+
+.h5-prize__meta {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(255, 243, 228, 0.58);
+}
+
+/* ---------- 中奖公示 ---------- */
+.h5-pub-wrap {
+  padding: 4px 12px 10px;
+  border-radius: 10px;
+  background: rgba(24, 8, 11, 0.5);
+  border: 1px solid rgba(255, 235, 199, 0.2);
+}
+
+.h5-pub-table {
+  width: 100%;
+  font-size: 12.5px;
+}
+
+.h5-pub-table th {
+  padding: 9px 4px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255, 243, 228, 0.5);
+  border-bottom: 1px solid rgba(255, 235, 199, 0.18);
+  white-space: nowrap;
+}
+
+.h5-pub-table td {
+  padding: 9px 4px;
+  color: rgba(255, 243, 228, 0.86);
+  border-bottom: 1px dashed rgba(255, 235, 199, 0.1);
+}
+
+.h5-pub-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.h5-pub-level {
+  display: inline-block;
+  min-width: 44px;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 19px;
+  color: #6d2312;
+  background: linear-gradient(90deg, #d9a951, #f6dfa9);
+  text-align: center;
+}
+
+.h5-pub-cif {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 11.5px;
+  color: rgba(255, 243, 228, 0.7);
+}
+
+/* ---------- 中奖登记 ---------- */
+.h5-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(226, 181, 98, 0.08);
+  border: 1px solid rgba(226, 181, 98, 0.26);
+}
+
+.h5-summary dt {
+  font-size: 11.5px;
+  color: rgba(255, 243, 228, 0.5);
+}
+
+.h5-summary dd {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #ffe1ad;
+}
+
+.h5-radio-row {
+  display: flex;
+  gap: 10px;
+}
+
+.h5-radio {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 22px;
+  font-size: 14px;
+  color: rgba(255, 243, 228, 0.7);
+  background: rgba(36, 25, 21, 0.72);
+  border: 1px solid rgba(255, 235, 199, 0.45);
+  cursor: pointer;
+}
+
+.h5-radio input {
+  position: absolute;
+  opacity: 0;
+}
+
+.h5-radio:has(input:checked) {
+  color: #6d2312;
+  font-weight: 700;
+  background: linear-gradient(90deg, #d9a951, #f6dfa9);
+  border-color: transparent;
+}
+
+.h5-success {
+  text-align: center;
+  padding: 18px 10px 12px;
+}
+
+.h5-success__ico {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #6d2312;
+  background: linear-gradient(135deg, #f6dfa9, #d9a951);
+}
+
+.h5-success__t {
+  font-family: var(--h5-serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #f6dda9;
+  letter-spacing: 0.06em;
+}
+
+.h5-success__d {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: rgba(255, 243, 228, 0.66);
+}
+
+
+/* ---------- 中奖登记表单 ---------- */
+.h5-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 14px 2px 6px;
+  font-size: 12.5px;
+  color: rgba(255, 243, 228, 0.72);
+}
+
+.h5-label b {
+  color: #ff9f9f;
+  font-weight: 400;
+}
+
+.h5-input--left {
+  text-align: left;
+}
+
+.h5-input[readonly] {
+  color: rgba(255, 243, 228, 0.6);
+  background: rgba(255, 235, 199, 0.06);
+  border-color: rgba(255, 235, 199, 0.28);
+}
+
+
+/* ---------- 福卡类型标签 ---------- */
+.h5-source {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.h5-source--order {
+  color: #8a371e;
+  background: rgba(217, 169, 81, 0.28);
+  border-color: rgba(138, 55, 30, 0.35);
+}
+
+.h5-source--new {
+  color: #1d6b46;
+  background: rgba(47, 128, 96, 0.2);
+  border-color: rgba(29, 107, 70, 0.35);
+}
+
+.h5-source--invite {
+  color: #8a4a0f;
+  background: rgba(214, 137, 44, 0.22);
+  border-color: rgba(138, 74, 15, 0.32);
+}
+
+.h5-source--official {
+  color: #5b2a7a;
+  background: rgba(123, 63, 152, 0.18);
+  border-color: rgba(91, 42, 122, 0.32);
+}
+
+/* 活动信息页：福卡类型说明 */
+.h5-types {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.h5-types__row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: rgba(255, 243, 228, 0.76);
+}
+
+.h5-types__row .h5-source {
+  flex: none;
+  margin-top: 1px;
+}
+
+
+/* ---------- 领取福卡：双模式 / 我的邀请码 ---------- */
+.h5-mode-tabs {
+  display: flex;
+  gap: 0;
+  margin: 14px 0 4px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 235, 199, 0.32);
+  background: rgba(18, 8, 11, 0.55);
+}
+
+.h5-mode-tab {
+  flex: 1;
+  padding: 8px 6px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 243, 228, 0.6);
+  transition: all 0.18s;
+}
+
+.h5-mode-tab.is-active {
+  color: #6d2312;
+  font-weight: 700;
+  background: linear-gradient(90deg, #d9a951, #f6dfa9);
+}
+
+.h5-code-card {
+  text-align: center;
+}
+
+.h5-code-card__label {
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 243, 228, 0.58);
+}
+
+.h5-code {
+  margin: 10px 0 6px;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #ffe1ad;
+  text-shadow: 0 2px 14px rgba(226, 181, 98, 0.35);
+}
+
+.h5-code-card__hint {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 243, 228, 0.5);
+}
+
+.h5-code-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(255, 235, 199, 0.2);
+}
+
+.h5-code-stats b {
+  display: block;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 20px;
+  color: #ffe1ad;
+}
+
+.h5-code-stats span {
+  font-size: 11px;
+  color: rgba(255, 243, 228, 0.46);
+}
+
+.h5-invite-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 235, 199, 0.12);
+}
+
+.h5-invite-row:last-child {
+  border-bottom: 0;
+}
+
+.h5-invite-row__cif {
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  color: rgba(255, 243, 228, 0.86);
+}
+
+.h5-invite-row__meta {
+  flex: 1;
+  font-size: 11.5px;
+  color: rgba(255, 243, 228, 0.45);
+}
+
+.h5-invite-row__status {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  border: 1px solid transparent;
+}
+
+.h5-invite-row__status--success {
+  color: #a9dcc2;
+  background: rgba(47, 128, 96, 0.16);
+  border-color: rgba(141, 214, 177, 0.3);
+}
+
+.h5-invite-row__status--pending {
+  color: #f0c886;
+  background: rgba(190, 120, 40, 0.14);
+  border-color: rgba(240, 190, 120, 0.3);
+}
+
+
+/* ---------- 活动查询页：我的邀请码卡片 ---------- */
+.h5-invite-card {
+  margin-top: 14px;
+  text-align: left;
+}
+
+.h5-invite-card__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.h5-invite-card__row .h5-code {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+}
+
+.h5-invite-card__row .h5-btn--sm {
+  margin-top: 0;
+}
+
+
+/* ==========================================================================
+   2027 版首页视觉（按设计图）：红色 MAIN★PAPER、2027 主视觉、金线菜单
+   ========================================================================== */
+.h5-frame {
+  padding-bottom: 36px;
+}
+
+.h5-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 8px 0 4px;
+}
+
+.h5-top .h5-back {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.h5-wordmark--red {
+  height: 22px;
+  width: auto;
+}
+
+/* 子页标题：金色宋体 + 短金线 */
+.h5-sec {
+  display: block;
+  text-align: center;
+  margin: 26px 0 16px;
+  font-size: 22px;
+  letter-spacing: 0.1em;
+  color: #f6e3b0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.h5-sec i {
+  display: none;
+}
+
+.h5-sec::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, transparent, #e8c77a, transparent);
+}
+
+/* ---------- 首页（按设计图） ---------- */
+.h5-home {
+  text-align: center;
+  padding: 0 24px 40px;
+}
+
+.h5-home__logo {
+  width: 58%;
+  max-width: 230px;
+  margin: 20px auto 0;
+}
+
+.h5-home__hero {
+  width: 78%;
+  max-width: 310px;
+  margin: 30px auto 8px;
+  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, 0.4));
+}
+
+.h5-home__menu {
+  max-width: 340px;
+  margin: 20px auto 0;
+}
+
+.h5-home__item {
+  display: block;
+  padding: 12px 0 0;
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  background: linear-gradient(180deg, #fffaf0 0%, #f6dfae 55%, #e9c987 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.h5-home__item::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 1px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(232, 199, 122, 0.9) 35%, rgba(246, 227, 176, 1) 50%, rgba(232, 199, 122, 0.9) 65%, transparent);
+  box-shadow: 0 0 10px rgba(232, 199, 122, 0.35);
+}
+
+.h5-home__item:active {
+  filter: brightness(1.1);
+}
+
+.h5-home__foot {
+  margin-top: 26px;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 243, 228, 0.5);
+}
+
+/* 活动细则页：赞助商 */
+.h5-sponsor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.h5-sponsor__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: rgba(255, 243, 228, 0.42);
+  background: rgba(255, 243, 228, 0.05);
+  border: 1px dashed rgba(255, 235, 199, 0.22);
+}

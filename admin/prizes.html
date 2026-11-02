@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>奖品管理 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <style>
+    /* 本页局部样式（奖品管理） */
+    .pz-thumb {
+      display: block;
+      width: 120px;
+      height: 44px;
+      padding: 2px;
+      border: 1px solid #f0f0f0;
+      border-radius: 6px;
+      background: #fafafa;
+      object-fit: contain;
+    }
+    .pz-name {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 200px;
+    }
+    .pz-meta {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.45);
+      white-space: nowrap;
+    }
+    .pz-sort {
+      cursor: pointer;
+      user-select: none;
+    }
+    .pz-sort:hover { color: #1677ff; }
+    .pz-sort__ico {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 11px;
+      color: rgba(0, 0, 0, 0.25);
+    }
+    .pz-sort.is-active .pz-sort__ico { color: #1677ff; }
+    .pz-upload {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pz-upload__preview {
+      width: 132px;
+      height: 44px;
+      padding: 2px;
+      border: 1px dashed #d9d9d9;
+      border-radius: 6px;
+      background: #fafafa;
+      object-fit: contain;
+      flex: none;
+    }
+    .pz-upload__hint {
+      margin-top: 6px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .pz-radio {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      height: 32px;
+    }
+    .pz-radio label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.88);
+      cursor: pointer;
+    }
+    .pz-radio input {
+      width: 16px;
+      height: 16px;
+      accent-color: #1677ff;
+      cursor: pointer;
+    }
+    .pz-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 0 6px;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 18px;
+      color: rgba(0, 0, 0, 0.45);
+      white-space: nowrap;
+    }
+    /* 列表较长时给右下角说明按钮留出空间 */
+    body.adm .adm-main { padding-bottom: 96px; }
+    /* 侧栏收起（沿用去年后台交互） */
+    .adm.is-collapsed .adm-sider { width: 64px; }
+    .adm.is-collapsed .adm-logo { padding: 0; justify-content: center; font-size: 0; }
+    .adm.is-collapsed .adm-logo::after {
+      content: "抽";
+      font-size: 18px;
+      color: #1677ff;
+    }
+    .adm.is-collapsed .adm-menu { padding: 4px; }
+    .adm.is-collapsed .adm-menu__item {
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      font-size: 0;
+    }
+    .adm.is-collapsed .adm-main { margin-left: 64px; }
+    .adm.is-collapsed .adm-sider__collapse { transform: rotate(180deg); }
+  </style>
+</head>
+<body class="adm">
+
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item" href="cards.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
+      福卡管理
+    </a>
+    <a class="adm-menu__item" href="invite.html">
+      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
+      邀请码管理
+    </a>
+    <a class="adm-menu__item" href="draw.html">
+      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
+      抽奖管理
+    </a>
+    <a class="adm-menu__item is-active" href="prizes.html">
+      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
+      奖品管理
+    </a>
+    <a class="adm-menu__item" href="winners.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      中奖记录
+    </a>
+    <a class="adm-menu__item" href="email.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+      邮件日志
+    </a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+
+  <div class="adm-crumb">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+    <span>/</span>
+    <b>奖品管理</b>
+  </div>
+
+  <div class="adm-alert adm-alert--warn" id="scope-alert">
+    <span class="adm-alert__ico">!</span>
+    <span>奖项口径待确认：<b>每月名额制</b>（需求单 4.2）与<b>活动期总额制</b>（PRD V1.3）并存，待市场部 11/5 确认；当前演示按「活动期总额」录入，五等奖 2,000 名为活动期总额（DEC-008）。</span>
+  </div>
+
+  <form class="adm-filters" id="filters" onsubmit="return false">
+    <div class="adm-field">
+      <label for="f-name">奖品名称</label>
+      <input class="adm-input" id="f-name" placeholder="请输入奖品名称" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-level">奖品级别</label>
+      <select class="adm-select" id="f-level">
+        <option value="">全部级别</option>
+        <option value="一等奖">一等奖</option>
+        <option value="二等奖">二等奖</option>
+        <option value="三等奖">三等奖</option>
+        <option value="四等奖">四等奖</option>
+        <option value="五等奖">五等奖</option>
+      </select>
+    </div>
+    <div class="adm-field">
+      <label for="f-start">创建时间</label>
+      <span class="adm-daterange">
+        <input class="adm-input" id="f-start" placeholder="开始日期">
+        <span>→</span>
+        <input class="adm-input" id="f-end" placeholder="结束日期">
+      </span>
+    </div>
+    <div class="adm-filters__btns">
+      <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
+      <button class="adm-btn" id="btn-reset" type="button">重 置</button>
+    </div>
+  </form>
+
+  <div class="adm-actions">
+    <button class="adm-btn" id="btn-export" type="button">导 出</button>
+    <button class="adm-btn adm-btn--primary adm-actions__right" id="btn-add" type="button">添加奖品</button>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table">
+      <thead>
+        <tr>
+          <th>奖品图片</th>
+          <th>奖品名称</th>
+          <th>奖品级别</th>
+          <th class="pz-sort is-active" data-sort="created" aria-sort="descending">创建时间<span class="pz-sort__ico">↓</span></th>
+          <th>最近修改时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="adm-pager" id="pager"></div>
+</main>
+
+<!-- 添加 / 编辑奖品 -->
+<div class="adm-modal" id="modal-prize" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-prize-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-prize-title">添加奖品</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label>奖品图片</label>
+        <div class="adm-form-item__ctrl">
+          <div class="pz-upload">
+            <img class="pz-upload__preview" id="prize-img" src="../assets/img/prize-01.png" alt="奖品图片预览">
+            <div>
+              <button class="adm-btn" id="btn-prize-img" type="button">更换图片</button>
+              <p class="pz-upload__hint">上传占位：演示按 5 张样例图轮换，正式环境接对象存储。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="prize-name">奖品名称</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="prize-name" placeholder="例如：Livan X3 / Tesla Model 3（二选一）" autocomplete="off">
+          <p class="adm-form-item__err">请输入奖品名称</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="prize-level">奖品级别</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="prize-level">
+            <option value="">请选择奖品级别</option>
+            <option value="一等奖">一等奖</option>
+            <option value="二等奖">二等奖</option>
+            <option value="三等奖">三等奖</option>
+            <option value="四等奖">四等奖</option>
+            <option value="五等奖">五等奖</option>
+          </select>
+          <p class="adm-form-item__err">请选择奖品级别</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="prize-quota">名额</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="prize-quota" placeholder="必须为大于 0 的整数" inputmode="numeric" autocomplete="off">
+          <p class="adm-form-item__err">名额必须大于 0 且为整数（AC-037）</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="prize-match">匹配位数</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="prize-match">
+            <option value="full">5 位全匹配（00001–20000）</option>
+            <option value="last">末位 1 位（0–9）</option>
+          </select>
+          <p class="adm-form-item__err">请选择匹配位数</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label class="required" for="prize-value">奖品价值</label>
+        <div class="adm-form-item__ctrl">
+          <input class="adm-input" id="prize-value" placeholder="单位 €，例如 25000" inputmode="decimal" autocomplete="off">
+          <p class="adm-form-item__err">请输入大于 0 的奖品价值（€）</p>
+        </div>
+      </div>
+      <div class="adm-form-item">
+        <label>是否二选一</label>
+        <div class="adm-form-item__ctrl">
+          <div class="pz-radio">
+            <label><input type="radio" name="prize-choice" value="1"> 是（客户二选一）</label>
+            <label><input type="radio" name="prize-choice" value="0" checked> 否</label>
+          </div>
+        </div>
+      </div>
+      <p class="adm-form-tip">
+        名额与「抽奖管理」的匹配人数联动：名额为 0 或非整数时拒绝保存（AC-037）；匹配位数随奖级联动，一至四等奖 5 位全匹配、五等奖末位 1 位。
+      </p>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" data-close>取 消</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-prize-ok">保 存</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.PAGE_META = {
+    id: "ADM-05",
+    title: "奖品管理",
+    live: "yes",
+    note: "沿用去年奖品列表，补名额 / 匹配位数 / 价值 / 二选一",
+    fr: ["需求单 4.2", "FR-018"],
+    ac: ["AC-037", "AC-026（名额联动，见抽奖管理）"],
+    goal: "沿用去年「奖品管理」的筛选 + 列表 + 添加/编辑弹窗，补齐今年抽奖所需的名额、匹配位数与二选一配置，并守住「名额必须大于 0」的校验。",
+    states: [
+      "正常：奖品列表分页展示图片、名称、级别与创建/修改时间。",
+      "名额非法：名额为 0、负数或非整数时，弹窗内报错并阻止保存（AC-037）。",
+      "空态：筛选无结果时展示空表。",
+      "新增/编辑：保存后更新列表与「最近修改时间」，并 toast 反馈（演示）。"
+    ],
+    notes: [
+      "列沿用去年：奖品图片 / 奖品名称 / 奖品级别 / 创建时间 / 最近修改时间 / 操作（编辑）。",
+      "奖品级别只取一至五等奖；匹配位数随奖级联动，五等奖默认末位 1 位。",
+      "名额为五等奖 2,000 名总额口径的数据（DEC-008），实际口径待市场部确认后收敛。",
+      "图片上传本期为占位演示，点击「更换图片」在 5 张样例图间轮换。",
+      "演示数据含同奖级备选奖品行，用于展示多行与分页；正式数据按奖项口径收敛。"
+    ],
+    todo: [
+      "奖项口径：每月名额制（需求单 4.2）vs 活动期总额制（PRD V1.3），待市场部 11/5 确认。",
+      "五等奖 2,000 名是活动期总额（DEC-008），与需求单「每月不限数量」冲突，以 PRD 为准待确认。",
+      "二选一是否在后台持久化客户选择结果：PRD 为一/三等奖线下确认，后台只备注。",
+      "图片上传、奖品价值为演示字段，正式环境接对象存储与财务口径。"
+    ]
+  };
+
+  window.DEMOS = [
+    { label: "打开添加奖品", fn: function () { window.PRIZE_UI.openAdd(); } },
+    { label: "打开编辑弹窗（五等奖）", fn: function () { window.PRIZE_UI.openEditFive(); } },
+    { label: "名额为 0 的校验", fn: function () { window.PRIZE_UI.demoQuotaZero(); } },
+    { label: "筛选空态", fn: function () { window.PRIZE_UI.demoEmpty(); } },
+    { label: "奖项口径提示", fn: function () { window.PRIZE_UI.demoScope(); } },
+    { label: "恢复演示数据", fn: function () { window.PRIZE_UI.demoReset(); } }
+  ];
+</script>
+<script>
+  Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/admin/prizes",
+      "desc": "列表/筛选（名称、级别、创建时间）"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/prizes",
+      "desc": "新增奖品：名称/级别/名额/匹配位数/价值/图片"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/admin/prizes/{id}",
+      "desc": "编辑；名额必须 >0 整数"
+    },
+    {
+      "method": "POST",
+      "path": "/api/admin/prizes/{id}/offline",
+      "desc": "下架（二次确认+原因），已中奖记录不受影响"
+    }
+  ],
+  "fields": [
+    "奖品图片、名称、级别、名额、匹配位数（5/1）、价值（演示）、是否二选一"
+  ],
+  "rules": [
+    "一~四等奖 5 位全匹配，五等奖末位 1 位",
+    "名额 >0 且为整数，否则拒绝保存（AC-037）",
+    "下架后该奖级不再参与抽奖，H5 隐藏该档",
+    "名额口径待市场部 11/5（每月 vs 活动期总额）"
+  ],
+  "permissions": [
+    "管理员：维护/上下架",
+    "运营：只读",
+    "只读：只读"
+  ],
+  "events": [
+    "无前端埋点；服务端记录操作日志"
+  ],
+  "devNotes": [
+    "名额/匹配位数用于抽奖匹配，必须服务端校验",
+    "图片上传存储与压缩方案待定",
+    "五等奖 2,000 名为 PRD 总额口径，需配置化"
+  ]
+});
+</script>
+<script src="../assets/js/legacy.js"></script>
+<script>
+  (function () {
+    var $ = U.$;
+    var STORE = "../assets/img/";
+    var IMGS = ["prize-01.png", "prize-02.png", "prize-03.png", "prize-04.png", "prize-05.png"];
+    var LEVELS = ["一等奖", "二等奖", "三等奖", "四等奖", "五等奖"];
+
+    var ROWS = [
+      { id: 1, name: "Livan X3 / Tesla Model 3（二选一）", level: "一等奖", quota: 1, match: "full", value: 25000, choice: true, img: "prize-01.png", created: "2026-10-20 14:52:27", modified: "2026-10-28 15:05:24" },
+      { id: 2, name: "10g 投资金条", level: "二等奖", quota: 4, match: "full", value: 780, choice: false, img: "prize-02.png", created: "2026-10-20 14:46:10", modified: "2026-10-28 15:04:32" },
+      { id: 3, name: "iPad 10 + 50€ 英国宫联名礼品卡", level: "三等奖", quota: 20, match: "full", value: 650, choice: true, img: "prize-03.png", created: "2026-10-20 14:38:56", modified: "2026-10-28 15:05:07" },
+      { id: 4, name: "Ritual 礼盒 + MP 新春礼盒", level: "四等奖", quota: 200, match: "full", value: 55, choice: true, img: "prize-04.png", created: "2026-10-20 14:31:17", modified: "2026-10-28 15:02:36" },
+      { id: 5, name: "MP 产品礼包（11 款随机）", level: "五等奖", quota: 2000, match: "last", value: 12, choice: false, img: "prize-05.png", created: "2026-10-20 14:26:25", modified: "2026-10-28 15:03:42" },
+      { id: 6, name: "Livan X3 现车（备选）", level: "一等奖", quota: 1, match: "full", value: 21000, choice: false, img: "prize-01.png", created: "2026-10-19 16:12:03", modified: "2026-10-27 17:20:11" },
+      { id: 7, name: "20g 投资金条（升级版）", level: "二等奖", quota: 2, match: "full", value: 1480, choice: false, img: "prize-02.png", created: "2026-10-19 16:15:44", modified: "2026-10-27 17:22:09" },
+      { id: 8, name: "商务舱机票 2 张（二选一）", level: "三等奖", quota: 20, match: "full", value: 1000, choice: true, img: "prize-03.png", created: "2026-10-19 16:18:36", modified: "2026-10-27 17:24:40" },
+      { id: 9, name: "定制春联礼盒（备选）", level: "四等奖", quota: 100, match: "full", value: 28, choice: false, img: "prize-04.png", created: "2026-10-19 16:21:12", modified: "2026-10-27 17:26:05" },
+      { id: 10, name: "MP 帆布托特包（备选）", level: "五等奖", quota: 500, match: "last", value: 9, choice: false, img: "prize-05.png", created: "2026-10-19 16:24:51", modified: "2026-10-27 17:28:31" },
+      { id: 11, name: "MP 保温杯（备选）", level: "五等奖", quota: 300, match: "last", value: 7, choice: false, img: "prize-05.png", created: "2026-10-19 16:26:33", modified: "2026-10-27 17:29:58" },
+      { id: 12, name: "MP 笔记本套装（备选）", level: "五等奖", quota: 200, match: "last", value: 6, choice: false, img: "prize-05.png", created: "2026-10-19 16:28:17", modified: "2026-10-27 17:31:20" }
+    ];
+
+    var state = {
+      rows: ROWS.slice(),
+      filtered: false,
+      page: 1,
+      pageSize: 10,
+      sortDir: "desc",
+      editingId: null,
+      imgIdx: 0
+    };
+
+    function fmtNum(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+    function fmtVal(v) { return "€ " + fmtNum(v); }
+    function fmtQuota(q) { return "名额 " + fmtNum(q); }
+    function matchText(m) { return m === "last" ? "末位 1 位" : "5 位全匹配"; }
+
+    function sortedRows() {
+      var arr = state.rows.slice();
+      arr.sort(function (a, b) {
+        var x = a.created, y = b.created;
+        return state.sortDir === "desc" ? (x < y ? 1 : x > y ? -1 : 0) : (x > y ? 1 : x < y ? -1 : 0);
+      });
+      return arr;
+    }
+
+    function pageRows() {
+      var arr = sortedRows();
+      var start = (state.page - 1) * state.pageSize;
+      return arr.slice(start, start + state.pageSize);
+    }
+
+    function render() {
+      var tb = $("#rows");
+      if (!state.rows.length) {
+        tb.innerHTML = '<tr><td colspan="6"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
+      } else {
+        tb.innerHTML = pageRows().map(function (r) {
+          return "<tr>" +
+            '<td><img class="pz-thumb" src="' + STORE + r.img + '" alt="' + r.name + '"></td>' +
+            '<td><div class="pz-name"><span>' + r.name + "</span>" +
+            '<span class="pz-meta">' + fmtQuota(r.quota) + " · " + matchText(r.match) + (r.choice ? " · 二选一" : "") + " · 价值 " + fmtVal(r.value) + "</span></div></td>" +
+            "<td>" + r.level + "</td>" +
+            '<td class="num nowrap muted">' + r.created + "</td>" +
+            '<td class="num nowrap muted">' + r.modified + "</td>" +
+            '<td><span class="adm-table__op"><button type="button" data-edit="' + r.id + '">编辑</button></span></td>' +
+            "</tr>";
+        }).join("");
+      }
+      renderPager();
+      bindRow();
+      var th = $('.pz-sort');
+      th.classList.toggle("is-active", true);
+      var ico = th.querySelector(".pz-sort__ico");
+      ico.textContent = state.sortDir === "desc" ? "↓" : "↑";
+      th.setAttribute("aria-sort", state.sortDir === "desc" ? "descending" : "ascending");
+    }
+
+    function renderPager() {
+      var total = state.rows.length;
+      var pages = Math.max(1, Math.ceil(total / state.pageSize));
+      if (state.page > pages) state.page = pages;
+      var html = '<span class="adm-pager__total" id="pager-total">共 ' + fmtNum(total) + " 条</span>";
+      html += '<button type="button" data-page="prev"' + (state.page === 1 ? " disabled" : "") + ">‹</button>";
+      for (var i = 1; i <= pages; i++) {
+        if (pages > 7 && i > 3 && i < pages - 1) {
+          if (i === 4) html += "<span>•••</span>";
+          continue;
+        }
+        html += '<button type="button" data-page="' + i + '"' + (i === state.page ? ' class="is-active"' : "") + ">" + i + "</button>";
+      }
+      html += '<button type="button" data-page="next"' + (state.page === pages ? " disabled" : "") + ">›</button>";
+      html += '<select id="page-size" aria-label="每页条数">' +
+        [10, 20, 50].map(function (n) {
+          return '<option value="' + n + '"' + (n === state.pageSize ? " selected" : "") + ">" + n + " 条/页</option>";
+        }).join("") + "</select>";
+      $("#pager").innerHTML = html;
+
+      U.$$("#pager button[data-page]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.getAttribute("data-page");
+          if (v === "prev") state.page = Math.max(1, state.page - 1);
+          else if (v === "next") state.page = Math.min(pages, state.page + 1);
+          else state.page = parseInt(v, 10);
+          render();
+        });
+      });
+      var ps = $("#page-size");
+      ps.addEventListener("change", function () {
+        state.pageSize = parseInt(ps.value, 10);
+        state.page = 1;
+        render();
+      });
+    }
+
+    function bindRow() {
+      U.$$("[data-edit]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var id = parseInt(b.getAttribute("data-edit"), 10);
+          openEdit(id);
+        });
+      });
+    }
+
+    function filter() {
+      var name = $("#f-name").value.trim().toLowerCase();
+      var level = $("#f-level").value;
+      var start = $("#f-start").value.trim();
+      var end = $("#f-end").value.trim();
+      state.rows = ROWS.filter(function (r) {
+        var day = r.created.slice(0, 10);
+        return (!name || r.name.toLowerCase().indexOf(name) >= 0) &&
+          (!level || r.level === level) &&
+          (!start || day >= start) &&
+          (!end || day <= end);
+      });
+      state.filtered = true;
+      state.page = 1;
+      render();
+      U.toast("查询完成，共 " + state.rows.length + " 条（演示数据）");
+    }
+
+    function reset() {
+      $("#filters").reset();
+      state.rows = ROWS.slice();
+      state.filtered = false;
+      state.page = 1;
+      render();
+      U.toast("已重置");
+    }
+
+    function setErr(item, on) {
+      item.classList.toggle("is-error", !!on);
+    }
+
+    function openModal(id) {
+      var m = document.getElementById(id);
+      m.classList.add("is-open");
+      m.setAttribute("aria-hidden", "false");
+    }
+    function closeModal(m) {
+      m.classList.remove("is-open");
+      m.setAttribute("aria-hidden", "true");
+    }
+
+    function clearForm() {
+      U.$$("#modal-prize .adm-form-item").forEach(function (f) { f.classList.remove("is-error"); });
+      $("#prize-name").value = "";
+      $("#prize-level").value = "";
+      $("#prize-quota").value = "";
+      $("#prize-match").value = "full";
+      $("#prize-value").value = "";
+      U.$$('input[name="prize-choice"]').forEach(function (r) { r.checked = r.value === "0"; });
+      state.imgIdx = 0;
+      $("#prize-img").src = STORE + IMGS[0];
+    }
+
+    function openAdd() {
+      state.editingId = null;
+      clearForm();
+      $("#modal-prize-title").textContent = "添加奖品";
+      openModal("modal-prize");
+    }
+
+    function openEdit(id) {
+      var r = ROWS.find(function (x) { return x.id === id; });
+      if (!r) return;
+      state.editingId = id;
+      clearForm();
+      $("#modal-prize-title").textContent = "编辑奖品";
+      $("#prize-name").value = r.name;
+      $("#prize-level").value = r.level;
+      $("#prize-quota").value = r.quota;
+      $("#prize-match").value = r.match;
+      $("#prize-value").value = r.value;
+      U.$$('input[name="prize-choice"]').forEach(function (x) { x.checked = (x.value === "1") === r.choice; });
+      state.imgIdx = Math.max(0, IMGS.indexOf(r.img));
+      $("#prize-img").src = STORE + r.img;
+      openModal("modal-prize");
+    }
+
+    function validate() {
+      var ok = true;
+      var nameItem = $("#prize-name").closest(".adm-form-item");
+      if (!$("#prize-name").value.trim()) { setErr(nameItem, true); ok = false; } else setErr(nameItem, false);
+      var levelItem = $("#prize-level").closest(".adm-form-item");
+      if (!$("#prize-level").value) { setErr(levelItem, true); ok = false; } else setErr(levelItem, false);
+      var q = $("#prize-quota").value.trim();
+      var qItem = $("#prize-quota").closest(".adm-form-item");
+      if (!/^\d+$/.test(q) || parseInt(q, 10) <= 0) { setErr(qItem, true); ok = false; } else setErr(qItem, false);
+      var v = $("#prize-value").value.trim();
+      var vItem = $("#prize-value").closest(".adm-form-item");
+      if (!/^\d+(\.\d{1,2})?$/.test(v) || parseFloat(v) <= 0) { setErr(vItem, true); ok = false; } else setErr(vItem, false);
+      return ok;
+    }
+
+    function nowStr() {
+      var d = new Date();
+      var p = function (n) { return (n < 10 ? "0" : "") + n; };
+      return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes()) + ":" + p(d.getSeconds());
+    }
+
+    function savePrize() {
+      if (!validate()) return;
+      var level = $("#prize-level").value;
+      var match = (level === "五等奖") ? "last" : $("#prize-match").value;
+      var choice = U.$$('input[name="prize-choice"]').some(function (r) { return r.checked && r.value === "1"; });
+      var data = {
+        name: $("#prize-name").value.trim(),
+        level: level,
+        quota: parseInt($("#prize-quota").value.trim(), 10),
+        match: match,
+        value: parseFloat($("#prize-value").value.trim()),
+        choice: choice,
+        img: IMGS[state.imgIdx]
+      };
+      if (state.editingId == null) {
+        data.id = Date.now();
+        data.created = nowStr();
+        data.modified = nowStr();
+        ROWS.unshift(data);
+        state.rows = ROWS.slice();
+        state.filtered = false;
+        state.page = 1;
+        state.sortDir = "desc";
+        render();
+        closeModal($("#modal-prize"));
+        U.toast("已添加奖品「" + data.name + "」（演示）");
+      } else {
+        var r = ROWS.find(function (x) { return x.id === state.editingId; });
+        if (r) {
+          Object.keys(data).forEach(function (k) { r[k] = data[k]; });
+          r.modified = nowStr();
+        }
+        state.rows = state.filtered ? state.rows : ROWS.slice();
+        render();
+        closeModal($("#modal-prize"));
+        U.toast("奖品「" + data.name + "」已保存（演示）");
+      }
+    }
+
+    function demoQuotaZero() {
+      openEdit(5);
+      $("#prize-quota").value = "0";
+      setErr($("#prize-quota").closest(".adm-form-item"), true);
+      U.toast("名额为 0：保存将被拒绝（AC-037）");
+    }
+
+    function demoEmpty() {
+      state.rows = [];
+      state.filtered = true;
+      state.page = 1;
+      render();
+      U.toast("已进入筛选空态（演示）");
+    }
+
+    function demoScope() {
+      U.toast("奖项口径待市场部 11/5 确认：每月名额制 vs 活动期总额制（演示）");
+      var el = $("#scope-alert");
+      el.style.outline = "2px solid #faad14";
+      setTimeout(function () { el.style.outline = ""; }, 1600);
+    }
+
+    function demoReset() {
+      $("#filters").reset();
+      state.rows = ROWS.slice();
+      state.filtered = false;
+      state.page = 1;
+      state.sortDir = "desc";
+      state.pageSize = 10;
+      render();
+      U.toast("演示数据已恢复");
+    }
+
+    window.PRIZE_UI = {
+      openAdd: openAdd,
+      openEditFive: function () { openEdit(5); },
+      demoQuotaZero: demoQuotaZero,
+      demoEmpty: demoEmpty,
+      demoScope: demoScope,
+      demoReset: demoReset
+    };
+
+    $("#btn-search").addEventListener("click", filter);
+    $("#btn-reset").addEventListener("click", reset);
+    $("#btn-export").addEventListener("click", function () { U.toast("已导出当前列表（演示，含图片链接）"); });
+    $("#btn-add").addEventListener("click", openAdd);
+    $("#prize-level").addEventListener("change", function () {
+      if (this.value === "五等奖") $("#prize-match").value = "last";
+      else if (this.value) $("#prize-match").value = "full";
+    });
+    $("#btn-prize-img").addEventListener("click", function () {
+      state.imgIdx = (state.imgIdx + 1) % IMGS.length;
+      $("#prize-img").src = STORE + IMGS[state.imgIdx];
+      U.toast("已选择示例图片 " + IMGS[state.imgIdx] + "（演示）");
+    });
+    $("#btn-prize-ok").addEventListener("click", savePrize);
+    U.$$("[data-close]").forEach(function (b) {
+      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        U.$$(".adm-modal.is-open").forEach(function (m) { closeModal(m); });
+      }
+    });
+    $(".pz-sort").addEventListener("click", function () {
+      state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+      state.page = 1;
+      render();
+    });
+    $(".adm-sider__collapse").addEventListener("click", function () {
+      document.body.classList.toggle("is-collapsed");
+      this.setAttribute("title", document.body.classList.contains("is-collapsed") ? "展开菜单" : "收起菜单");
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>

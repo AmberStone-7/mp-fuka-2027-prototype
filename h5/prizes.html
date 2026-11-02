@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>礼品展示 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="activity.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <h2 class="h5-sec"><i>◆</i>礼品展示<i>◆</i></h2>
+
+    <div class="h5-card" style="padding:12px 14px">
+      <p class="h5-tip" style="margin:0">抽奖时间：2027-02-10 · 一至四等奖 5 位号码全匹配，五等奖末位 1 位匹配；一卡一奖、取最高。</p>
+    </div>
+
+    <div class="h5-prize-list" id="prize-list"></div>
+
+    <p class="h5-tip" style="margin-top:16px">奖项与名额以最终规则页为准；图片为现有活动素材，实物以采购到货版本为准。</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-04",
+      title: "礼品展示",
+      live: "yes",
+      note: "沿用去年礼品展示页结构",
+      fr: ["FR-022"],
+      ac: ["AC-022"],
+      goal: "沿用去年礼品展示页：五档奖品按奖级从上到下排列，图片 + 名额 + 匹配方式 + 领奖说明。",
+      states: [
+        "正常：五档奖品全部展示。",
+        "奖品下架/未配置：该档显示「敬请期待」。",
+        "活动未开始：页面可看，奖品以最终规则为准。"
+      ],
+      notes: [
+        "沿用去年金色章节标题 + 奖品图片 + 说明的排布，不做花哨卡片。",
+        "奖品图片用现有素材（一等奖 6,666€ / 二等奖手机 / 三等奖手机 / 四等奖平板 / 五等奖礼包）。",
+        "名额口径：素材为「每月名额制」，PRD/DEC 为「活动期总额制」，待市场部 11/5 确认。"
+      ],
+      todo: [
+        "奖项口径待市场部 11/5 确认；确认后只改文案与名额。",
+        "五等奖素材为「每月不限量」，PRD 为 2,000 名总额。",
+        "三等奖奖品在素材为手机、PRD 为机票/代金券，需市场部定。"
+      ]
+    };
+
+    window.DEMOS = [
+      { label: "查看名额口径", fn: function () { U.toast("素材为每月名额制，PRD 为活动期总额制，待市场部 11/5 确认"); } }
+    ];
+  </script>
+  <script>
+    Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/prizes",
+      "desc": "出参 {level, name, image, quota, match_digits, note}[]；H5 只读"
+    }
+  ],
+  "fields": [
+    "无表单；5 档奖品为配置数据"
+  ],
+  "rules": [
+    "一至四等奖 5 位全匹配；五等奖末位 1 位",
+    "一卡一奖、取最高",
+    "名额口径：素材每月名额制 vs PRD 活动期总额制，待市场部 11/5",
+    "五等奖随单发放，订单备注【2027福卡五等奖】"
+  ],
+  "permissions": [
+    "公开"
+  ],
+  "events": [
+    "page_view"
+  ],
+  "devNotes": [
+    "奖品文案/名额读配置，不写死；图片可替换为正式素材",
+    "口径确认后只改配置数据，不改页面结构"
+  ]
+});
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var PRIZES = [
+        { img: "prize-01.png", level: "一等奖", name: "6,666 €", quota: "每月 1 名", match: "5 位全匹配", note: "工作人员将与您联系兑奖" },
+        { img: "prize-02.png", level: "二等奖", name: "智能手机", quota: "每月 2 名", match: "5 位全匹配", note: "需在线登记领奖信息（发布后 15 日内）" },
+        { img: "prize-03.png", level: "三等奖", name: "智能手机", quota: "每月 3 名", match: "5 位全匹配", note: "工作人员将与您联系兑奖" },
+        { img: "prize-04.png", level: "四等奖", name: "平板电脑", quota: "每月 5 名", match: "5 位全匹配", note: "工作人员将与您联系兑奖" },
+        { img: "prize-05.png", level: "五等奖", name: "新春礼包", quota: "每月不限量", match: "末位 1 位匹配", note: "随订单发放，请在订单备注填写【2027福卡五等奖】" }
+      ];
+      document.getElementById("prize-list").innerHTML = PRIZES.map(function (p, i) {
+        return '<div class="h5-prize">' +
+          '<div class="h5-prize__head"><span class="h5-prize__level">' + p.level + '</span><span class="h5-prize__quota">' + p.quota + '</span></div>' +
+          '<img class="h5-prize__img" src="../assets/img/' + p.img + '" alt="' + p.level + ' ' + p.name + '">' +
+          '<div class="h5-prize__meta">' + p.match + ' · ' + p.note + '</div>' +
+          '</div>';
+      }).join("");
+    })();
+  </script>
+</body>
+</html>

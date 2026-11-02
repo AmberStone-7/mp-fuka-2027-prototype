@@ -1,0 +1,414 @@
+/* ==========================================================================
+   2026-2027 中汇新年福卡 · 交互原型 V2（对齐 2026 线上系统风格）
+   共享基础：重置 / 字体 / 说明抽屉（原型工具，不属于产品界面）/ Toast
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, ol, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid #e2b562;
+  outline-offset: 2px;
+}
+
+/* ---------- 原型说明（工具层，非产品界面） ---------- */
+.proto-notes-btn {
+  position: fixed;
+  right: 14px;
+  bottom: 84px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #f3e3c6;
+  background: rgba(24, 12, 14, 0.86);
+  border: 1px solid rgba(226, 181, 98, 0.5);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.proto-notes-btn:hover {
+  background: rgba(40, 20, 22, 0.92);
+}
+
+.proto-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 940;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.proto-mask.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.proto-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 92vw);
+  color: #e9dccb;
+  background: #18100f;
+  border-left: 1px solid rgba(226, 181, 98, 0.35);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.35);
+  transform: translateX(102%);
+  transition: transform 0.24s ease;
+  visibility: hidden;
+}
+
+.proto-drawer.is-open {
+  transform: none;
+  visibility: visible;
+}
+
+.proto-drawer__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(233, 220, 203, 0.14);
+}
+
+.proto-drawer__title {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: #f6e7cf;
+}
+
+.proto-drawer__badge {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  color: #7a4a0d;
+  background: #eed9a8;
+}
+
+.proto-drawer__home {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: rgba(233, 220, 203, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.proto-drawer__close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #e9dccb;
+  border: 1px solid rgba(233, 220, 203, 0.25);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.proto-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px 40px;
+  font-size: 12.5px;
+  line-height: 1.75;
+}
+
+.proto-drawer__body section + section {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(233, 220, 203, 0.16);
+}
+
+.proto-drawer__body h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #eed9a8;
+}
+
+.proto-drawer__body h3::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background: #e2b562;
+}
+
+.proto-drawer__body p {
+  margin-bottom: 5px;
+  color: rgba(233, 220, 203, 0.8);
+}
+
+.proto-drawer__body li {
+  position: relative;
+  padding-left: 13px;
+  margin-bottom: 3px;
+  color: rgba(233, 220, 203, 0.8);
+}
+
+.proto-drawer__body li::before {
+  content: "·";
+  position: absolute;
+  left: 2px;
+  color: #e2b562;
+}
+
+.proto-kv {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 5px 10px;
+  margin: 0;
+}
+
+.proto-kv dt {
+  color: rgba(233, 220, 203, 0.45);
+  font-size: 11.5px;
+}
+
+.proto-kv dd {
+  margin: 0;
+  color: #f2e6d6;
+}
+
+.proto-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.proto-demo button {
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 11.5px;
+  color: #f0e3d0;
+  border: 1px solid rgba(233, 220, 203, 0.3);
+  background: rgba(233, 220, 203, 0.06);
+}
+
+.proto-demo button:hover {
+  border-color: #e2b562;
+  background: rgba(226, 181, 98, 0.16);
+}
+
+.proto-foot {
+  padding: 9px 16px;
+  border-top: 1px solid rgba(233, 220, 203, 0.14);
+  font-size: 10.5px;
+  color: rgba(233, 220, 203, 0.4);
+}
+
+/* ---------- Toast ---------- */
+.toast-root {
+  position: fixed;
+  left: 50%;
+  top: 76px;
+  z-index: 960;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  padding: 9px 15px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #1b1210;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  animation: toast-in 0.18s ease;
+}
+
+.toast--dark {
+  color: #f4e8d6;
+  background: rgba(26, 14, 15, 0.94);
+  border-color: rgba(226, 181, 98, 0.4);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* H5 页面上说明按钮位置（避开底部导航） */
+body.h5 .proto-notes-btn {
+  bottom: 86px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  opacity: 0.82;
+}
+
+body.h5 .proto-notes-btn .proto-notes-btn__t {
+  display: none;
+}
+
+body.h5 .toast-root {
+  top: 24px;
+}
+
+
+/* ---------- 原型目录快捷入口（工具层） ---------- */
+.proto-nav {
+  position: fixed;
+  top: 14px;
+  right: 10px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: #f3e3c6;
+  background: rgba(24, 12, 14, 0.82);
+  border: 1px solid rgba(226, 181, 98, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+}
+
+.proto-nav:hover {
+  background: rgba(40, 20, 22, 0.92);
+  border-color: #e2b562;
+}
+
+body.h5 .proto-nav {
+  top: 12px;
+  right: 8px;
+}
+
+body.adm .proto-nav {
+  position: static;
+  margin-right: 14px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #1677ff;
+  background: #fff;
+  border-color: #d9d9d9;
+  box-shadow: none;
+}
+
+body.adm .proto-nav:hover {
+  color: #4096ff;
+  border-color: #4096ff;
+  background: #fff;
+}
+
+
+/* 说明抽屉：接口列表 */
+.proto-api {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proto-api li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 3px 0;
+  color: rgba(233, 220, 203, 0.8);
+}
+
+.proto-api li b {
+  flex: none;
+  min-width: 40px;
+  color: #eed9a8;
+  font-weight: 600;
+}
+
+.proto-api li code {
+  padding: 0 5px;
+  border-radius: 3px;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #f6e3b0;
+  background: rgba(226, 181, 98, 0.12);
+}
+
+.proto-api li span {
+  flex-basis: 100%;
+  padding-left: 46px;
+  color: rgba(233, 220, 203, 0.6);
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.proto-drawer__body code {
+  padding: 0 4px;
+  border-radius: 3px;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  color: #f6e3b0;
+  background: rgba(226, 181, 98, 0.12);
+}

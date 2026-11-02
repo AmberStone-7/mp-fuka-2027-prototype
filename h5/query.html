@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>活动查询 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="activity.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <h2 class="h5-sec">查询福卡/中奖</h2>
+
+    <section class="h5-form">
+      <div class="h5-field">
+        <input class="h5-input" id="invoice_no" placeholder="发票号，示例 ES25000149" autocomplete="off">
+      </div>
+      <div class="h5-field">
+        <input class="h5-input" id="cif" placeholder="税号/CIF，示例 B12345678" autocomplete="off">
+      </div>
+      <p class="h5-err" id="query-err"></p>
+      <button class="h5-btn" id="btn-query" type="button">立即查询</button>
+      <p class="h5-tip">演示数据：发票号 <b style="color:#ffe1ad">ES25000149</b> + 税号 <b style="color:#ffe1ad">B12345678</b>，可查到名下 4 张福卡。</p>
+      <p class="h5-tip">验证通过后返回该税号名下全部福卡（含其他发票）与我的邀请码；福卡状态随开奖更新。</p>
+    </section>
+
+    <!-- 查询结果 -->
+    <section id="result" hidden>
+      <h3 class="h5-sec" style="font-size:18px">查询结果</h3>
+
+      <div id="result-notice"></div>
+
+      <!-- 我的邀请码：放在结果顶部、状态筛选之前 -->
+      <div id="invite-block" hidden>
+        <div class="h5-card h5-invite-card">
+          <div class="h5-card__head">
+            <span class="h5-card__title">我的邀请码</span>
+            <span class="h5-card__hint">邀请新客，双方各得 1 张</span>
+          </div>
+          <div class="h5-invite-card__row">
+            <div class="h5-code" id="query-my-code">MP2027K8H3</div>
+            <button class="h5-btn h5-btn--ghost h5-btn--sm" id="btn-copy-invite" type="button">复制</button>
+          </div>
+          <div class="h5-code-stats">
+            <div><b id="q-invited-used">3</b><span>已用名额</span></div>
+            <div><b id="q-invited-left">97</b><span>剩余名额</span></div>
+            <div><b id="q-invited-success">2</b><span>已成功邀请</span></div>
+          </div>
+          <div class="h5-links" style="margin-top:10px">
+            <a class="h5-link" href="claim.html?mode=code">查看邀请记录 →</a>
+            <span>邀请人上限 100 张</span>
+          </div>
+        </div>
+        <p class="h5-tip">以上为验证客户后名下全部福卡（含其他发票）；福卡状态随 2027-02-10 开奖结果更新。</p>
+      </div>
+
+      <div class="h5-tabs" id="status-tabs">
+        <button class="h5-tab is-active" data-status="all" type="button">全部</button>
+        <button class="h5-tab" data-status="pending" type="button">待开奖</button>
+        <button class="h5-tab" data-status="lost" type="button">未中奖</button>
+        <button class="h5-tab" data-status="won" type="button">已中奖</button>
+        <button class="h5-tab" data-status="invalid" type="button">已失效</button>
+      </div>
+
+      <div id="ticket-list"></div>
+
+      <div id="no-result" hidden>
+        <div class="h5-empty">
+          <div class="h5-empty__ico">票</div>
+          <div class="h5-empty__t">该状态下暂无福卡</div>
+          <div class="h5-empty__d">切换状态或重新查询</div>
+        </div>
+      </div>
+    </section>
+
+    <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；抽奖日：2027-02-10。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
+    <p class="h5-tip"><a class="h5-link" href="publicity.html">查看中奖公示 →</a></p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-02",
+      title: "查询福卡/中奖",
+      live: "yes",
+      note: "发票号 + 税号(CIF) → 名下全部福卡 + 邀请码；无独立中奖查询入口",
+      fr: ["FR-010", "FR-014"],
+      ac: ["AC-017", "AC-018", "AC-019", "AC-029 ~ AC-032"],
+      goal: "客户输入发票号 + 税号(CIF) 完成验证后，返回该税号名下全部福卡（含其他发票）、我的邀请码与中奖状态；二等奖中奖卡直接提供领奖登记入口。",
+      states: [
+        "查询成功：返回该税号名下全部福卡（含其他发票）+ 邀请码，可按状态筛选。",
+        "开奖前：福卡状态均为「待开奖」。",
+        "开奖后：中奖卡显示「已中奖 · 奖项」，二等奖卡显示「填写领奖信息」入口。",
+        "信息不匹配：统一提示，不泄露是否命中。",
+        "连续失败 5 次：锁定 30 分钟。",
+        "系统繁忙：提示稍后重试。"
+      ],
+      notes: [
+        "本页已删除原「查看我的奖品 / 中奖查询」入口；中奖状态直接体现在福卡票券上，避免二次查询。",
+        "验证方式：发票号 + 税号(CIF)；验证通过返回客户维度全部福卡（与去年「活动查询」行为一致）。",
+        "邀请码卡片放在结果顶部（状态筛选之前），支持复制与查看邀请记录。",
+        "中奖公示入口移到底部链接与「活动细则与赞助」页。"
+      ],
+      todo: [
+        "PRD FR-010 原文为「仅返回该发票关联福卡」，本页按业务要求改为客户维度全部福卡，PRD V1.4 已同步更新。",
+        "发票号格式 PRD 未定义，演示按 6–20 位字母数字。",
+        "中奖福卡对应发票是否要求已付款，沿用去年规则并写进提示。"
+      ]
+    };
+  </script>
+  <script>
+    Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "POST",
+      "path": "/api/cards/query",
+      "desc": "入参 {invoice_no, cif}；出参 {cards[], invite{code,used,quota,success}, message}；失败统一 message"
+    },
+    {
+      "method": "GET",
+      "path": "/api/campaign/status",
+      "desc": "活动状态，用于未开始/已结束提示"
+    }
+  ],
+  "fields": [
+    "invoice_no：必填，6–20 位字母数字（PRD 未定义，当前演示口径）",
+    "cif：必填，税号；与发票需匹配同一客户",
+    "前端校验：空值/格式内联提示；后端错误统一提示，不区分原因"
+  ],
+  "rules": [
+    "验证通过返回该税号名下全部福卡（含其他发票）+ 我的邀请码",
+    "card.status ∈ pending / won / lost / invalid；开奖前全部 pending；开奖后为 won/lost",
+    "二等奖中奖卡返回 prize_level=2，展示「填写领奖信息」入口",
+    "限流：同 IP 30 次/分钟；连续失败 5 次锁定 30 分钟",
+    "邀请码仅验证通过后返回；CIF 展示脱敏（B1***78）"
+  ],
+  "permissions": [
+    "免登录；参数不落 URL；HTTPS；响应不缓存"
+  ],
+  "events": [
+    "card_query（result, fail_type）",
+    "invite_code_view（cif_hash）",
+    "page_view"
+  ],
+  "devNotes": [
+    "本页已删除独立「中奖查询」入口，中奖状态随福卡返回，不要另建页面",
+    "响应加 Cache-Control: no-store；发票号/CIF 禁止写入 URL 与访问日志明文",
+    "状态筛选为前端过滤；数据量按客户维度（通常个位数）"
+  ]
+});
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var $ = U.$;
+      var state = { status: "all", cards: [], published: false };
+
+      var CARDS_PRE = [
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
+        { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
+        { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "pending", statusText: "待开奖" }
+      ];
+      var CARDS_POST = [
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "won", statusText: "已中奖 · 二等奖", prize: "二等奖 · 智能手机" },
+        { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", statusText: "未中奖" },
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", statusText: "未中奖" },
+        { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "lost", statusText: "未中奖" }
+      ];
+
+      function fmtCard(c) {
+        var claim = c.status === "won" && c.prize && c.prize.indexOf("二等奖") === 0
+          ? '<a class="h5-btn h5-btn--sm" style="margin-top:10px" href="winner-form.html">填写领奖信息</a>'
+          : "";
+        return '<article class="ticket' + (c.status === "won" ? " ticket--win" : "") + '">' +
+          '<div class="ticket__top">' +
+          '<div><div class="ticket__no"><small>幸运福卡号码</small>' + c.no + '</div><span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span></div>' +
+          '<div class="ticket__stamp">中汇<br>福卡</div>' +
+          '</div>' +
+          '<dl class="ticket__rows">' +
+          '<div class="ticket__row"><dt>客户号</dt><dd>10009502</dd></div>' +
+          '<div class="ticket__row"><dt>税号/CIF</dt><dd>B1***78</dd></div>' +
+          '<div class="ticket__row"><dt>手机号</dt><dd>666 666 666</dd></div>' +
+          '<div class="ticket__row"><dt>发放时间</dt><dd>' + c.issued + '</dd></div>' +
+          '</dl>' +
+          '<table class="ticket__invoices"><thead><tr><th>发票号</th><th>发票税前金额</th><th>发票创建时间</th></tr></thead>' +
+          '<tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>' +
+          '<span class="ticket__status' + (c.status === "won" ? " ticket__status--win" : "") + '">' + c.statusText + '</span>' +
+          (c.prize ? '<span class="h5-text-gold" style="margin-left:8px;font-size:12px">' + c.prize + '</span>' : "") +
+          claim +
+          '</article>';
+      }
+
+      function renderCards() {
+        var list = state.cards.filter(function (c) { return state.status === "all" || c.status === state.status; });
+        $("#ticket-list").innerHTML = list.map(fmtCard).join("");
+        $("#no-result").hidden = list.length > 0;
+      }
+
+      function showErr(msg) {
+        var el = $("#query-err");
+        el.textContent = msg;
+        el.classList.add("is-show");
+      }
+
+      function run(kind) {
+        var btn = $("#btn-query");
+        btn.disabled = true;
+        btn.textContent = "查询中…";
+        setTimeout(function () {
+          btn.disabled = false;
+          btn.textContent = "立即查询";
+          $("#query-err").classList.remove("is-show");
+          $("#result").hidden = false;
+          $("#invite-block").hidden = true;
+          $("#status-tabs").hidden = false;
+          $("#result-notice").innerHTML = "";
+          if (kind === "mismatch") {
+            $("#invite-block").hidden = true;
+            $("#status-tabs").hidden = true;
+            $("#ticket-list").innerHTML = "";
+            $("#no-result").hidden = false;
+            $("#no-result").innerHTML = '<div class="h5-empty"><div class="h5-empty__ico">!</div><div class="h5-empty__t">信息不匹配</div><div class="h5-empty__d">请核对发票号与税号/CIF 后重试</div></div>';
+            showErr("信息不匹配，请核对发票号与税号/CIF");
+          } else if (kind === "locked") {
+            $("#invite-block").hidden = true;
+            $("#status-tabs").hidden = true;
+            $("#ticket-list").innerHTML = "";
+            $("#no-result").hidden = false;
+            $("#no-result").innerHTML = '<div class="h5-empty"><div class="h5-empty__ico">锁</div><div class="h5-empty__t">尝试过于频繁</div><div class="h5-empty__d">请 30 分钟后再试，或联系客服</div></div>';
+            showErr("尝试过于频繁，请稍后再试（锁定 30 分钟）");
+          } else if (kind === "empty") {
+            state.cards = [];
+            state.status = "all";
+            $("#invite-block").hidden = true;
+            $("#status-tabs").hidden = true;
+            $("#result-notice").innerHTML = '<div class="h5-notice" style="margin-bottom:10px">该税号名下暂无福卡；下单满 1,000€（不含 IVA）后自动发卡。</div>';
+            renderCards();
+          } else {
+            state.cards = state.published ? CARDS_POST : CARDS_PRE;
+            state.status = "all";
+            $("#invite-block").hidden = false;
+            $("#result-notice").innerHTML = '<div class="h5-notice" style="margin-bottom:10px">' + (state.published
+              ? "抽奖已于 2027-02-10 完成，福卡状态已更新；二等奖中奖卡可在线登记领奖信息。"
+              : "验证通过：返回该税号名下全部福卡（含其他发票）与我的邀请码。") + "</div>";
+            U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
+            renderCards();
+          }
+          window.scrollTo({ top: $("#result").offsetTop - 20, behavior: "smooth" });
+        }, 650);
+      }
+
+      function validateAndRun() {
+        var inv = $("#invoice_no").value.trim();
+        var cif = $("#cif").value.trim();
+        $("#query-err").classList.remove("is-show");
+        if (!inv) { showErr("请输入发票号"); return; }
+        if (!/^[A-Za-z0-9-]{6,20}$/.test(inv)) { showErr("发票号格式不正确"); return; }
+        if (!cif) { showErr("请输入税号/CIF"); return; }
+        run(/^X/i.test(cif) ? "mismatch" : "success");
+      }
+
+      $("#btn-query").addEventListener("click", validateAndRun);
+      ["invoice_no", "cif"].forEach(function (id) {
+        document.getElementById(id).addEventListener("keydown", function (e) { if (e.key === "Enter") validateAndRun(); });
+      });
+
+      U.$$("#status-tabs .h5-tab").forEach(function (b) {
+        b.addEventListener("click", function () {
+          U.$$("#status-tabs .h5-tab").forEach(function (x) { x.classList.remove("is-active"); });
+          b.classList.add("is-active");
+          state.status = b.getAttribute("data-status");
+          renderCards();
+        });
+      });
+
+      var copyInvite = document.getElementById("btn-copy-invite");
+      if (copyInvite) copyInvite.addEventListener("click", function () { U.toast("邀请码 MP2027K8H3 已复制"); });
+
+      function setPublished(flag) {
+        state.published = flag;
+        state.cards = flag ? CARDS_POST : CARDS_PRE;
+        state.status = "all";
+        $("#result").hidden = false;
+        $("#invite-block").hidden = false;
+        $("#status-tabs").hidden = false;
+        $("#result-notice").innerHTML = '<div class="h5-notice' + (flag ? " h5-notice--success" : "") + '" style="margin-bottom:10px">' +
+          (flag ? "抽奖已于 2027-02-10 完成：01136 已中奖（二等奖），可填写领奖信息；其余 3 张未中奖。" : "当前为开奖前状态：名下 4 张福卡均为待开奖。") + "</div>";
+        U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
+        renderCards();
+        window.scrollTo({ top: $("#result").offsetTop - 20, behavior: "smooth" });
+      }
+
+      window.DEMOS = [
+        { label: "填入示例并查询", fn: function () { U.setVal($("#invoice_no"), "ES25000149"); U.setVal($("#cif"), "B12345678"); run("success"); } },
+        { label: "查询成功（4 张）", fn: function () { run("success"); } },
+        { label: "信息不匹配", fn: function () { run("mismatch"); } },
+        { label: "连续失败锁定", fn: function () { run("locked"); } },
+        { label: "该税号无福卡", fn: function () { run("empty"); } },
+        { label: "开奖前状态", fn: function () { setPublished(false); } },
+        { label: "开奖后状态（含中奖票）", fn: function () { setPublished(true); } }
+      ];
+    })();
+  </script>
+</body>
+</html>

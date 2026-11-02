@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>中奖公示 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="query.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <h2 class="h5-sec"><i>◆</i>中奖公示<i>◆</i></h2>
+
+    <div class="h5-card" style="padding:12px 14px">
+      <p class="h5-tip" style="margin:0">公示期：2027-02-10 — 2027-03-31。仅公示奖项、CIF 打码与奖品，不公开完整卡号与 CIF。</p>
+    </div>
+
+    <div class="h5-tabs" id="pub-tabs">
+      <button class="h5-tab is-active" data-level="all" type="button">全部</button>
+      <button class="h5-tab" data-level="1" type="button">一等奖</button>
+      <button class="h5-tab" data-level="2" type="button">二等奖</button>
+      <button class="h5-tab" data-level="3" type="button">三等奖</button>
+      <button class="h5-tab" data-level="4" type="button">四等奖</button>
+      <button class="h5-tab" data-level="5" type="button">五等奖</button>
+    </div>
+
+    <div class="h5-pub-wrap">
+      <table class="h5-pub-table">
+        <thead><tr><th style="width:64px">奖项</th><th>CIF</th><th>奖品</th></tr></thead>
+        <tbody id="pub-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="h5-pub-wrap" id="pub-empty" hidden>
+      <div class="h5-empty">
+        <div class="h5-empty__ico">奖</div>
+        <div class="h5-empty__t">该奖项暂无中奖记录</div>
+        <div class="h5-empty__d">抽奖结果发布后在此公示</div>
+      </div>
+    </div>
+
+    <p class="h5-tip" style="margin-top:14px">如对公示结果有异议，请在公示期内联系活动客服；逾期不再受理。</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-05",
+      title: "中奖公示",
+      live: "yes",
+      note: "DEC-018；P07 公示页",
+      fr: ["FR-015", "DEC-018"],
+      ac: ["AC-023"],
+      goal: "开奖后公示脱敏名单：奖项 + CIF 打码 + 奖品；不公开完整卡号与 CIF。",
+      states: [
+        "已开奖：展示按奖项筛选的脱敏名单。",
+        "未开奖：提示抽奖于 2027-02-10 进行（批量阶段接入状态）。",
+        "某奖项无记录：空态。"
+      ],
+      notes: [
+        "沿用去年奖品/公示的深色列表样式，不做复杂卡片。",
+        "CIF 打码规则：保留前 2 位与后 2 位，中间以 *** 代替。",
+        "公示期 2027-02-10 — 2027-03-31（待法务确认）。"
+      ],
+      todo: [
+        "公示期起止与异议渠道待法务 11/12 确认。",
+        "五等奖 2,000 条名单是否全量公示待市场部确认。"
+      ]
+    };
+
+  </script>
+  <script>
+    Object.assign(window.PAGE_META, {
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/winners/public",
+      "desc": "入参 {level?}；出参 {prize_level, cif_masked, prize_name}[]（脱敏）"
+    }
+  ],
+  "fields": [
+    "level：all / 1..5（可选）"
+  ],
+  "rules": [
+    "仅公示奖项 + CIF 打码 + 奖品；不公开完整卡号/CIF",
+    "脱敏规则：保留前 2 位与后 2 位，中间 ***",
+    "公示期 2027-02-10 — 2027-03-31（待法务确认）",
+    "五等奖名单量大时分页/懒加载"
+  ],
+  "permissions": [
+    "公开"
+  ],
+  "events": [
+    "page_view"
+  ],
+  "devNotes": [
+    "脱敏在后端完成，前端不接触明文 CIF",
+    "名单量 2,000 条级，需分页/虚拟列表",
+    "异议入口待法务确认"
+  ]
+});
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var PRIZE = { 1: "6,666 €", 2: "智能手机", 3: "智能手机", 4: "平板电脑", 5: "新春礼包" };
+      var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
+      var ROWS = [
+        [1, "B1***78", 1], [2, "B4***21", 2], [2, "B7***90", 2],
+        [3, "B2***33", 3], [3, "B5***67", 3], [3, "B8***14", 3],
+        [4, "B3***55", 4], [4, "B6***02", 4], [4, "B9***46", 4], [4, "B1***09", 4], [4, "B4***72", 4],
+        [5, "B2***88", 5], [5, "B5***31", 5], [5, "B7***65", 5], [5, "B9***20", 5], [5, "B3***47", 5], [5, "B6***93", 5], [5, "B8***16", 5]
+      ];
+
+      function render(level, forceEmpty) {
+        var list = forceEmpty ? [] : ROWS.filter(function (r) { return level === "all" || String(r[0]) === String(level); });
+        document.getElementById("pub-rows").innerHTML = list.map(function (r) {
+          return '<tr><td><span class="h5-pub-level">' + LEVEL[r[0]] + '</span></td>' +
+            '<td class="h5-pub-cif">' + r[1] + '</td>' +
+            '<td>' + PRIZE[r[0]] + '</td></tr>';
+        }).join("");
+        document.getElementById("pub-empty").hidden = list.length > 0;
+        document.querySelector(".h5-pub-wrap").hidden = list.length === 0;
+        U.$$("#pub-tabs .h5-tab").forEach(function (b) {
+          b.classList.toggle("is-active", b.getAttribute("data-level") === String(level));
+        });
+      }
+
+      U.$$("#pub-tabs .h5-tab").forEach(function (b) {
+        b.addEventListener("click", function () { render(b.getAttribute("data-level"), false); });
+      });
+
+      window.DEMOS = [
+        { label: "一等奖空态", fn: function () { render("1", true); } },
+        { label: "查看全部", fn: function () { render("all", false); } }
+      ];
+
+      render("all", false);
+    })();
+  </script>
+</body>
+</html>
