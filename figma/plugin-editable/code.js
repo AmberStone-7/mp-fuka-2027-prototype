@@ -187,7 +187,8 @@ function gradientSvg(n) {
     const rgb = "rgb(" + Math.round(c.r * 255) + "," + Math.round(c.g * 255) + "," + Math.round(c.b * 255) + ")";
     return '<stop offset="' + Math.max(0, Math.min(1, s.pos)) + '" stop-color="' + rgb + '" stop-opacity="' + (c.a == null ? 1 : c.a) + '"/>';
   }).join("");
-  const r = n.style.radius || 0;
+  const rr = n.style.radius || 0;
+  const r = typeof rr === 'number' ? rr : (rr.tl || 0);
   return '<svg xmlns="http://www.w3.org/2000/svg" width="' + n.w + '" height="' + n.h + '" viewBox="0 0 ' + n.w + ' ' + n.h + '">' +
     '<defs><linearGradient id="g" x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '">' + stops + '</linearGradient></defs>' +
     '<rect x="0" y="0" width="' + n.w + '" height="' + n.h + '" rx="' + r + '" fill="url(#g)"/></svg>';
@@ -203,7 +204,9 @@ async function addNode(parent, n) {
     const name = nameOf(n);
 
     if (n.type === "svg") {
-      const node = figma.createNodeFromSvg(n.svg);
+      let svg = n.svg;
+      if (svg.indexOf("xmlns=") < 0) svg = svg.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
+      const node = figma.createNodeFromSvg(svg);
       node.name = name;
       parent.appendChild(node);
       node.resize(Math.max(1, n.w), Math.max(1, n.h));
