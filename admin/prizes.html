@@ -159,7 +159,7 @@
 
   <div class="adm-alert adm-alert--warn" id="scope-alert">
     <span class="adm-alert__ico">!</span>
-    <span>名额口径已确认（2026-11-03）：活动期总额 <b>1 / 2 / 3 / 15 / 2,000</b> 名；一至四等奖 5 位全匹配，五等奖末位 1 位。一等奖（特斯拉）与三等奖（机票或 1,000€ 代金券）奖品待定。</span>
+    <span>名额口径已确认（2026-11-03）：活动期总额 <b>1 / 2 / 3 / 15 / 2,000</b> 名；一至四等奖 5 位全匹配，五等奖末位 1 位。一等奖（特斯拉）与三等奖（机票或 1,000€ 代金券）。</span>
   </div>
 
   <form class="adm-filters" id="filters" onsubmit="return false">
@@ -240,7 +240,7 @@
       <div class="adm-form-item">
         <label class="required" for="prize-name">奖品名称</label>
         <div class="adm-form-item__ctrl">
-          <input class="adm-input" id="prize-name" placeholder="例如：特斯拉 1 台（待定） / iPhone Duo 1 台" autocomplete="off">
+          <input class="adm-input" id="prize-name" placeholder="例如：特斯拉 1 台 / iPhone Duo 1 台" autocomplete="off">
           <p class="adm-form-item__err">请输入奖品名称</p>
         </div>
       </div>
@@ -398,9 +398,9 @@
     var LEVELS = ["一等奖", "二等奖", "三等奖", "四等奖", "五等奖"];
 
     var ROWS = [
-      { id: 1, name: "特斯拉 1 台（待定）", level: "一等奖", quota: 1, match: "full", value: 25000, choice: false, img: "prize-01.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 1, name: "特斯拉 1 台", level: "一等奖", quota: 1, match: "full", value: 25000, choice: false, img: "prize-01.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
       { id: 2, name: "iPhone Duo 1 台", level: "二等奖", quota: 2, match: "full", value: 1200, choice: false, img: "prize-02.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
-      { id: 3, name: "全球目的地机票 或 1,000€ MP 代金券（二选一，待定）", level: "三等奖", quota: 3, match: "full", value: 1000, choice: true, img: "prize-03.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 3, name: "全球目的地机票 或 1,000€ MP 代金券", level: "三等奖", quota: 3, match: "full", value: 1000, choice: true, img: "prize-03.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
       { id: 4, name: "MP 营销定制礼包 1 份", level: "四等奖", quota: 15, match: "full", value: 50, choice: false, img: "prize-04.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
       { id: 5, name: "MP 定制礼盒 1 份", level: "五等奖", quota: 2000, match: "last", value: 12, choice: false, img: "prize-05.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" }
     ];

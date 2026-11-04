@@ -28,7 +28,7 @@
 
     <div class="h5-prize-list" id="prize-list"></div>
 
-    <p class="h5-tip" style="margin-top:16px">奖品图片由市场部提供；实物以最终采购版本为准。</p>
+    <p class="h5-tip" style="margin-top:16px">奖品图片由市场部提供，实物以最终采购版本为准；中奖后由工作人员与您联系协调兑奖。</p>
   </div>
 
   <script>
@@ -39,20 +39,20 @@
       note: "沿用去年礼品展示页结构",
       fr: ["FR-022"],
       ac: ["AC-022"],
-      goal: "五档奖品按奖级从上到下排列：图片 + 奖品名 + 名额 + 匹配方式 + 领奖说明；名额与匹配规则以 2026-11-03 确认版为准。",
+      goal: "五档奖品按奖级从上到下排列：图片 + 奖品名 + 名额 + 匹配方式；名额与匹配规则以 2026-11-03 确认版为准，兑奖由工作人员线下协调。",
       states: [
         "正常：五档奖品全部展示。",
         "奖品下架/未配置：该档显示「敬请期待」。",
         "活动未开始：页面可看，奖品以最终规则为准。"
       ],
       notes: [
-        "五档奖品按奖级排列：市场部奖品图（含奖级/名额）+ 奖品名称 + 匹配方式 + 领奖说明。",
+        "五档奖品按奖级排列：市场部奖品图（含奖级/名额）+ 奖品名称 + 匹配方式。",
         "名额与匹配规则已确认（2026-11-03）：1 / 2 / 3 / 15 / 2,000 名；一至四等奖 5 位全匹配，五等奖末位 1 位。",
         "一等奖（特斯拉）与三等奖（机票或 1,000€ 代金券）奖品待定，页面按「待定」展示。",
         "五等奖随单发放，订单备注填写【2027福卡五等奖】。"
       ],
       todo: [
-        "一等奖车型与三等奖二选一口径待市场部确认。",
+        "兑奖不设线上流程，由工作人员与中奖客户线下协调。",
         "奖品图已替换为市场部 2027 素材（191–195.png）。"
       ]
     };
@@ -95,17 +95,17 @@
   <script>
     (function () {
       var PRIZES = [
-        { img: "prize-01.png", level: "一等奖", name: "特斯拉 1 台（待定）", quota: "1 名", match: "5 位全匹配", note: "工作人员将与您联系兑奖（车型待定）" },
-        { img: "prize-02.png", level: "二等奖", name: "iPhone Duo 1 台", quota: "2 名", match: "5 位全匹配", note: "需在线登记领奖信息（发布后 15 日内）" },
-        { img: "prize-03.png", level: "三等奖", name: "全球目的地机票 或 1,000€ MP 代金券（二选一，待定）", quota: "3 名", match: "5 位全匹配", note: "工作人员将与您联系确认选择" },
-        { img: "prize-04.png", level: "四等奖", name: "MP 营销定制礼包 1 份", quota: "15 名", match: "5 位全匹配", note: "工作人员将与您联系兑奖" },
-        { img: "prize-05.png", level: "五等奖", name: "MP 定制礼盒 1 份", quota: "2,000 名", match: "末位 1 位匹配", note: "随订单发放，请在订单备注填写【2027福卡五等奖】" }
+        { img: "prize-01.png", level: "一等奖", name: "特斯拉 1 台", quota: "1 名", match: "5 位全匹配", note: "" },
+        { img: "prize-02.png", level: "二等奖", name: "iPhone Duo 1 台", quota: "2 名", match: "5 位全匹配", note: "" },
+        { img: "prize-03.png", level: "三等奖", name: "全球目的地机票 或 1,000€ MP 代金券", quota: "3 名", match: "5 位全匹配", note: "" },
+        { img: "prize-04.png", level: "四等奖", name: "MP 营销定制礼包 1 份", quota: "15 名", match: "5 位全匹配", note: "" },
+        { img: "prize-05.png", level: "五等奖", name: "MP 定制礼盒 1 份", quota: "2,000 名", match: "末位 1 位匹配", note: "" }
       ];
       document.getElementById("prize-list").innerHTML = PRIZES.map(function (p, i) {
         return '<div class="h5-prize">' +
           '<img class="h5-prize__img" src="../assets/img/' + p.img + '" alt="' + p.level + ' ' + p.name + '">' +
           '<div class="h5-prize__name">' + p.name + '</div>' +
-          '<div class="h5-prize__meta">' + p.match + ' · ' + p.note + '</div>' +
+          '<div class="h5-prize__meta">' + p.match + (p.note ? ' · ' + p.note : '') + '</div>' +
           '</div>';
       }).join("");
     })();

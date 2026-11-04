@@ -118,7 +118,7 @@
 
   <div class="win-banner" id="banner">
     <span class="win-banner__ico" id="banner-ico">i</span>
-    <span id="banner-text">本期开奖已于 2027-02-10 完成；二等奖登记截止 2027-02-25 23:59；五等奖随单发放、系统不追踪（DEC-037）。</span>
+    <span id="banner-text">本期开奖已于 2027-02-10 完成；兑奖由工作人员与中奖客户线下协调，后台仅记录跟进状态；五等奖随单发放、系统不追踪。</span>
     <span class="win-banner__muted" id="banner-extra">演示数据 14 条</span>
   </div>
 
@@ -273,7 +273,7 @@
           <textarea class="adm-input win-note" id="e-remark" placeholder="选填，例如联系记录、物流单号、代金券发送记录"></textarea>
         </div>
       </div>
-      <p class="adm-form-tip">保存后更新「最近修改时间」与操作人（演示）；二等奖登记信息由客户提交，后台只读。</p>
+      <p class="adm-form-tip">保存后更新「最近修改时间」与操作人（演示）；兑奖联系信息由工作人员线下确认后录入。</p>
     </div>
     <div class="adm-modal__foot">
       <button class="adm-btn" type="button" data-close>取 消</button>
@@ -282,12 +282,12 @@
   </div>
 </div>
 
-<!-- 二等奖登记信息（只读） -->
+<!-- 兑奖联系信息（线下录入） -->
 <div class="adm-modal" id="modal-form" aria-hidden="true">
   <div class="adm-modal__mask" data-close></div>
   <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-form-title">
     <div class="adm-modal__head">
-      <span class="adm-modal__title" id="modal-form-title">二等奖登记信息（只读）</span>
+      <span class="adm-modal__title" id="modal-form-title">兑奖联系信息（线下录入）</span>
       <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
     </div>
     <div class="adm-modal__body">
@@ -325,7 +325,7 @@
       </div>
       <div class="adm-empty" id="form-empty" hidden>
         <div class="adm-empty__ico">—</div>
-        客户尚未提交登记信息（发布后 15 日内提交，2027-02-25 23:59 截止）
+        工作人员尚未录入兑奖联系信息（线下沟通后录入）
       </div>
     </div>
     <div class="adm-modal__foot">
@@ -372,7 +372,7 @@
           <p class="adm-form-item__err">请选择至少一项要修改的内容</p>
         </div>
       </div>
-      <p class="adm-form-tip">一等奖至四等奖：待联系 → 已联系 → 已发放，异常分支已失效（FR-016）；二等奖另需运营审核客户登记信息。</p>
+      <p class="adm-form-tip">一等奖至四等奖：待联系 → 已联系 → 已发放，异常分支已失效；兑奖由工作人员线下协调。</p>
     </div>
     <div class="adm-modal__foot">
       <button class="adm-btn" type="button" data-close>取 消</button>
@@ -406,26 +406,26 @@
     id: "ADM-06",
     title: "中奖记录",
     live: "part",
-    note: "沿用去年列表，补派发方式 / 领取状态 / 备注 / 二等奖登记只读 / 五等奖不追踪",
+    note: "沿用去年列表，补派发方式 / 领取状态 / 备注 / 兑奖联系信息（线下）/ 五等奖不追踪",
     fr: ["FR-014", "FR-016"],
     ac: ["AC-029 ~ AC-034"],
-    goal: "沿用去年中奖列表，把运营的兑奖跟进（联系 → 发放）和二等奖登记信息放在一页完成；五等奖只展示、不追踪。",
+    goal: "沿用去年中奖列表，运营记录兑奖跟进（联系 → 发放）与线下联系信息；五等奖只展示、不追踪。",
     states: [
       "已开奖：默认列表，可筛选、分页、行内编辑、批量编辑、导出。",
       "未开奖：顶部提示「抽奖将于 2027-02-10 进行」，列表空态「暂无中奖记录」（演示切换）。",
-      "二等奖：登记信息只读 7 字段；客户未提交时显示「客户尚未提交登记信息」。",
+      "兑奖联系信息由工作人员线下确认后录入，不作为客户在线登记流程。",
       "五等奖：领取状态固定「随单发放（不追踪）」，编辑弹窗只读，批量编辑自动跳过（DEC-037）。",
       "筛选无结果：空态表；导出按当前筛选结果（演示）。"
     ],
     notes: [
       "列保留去年全部字段：幸运福卡编号 / 账套 / 所属客户 / 客户手机号 / 业务员号 / 业务员名称 / 奖品名称 / 奖品级别 / 派发方式 / 领取状态 / 备注 / 中奖时间 / 最近修改时间。",
       "派发方式：快递 / 随单 / 自提；领取状态：待联系 → 已联系 → 已发放，异常分支已失效（FR-016）。",
-      "二等奖登记信息只读：业务员姓名 / CIF / 领取人姓名 / 电话 / 地址 / 邮编 / 是否升级容量或颜色；运营不改写客户填写内容，差价线下处理（DEC-036）。",
+      "兑奖联系信息（业务员姓名 / 领取人姓名 / 电话 / 地址 / 邮编 / 是否升级）由工作人员线下沟通后录入，系统不做客户自助登记（V1.6 调整）。",
       "五等奖系统不追踪发放状态（DEC-037），不进入候补与统计；实际发放由业务员按订单备注核销。",
       "批量编辑需勾选 + 二次确认；导出字段按角色限制（演示 toast）。"
     ],
     todo: [
-      "二等奖「待审核 / 已确认」审核态与领取状态（待联系…）的对应关系待确认；本期列表按四个运营状态展示，登记信息只读。",
+      "兑奖由工作人员线下协调，本期状态仅做内部跟进记录，不强制流程。",
       "候补启动（同奖级未中奖卡按卡号升序，人工确认 + 审计）本期人工处理，界面为后续版本。",
       "导出字段按角色限制的清单待定；本页演示数据 14 条，生产约 2,226 条。"
     ]
@@ -436,8 +436,8 @@
     { label: "未开奖状态（2027-02-10 前）", fn: function () { window.__win.setNotDrawn(true); } },
     { label: "恢复已开奖数据", fn: function () { window.__win.setNotDrawn(false); } },
     { label: "编辑五等奖（状态只读）", fn: function () { window.__win.editLevel5(); } },
-    { label: "二等奖登记信息（已提交）", fn: function () { window.__win.formSubmitted(); } },
-    { label: "二等奖未提交登记", fn: function () { window.__win.formEmpty(); } },
+    { label: "兑奖联系信息（已录入）", fn: function () { window.__win.formSubmitted(); } },
+    { label: "兑奖联系信息（未录入）", fn: function () { window.__win.formEmpty(); } },
     { label: "批量编辑（勾选前 3 条）", fn: function () { window.__win.demoBatch(); } },
     { label: "筛选空态", fn: function () { window.__win.demoEmpty(); } },
     { label: "导出（演示）", fn: function () { window.__win.exportNow(); } }
@@ -469,12 +469,12 @@
   ],
   "fields": [
     "14 列：福卡号/账套/所属客户/手机号/业务员号/名称/手机号/奖品/级别/派发方式/领取状态/中奖时间/最近修改/操作",
-    "二等奖只读 7 字段登记信息"
+    "兑奖联系信息（线下录入）"
   ],
   "rules": [
     "一~四等奖：待联系→已联系→已发放；异常→已失效（可恢复）",
-    "二等奖：待确认→待审核→已确认→已发放；驳回/逾期进候补",
-    "候补仅一~四等奖，同奖级未中奖卡按卡号升序人工确认",
+    "兑奖由工作人员线下协调（状态仅内部记录）",
+    "兑奖由工作人员与客户线下协调",
     "五等奖随单发放、系统不追踪，领取状态只读"
   ],
   "permissions": [
@@ -502,7 +502,7 @@
     var NOW = "2027-02-22 15:30";
     var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
     var PRIZE = {
-      1: "特斯拉 1 台（待定）",
+      1: "特斯拉 1 台",
       2: "iPhone Duo 1 台",
       3: "机票 / 1,000€ 代金券（二选一）",
       4: "MP 营销定制礼包 1 份",
@@ -512,15 +512,15 @@
     var STATUS_CLASS = { to_contact: "win-st--to", contacted: "win-st--contacted", fulfilled: "win-st--fulfilled", expired: "win-st--expired", auto_ship: "win-st--auto" };
 
     var SEED = [
-      { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户考虑特斯拉车型/配置（待定），由业务员线下确认", form: null },
-      { id: "W-2027-0002", card: "00231", account: "ES01", customer: "OFICINA GLOBAL, S.L.", custNo: "10003188", cif: "B12098765", phone: "+34 634 118 902", salesNo: "V0117", salesName: "MARÍA JOSÉ", level: 2, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-14 11:40", remark: "客户已提交登记（v2），待运营审核", form: { salesperson: "MARÍA JOSÉ", cif: "B12098765", receiver: "ANTONIO PÉREZ", phone: "+34 634 118 902", address: "C/ Mayor 45, 46001 Valencia", postcode: "46001", upgrade: "是" } },
+      { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户确认特斯拉，由业务员线下对接", form: null },
+      { id: "W-2027-0002", card: "00231", account: "ES01", customer: "OFICINA GLOBAL, S.L.", custNo: "10003188", cif: "B12098765", phone: "+34 634 118 902", salesNo: "V0117", salesName: "MARÍA JOSÉ", level: 2, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-14 11:40", remark: "工作人员已录入兑奖联系信息，线下跟进", form: { salesperson: "MARÍA JOSÉ", cif: "B12098765", receiver: "ANTONIO PÉREZ", phone: "+34 634 118 902", address: "C/ Mayor 45, 46001 Valencia", postcode: "46001", upgrade: "是" } },
       { id: "W-2027-0003", card: "03126", account: "ES02", customer: "GRÁFICAS LEVANTE, S.L.", custNo: "10004762", cif: "B12456321", phone: "+34 655 209 771", salesNo: "V0342", salesName: "ANA BELÉN", level: 3, dispatch: "快递", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "机票已出票（经济舱，含税费，不可退改）", form: null },
       { id: "W-2027-0004", card: "07734", account: "ES01", customer: "MUEBLES RUIZ, S.L.", custNo: "10005891", cif: "B12587496", phone: "+34 677 331 204", salesNo: "V0208", salesName: "CARLOS MARTÍN", level: 4, dispatch: "自提", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系；自提点 Valencia 仓", form: null },
       { id: "W-2027-0005", card: "01998", account: "ES03", customer: "PAPELERA SUR, S.L.", custNo: "10006612", cif: "B12698523", phone: "+34 688 442 117", salesNo: "V0286", salesName: "LUCÍA FERNÁNDEZ", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
       { id: "W-2027-0006", card: "01842", account: "ES02", customer: "DISTRIBUCIONES AVE, S.L.", custNo: "10007345", cif: "B12741258", phone: "+34 699 553 208", salesNo: "V0319", salesName: "JAVIER ORTEGA", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
       { id: "W-2027-0007", card: "01633", account: "ES01", customer: "TPV SOLUTIONS, S.L.", custNo: "10008123", cif: "B12852369", phone: "+34 610 664 329", salesNo: "V0402", salesName: "ELENA RUIZ", level: 4, dispatch: "快递", status: "expired", won: "2027-02-10 10:12", updated: "2027-02-16 18:00", remark: "客户放弃领奖 → 已失效（可逆，需管理员留痕）", form: null },
       { id: "W-2027-0008", card: "01022", account: "ES03", customer: "IMPRENTA MAR, S.L.", custNo: "10009256", cif: "B12963470", phone: "+34 621 775 430", salesNo: "V0224", salesName: "PAU SERRANO", level: 3, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "代金券已发至客户邮箱（模板 E-03）", form: null },
-      { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "客户尚未提交登记（截止 2027-02-25 23:59）", form: null },
+      { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "工作人员尚未录入兑奖联系信息", form: null },
       { id: "W-2027-0010", card: "00456", account: "ES02", customer: "MATERIAL ESCOLAR PRO, S.L.", custNo: "10011472", cif: "B12185296", phone: "+34 643 997 652", salesNo: "V0367", salesName: "DAVID NAVARRO", level: 4, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
       { id: "W-2027-0011", card: "00009", account: "ES03", customer: "SUMINISTROS NORTE, S.L.", custNo: "10012563", cif: "B12296307", phone: "+34 654 108 763", salesNo: "V0298", salesName: "MARTA SOLER", level: 1, dispatch: "自提", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-19 16:40", remark: "已交付，签收单 SA-0231", form: null },
       { id: "W-2027-0012", card: "01276", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
@@ -561,7 +561,7 @@
       var stCls = STATUS_CLASS[r.status];
       var isAuto = r.status === "auto_ship";
       var ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button>';
-      if (r.level === 2) ops += '<button type="button" data-act="form" data-id="' + r.id + '">登记信息</button>';
+      if (r.level === 2) ops += '<button type="button" data-act="form" data-id="' + r.id + '">兑奖信息</button>';
       return "<tr>" +
         '<td class="col-check"><input type="checkbox" data-check="' + r.id + '"' + (state.checked[r.id] ? " checked" : "") + "></td>" +
         '<td class="num">' + r.card + "</td>" +
@@ -605,7 +605,7 @@
       } else {
         banner.classList.remove("win-banner--warn");
         $("#banner-ico").textContent = "i";
-        $("#banner-text").textContent = "本期开奖已于 2027-02-10 完成；二等奖登记截止 2027-02-25 23:59；五等奖随单发放、系统不追踪（DEC-037）。";
+        $("#banner-text").textContent = "本期开奖已于 2027-02-10 完成；兑奖由工作人员与中奖客户线下协调，后台仅记录跟进状态；五等奖随单发放、系统不追踪。";
         $("#banner-extra").textContent = "演示数据 " + state.rows.length + " 条";
       }
     }
@@ -705,7 +705,7 @@
     /* ---------------- 二等奖登记信息 ---------------- */
     function openForm(id) {
       var r = find(id);
-      if (!r || r.level !== 2) { U.toast("仅二等奖记录有客户登记信息"); return; }
+      if (!r || r.level !== 2) { U.toast("仅二等奖记录有兑奖联系信息"); return; }
       state.formId = id;
       $("#form-sub").textContent = r.id + " · 幸运福卡 " + r.card + " · " + r.customer;
       var f = r.form;

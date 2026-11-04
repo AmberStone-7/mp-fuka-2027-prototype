@@ -27,7 +27,7 @@
     "name": "H5-04 活动奖项",
     "group": "h5",
     "w": 390,
-    "h": 1598,
+    "h": 1568,
     "slug": "h5-prizes",
     "spec": "figma/spec/h5-prizes.json"
   },
@@ -38,14 +38,6 @@
     "h": 1163,
     "slug": "h5-publicity",
     "spec": "figma/spec/h5-publicity.json"
-  },
-  {
-    "name": "H5-06 中奖登记（二等奖）",
-    "group": "h5",
-    "w": 390,
-    "h": 1284,
-    "slug": "h5-winner-form",
-    "spec": "figma/spec/h5-winner-form.json"
   },
   {
     "name": "H5-07 活动细则与赞助",

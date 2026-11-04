@@ -96,11 +96,11 @@
       note: "发票号 + 税号(CIF) → 名下全部福卡 + 邀请码；无独立中奖查询入口",
       fr: ["FR-010", "FR-014"],
       ac: ["AC-017", "AC-018", "AC-019", "AC-029 ~ AC-032"],
-      goal: "客户输入发票号 + 税号(CIF) 完成验证后，返回该税号名下全部福卡（含其他发票）、我的邀请码与中奖状态；二等奖中奖卡直接提供领奖登记入口。",
+      goal: "客户输入发票号 + 税号(CIF) 完成验证后，返回该税号名下全部福卡（含其他发票）、我的邀请码与中奖状态；兑奖由工作人员线下协调，页面不提供在线登记。",
       states: [
         "查询成功：返回该税号名下全部福卡（含其他发票）+ 邀请码，可按状态筛选。",
         "开奖前：福卡状态均为「待开奖」。",
-        "开奖后：中奖卡显示「已中奖 · 奖项」，二等奖卡显示「填写领奖信息」入口。",
+        "开奖后：中奖卡显示「已中奖 · 奖项」，由工作人员线下联系协调兑奖。",
         "信息不匹配：统一提示，不泄露是否命中。",
         "连续失败 5 次：锁定 30 分钟。",
         "系统繁忙：提示稍后重试。"
@@ -140,7 +140,7 @@
   "rules": [
     "验证通过返回该税号名下全部福卡（含其他发票）+ 我的邀请码",
     "card.status ∈ pending / won / lost / invalid；开奖前全部 pending；开奖后为 won/lost",
-    "二等奖中奖卡返回 prize_level=2，展示「填写领奖信息」入口",
+    "兑奖不设线上流程，页面只展示中奖结果",
     "限流：同 IP 30 次/分钟；连续失败 5 次锁定 30 分钟",
     "邀请码仅验证通过后返回；CIF 展示脱敏（B1***78）"
   ],
@@ -179,9 +179,6 @@
       ];
 
       function fmtCard(c) {
-        var claim = c.status === "won" && c.prize && c.prize.indexOf("二等奖") === 0
-          ? '<a class="h5-btn h5-btn--sm" style="margin-top:10px" href="winner-form.html">填写领奖信息</a>'
-          : "";
         return '<article class="ticket' + (c.status === "won" ? " ticket--win" : "") + '">' +
           '<div class="ticket__top">' +
           '<div><div class="ticket__no"><small>幸运福卡号码</small>' + c.no + '</div><span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span></div>' +
@@ -197,7 +194,6 @@
           '<tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>' +
           '<span class="ticket__status' + (c.status === "won" ? " ticket__status--win" : "") + '">' + c.statusText + '</span>' +
           (c.prize ? '<span class="h5-text-gold" style="margin-left:8px;font-size:12px">' + c.prize + '</span>' : "") +
-          claim +
           '</article>';
       }
 
@@ -251,7 +247,7 @@
             state.status = "all";
             $("#invite-block").hidden = false;
             $("#result-notice").innerHTML = '<div class="h5-notice" style="margin-bottom:10px">' + (state.published
-              ? "抽奖已于 2027-02-10 完成，福卡状态已更新；二等奖中奖卡可在线登记领奖信息。"
+              ? "抽奖已于 2027-02-10 完成，福卡状态已更新；中奖后由工作人员与您联系协调兑奖。"
               : "验证通过：返回该税号名下全部福卡（含其他发票）与我的邀请码。") + "</div>";
             U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
             renderCards();
@@ -295,7 +291,7 @@
         $("#invite-block").hidden = false;
         $("#status-tabs").hidden = false;
         $("#result-notice").innerHTML = '<div class="h5-notice' + (flag ? " h5-notice--success" : "") + '" style="margin-bottom:10px">' +
-          (flag ? "抽奖已于 2027-02-10 完成：01136 已中奖（二等奖），可填写领奖信息；其余 3 张未中奖。" : "当前为开奖前状态：名下 4 张福卡均为待开奖。") + "</div>";
+          (flag ? "抽奖已于 2027-02-10 完成：01136 已中奖（二等奖）；其余 3 张未中奖。兑奖由工作人员与您联系。" : "当前为开奖前状态：名下 4 张福卡均为待开奖。") + "</div>";
         U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
         renderCards();
         window.scrollTo({ top: $("#result").offsetTop - 20, behavior: "smooth" });
