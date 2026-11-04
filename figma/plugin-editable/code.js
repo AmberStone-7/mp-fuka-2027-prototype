@@ -26,7 +26,7 @@ const PAGES = [
     "name": "H5-04 活动奖项",
     "group": "h5",
     "w": 390,
-    "h": 1794,
+    "h": 1598,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-prizes.json"
   },
   {

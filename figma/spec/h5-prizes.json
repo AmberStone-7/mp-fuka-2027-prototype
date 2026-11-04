@@ -2,7 +2,7 @@
  "name": "H5-04 活动奖项",
  "group": "h5",
  "w": 390,
- "h": 1794,
+ "h": 1598,
  "file": "h5/prizes.html",
  "nodes": [
   {
@@ -12,7 +12,7 @@
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 1794,
+   "h": 1598,
    "style": {
     "bg": {
      "r": 0.0392156862745098,
@@ -36,7 +36,7 @@
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 1794,
+   "h": 1598,
    "style": {
     "grad": {
      "angle": 180,
@@ -261,7 +261,7 @@
    "x": 16,
    "y": 222,
    "w": 358,
-   "h": 276,
+   "h": 241,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -287,63 +287,11 @@
    }
   },
   {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__level 文本",
-   "x": 31,
-   "y": 237,
-   "w": 48,
-   "h": 24,
-   "text": "一等奖",
-   "style": {
-    "color": {
-     "r": 0.9490196078431372,
-     "g": 0.8313725490196079,
-     "b": 0.6078431372549019,
-     "a": 1
-    },
-    "fontSize": 15,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 24,
-    "letterSpacing": 0.9,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__quota 文本",
-   "x": 337,
-   "y": 240,
-   "w": 22,
-   "h": 19,
-   "text": "1 名",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.6
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
    "type": "image",
    "tag": "img",
    "nm": "img.h5-prize__img",
    "x": 61,
-   "y": 284,
+   "y": 249,
    "w": 269,
    "h": 134,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/prize-01.png"
@@ -353,7 +301,7 @@
    "tag": "div",
    "nm": "div.h5-prize__name 文本",
    "x": 31,
-   "y": 425,
+   "y": 390,
    "w": 328,
    "h": 29,
    "text": "特斯拉 1 台（待定）",
@@ -379,7 +327,7 @@
    "tag": "div",
    "nm": "div.h5-prize__meta 文本",
    "x": 31,
-   "y": 459,
+   "y": 424,
    "w": 328,
    "h": 22,
    "text": "5 位全匹配 · 工作人员将与您联系兑奖（车型待定）",
@@ -405,9 +353,9 @@
    "tag": "div",
    "nm": "div.h5-prize",
    "x": 16,
-   "y": 510,
+   "y": 475,
    "w": 358,
-   "h": 276,
+   "h": 241,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -433,63 +381,11 @@
    }
   },
   {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__level 文本",
-   "x": 31,
-   "y": 525,
-   "w": 48,
-   "h": 24,
-   "text": "二等奖",
-   "style": {
-    "color": {
-     "r": 0.9490196078431372,
-     "g": 0.8313725490196079,
-     "b": 0.6078431372549019,
-     "a": 1
-    },
-    "fontSize": 15,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 24,
-    "letterSpacing": 0.9,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__quota 文本",
-   "x": 337,
-   "y": 527,
-   "w": 22,
-   "h": 19,
-   "text": "2 名",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.6
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
    "type": "image",
    "tag": "img",
    "nm": "img.h5-prize__img",
    "x": 61,
-   "y": 572,
+   "y": 502,
    "w": 269,
    "h": 134,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/prize-02.png"
@@ -499,7 +395,7 @@
    "tag": "div",
    "nm": "div.h5-prize__name 文本",
    "x": 31,
-   "y": 713,
+   "y": 643,
    "w": 328,
    "h": 29,
    "text": "iPhone Duo 1 台",
@@ -525,7 +421,7 @@
    "tag": "div",
    "nm": "div.h5-prize__meta 文本",
    "x": 31,
-   "y": 747,
+   "y": 677,
    "w": 328,
    "h": 22,
    "text": "5 位全匹配 · 需在线登记领奖信息（发布后 15 日内）",
@@ -551,9 +447,9 @@
    "tag": "div",
    "nm": "div.h5-prize",
    "x": 16,
-   "y": 798,
+   "y": 728,
    "w": 358,
-   "h": 305,
+   "h": 270,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -579,63 +475,11 @@
    }
   },
   {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__level 文本",
-   "x": 31,
-   "y": 813,
-   "w": 48,
-   "h": 24,
-   "text": "三等奖",
-   "style": {
-    "color": {
-     "r": 0.9490196078431372,
-     "g": 0.8313725490196079,
-     "b": 0.6078431372549019,
-     "a": 1
-    },
-    "fontSize": 15,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 24,
-    "letterSpacing": 0.9,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__quota 文本",
-   "x": 337,
-   "y": 815,
-   "w": 22,
-   "h": 19,
-   "text": "3 名",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.6
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
    "type": "image",
    "tag": "img",
    "nm": "img.h5-prize__img",
    "x": 61,
-   "y": 860,
+   "y": 755,
    "w": 269,
    "h": 134,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/prize-03.png"
@@ -645,7 +489,7 @@
    "tag": "div",
    "nm": "div.h5-prize__name 文本",
    "x": 31,
-   "y": 1000,
+   "y": 895,
    "w": 328,
    "h": 58,
    "text": "全球目的地机票 或 1,000€ MP 代金券（二选一，待定）",
@@ -671,7 +515,7 @@
    "tag": "div",
    "nm": "div.h5-prize__meta 文本",
    "x": 31,
-   "y": 1064,
+   "y": 959,
    "w": 328,
    "h": 22,
    "text": "5 位全匹配 · 工作人员将与您联系确认选择",
@@ -697,9 +541,9 @@
    "tag": "div",
    "nm": "div.h5-prize",
    "x": 16,
-   "y": 1115,
+   "y": 1010,
    "w": 358,
-   "h": 276,
+   "h": 241,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -725,63 +569,11 @@
    }
   },
   {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__level 文本",
-   "x": 31,
-   "y": 1130,
-   "w": 48,
-   "h": 24,
-   "text": "四等奖",
-   "style": {
-    "color": {
-     "r": 0.9490196078431372,
-     "g": 0.8313725490196079,
-     "b": 0.6078431372549019,
-     "a": 1
-    },
-    "fontSize": 15,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 24,
-    "letterSpacing": 0.9,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__quota 文本",
-   "x": 330,
-   "y": 1132,
-   "w": 29,
-   "h": 19,
-   "text": "15 名",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.6
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
    "type": "image",
    "tag": "img",
    "nm": "img.h5-prize__img",
    "x": 61,
-   "y": 1177,
+   "y": 1037,
    "w": 269,
    "h": 134,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/prize-04.png"
@@ -791,7 +583,7 @@
    "tag": "div",
    "nm": "div.h5-prize__name 文本",
    "x": 31,
-   "y": 1317,
+   "y": 1177,
    "w": 328,
    "h": 29,
    "text": "MP 营销定制礼包 1 份",
@@ -817,7 +609,7 @@
    "tag": "div",
    "nm": "div.h5-prize__meta 文本",
    "x": 31,
-   "y": 1352,
+   "y": 1212,
    "w": 328,
    "h": 22,
    "text": "5 位全匹配 · 工作人员将与您联系兑奖",
@@ -843,9 +635,9 @@
    "tag": "div",
    "nm": "div.h5-prize",
    "x": 16,
-   "y": 1402,
+   "y": 1262,
    "w": 358,
-   "h": 297,
+   "h": 262,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -871,63 +663,11 @@
    }
   },
   {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__level 文本",
-   "x": 31,
-   "y": 1417,
-   "w": 48,
-   "h": 24,
-   "text": "五等奖",
-   "style": {
-    "color": {
-     "r": 0.9490196078431372,
-     "g": 0.8313725490196079,
-     "b": 0.6078431372549019,
-     "a": 1
-    },
-    "fontSize": 15,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 24,
-    "letterSpacing": 0.9,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "span",
-   "nm": "span.h5-prize__quota 文本",
-   "x": 314,
-   "y": 1420,
-   "w": 45,
-   "h": 19,
-   "text": "2,000 名",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.6
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "center",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
    "type": "image",
    "tag": "img",
    "nm": "img.h5-prize__img",
    "x": 61,
-   "y": 1464,
+   "y": 1289,
    "w": 269,
    "h": 134,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/prize-05.png"
@@ -937,7 +677,7 @@
    "tag": "div",
    "nm": "div.h5-prize__name 文本",
    "x": 31,
-   "y": 1605,
+   "y": 1430,
    "w": 328,
    "h": 29,
    "text": "MP 定制礼盒 1 份",
@@ -963,7 +703,7 @@
    "tag": "div",
    "nm": "div.h5-prize__meta 文本",
    "x": 31,
-   "y": 1640,
+   "y": 1465,
    "w": 328,
    "h": 43,
    "text": "末位 1 位匹配 · 随订单发放，请在订单备注填写【2027福卡五等奖】",
@@ -989,10 +729,10 @@
    "tag": "p",
    "nm": "p.h5-tip 文本",
    "x": 16,
-   "y": 1716,
+   "y": 1541,
    "w": 358,
-   "h": 42,
-   "text": "奖品以最终采购版本为准；图片为示意占位，可在后台奖品管理中替换。",
+   "h": 21,
+   "text": "奖品图片由市场部提供；实物以最终采购版本为准。",
    "style": {
     "color": {
      "r": 0.9294117647058824,

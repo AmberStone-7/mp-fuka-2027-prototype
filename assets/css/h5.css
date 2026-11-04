@@ -786,9 +786,11 @@ body.h5 {
 }
 
 .h5-prize__img {
-  width: min(280px, 82%);
-  margin: 12px auto 6px;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+  display: block;
+  width: min(300px, 92%);
+  height: auto;
+  margin: 2px auto 4px;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.45));
 }
 
 .h5-prize__name {
