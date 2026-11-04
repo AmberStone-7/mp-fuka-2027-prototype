@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>福卡样式总览 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="query.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <h2 class="h5-sec">福卡样式总览</h2>
+
+    <p class="h5-tip">去年票根样式（米金票券、撕票缺口、印章、发票明细）与今年深红金风格结合。以下为 1–5 等奖、待开奖、未中奖、已失效与邀请福卡的展示效果。</p>
+
+    <h3 class="style-section-title">待开奖</h3>
+    <div id="group-pending"></div>
+
+    <h3 class="style-section-title">已中奖 · 一至五等奖</h3>
+    <div id="group-won"></div>
+
+    <h3 class="style-section-title">未中奖</h3>
+    <div id="group-lost"></div>
+
+    <h3 class="style-section-title">已失效</h3>
+    <div id="group-invalid"></div>
+
+    <h3 class="style-section-title">邀请福卡（邀请人，无发票）</h3>
+    <div id="group-invite"></div>
+
+    <h3 class="style-section-title">福卡字段来源</h3>
+    <div class="h5-card" style="padding:12px">
+      <table class="style-source">
+        <thead><tr><th>字段</th><th>来源</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>福卡号</td><td>card.card_no</td><td>发卡时从号码池 00001–20000 分配，随机、唯一</td></tr>
+          <tr><td>福卡类型</td><td>card.source_type</td><td>订单 / 新客 / 邀请 / 官方，由发卡来源决定</td></tr>
+          <tr><td>客户号、手机号</td><td>客户主数据</td><td>按发卡时的 CIF 关联</td></tr>
+          <tr><td>发票号、税前金额、发生时间</td><td>发票表</td><td>订单/新客卡取触发发卡的发票；邀请人卡、官方卡无发票</td></tr>
+          <tr><td>发放时间</td><td>card.issued_at</td><td>系统发卡时间</td></tr>
+          <tr><td>状态</td><td>card.status</td><td>待开奖 / 已中奖 / 未中奖 / 已失效</td></tr>
+          <tr><td>奖项、奖品</td><td>中奖记录</td><td>开奖发布后写入；未开奖为空</td></tr>
+          <tr><td>失效原因、时间</td><td>失效记录</td><td>退单 / 红冲 / 手工失效；开奖后失效会取消中奖资格</td></tr>
+          <tr><td>发放依据（邀请卡）</td><td>邀请绑定</td><td>邀请新客首单达标；不展示被邀请人发票/CIF</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="h5-tip">原型演示：邀请福卡不展示被邀请人的客户号/税号/发票；如需展示，请确认口径后调整。</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-08",
+      title: "福卡样式总览（演示）",
+      live: "demo",
+      note: "样式演示页，不参与真实查询流程",
+      fr: ["FR-010", "FR-014"],
+      ac: ["AC-017", "AC-057"],
+      goal: "集中展示待开奖、1–5 等奖、未中奖、已失效、邀请福卡的票券样式，以及福卡字段来源。",
+      states: [
+        "待开奖：米金票券 + 待开奖印章。",
+        "已中奖：红色印章 + 奖项标签 + 奖品 + 查看领取方式。",
+        "未中奖：绿灰色印章。",
+        "已失效：灰化票券 + 失效原因与时间。",
+        "邀请福卡：无发票，展示发放依据。"
+      ],
+      notes: [
+        "票券参考去年样式：撕票缺口、印章、发票明细；配色融入今年深红金。",
+        "邀请人卡不展示被邀请人客户号/税号/发票，避免隐私与误解。",
+        "官方卡无发票，只展示客户信息与发放时间。"
+      ],
+      todo: [
+        "邀请福卡字段展示口径待确认（当前为不展示被邀请人信息）。",
+        "1–5 等奖颜色区分是否需要更强，待确认。"
+      ]
+    };
+    window.DEMOS = [
+      { label: "查看一至五等奖", fn: function () { window.scrollTo({ top: document.getElementById("group-won").offsetTop - 20, behavior: "smooth" }); } },
+      { label: "查看失效样式", fn: function () { window.scrollTo({ top: document.getElementById("group-invalid").offsetTop - 20, behavior: "smooth" }); } }
+    ];
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var $ = U.$;
+      function ticket(c) {
+        var st = c.status;
+        var stamp = st === "won" ? "已中奖" : st === "lost" ? "未中奖" : st === "invalid" ? "已失效" : "待开奖";
+        var cls = st === "won" ? " ticket--win" : st === "lost" ? " ticket--lost" : st === "invalid" ? " ticket--invalid" : " ticket--pending";
+        var invoice = c.invoice
+          ? '<table class="ticket__invoices"><thead><tr><th>发票号</th><th>发票税前金额</th><th>发票发生时间</th></tr></thead><tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>'
+          : '<div class="ticket__basis">发放依据：' + (c.basis || "邀请新客首单达标") + '</div>';
+        var prize = st === "won"
+          ? '<div class="ticket__prize"><span class="ticket__level">' + c.levelText + '</span><span class="ticket__prize-name">' + c.prize + '</span><span class="ticket__link">查看领取方式 →</span></div>'
+          : "";
+        var invalid = st === "invalid"
+          ? '<div class="ticket__invalid">失效原因：' + c.reason + ' · ' + c.invalidAt + '</div>'
+          : "";
+        return '<article class="ticket' + cls + '">' +
+          '<div class="ticket__head"><div class="ticket__no-line"><span>幸运福卡号码：</span><b>' + c.no + '</b></div><span class="ticket__stamp">' + stamp + '</span></div>' +
+          '<span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span>' +
+          '<dl class="ticket__rows"><div class="ticket__row"><dt>客户号：</dt><dd>10009502</dd></div><div class="ticket__row"><dt>手机号：</dt><dd>666 666 666</dd></div></dl>' +
+          invoice + invalid + prize + '</article>';
+      }
+      var pending = [
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", status: "pending" }
+      ];
+      var won = [
+        { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", status: "won", levelText: "一等奖", prize: "特斯拉 1 台" },
+        { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", status: "won", levelText: "二等奖", prize: "iPhone Duo 1 台" },
+        { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", status: "won", levelText: "三等奖", prize: "全球目的地机票或 1,000€ MP 代金券" },
+        { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", status: "won", levelText: "四等奖", prize: "MP 营销定制礼包 1 份" },
+        { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", status: "won", levelText: "五等奖", prize: "MP 定制礼盒 1 份" }
+      ];
+      var lost = [
+        { no: "01137", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", status: "lost" }
+      ];
+      var invalid = [
+        { no: "01088", source: "订单福卡", sourceCls: "order", invoice: "ES25000089", amount: "1,240.00", created: "2025-09-18", status: "invalid", reason: "退单", invalidAt: "2027-02-12 10:20" }
+      ];
+      var invite = [
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", status: "pending", basis: "邀请新客首单达标" }
+      ];
+      $("#group-pending").innerHTML = pending.map(ticket).join("");
+      $("#group-won").innerHTML = won.map(ticket).join("");
+      $("#group-lost").innerHTML = lost.map(ticket).join("");
+      $("#group-invalid").innerHTML = invalid.map(ticket).join("");
+      $("#group-invite").innerHTML = invite.map(ticket).join("");
+    })();
+  </script>
+</body>
+</html>

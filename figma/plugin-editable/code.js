@@ -26,7 +26,7 @@ const PAGES = [
     "name": "H5-04 活动奖项",
     "group": "h5",
     "w": 390,
-    "h": 1568,
+    "h": 1626,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-prizes.json"
   },
   {
@@ -44,10 +44,17 @@ const PAGES = [
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-redeem.json"
   },
   {
+    "name": "H5-08 福卡样式总览",
+    "group": "h5",
+    "w": 390,
+    "h": 3853,
+    "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-card-styles.json"
+  },
+  {
     "name": "H5-07 活动细则与赞助",
     "group": "h5",
     "w": 390,
-    "h": 2731,
+    "h": 2760,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-rules.json"
   },
   {

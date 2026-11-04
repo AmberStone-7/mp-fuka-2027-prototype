@@ -1373,3 +1373,218 @@ body.h5 {
   font-size: 14px;
   letter-spacing: 0.08em;
 }
+
+/* ---------- 福卡票券：结合去年票根样式 ---------- */
+.ticket {
+  border-radius: 8px;
+  padding: 15px 17px 13px;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.55), transparent 55%),
+    linear-gradient(158deg, #f9eccb 0%, #f2dba9 58%, #e6c68e 100%);
+  border: 1px solid #dcb97a;
+}
+
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2b0b0e;
+  transform: translateY(-50%);
+}
+
+.ticket::before { left: -11px; }
+.ticket::after { right: -11px; }
+
+.ticket__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ticket__no-line {
+  padding-top: 2px;
+  font-family: var(--h5-serif);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #6f2010;
+}
+
+.ticket__no-line b {
+  margin-left: 2px;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+
+.ticket__stamp {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid rgba(179, 46, 31, 0.72);
+  box-shadow: inset 0 0 0 3px rgba(179, 46, 31, 0.16);
+  color: rgba(179, 46, 31, 0.82);
+  font-family: var(--h5-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  transform: rotate(-14deg);
+}
+
+.ticket--lost .ticket__stamp {
+  color: #5f6f5c;
+  border-color: rgba(95, 111, 92, 0.7);
+  box-shadow: inset 0 0 0 3px rgba(95, 111, 92, 0.14);
+}
+
+.ticket--pending .ticket__stamp {
+  color: #a5793a;
+  border-color: rgba(165, 121, 58, 0.72);
+  box-shadow: inset 0 0 0 3px rgba(165, 121, 58, 0.14);
+}
+
+.ticket--invalid {
+  filter: grayscale(0.35);
+}
+
+.ticket--invalid .ticket__stamp {
+  color: #7b7b7b;
+  border-color: rgba(123, 123, 123, 0.7);
+  box-shadow: inset 0 0 0 3px rgba(123, 123, 123, 0.14);
+}
+
+.ticket__rows {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.ticket__row dt {
+  color: rgba(111, 32, 16, 0.68);
+}
+
+.ticket__row dd {
+  color: #5f1c0d;
+  font-weight: 600;
+}
+
+.ticket__invoices {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ticket__invoices th {
+  padding: 4px 4px 3px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(111, 32, 16, 0.62);
+  border-top: 1px dashed rgba(123, 43, 24, 0.3);
+  border-bottom: 1px dashed rgba(123, 43, 24, 0.3);
+}
+
+.ticket__invoices td {
+  padding: 7px 4px 2px;
+  color: #5f1c0d;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 12px;
+}
+
+.ticket__basis {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px dashed rgba(123, 43, 24, 0.3);
+  font-size: 12.5px;
+  color: rgba(95, 28, 13, 0.8);
+}
+
+.ticket__prize {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(123, 43, 24, 0.3);
+}
+
+.ticket__level {
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff6e8;
+  background: linear-gradient(180deg, #d4553c, #a93221);
+}
+
+.ticket__prize-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7a2413;
+}
+
+.ticket__link {
+  margin-left: auto;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #a8462b;
+  text-decoration: none;
+}
+
+.ticket__invalid {
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px dashed rgba(123, 43, 24, 0.3);
+  font-size: 12px;
+  color: #6d6d6d;
+}
+
+/* 福卡样式总览演示页 */
+.style-section-title {
+  margin: 22px 0 10px;
+  font-family: var(--h5-serif);
+  font-size: 15px;
+  color: #f6e3b0;
+  letter-spacing: 0.06em;
+}
+
+.style-source {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  color: rgba(255, 243, 228, 0.82);
+}
+
+.style-source th,
+.style-source td {
+  padding: 7px 6px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px dashed rgba(255, 235, 199, 0.18);
+}
+
+.style-source th {
+  color: #f6e3b0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.style-source td:first-child {
+  color: #f6e3b0;
+  white-space: nowrap;
+}
+
+
+.h5-code-stats--two {
+  grid-template-columns: 1fr 1fr;
+}

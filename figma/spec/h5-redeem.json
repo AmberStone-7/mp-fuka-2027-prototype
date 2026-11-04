@@ -119,10 +119,10 @@
    "type": "image",
    "tag": "img",
    "nm": "img.redeem-hero",
-   "x": 16,
-   "y": 54,
-   "w": 312,
-   "h": 312,
+   "x": 84,
+   "y": 60,
+   "w": 222,
+   "h": 222,
    "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/card-2027.png"
   },
   {
@@ -130,7 +130,7 @@
    "tag": "h2",
    "nm": "h2.h5-sec 文本",
    "x": 16,
-   "y": 392,
+   "y": 308,
    "w": 358,
    "h": 46,
    "text": "礼品领取登记",
@@ -156,7 +156,7 @@
    "tag": "h2::after",
    "nm": "h2.h5-sec::after",
    "x": 171,
-   "y": 437,
+   "y": 353,
    "w": 48,
    "h": 1,
    "style": {
@@ -207,51 +207,148 @@
    }
   },
   {
+   "type": "box",
+   "tag": "div",
+   "nm": "div#redeem-level.redeem-badge",
+   "x": 151,
+   "y": 370,
+   "w": 88,
+   "h": 32,
+   "style": {
+    "grad": {
+     "angle": 180,
+     "stops": [
+      {
+       "color": {
+        "r": 0.8941176470588236,
+        "g": 0.41568627450980394,
+        "b": 0.3215686274509804,
+        "a": 1
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.7490196078431373,
+        "g": 0.24313725490196078,
+        "b": 0.1568627450980392,
+        "a": 1
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 999,
+     "tr": 999,
+     "br": 999,
+     "bl": 999
+    },
+    "border": null
+   }
+  },
+  {
    "type": "text",
    "tag": "div",
    "nm": "div#redeem-level.redeem-badge 文本",
-   "x": 16,
-   "y": 454,
-   "w": 358,
-   "h": 26,
+   "x": 151,
+   "y": 370,
+   "w": 88,
+   "h": 32,
    "text": "三等奖",
    "style": {
     "color": {
-     "r": 0.9294117647058824,
-     "g": 0.9294117647058824,
-     "b": 0.9294117647058824,
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9254901960784314,
      "a": 1
     },
-    "fontSize": 16,
-    "fontWeight": 400,
+    "fontSize": 15,
+    "fontWeight": 700,
     "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 25.6,
-    "letterSpacing": 0,
+    "lineHeight": 24,
+    "letterSpacing": 0.9,
     "textAlign": "start",
     "uppercase": false,
     "opacity": 1
    }
   },
   {
+   "type": "box",
+   "tag": "section",
+   "nm": "section#panel-wechat.redeem-panel",
+   "x": 16,
+   "y": 416,
+   "w": 358,
+   "h": 307,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9921568627450981,
+     "b": 0.9725490196078431,
+     "a": 1
+    },
+    "radius": {
+     "tl": 14,
+     "tr": 14,
+     "br": 14,
+     "bl": 14
+    },
+    "border": null
+   }
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "nm": "div#redeem-qr.redeem-qr",
+   "x": 107,
+   "y": 438,
+   "w": 176,
+   "h": 176,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 0.9803921568627451,
+     "b": 0.9411764705882353,
+     "a": 1
+    },
+    "radius": {
+     "tl": 10,
+     "tr": 10,
+     "br": 10,
+     "bl": 10
+    },
+    "border": {
+     "w": 2,
+     "color": {
+      "r": 0.8470588235294118,
+      "g": 0.6941176470588235,
+      "b": 0.4196078431372549,
+      "a": 1
+     }
+    }
+   }
+  },
+  {
    "type": "text",
    "tag": "span",
    "nm": "span 文本",
-   "x": 16,
-   "y": 484,
-   "w": 128,
-   "h": 17,
+   "x": 147,
+   "y": 505,
+   "w": 96,
+   "h": 19,
    "text": "三等奖微信二维码",
    "style": {
     "color": {
-     "r": 0.9294117647058824,
-     "g": 0.9294117647058824,
-     "b": 0.9294117647058824,
+     "r": 0.6470588235294118,
+     "g": 0.4627450980392157,
+     "b": 0.22745098039215686,
      "a": 1
     },
-    "fontSize": 16,
+    "fontSize": 12,
     "fontWeight": 400,
     "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 25.6,
+    "lineHeight": 19.2,
     "letterSpacing": 0,
     "textAlign": "start",
     "uppercase": false,
@@ -262,22 +359,22 @@
    "type": "text",
    "tag": "span",
    "nm": "span 文本",
-   "x": 148,
-   "y": 484,
-   "w": 112,
-   "h": 17,
+   "x": 153,
+   "y": 528,
+   "w": 84,
+   "h": 19,
    "text": "（待运营提供）",
    "style": {
     "color": {
-     "r": 0.9294117647058824,
-     "g": 0.9294117647058824,
-     "b": 0.9294117647058824,
+     "r": 0.6470588235294118,
+     "g": 0.4627450980392157,
+     "b": 0.22745098039215686,
      "a": 1
     },
-    "fontSize": 16,
+    "fontSize": 12,
     "fontWeight": 400,
     "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 25.6,
+    "lineHeight": 19.2,
     "letterSpacing": 0,
     "textAlign": "start",
     "uppercase": false,
@@ -288,24 +385,24 @@
    "type": "text",
    "tag": "p",
    "nm": "p.redeem-panel__text 文本",
-   "x": 16,
-   "y": 505,
-   "w": 358,
-   "h": 51,
+   "x": 34,
+   "y": 630,
+   "w": 322,
+   "h": 71,
    "text": "请添加上方微信 进行礼品登记",
    "style": {
     "color": {
-     "r": 0.9294117647058824,
-     "g": 0.9294117647058824,
-     "b": 0.9294117647058824,
+     "r": 0.5411764705882353,
+     "g": 0.16470588235294117,
+     "b": 0.07058823529411765,
      "a": 1
     },
-    "fontSize": 16,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 25.6,
-    "letterSpacing": 0,
-    "textAlign": "start",
+    "fontSize": 21,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 35.7,
+    "letterSpacing": 0.84,
+    "textAlign": "center",
     "uppercase": false,
     "opacity": 1
    }
@@ -315,7 +412,7 @@
    "tag": "p",
    "nm": "p#redeem-foot.h5-tip 文本",
    "x": 16,
-   "y": 569,
+   "y": 736,
    "w": 358,
    "h": 42,
    "text": "如已添加微信，请发送：中奖奖项 + 福卡号 + 客户名称，工作人员会尽快为您登记。",

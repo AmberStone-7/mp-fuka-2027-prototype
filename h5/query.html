@@ -52,14 +52,9 @@
             <div class="h5-code" id="query-my-code">MP2027K8H3</div>
             <button class="h5-btn h5-btn--ghost h5-btn--sm" id="btn-copy-invite" type="button">复制</button>
           </div>
-          <div class="h5-code-stats">
-            <div><b id="q-invited-used">3</b><span>已用名额</span></div>
-            <div><b id="q-invited-left">97</b><span>剩余名额</span></div>
+          <div class="h5-code-stats h5-code-stats--two">
             <div><b id="q-invited-success">2</b><span>已成功邀请</span></div>
-          </div>
-          <div class="h5-links" style="margin-top:10px">
-            <a class="h5-link" href="claim.html?mode=code">查看邀请记录 →</a>
-            <span>邀请人上限 100 张</span>
+            <div><b id="q-invited-left">97</b><span>剩余名额</span></div>
           </div>
         </div>
         <p class="h5-tip">以上为验证客户后名下全部福卡（含其他发票）；福卡状态随 2027-02-10 开奖结果更新。</p>
@@ -86,6 +81,7 @@
 
     <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；抽奖日：2027-02-10。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
     <p class="h5-tip"><a class="h5-link" href="publicity.html">查看中奖公示 →</a></p>
+    <p class="h5-tip"><a class="h5-link" href="card-styles.html">福卡样式总览（演示）→</a></p>
   </div>
 
   <script>
@@ -108,11 +104,11 @@
       notes: [
         "本页已删除原「查看我的奖品 / 中奖查询」入口；中奖状态直接体现在福卡票券上，避免二次查询。",
         "验证方式：发票号 + 税号(CIF)；验证通过返回客户维度全部福卡（与去年「活动查询」行为一致）。",
-        "邀请码卡片放在结果顶部（状态筛选之前），支持复制与查看邀请记录。",
+        "邀请码卡片放在结果顶部（状态筛选之前），仅展示已成功邀请数量与剩余名额，不展示邀请记录。",
         "中奖公示入口移到底部链接与「活动细则与赞助」页。"
       ],
       todo: [
-        "PRD FR-010 原文为「仅返回该发票关联福卡」，本页按业务要求改为客户维度全部福卡，PRD V1.4 已同步更新。",
+        "PRD FR-010 原文为「仅返回该发票关联福卡」，本页按业务要求改为客户维度全部福卡，PRD V1.7 已同步更新。",
         "发票号格式 PRD 未定义，演示按 6–20 位字母数字。",
         "中奖福卡对应发票是否要求已付款，沿用去年规则并写进提示。"
       ]
@@ -168,33 +164,42 @@
       var CARDS_PRE = [
         { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
         { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
-        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", statusText: "待开奖" },
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "pending", statusText: "待开奖", basis: "邀请新客首单达标" },
         { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "pending", statusText: "待开奖" }
       ];
       var CARDS_POST = [
-        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "won", statusText: "已中奖 · 二等奖", prize: "二等奖 · iPhone Duo 1 台", level: 2 },
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "won", statusText: "已中奖 · 二等奖", prize: "iPhone Duo 1 台", levelText: "二等奖", level: 2 },
         { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", statusText: "未中奖" },
-        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", statusText: "未中奖" },
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "lost", statusText: "未中奖", basis: "邀请新客首单达标" },
         { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "lost", statusText: "未中奖" }
       ];
 
       function fmtCard(c) {
-        return '<article class="ticket' + (c.status === "won" ? " ticket--win" : "") + '">' +
-          '<div class="ticket__top">' +
-          '<div><div class="ticket__no"><small>幸运福卡号码</small>' + c.no + '</div><span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span></div>' +
-          '<div class="ticket__stamp">中汇<br>福卡</div>' +
+        var st = c.status || "pending";
+        var stamp = st === "won" ? "已中奖" : st === "lost" ? "未中奖" : st === "invalid" ? "已失效" : "待开奖";
+        var cls = st === "won" ? " ticket--win" : st === "lost" ? " ticket--lost" : st === "invalid" ? " ticket--invalid" : " ticket--pending";
+        var prize = c.status === "won"
+          ? '<div class="ticket__prize"><span class="ticket__level">' + (c.levelText || "二等奖") + '</span><span class="ticket__prize-name">' + (c.prize || "") + '</span><a class="ticket__link" href="redeem.html?level=' + (c.level || 2) + '">查看领取方式 →</a></div>'
+          : "";
+        var invalid = st === "invalid"
+          ? '<div class="ticket__invalid">失效原因：' + (c.reason || "退单") + ' · ' + (c.invalidAt || "2027-02-12 10:20") + '</div>'
+          : "";
+        var invoice = c.invoice
+          ? '<table class="ticket__invoices"><thead><tr><th>发票号</th><th>发票税前金额</th><th>发票发生时间</th></tr></thead>' +
+            '<tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>'
+          : '<div class="ticket__basis">发放依据：' + (c.basis || "邀请新客首单达标") + '</div>';
+        return '<article class="ticket' + cls + '">' +
+          '<div class="ticket__head">' +
+          '<div class="ticket__no-line"><span>幸运福卡号码：</span><b>' + c.no + '</b></div>' +
+          '<span class="ticket__stamp">' + stamp + '</span>' +
           '</div>' +
+          '<span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span>' +
           '<dl class="ticket__rows">' +
-          '<div class="ticket__row"><dt>客户号</dt><dd>10009502</dd></div>' +
-          '<div class="ticket__row"><dt>税号/CIF</dt><dd>B1***78</dd></div>' +
-          '<div class="ticket__row"><dt>手机号</dt><dd>666 666 666</dd></div>' +
-          '<div class="ticket__row"><dt>发放时间</dt><dd>' + c.issued + '</dd></div>' +
+          '<div class="ticket__row"><dt>客户号：</dt><dd>10009502</dd></div>' +
+          '<div class="ticket__row"><dt>手机号：</dt><dd>666 666 666</dd></div>' +
           '</dl>' +
-          '<table class="ticket__invoices"><thead><tr><th>发票号</th><th>发票税前金额</th><th>发票创建时间</th></tr></thead>' +
-          '<tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>' +
-          '<span class="ticket__status' + (c.status === "won" ? " ticket__status--win" : "") + '">' + c.statusText + '</span>' +
-          (c.status === "won" ? '<a class="h5-btn h5-btn--sm" style="margin-top:10px" href="redeem.html?level=' + (c.level || 3) + '">查看领取方式</a>' : "") +
-          (c.prize ? '<span class="h5-text-gold" style="margin-left:8px;font-size:12px">' + c.prize + '</span>' : "") +
+          invoice +
+          invalid + prize +
           '</article>';
       }
 

@@ -145,7 +145,7 @@
    "nm": "span.tag.tag--blue",
    "x": 265,
    "y": 157,
-   "w": 101,
+   "w": 100,
    "h": 25,
    "style": {
     "bg": {
@@ -177,9 +177,9 @@
    "nm": "span.tag.tag--blue 文本",
    "x": 265,
    "y": 157,
-   "w": 101,
+   "w": 100,
    "h": 25,
-   "text": "基于 PRD V1.3",
+   "text": "基于 PRD V1.7",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -1317,7 +1317,7 @@
    "y": 471,
    "w": 315,
    "h": 22,
-   "text": "H5-07 · 活动细则与赞助",
+   "text": "H5-08 · 福卡样式总览",
    "style": {
     "color": {
      "r": 0,
@@ -1338,16 +1338,16 @@
   {
    "type": "box",
    "tag": "b",
-   "nm": "b",
-   "x": 1177,
+   "nm": "b.part",
+   "x": 1200,
    "y": 471,
-   "w": 62,
+   "w": 39,
    "h": 22,
    "style": {
     "bg": {
-     "r": 0.9647058823529412,
-     "g": 1,
-     "b": 0.9294117647058824,
+     "r": 1,
+     "g": 0.9686274509803922,
+     "b": 0.9019607843137255,
      "a": 1
     },
     "radius": {
@@ -1359,9 +1359,9 @@
     "border": {
      "w": 1,
      "color": {
-      "r": 0.7176470588235294,
-      "g": 0.9215686274509803,
-      "b": 0.5607843137254902,
+      "r": 1,
+      "g": 0.8352941176470589,
+      "b": 0.5686274509803921,
       "a": 1
      }
     }
@@ -1370,17 +1370,17 @@
   {
    "type": "text",
    "tag": "b",
-   "nm": "b 文本",
-   "x": 1177,
+   "nm": "b.part 文本",
+   "x": 1200,
    "y": 471,
-   "w": 62,
+   "w": 39,
    "h": 22,
-   "text": "本期上线",
+   "text": "演示",
    "style": {
     "color": {
-     "r": 0.2196078431372549,
-     "g": 0.6196078431372549,
-     "b": 0.050980392156862744,
+     "r": 0.8313725490196079,
+     "g": 0.4196078431372549,
+     "b": 0.03137254901960784,
      "a": 1
     },
     "fontSize": 11.5,
@@ -1401,7 +1401,7 @@
    "y": 499,
    "w": 315,
    "h": 24,
-   "text": "活动细则与赞助",
+   "text": "福卡样式总览（演示）",
    "style": {
     "color": {
      "r": 0,
@@ -1427,7 +1427,7 @@
    "y": 529,
    "w": 315,
    "h": 41,
-   "text": "活动时间 / 获卡方式 / 新客与邀请 / 福卡类型 / 规则全文（折叠）+ 赞助商（占位）。",
+   "text": "待开奖 / 1–5 等奖 / 未中奖 / 已失效 / 邀请福卡样式 + 字段来源说明。",
    "style": {
     "color": {
      "r": 0,
@@ -1511,7 +1511,7 @@
    "y": 646,
    "w": 315,
    "h": 22,
-   "text": "H5-06 · 中奖登记",
+   "text": "H5-06 · 礼品领取登记",
    "style": {
     "color": {
      "r": 0,
@@ -1595,7 +1595,7 @@
    "y": 675,
    "w": 315,
    "h": 24,
-   "text": "中奖登记（二等奖）",
+   "text": "礼品领取登记",
    "style": {
     "color": {
      "r": 0,
@@ -1621,7 +1621,7 @@
    "y": 705,
    "w": 315,
    "h": 41,
-   "text": "仅二等奖 7 字段在线登记；校验 / 提交成功 / 修改 / 逾期放弃。",
+   "text": "一至四等奖扫码加对应微信登记；五等奖联系业务员备注「新年五等奖」，随单发放。",
    "style": {
     "color": {
      "r": 0,
@@ -1644,6 +1644,200 @@
    "tag": "span",
    "nm": "span.card__l 文本",
    "x": 201,
+   "y": 752,
+   "w": 315,
+   "h": 26,
+   "text": "打开页面 →",
+   "style": {
+    "color": {
+     "r": 0.08627450980392157,
+     "g": 0.4666666666666667,
+     "b": 1,
+     "a": 1
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "a",
+   "nm": "a.card",
+   "x": 545,
+   "y": 630,
+   "w": 349,
+   "h": 164,
+   "style": {
+    "bg": {
+     "r": 1,
+     "g": 1,
+     "b": 1,
+     "a": 1
+    },
+    "radius": {
+     "tl": 10,
+     "tr": 10,
+     "br": 10,
+     "bl": 10
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.9411764705882353,
+      "g": 0.9411764705882353,
+      "b": 0.9411764705882353,
+      "a": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.card__k 文本",
+   "x": 562,
+   "y": 646,
+   "w": 315,
+   "h": 22,
+   "text": "H5-07 · 活动细则与赞助",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.42
+    },
+    "fontSize": 11.5,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 18.4,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "b",
+   "nm": "b",
+   "x": 816,
+   "y": 646,
+   "w": 62,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 0.9647058823529412,
+     "g": 1,
+     "b": 0.9294117647058824,
+     "a": 1
+    },
+    "radius": {
+     "tl": 4,
+     "tr": 4,
+     "br": 4,
+     "bl": 4
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.7176470588235294,
+      "g": 0.9215686274509803,
+      "b": 0.5607843137254902,
+      "a": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "nm": "b 文本",
+   "x": 816,
+   "y": 646,
+   "w": 62,
+   "h": 22,
+   "text": "本期上线",
+   "style": {
+    "color": {
+     "r": 0.2196078431372549,
+     "g": 0.6196078431372549,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 11.5,
+    "fontWeight": 500,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 18.4,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.card__t 文本",
+   "x": 562,
+   "y": 675,
+   "w": 315,
+   "h": 24,
+   "text": "活动细则与赞助",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.88
+    },
+    "fontSize": 15,
+    "fontWeight": 600,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 24,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.card__d 文本",
+   "x": 562,
+   "y": 705,
+   "w": 315,
+   "h": 41,
+   "text": "活动时间 / 获卡方式 / 新客与邀请 / 福卡类型 / 规则全文（折叠）+ 赞助商（占位）。",
+   "style": {
+    "color": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0.52
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20.625,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.card__l 文本",
+   "x": 562,
    "y": 752,
    "w": 315,
    "h": 26,
@@ -3225,7 +3419,7 @@
    "y": 1377,
    "w": 349,
    "h": 122,
-   "text": "PRD V1.3 + 2026 线上系统；旧版 24 页原型已归档在 `_archive/v0.9-旧版/`。",
+   "text": "PRD V1.7 + 2026 线上系统；旧版 24 页原型已归档在 `_archive/v0.9-旧版/`。",
    "style": {
     "color": {
      "r": 0,
@@ -3515,35 +3709,9 @@
    "nm": "span 文本",
    "x": 184,
    "y": 1647,
-   "w": 315,
+   "w": 314,
    "h": 19,
-   "text": "2026-2027 中汇新年福卡 · 交互原型 V1.0 · 基于",
-   "style": {
-    "color": {
-     "r": 0,
-     "g": 0,
-     "b": 0,
-     "a": 0.4
-    },
-    "fontSize": 12,
-    "fontWeight": 400,
-    "fontFamily": "-apple-system, \"system-ui\", \"Segoe UI\", Roboto, \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 19.2,
-    "letterSpacing": 0,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "a",
-   "nm": "a 文本",
-   "x": 447,
-   "y": 1649,
-   "w": 52,
-   "h": 15,
-   "text": "PRD V1.4",
+   "text": "2026-2027 中汇新年福卡 · 交互原型 V1.0 · 基于 PRD V1.7",
    "style": {
     "color": {
      "r": 0,
