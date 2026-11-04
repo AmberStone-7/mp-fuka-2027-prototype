@@ -159,7 +159,7 @@
 
   <div class="adm-alert adm-alert--warn" id="scope-alert">
     <span class="adm-alert__ico">!</span>
-    <span>奖项口径待确认：<b>每月名额制</b>（需求单 4.2）与<b>活动期总额制</b>（PRD V1.3）并存，待市场部 11/5 确认；当前演示按「活动期总额」录入，五等奖 2,000 名为活动期总额（DEC-008）。</span>
+    <span>名额口径已确认（2026-11-03）：活动期总额 <b>1 / 2 / 3 / 15 / 2,000</b> 名；一至四等奖 5 位全匹配，五等奖末位 1 位。一等奖（特斯拉）与三等奖（机票或 1,000€ 代金券）奖品待定。</span>
   </div>
 
   <form class="adm-filters" id="filters" onsubmit="return false">
@@ -240,7 +240,7 @@
       <div class="adm-form-item">
         <label class="required" for="prize-name">奖品名称</label>
         <div class="adm-form-item__ctrl">
-          <input class="adm-input" id="prize-name" placeholder="例如：Livan X3 / Tesla Model 3（二选一）" autocomplete="off">
+          <input class="adm-input" id="prize-name" placeholder="例如：特斯拉 1 台（待定） / iPhone Duo 1 台" autocomplete="off">
           <p class="adm-form-item__err">请输入奖品名称</p>
         </div>
       </div>
@@ -320,13 +320,13 @@
     notes: [
       "列沿用去年：奖品图片 / 奖品名称 / 奖品级别 / 创建时间 / 最近修改时间 / 操作（编辑）。",
       "奖品级别只取一至五等奖；匹配位数随奖级联动，五等奖默认末位 1 位。",
-      "名额为五等奖 2,000 名总额口径的数据（DEC-008），实际口径待市场部确认后收敛。",
+      "名额为活动期总额：1/2/3/15/2,000（2026-11-03 确认）；一卡一奖、取最高。",
       "图片上传本期为占位演示，点击「更换图片」在 5 张样例图间轮换。",
       "演示数据含同奖级备选奖品行，用于展示多行与分页；正式数据按奖项口径收敛。"
     ],
     todo: [
       "奖项口径：每月名额制（需求单 4.2）vs 活动期总额制（PRD V1.3），待市场部 11/5 确认。",
-      "五等奖 2,000 名是活动期总额（DEC-008），与需求单「每月不限数量」冲突，以 PRD 为准待确认。",
+      "名额与匹配规则已按 2026-11-03 确认版更新：1/2/3/15/2,000 名，一至四等奖 5 位、五等奖末位。",
       "二选一是否在后台持久化客户选择结果：PRD 为一/三等奖线下确认，后台只备注。",
       "图片上传、奖品价值为演示字段，正式环境接对象存储与财务口径。"
     ]
@@ -398,18 +398,11 @@
     var LEVELS = ["一等奖", "二等奖", "三等奖", "四等奖", "五等奖"];
 
     var ROWS = [
-      { id: 1, name: "Livan X3 / Tesla Model 3（二选一）", level: "一等奖", quota: 1, match: "full", value: 25000, choice: true, img: "prize-01.png", created: "2026-10-20 14:52:27", modified: "2026-10-28 15:05:24" },
-      { id: 2, name: "10g 投资金条", level: "二等奖", quota: 4, match: "full", value: 780, choice: false, img: "prize-02.png", created: "2026-10-20 14:46:10", modified: "2026-10-28 15:04:32" },
-      { id: 3, name: "iPad 10 + 50€ 英国宫联名礼品卡", level: "三等奖", quota: 20, match: "full", value: 650, choice: true, img: "prize-03.png", created: "2026-10-20 14:38:56", modified: "2026-10-28 15:05:07" },
-      { id: 4, name: "Ritual 礼盒 + MP 新春礼盒", level: "四等奖", quota: 200, match: "full", value: 55, choice: true, img: "prize-04.png", created: "2026-10-20 14:31:17", modified: "2026-10-28 15:02:36" },
-      { id: 5, name: "MP 产品礼包（11 款随机）", level: "五等奖", quota: 2000, match: "last", value: 12, choice: false, img: "prize-05.png", created: "2026-10-20 14:26:25", modified: "2026-10-28 15:03:42" },
-      { id: 6, name: "Livan X3 现车（备选）", level: "一等奖", quota: 1, match: "full", value: 21000, choice: false, img: "prize-01.png", created: "2026-10-19 16:12:03", modified: "2026-10-27 17:20:11" },
-      { id: 7, name: "20g 投资金条（升级版）", level: "二等奖", quota: 2, match: "full", value: 1480, choice: false, img: "prize-02.png", created: "2026-10-19 16:15:44", modified: "2026-10-27 17:22:09" },
-      { id: 8, name: "商务舱机票 2 张（二选一）", level: "三等奖", quota: 20, match: "full", value: 1000, choice: true, img: "prize-03.png", created: "2026-10-19 16:18:36", modified: "2026-10-27 17:24:40" },
-      { id: 9, name: "定制春联礼盒（备选）", level: "四等奖", quota: 100, match: "full", value: 28, choice: false, img: "prize-04.png", created: "2026-10-19 16:21:12", modified: "2026-10-27 17:26:05" },
-      { id: 10, name: "MP 帆布托特包（备选）", level: "五等奖", quota: 500, match: "last", value: 9, choice: false, img: "prize-05.png", created: "2026-10-19 16:24:51", modified: "2026-10-27 17:28:31" },
-      { id: 11, name: "MP 保温杯（备选）", level: "五等奖", quota: 300, match: "last", value: 7, choice: false, img: "prize-05.png", created: "2026-10-19 16:26:33", modified: "2026-10-27 17:29:58" },
-      { id: 12, name: "MP 笔记本套装（备选）", level: "五等奖", quota: 200, match: "last", value: 6, choice: false, img: "prize-05.png", created: "2026-10-19 16:28:17", modified: "2026-10-27 17:31:20" }
+      { id: 1, name: "特斯拉 1 台（待定）", level: "一等奖", quota: 1, match: "full", value: 25000, choice: false, img: "prize-01.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 2, name: "iPhone Duo 1 台", level: "二等奖", quota: 2, match: "full", value: 1200, choice: false, img: "prize-02.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 3, name: "全球目的地机票 或 1,000€ MP 代金券（二选一，待定）", level: "三等奖", quota: 3, match: "full", value: 1000, choice: true, img: "prize-03.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 4, name: "MP 营销定制礼包 1 份", level: "四等奖", quota: 15, match: "full", value: 50, choice: false, img: "prize-04.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" },
+      { id: 5, name: "MP 定制礼盒 1 份", level: "五等奖", quota: 2000, match: "last", value: 12, choice: false, img: "prize-05.png", created: "2026-11-03 10:00:00", modified: "2026-11-03 10:00:00" }
     ];
 
     var state = {

@@ -502,17 +502,17 @@
     var NOW = "2027-02-22 15:30";
     var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
     var PRIZE = {
-      1: "Livan X3 / Tesla Model 3（二选一）",
-      2: "iPhone 手机 1 台",
-      3: "机票 / 代金券（二选一）",
-      4: "iPad 平板 1 台",
-      5: "新春礼包（10 €/人）"
+      1: "特斯拉 1 台（待定）",
+      2: "iPhone Duo 1 台",
+      3: "机票 / 1,000€ 代金券（二选一）",
+      4: "MP 营销定制礼包 1 份",
+      5: "MP 定制礼盒 1 份"
     };
     var STATUS = { to_contact: "待联系", contacted: "已联系", fulfilled: "已发放", expired: "已失效", auto_ship: "随单发放（不追踪）" };
     var STATUS_CLASS = { to_contact: "win-st--to", contacted: "win-st--contacted", fulfilled: "win-st--fulfilled", expired: "win-st--expired", auto_ship: "win-st--auto" };
 
     var SEED = [
-      { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户考虑 Livan X3 / Tesla 二选一，由业务员线下确认", form: null },
+      { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户考虑特斯拉车型/配置（待定），由业务员线下确认", form: null },
       { id: "W-2027-0002", card: "00231", account: "ES01", customer: "OFICINA GLOBAL, S.L.", custNo: "10003188", cif: "B12098765", phone: "+34 634 118 902", salesNo: "V0117", salesName: "MARÍA JOSÉ", level: 2, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-14 11:40", remark: "客户已提交登记（v2），待运营审核", form: { salesperson: "MARÍA JOSÉ", cif: "B12098765", receiver: "ANTONIO PÉREZ", phone: "+34 634 118 902", address: "C/ Mayor 45, 46001 Valencia", postcode: "46001", upgrade: "是" } },
       { id: "W-2027-0003", card: "03126", account: "ES02", customer: "GRÁFICAS LEVANTE, S.L.", custNo: "10004762", cif: "B12456321", phone: "+34 655 209 771", salesNo: "V0342", salesName: "ANA BELÉN", level: 3, dispatch: "快递", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "机票已出票（经济舱，含税费，不可退改）", form: null },
       { id: "W-2027-0004", card: "07734", account: "ES01", customer: "MUEBLES RUIZ, S.L.", custNo: "10005891", cif: "B12587496", phone: "+34 677 331 204", salesNo: "V0208", salesName: "CARLOS MARTÍN", level: 4, dispatch: "自提", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系；自提点 Valencia 仓", form: null },
