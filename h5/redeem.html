@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>礼品领取登记 · 2026-2027 中汇新年福卡</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/h5.css">
+</head>
+<body class="h5">
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
+  </video>
+  <div class="h5-veil"></div>
+
+  <div class="h5-frame">
+    <header class="h5-top">
+      <a class="h5-back" href="query.html">‹ 返回</a>
+      <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
+    </header>
+
+    <img class="redeem-hero" src="../assets/img/card-2027.png" alt="2027 中汇新年福卡">
+
+    <h2 class="h5-sec">礼品领取登记</h2>
+
+    <div class="redeem-badge" id="redeem-level">三等奖</div>
+
+    <!-- 一至四等奖：添加对应微信登记 -->
+    <section class="redeem-panel" id="panel-wechat">
+      <div class="redeem-qr" id="redeem-qr">
+        <span>对应奖项微信二维码</span>
+        <span>（待运营提供）</span>
+      </div>
+      <p class="redeem-panel__text">请添加上方微信<br>进行礼品登记</p>
+    </section>
+
+    <!-- 五等奖：联系业务员 + 下单备注 -->
+    <section class="redeem-panel" id="panel-five" hidden>
+      <p class="redeem-panel__text">请联系您的业务员<br>在下单时备注<br>“新年五等奖”</p>
+    </section>
+
+    <div class="redeem-tips" id="redeem-tips" hidden>
+      <b>温馨提示</b>
+      <p>本礼品将通过订单，随单发放<br>需要备注信息</p>
+      <p style="margin-top:10px">礼品随单时间自<br><span class="h5-text-gold">2027 年 4 月 1 日</span>起</p>
+    </div>
+
+    <p class="h5-tip" id="redeem-foot" style="text-align:center">如已添加微信，请发送：中奖奖项 + 福卡号 + 客户名称，工作人员会尽快为您登记。</p>
+  </div>
+
+  <script>
+    window.PAGE_META = {
+      id: "H5-06",
+      title: "礼品领取登记",
+      live: "yes",
+      note: "一至四等奖添加对应微信登记；五等奖联系业务员下单备注",
+      fr: ["FR-014"],
+      ac: ["AC-045", "AC-046", "AC-058"],
+      goal: "中奖客户查看福卡后进入本页：一至四等奖扫码添加对应奖项微信完成礼品登记；五等奖提示联系业务员并在下单时备注「新年五等奖」，礼品自 2027-04-01 起随单发放。",
+      states: [
+        "一至四等奖：显示对应奖项微信二维码与「请添加上方微信进行礼品登记」。",
+        "五等奖：显示联系业务员、下单备注「新年五等奖」及随单发放时间。",
+        "二维码未配置：显示占位提示，仍可联系业务员/客服登记。"
+      ],
+      notes: [
+        "本页从「查询福卡/中奖」的中奖福卡进入，按奖项展示不同领取方式。",
+        "一至四等奖的微信二维码由运营按奖项配置，扫码后人工登记。",
+        "五等奖不需要扫码，业务员在订单备注「新年五等奖」，礼品自 2027-04-01 起随单发放。",
+        "不采集领取人地址/电话等敏感信息，登记由工作人员在微信中完成。"
+      ],
+      todo: [
+        "一至四等奖对应微信二维码/微信号待运营提供，当前为占位。",
+        "五等奖随单起始时间 2027-04-01 是否调整待运营确认。"
+      ]
+    };
+  </script>
+  <script src="../assets/js/legacy.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var level = params.get("level") || "3";
+      var map = { "1": "一等奖", "2": "二等奖", "3": "三等奖", "4": "四等奖", "5": "五等奖" };
+      if (!map[level]) level = "3";
+      document.getElementById("redeem-level").textContent = map[level];
+      var isFive = level === "5";
+      document.getElementById("panel-wechat").hidden = isFive;
+      document.getElementById("panel-five").hidden = !isFive;
+      document.getElementById("redeem-tips").hidden = !isFive;
+      var foot = document.getElementById("redeem-foot");
+      if (foot) foot.hidden = isFive;
+      var qr = document.getElementById("redeem-qr");
+      if (qr) qr.querySelector("span").textContent = map[level] + "微信二维码";
+
+      window.DEMOS = [
+        { label: "一等奖领取登记", fn: function () { location.href = "redeem.html?level=1"; } },
+        { label: "二等奖领取登记", fn: function () { location.href = "redeem.html?level=2"; } },
+        { label: "三等奖领取登记", fn: function () { location.href = "redeem.html?level=3"; } },
+        { label: "四等奖领取登记", fn: function () { location.href = "redeem.html?level=4"; } },
+        { label: "五等奖提示", fn: function () { location.href = "redeem.html?level=5"; } }
+      ];
+    })();
+  </script>
+</body>
+</html>

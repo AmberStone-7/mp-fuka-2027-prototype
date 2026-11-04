@@ -37,6 +37,13 @@ const PAGES = [
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-publicity.json"
   },
   {
+    "name": "H5-06 礼品领取登记",
+    "group": "h5",
+    "w": 390,
+    "h": 844,
+    "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-redeem.json"
+  },
+  {
     "name": "H5-07 活动细则与赞助",
     "group": "h5",
     "w": 390,

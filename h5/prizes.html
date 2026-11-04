@@ -48,7 +48,7 @@
       notes: [
         "五档奖品按奖级排列：市场部奖品图（含奖级/名额）+ 奖品名称 + 匹配方式。",
         "名额与匹配规则已确认（2026-11-03）：1 / 2 / 3 / 15 / 2,000 名；一至四等奖 5 位全匹配，五等奖末位 1 位。",
-        "一等奖（特斯拉）与三等奖（机票或 1,000€ 代金券）奖品待定，页面按「待定」展示。",
+        "名额与匹配规则以 2026-11-03 规则文件为准；兑奖方式见中奖卡「查看领取方式」。",
         "五等奖随单发放，订单备注填写【2027福卡五等奖】。"
       ],
       todo: [
@@ -105,7 +105,7 @@
         return '<div class="h5-prize">' +
           '<img class="h5-prize__img" src="../assets/img/' + p.img + '" alt="' + p.level + ' ' + p.name + '">' +
           '<div class="h5-prize__name">' + p.name + '</div>' +
-          '<div class="h5-prize__meta">' + p.match + (p.note ? ' · ' + p.note : '') + '</div>' +
+          '<div class="h5-prize__meta">名额 ' + p.quota + ' · ' + p.match + (p.note ? ' · ' + p.note : '') + '</div>' +
           '</div>';
       }).join("");
     })();
