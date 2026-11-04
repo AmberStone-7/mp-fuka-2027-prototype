@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body.adm",
+   "nm": "body.adm",
    "x": 0,
    "y": 0,
    "w": 1440,
@@ -27,13 +27,12 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "aside",
-   "name": "aside.adm-sider",
+   "nm": "aside.adm-sider",
    "x": 0,
    "y": 0,
    "w": 200,
@@ -52,19 +51,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.adm-logo 文本",
+   "nm": "div.adm-logo 文本",
    "x": 0,
    "y": 0,
    "w": 199,
    "h": 64,
    "text": "抽奖后台管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -85,7 +82,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item.is-active",
+   "nm": "a.adm-menu__item.is-active",
    "x": 8,
    "y": 68,
    "w": 183,
@@ -104,19 +101,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item.is-active 文本",
+   "nm": "a.adm-menu__item.is-active 文本",
    "x": 8,
    "y": 68,
    "w": 183,
    "h": 40,
    "text": "福卡管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -137,24 +132,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 81,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 15h4\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 15h4\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 112,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -162,19 +161,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 112,
    "w": 183,
    "h": 40,
    "text": "邀请码管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -195,24 +192,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 125,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2\"></path><path d=\"M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2\"></path><path d=\"M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 156,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -220,19 +221,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 156,
    "w": 183,
    "h": 40,
    "text": "抽奖管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -253,24 +252,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 169,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M5 10v4l9 4V6L5 10z\"></path><path d=\"M14 9a3.5 3.5 0 0 1 0 6\"></path><path d=\"M7 14v4\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M5 10v4l9 4V6L5 10z\"></path><path d=\"M14 9a3.5 3.5 0 0 1 0 6\"></path><path d=\"M7 14v4\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 200,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -278,19 +281,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 200,
    "w": 183,
    "h": 40,
    "text": "奖品管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -311,24 +312,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 213,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11h16v9H4z\"></path><path d=\"M3 7h18v4H3z\"></path><path d=\"M12 7v13\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11h16v9H4z\"></path><path d=\"M3 7h18v4H3z\"></path><path d=\"M12 7v13\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 244,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -336,19 +341,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 244,
    "w": 183,
    "h": 40,
    "text": "中奖记录",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -369,24 +372,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 257,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"></rect><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"></rect><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 288,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -394,19 +401,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 288,
    "w": 183,
    "h": 40,
    "text": "邮件日志",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -427,24 +432,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 301,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"></rect><path d=\"M3 8l9 6 9-6\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"></rect><path d=\"M3 8l9 6 9-6\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "button",
-   "name": "button.adm-sider__collapse",
+   "nm": "button.adm-sider__collapse",
    "x": 8,
    "y": 926,
    "w": 183,
    "h": 44,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -452,19 +461,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button.adm-sider__collapse 文本",
+   "nm": "button.adm-sider__collapse 文本",
    "x": 8,
    "y": 926,
    "w": 183,
    "h": 44,
    "text": "‹",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -485,7 +492,7 @@
   {
    "type": "box",
    "tag": "main",
-   "name": "main.adm-main",
+   "nm": "main.adm-main",
    "x": 200,
    "y": 0,
    "w": 1240,
@@ -504,13 +511,12 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-avatar",
+   "nm": "span.adm-avatar",
    "x": 1384,
    "y": 16,
    "w": 32,
@@ -529,19 +535,17 @@
      "bl": 50
     },
     "border": null
-   },
-   "section": "topbar"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-avatar 文本",
+   "nm": "span.adm-avatar 文本",
    "x": 1384,
    "y": 16,
    "w": 32,
    "h": 32,
    "text": "A",
-   "section": "topbar",
    "style": {
     "color": {
      "r": 1,
@@ -562,24 +566,22 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 224,
    "y": 68,
    "w": 14,
    "h": 14,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7\"></path><path d=\"M6 10v9h12v-9\"></path></svg>",
-   "section": "page"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7\"></path><path d=\"M6 10v9h12v-9\"></path></svg>"
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 246,
    "y": 64,
    "w": 4,
    "h": 22,
    "text": "/",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -600,13 +602,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 258,
    "y": 64,
    "w": 56,
    "h": 22,
    "text": "福卡管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -627,13 +628,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 224,
    "y": 115,
    "w": 56,
    "h": 22,
    "text": "福卡编号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -654,7 +654,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-no.adm-input",
+   "nm": "input#f-no.adm-input",
    "x": 288,
    "y": 110,
    "w": 180,
@@ -681,19 +681,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-no.adm-input 内容",
+   "nm": "input#f-no.adm-input 内容",
    "x": 302,
    "y": 110,
    "w": 152,
    "h": 32,
    "text": "请输入福卡编号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -713,13 +711,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 492,
    "y": 115,
    "w": 75,
    "h": 22,
    "text": "客户号 / CIF",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -740,7 +737,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-cif.adm-input",
+   "nm": "input#f-cif.adm-input",
    "x": 575,
    "y": 110,
    "w": 180,
@@ -767,19 +764,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-cif.adm-input 内容",
+   "nm": "input#f-cif.adm-input 内容",
    "x": 589,
    "y": 110,
    "w": 152,
    "h": 32,
    "text": "请输入客户号或 CIF",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -799,13 +794,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 779,
    "y": 115,
    "w": 56,
    "h": 22,
    "text": "业务员号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -826,7 +820,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-sales.adm-input",
+   "nm": "input#f-sales.adm-input",
    "x": 843,
    "y": 110,
    "w": 180,
@@ -853,19 +847,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-sales.adm-input 内容",
+   "nm": "input#f-sales.adm-input 内容",
    "x": 857,
    "y": 110,
    "w": 152,
    "h": 32,
    "text": "请输入业务员号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -885,13 +877,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 1047,
    "y": 115,
    "w": 42,
    "h": 22,
    "text": "发票号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -912,7 +903,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-invoice.adm-input",
+   "nm": "input#f-invoice.adm-input",
    "x": 1097,
    "y": 110,
    "w": 180,
@@ -939,19 +930,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-invoice.adm-input 内容",
+   "nm": "input#f-invoice.adm-input 内容",
    "x": 1111,
    "y": 110,
    "w": 152,
    "h": 32,
    "text": "请输入发票号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -971,13 +960,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 224,
    "y": 163,
    "w": 28,
    "h": 22,
    "text": "来源",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -998,16 +986,24 @@
   {
    "type": "box",
    "tag": "select",
-   "name": "select#f-source.adm-select",
+   "nm": "select#f-source.adm-select",
    "x": 260,
    "y": 158,
    "w": 180,
    "h": 32,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 45,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0.5
+      },
       {
        "color": {
         "r": 0,
@@ -1023,6 +1019,15 @@
         "g": 0,
         "b": 0,
         "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 0.5
       }
@@ -1043,19 +1048,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "select",
-   "name": "select#f-source.adm-select 内容",
+   "nm": "select#f-source.adm-select 内容",
    "x": 272,
    "y": 158,
    "w": 156,
    "h": 32,
    "text": "全部来源",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1075,13 +1078,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 464,
    "y": 163,
    "w": 28,
    "h": 22,
    "text": "状态",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1102,16 +1104,24 @@
   {
    "type": "box",
    "tag": "select",
-   "name": "select#f-status.adm-select",
+   "nm": "select#f-status.adm-select",
    "x": 500,
    "y": 158,
    "w": 180,
    "h": 32,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 45,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0.5
+      },
       {
        "color": {
         "r": 0,
@@ -1127,6 +1137,15 @@
         "g": 0,
         "b": 0,
         "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 0.5
       }
@@ -1147,19 +1166,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "select",
-   "name": "select#f-status.adm-select 内容",
+   "nm": "select#f-status.adm-select 内容",
    "x": 512,
    "y": 158,
    "w": 156,
    "h": 32,
    "text": "全部状态",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1179,13 +1196,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 704,
    "y": 163,
    "w": 56,
    "h": 22,
    "text": "发放时间",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1206,7 +1222,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-start.adm-input",
+   "nm": "input#f-start.adm-input",
    "x": 768,
    "y": 158,
    "w": 138,
@@ -1233,19 +1249,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-start.adm-input 内容",
+   "nm": "input#f-start.adm-input 内容",
    "x": 782,
    "y": 158,
    "w": 110,
    "h": 32,
    "text": "开始日期",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1265,13 +1279,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 912,
    "y": 163,
    "w": 13,
    "h": 22,
    "text": "→",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1292,7 +1305,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-end.adm-input",
+   "nm": "input#f-end.adm-input",
    "x": 931,
    "y": 158,
    "w": 138,
@@ -1319,19 +1332,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-end.adm-input 内容",
+   "nm": "input#f-end.adm-input 内容",
    "x": 945,
    "y": 158,
    "w": 110,
    "h": 32,
    "text": "结束日期",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1351,7 +1362,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-search.adm-btn.adm-btn--primary",
+   "nm": "button#btn-search.adm-btn.adm-btn--primary",
    "x": 1280,
    "y": 162,
    "w": 64,
@@ -1378,19 +1389,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-search.adm-btn.adm-btn--primary 文本",
+   "nm": "button#btn-search.adm-btn.adm-btn--primary 文本",
    "x": 1280,
    "y": 162,
    "w": 64,
    "h": 32,
    "text": "查 询",
-   "section": "filter",
    "style": {
     "color": {
      "r": 1,
@@ -1411,7 +1420,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-reset.adm-btn",
+   "nm": "button#btn-reset.adm-btn",
    "x": 1352,
    "y": 162,
    "w": 64,
@@ -1438,19 +1447,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-reset.adm-btn 文本",
+   "nm": "button#btn-reset.adm-btn 文本",
    "x": 1352,
    "y": 162,
    "w": 64,
    "h": 32,
    "text": "重 置",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1471,7 +1478,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-export.adm-btn",
+   "nm": "button#btn-export.adm-btn",
    "x": 224,
    "y": 210,
    "w": 64,
@@ -1498,19 +1505,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-export.adm-btn 文本",
+   "nm": "button#btn-export.adm-btn 文本",
    "x": 224,
    "y": 210,
    "w": 64,
    "h": 32,
    "text": "导 出",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1531,7 +1536,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-batch-void.adm-btn",
+   "nm": "button#btn-batch-void.adm-btn",
    "x": 296,
    "y": 210,
    "w": 88,
@@ -1558,19 +1563,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-batch-void.adm-btn 文本",
+   "nm": "button#btn-batch-void.adm-btn 文本",
    "x": 296,
    "y": 210,
    "w": 88,
    "h": 32,
    "text": "批量失效",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1591,7 +1594,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-add.adm-btn.adm-btn--primary",
+   "nm": "button#btn-add.adm-btn.adm-btn--primary",
    "x": 1328,
    "y": 210,
    "w": 88,
@@ -1618,19 +1621,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-add.adm-btn.adm-btn--primary 文本",
+   "nm": "button#btn-add.adm-btn.adm-btn--primary 文本",
    "x": 1328,
    "y": 210,
    "w": 88,
    "h": 32,
    "text": "添加福卡",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1651,7 +1652,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div#pool.adm-pool",
+   "nm": "div#pool.adm-pool",
    "x": 224,
    "y": 258,
    "w": 1192,
@@ -1678,19 +1679,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-pool__item 文本",
+   "nm": "span.adm-pool__item 文本",
    "x": 239,
    "y": 271,
    "w": 141,
    "h": 20,
    "text": "号码池",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1711,13 +1710,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 282,
    "y": 273,
    "w": 98,
    "h": 16,
    "text": "00001 – 20000",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1738,13 +1736,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-pool__item 文本",
+   "nm": "span.adm-pool__item 文本",
    "x": 404,
    "y": 271,
    "w": 68,
    "h": 20,
    "text": "已发",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1765,13 +1762,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b#pool-used 文本",
+   "nm": "b#pool-used 文本",
    "x": 434,
    "y": 273,
    "w": 38,
    "h": 16,
    "text": "8,420",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1792,13 +1788,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-pool__item 文本",
+   "nm": "span.adm-pool__item 文本",
    "x": 495,
    "y": 271,
    "w": 72,
    "h": 20,
    "text": "余量",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1819,13 +1814,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b#pool-left 文本",
+   "nm": "b#pool-left 文本",
    "x": 525,
    "y": 273,
    "w": 42,
    "h": 16,
    "text": "11,580",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1846,7 +1840,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-pool__progress",
+   "nm": "span.adm-pool__progress",
    "x": 591,
    "y": 277,
    "w": 604,
@@ -1865,44 +1859,17 @@
      "bl": 100
     },
     "border": null
-   },
-   "section": "page"
-  },
-  {
-   "type": "box",
-   "tag": "span",
-   "name": "span#pool-bar.adm-pool__bar",
-   "x": 591,
-   "y": 277,
-   "w": 0,
-   "h": 0,
-   "style": {
-    "bg": {
-     "r": 0.08627450980392157,
-     "g": 0.4666666666666667,
-     "b": 1,
-     "a": 1
-    },
-    "radius": {
-     "tl": 100,
-     "tr": 100,
-     "br": 100,
-     "bl": 100
-    },
-    "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span#pool-tip.adm-pool__item 文本",
+   "nm": "span#pool-tip.adm-pool__item 文本",
    "x": 1219,
    "y": 271,
    "w": 182,
    "h": 20,
    "text": "已用 42.1% · 不回收已失效号码",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1923,13 +1890,18 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.adm-table-wrap",
+   "nm": "div.adm-table-wrap",
    "x": 224,
    "y": 318,
    "w": 1192,
    "h": 564,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -1937,13 +1909,12 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "box",
    "tag": "th",
-   "name": "th.col-check",
+   "nm": "th.col-check",
    "x": 224,
    "y": 318,
    "w": 44,
@@ -1962,19 +1933,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#check-all 内容",
+   "nm": "input#check-all 内容",
    "x": 252,
    "y": 333,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -1994,7 +1963,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 268,
    "y": 318,
    "w": 75,
@@ -2013,19 +1982,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 268,
    "y": 318,
    "w": 75,
    "h": 49,
    "text": "福卡编号",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2046,7 +2013,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 343,
    "y": 318,
    "w": 54,
@@ -2065,19 +2032,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 343,
    "y": 318,
    "w": 54,
    "h": 49,
    "text": "账套",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2098,7 +2063,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 397,
    "y": 318,
    "w": 95,
@@ -2117,19 +2082,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 397,
    "y": 318,
    "w": 95,
    "h": 49,
    "text": "客户号 / CIF",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2150,7 +2113,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 492,
    "y": 318,
    "w": 88,
@@ -2169,19 +2132,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 492,
    "y": 318,
    "w": 88,
    "h": 49,
    "text": "来源",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2202,7 +2163,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 580,
    "y": 318,
    "w": 95,
@@ -2221,19 +2182,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 580,
    "y": 318,
    "w": 95,
    "h": 49,
    "text": "客户手机号",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2254,7 +2213,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 674,
    "y": 318,
    "w": 75,
@@ -2273,19 +2232,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 674,
    "y": 318,
    "w": 75,
    "h": 49,
    "text": "业务员号",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2306,7 +2263,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 750,
    "y": 318,
    "w": 103,
@@ -2325,19 +2282,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 750,
    "y": 318,
    "w": 103,
    "h": 49,
    "text": "绑定发票",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2358,7 +2313,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 852,
    "y": 318,
    "w": 143,
@@ -2377,19 +2332,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 852,
    "y": 318,
    "w": 143,
    "h": 49,
    "text": "发票金额（不含税）",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2410,7 +2363,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 996,
    "y": 318,
    "w": 163,
@@ -2429,19 +2382,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 996,
    "y": 318,
    "w": 163,
    "h": 49,
    "text": "发票创建时间",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2462,7 +2413,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1159,
    "y": 318,
    "w": 65,
@@ -2481,19 +2432,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1159,
    "y": 318,
    "w": 65,
    "h": 49,
    "text": "状态",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2514,7 +2463,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1224,
    "y": 318,
    "w": 167,
@@ -2533,19 +2482,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1224,
    "y": 318,
    "w": 167,
    "h": 49,
    "text": "备注",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2566,7 +2513,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1391,
    "y": 318,
    "w": 138,
@@ -2585,19 +2532,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1391,
    "y": 318,
    "w": 138,
    "h": 49,
    "text": "发放时间",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2618,7 +2563,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1528,
    "y": 318,
    "w": 138,
@@ -2637,19 +2582,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1528,
    "y": 318,
    "w": 138,
    "h": 49,
    "text": "最近修改时间",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2670,7 +2613,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1299,
    "y": 318,
    "w": 117,
@@ -2689,19 +2632,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1299,
    "y": 318,
    "w": 117,
    "h": 49,
    "text": "操作",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2722,13 +2663,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 384,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2748,13 +2688,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 367,
    "w": 75,
    "h": 51,
    "text": "01136",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2775,13 +2714,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 367,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2802,13 +2740,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 367,
    "w": 95,
    "h": 51,
    "text": "10009502",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2829,7 +2766,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 382,
    "w": 64,
@@ -2856,19 +2793,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 382,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -2889,13 +2824,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 367,
    "w": 95,
    "h": 51,
    "text": "666666666",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2916,13 +2850,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 367,
    "w": 75,
    "h": 51,
    "text": "5025",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2943,13 +2876,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 367,
    "w": 103,
    "h": 51,
    "text": "ES25000149",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2970,13 +2902,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 367,
    "w": 143,
    "h": 51,
    "text": "2,580.00 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2997,13 +2928,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 367,
    "w": 163,
    "h": 51,
    "text": "2025-09-25 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3024,13 +2954,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 384,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3051,13 +2980,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 367,
    "w": 167,
    "h": 51,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3078,13 +3006,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 367,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:22",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3105,13 +3032,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 367,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:22",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3132,7 +3058,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 367,
    "w": 117,
@@ -3151,19 +3077,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 381,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3184,13 +3108,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 381,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3211,13 +3134,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 435,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3237,13 +3159,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 419,
    "w": 75,
    "h": 51,
    "text": "01135",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3264,13 +3185,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 419,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3291,13 +3211,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 419,
    "w": 95,
    "h": 51,
    "text": "10008496",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3318,7 +3237,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 433,
    "w": 64,
@@ -3345,19 +3264,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 433,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -3378,13 +3295,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 419,
    "w": 95,
    "h": 51,
    "text": "688098140",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3405,13 +3321,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 419,
    "w": 75,
    "h": 51,
    "text": "5031",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3432,13 +3347,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 419,
    "w": 103,
    "h": 51,
    "text": "ES25000169",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3459,13 +3373,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 419,
    "w": 143,
    "h": 51,
    "text": "1,479.58 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3486,13 +3399,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 419,
    "w": 163,
    "h": 51,
    "text": "2025-01-07 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3513,13 +3425,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 435,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3540,13 +3451,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 419,
    "w": 167,
    "h": 51,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3567,13 +3477,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 419,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3594,13 +3503,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 419,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3621,7 +3529,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 419,
    "w": 117,
@@ -3640,19 +3548,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 432,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3673,13 +3579,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 432,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3700,13 +3605,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 487,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3726,13 +3630,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 470,
    "w": 75,
    "h": 51,
    "text": "01134",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3753,13 +3656,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 470,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3780,13 +3682,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 470,
    "w": 95,
    "h": 51,
    "text": "10008496",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3807,7 +3708,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 485,
    "w": 64,
@@ -3834,19 +3735,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 485,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -3867,13 +3766,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 470,
    "w": 95,
    "h": 51,
    "text": "688098140",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3894,13 +3792,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 470,
    "w": 75,
    "h": 51,
    "text": "5031",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3921,13 +3818,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 470,
    "w": 103,
    "h": 51,
    "text": "ES25000169",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3948,13 +3844,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 470,
    "w": 143,
    "h": 51,
    "text": "1,479.58 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3975,13 +3870,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 470,
    "w": 163,
    "h": 51,
    "text": "2025-01-07 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4002,13 +3896,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--won 文本",
+   "nm": "span.adm-status.adm-status--won 文本",
    "x": 1169,
    "y": 487,
    "w": 42,
    "h": 17,
    "text": "已中奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8313725490196079,
@@ -4029,13 +3922,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 470,
    "w": 167,
    "h": 51,
    "text": "二等奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4056,13 +3948,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 470,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4083,13 +3974,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 470,
    "w": 138,
    "h": 51,
    "text": "2027-02-10 15:02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4110,7 +4000,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 470,
    "w": 117,
@@ -4129,19 +4019,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 484,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4162,13 +4050,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 484,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4189,13 +4076,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 538,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4215,13 +4101,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 522,
    "w": 75,
    "h": 51,
    "text": "01133",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4242,13 +4127,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 522,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4269,13 +4153,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 522,
    "w": 95,
    "h": 51,
    "text": "10008496",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4296,7 +4179,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--new",
+   "nm": "span.adm-source.adm-source--new",
    "x": 502,
    "y": 536,
    "w": 64,
@@ -4323,19 +4206,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--new 文本",
+   "nm": "span.adm-source.adm-source--new 文本",
    "x": 502,
    "y": 536,
    "w": 64,
    "h": 22,
    "text": "新客福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -4356,13 +4237,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 522,
    "w": 95,
    "h": 51,
    "text": "688098140",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4383,13 +4263,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 522,
    "w": 75,
    "h": 51,
    "text": "5031",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4410,13 +4289,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 522,
    "w": 103,
    "h": 51,
    "text": "ES25000169",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4437,13 +4315,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 522,
    "w": 143,
    "h": 51,
    "text": "1,479.58 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4464,13 +4341,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 522,
    "w": 163,
    "h": 51,
    "text": "2025-01-07 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4491,13 +4367,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 538,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4518,13 +4393,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 522,
    "w": 167,
    "h": 51,
    "text": "首单新客奖励",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4545,13 +4419,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 522,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4572,13 +4445,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 522,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4599,7 +4471,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 522,
    "w": 117,
@@ -4618,19 +4490,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 535,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4651,13 +4521,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 535,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4678,13 +4547,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 590,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4704,13 +4572,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 573,
    "w": 75,
    "h": 51,
    "text": "01132",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4731,13 +4598,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 573,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4758,13 +4624,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 573,
    "w": 95,
    "h": 51,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4785,7 +4650,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--invite",
+   "nm": "span.adm-source.adm-source--invite",
    "x": 502,
    "y": 588,
    "w": 64,
@@ -4812,19 +4677,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--invite 文本",
+   "nm": "span.adm-source.adm-source--invite 文本",
    "x": 502,
    "y": 588,
    "w": 64,
    "h": 22,
    "text": "邀请福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8313725490196079,
@@ -4845,13 +4708,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 573,
    "w": 95,
    "h": 51,
    "text": "625676666",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4872,13 +4734,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 573,
    "w": 75,
    "h": 51,
    "text": "5047",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4899,13 +4760,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 573,
    "w": 103,
    "h": 51,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4926,13 +4786,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 573,
    "w": 143,
    "h": 51,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4953,13 +4812,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 573,
    "w": 163,
    "h": 51,
    "text": "2025-01-02 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4980,13 +4838,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--lost 文本",
+   "nm": "span.adm-status.adm-status--lost 文本",
    "x": 1169,
    "y": 590,
    "w": 42,
    "h": 17,
    "text": "未中奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5007,13 +4864,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 573,
    "w": 167,
    "h": 51,
    "text": "邀请奖励",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5034,13 +4890,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 573,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5061,13 +4916,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 573,
    "w": 138,
    "h": 51,
    "text": "2027-02-10 15:40",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5088,7 +4942,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 573,
    "w": 117,
@@ -5107,19 +4961,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 587,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5140,13 +4992,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 587,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5167,13 +5018,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 641,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5193,13 +5043,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 624,
    "w": 75,
    "h": 51,
    "text": "01131",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5220,13 +5069,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 624,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5247,13 +5095,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 624,
    "w": 95,
    "h": 51,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5274,7 +5121,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--official",
+   "nm": "span.adm-source.adm-source--official",
    "x": 502,
    "y": 639,
    "w": 64,
@@ -5301,19 +5148,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--official 文本",
+   "nm": "span.adm-source.adm-source--official 文本",
    "x": 502,
    "y": 639,
    "w": 64,
    "h": 22,
    "text": "官方福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.3254901960784314,
@@ -5334,13 +5179,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 624,
    "w": 95,
    "h": 51,
    "text": "625676666",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5361,13 +5205,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 624,
    "w": 75,
    "h": 51,
    "text": "5047",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5388,13 +5231,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 624,
    "w": 103,
    "h": 51,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5415,13 +5257,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 624,
    "w": 143,
    "h": 51,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5442,13 +5283,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 624,
    "w": 163,
    "h": 51,
    "text": "2025-01-02 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5469,13 +5309,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 641,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5496,13 +5335,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 624,
    "w": 167,
    "h": 51,
    "text": "媒体官方码",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5523,13 +5361,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 624,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5550,13 +5387,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 624,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5577,7 +5413,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 624,
    "w": 117,
@@ -5596,19 +5432,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 638,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5629,13 +5463,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 638,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5656,13 +5489,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 692,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5682,13 +5514,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 676,
    "w": 75,
    "h": 51,
    "text": "01130",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5709,13 +5540,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 676,
    "w": 54,
    "h": 51,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5736,13 +5566,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 676,
    "w": 95,
    "h": 51,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5763,7 +5592,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 691,
    "w": 64,
@@ -5790,19 +5619,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 691,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -5823,13 +5650,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 676,
    "w": 95,
    "h": 51,
    "text": "625676666",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5850,13 +5676,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 676,
    "w": 75,
    "h": 51,
    "text": "5047",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5877,13 +5702,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 676,
    "w": 103,
    "h": 51,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5904,13 +5728,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 676,
    "w": 143,
    "h": 51,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5931,13 +5754,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 676,
    "w": 163,
    "h": 51,
    "text": "2025-01-02 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5958,13 +5780,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--invalid 文本",
+   "nm": "span.adm-status.adm-status--invalid 文本",
    "x": 1169,
    "y": 693,
    "w": 42,
    "h": 17,
    "text": "已失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8117647058823529,
@@ -5985,13 +5806,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 676,
    "w": 167,
    "h": 51,
    "text": "退单",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6012,13 +5832,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 676,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6039,13 +5858,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 676,
    "w": 138,
    "h": 51,
    "text": "2027-02-12 09:20",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6066,7 +5884,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 676,
    "w": 117,
@@ -6085,19 +5903,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 690,
    "w": 40,
    "h": 24,
    "text": "恢复",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -6118,13 +5934,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 690,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -6145,13 +5960,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 744,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6171,13 +5985,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 727,
    "w": 75,
    "h": 51,
    "text": "01129",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6198,13 +6011,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 727,
    "w": 54,
    "h": 51,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6225,13 +6037,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 727,
    "w": 95,
    "h": 51,
    "text": "10013992",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6252,7 +6063,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 742,
    "w": 64,
@@ -6279,19 +6090,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 742,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -6312,13 +6121,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 727,
    "w": 95,
    "h": 51,
    "text": "688123776",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6339,13 +6147,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 727,
    "w": 75,
    "h": 51,
    "text": "5025",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6366,13 +6173,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 727,
    "w": 103,
    "h": 51,
    "text": "ES25000016",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6393,13 +6199,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 727,
    "w": 143,
    "h": 51,
    "text": "2,850.69 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6420,13 +6225,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 727,
    "w": 163,
    "h": 51,
    "text": "2025-03-19 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6447,13 +6251,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 744,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6474,13 +6277,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 727,
    "w": 167,
    "h": 51,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6501,13 +6303,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 727,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6528,13 +6329,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 727,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6555,7 +6355,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 727,
    "w": 117,
@@ -6574,19 +6374,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 741,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -6607,13 +6405,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 741,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -6634,13 +6431,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 795,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6660,13 +6456,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 779,
    "w": 75,
    "h": 51,
    "text": "01128",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6687,13 +6482,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 779,
    "w": 54,
    "h": 51,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6714,13 +6508,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 779,
    "w": 95,
    "h": 51,
    "text": "10013992",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6741,7 +6534,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 793,
    "w": 64,
@@ -6768,19 +6561,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 793,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -6801,13 +6592,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 779,
    "w": 95,
    "h": 51,
    "text": "688123776",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6828,13 +6618,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 779,
    "w": 75,
    "h": 51,
    "text": "5025",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6855,13 +6644,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 779,
    "w": 103,
    "h": 51,
    "text": "ES25000016",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6882,13 +6670,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 779,
    "w": 143,
    "h": 51,
    "text": "2,850.69 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6909,13 +6696,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 779,
    "w": 163,
    "h": 51,
    "text": "2025-03-19 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6936,13 +6722,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 795,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6963,13 +6748,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 779,
    "w": 167,
    "h": 51,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -6990,13 +6774,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 779,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7017,13 +6800,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 779,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7044,7 +6826,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 779,
    "w": 117,
@@ -7063,19 +6845,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 792,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -7096,13 +6876,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 792,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -7123,13 +6902,12 @@
   {
    "type": "text",
    "tag": "input",
-   "name": "input 内容",
+   "nm": "input 内容",
    "x": 252,
    "y": 847,
    "w": -12,
    "h": 16,
    "text": "on",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7149,13 +6927,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 268,
    "y": 830,
    "w": 75,
    "h": 51,
    "text": "01127",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7176,13 +6953,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 343,
    "y": 830,
    "w": 54,
    "h": 51,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7203,13 +6979,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 397,
    "y": 830,
    "w": 95,
    "h": 51,
    "text": "10022871",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7230,7 +7005,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order",
+   "nm": "span.adm-source.adm-source--order",
    "x": 502,
    "y": 845,
    "w": 64,
@@ -7257,19 +7032,17 @@
       "a": 1
      }
     }
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-source.adm-source--order 文本",
+   "nm": "span.adm-source.adm-source--order 文本",
    "x": 502,
    "y": 845,
    "w": 64,
    "h": 22,
    "text": "订单福卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -7290,13 +7063,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 580,
    "y": 830,
    "w": 95,
    "h": 51,
    "text": "611223344",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7317,13 +7089,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 674,
    "y": 830,
    "w": 75,
    "h": 51,
    "text": "5062",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7344,13 +7115,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 750,
    "y": 830,
    "w": 103,
    "h": 51,
    "text": "ES25000033",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7371,13 +7141,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 852,
    "y": 830,
    "w": 143,
    "h": 51,
    "text": "999.99 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7398,13 +7167,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 996,
    "y": 830,
    "w": 163,
    "h": 51,
    "text": "2025-06-08 00:00:00",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7425,13 +7193,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--pending 文本",
+   "nm": "span.adm-status.adm-status--pending 文本",
    "x": 1169,
    "y": 847,
    "w": 42,
    "h": 17,
    "text": "待开奖",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7452,13 +7219,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.muted 文本",
+   "nm": "td.muted 文本",
    "x": 1224,
    "y": 830,
    "w": 167,
    "h": 51,
    "text": "金额未达 1,000€ 不发卡",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7479,13 +7245,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1391,
    "y": 830,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:33",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7506,13 +7271,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.nowrap.muted 文本",
+   "nm": "td.nowrap.muted 文本",
    "x": 1528,
    "y": 830,
    "w": 138,
    "h": 51,
    "text": "2026-12-01 09:33",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -7533,7 +7297,7 @@
   {
    "type": "box",
    "tag": "td",
-   "name": "td",
+   "nm": "td",
    "x": 1299,
    "y": 830,
    "w": 117,
@@ -7552,19 +7316,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1309,
    "y": 844,
    "w": 40,
    "h": 24,
    "text": "失效",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -7585,13 +7347,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1361,
    "y": 844,
    "w": 40,
    "h": 24,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -7612,13 +7373,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span#pager-total.adm-pager__total 文本",
+   "nm": "span#pager-total.adm-pager__total 文本",
    "x": 881,
    "y": 903,
    "w": 73,
    "h": 22,
    "text": "共 8,420 条",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7639,7 +7399,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 971,
    "y": 898,
    "w": 32,
@@ -7666,19 +7426,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 971,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "‹",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7699,7 +7457,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button.is-active",
+   "nm": "button.is-active",
    "x": 1011,
    "y": 898,
    "w": 32,
@@ -7726,19 +7484,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button.is-active 文本",
+   "nm": "button.is-active 文本",
    "x": 1011,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "1",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -7759,7 +7515,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1051,
    "y": 898,
    "w": 32,
@@ -7786,19 +7542,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1051,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "2",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7819,7 +7573,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1091,
    "y": 898,
    "w": 32,
@@ -7846,19 +7600,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1091,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "3",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7879,7 +7631,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1131,
    "y": 898,
    "w": 32,
@@ -7906,19 +7658,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1131,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "4",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7939,7 +7689,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1171,
    "y": 898,
    "w": 32,
@@ -7966,19 +7716,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1171,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "5",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -7999,13 +7747,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 1211,
    "y": 903,
    "w": 19,
    "h": 22,
    "text": "•••",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -8026,7 +7773,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1238,
    "y": 898,
    "w": 40,
@@ -8053,19 +7800,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1238,
    "y": 898,
    "w": 40,
    "h": 32,
    "text": "842",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -8086,7 +7831,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1286,
    "y": 898,
    "w": 32,
@@ -8113,19 +7858,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1286,
    "y": 898,
    "w": 32,
    "h": 32,
    "text": "›",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -8146,16 +7889,24 @@
   {
    "type": "box",
    "tag": "select",
-   "name": "select",
+   "nm": "select",
    "x": 1330,
    "y": 898,
    "w": 86,
    "h": 32,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 45,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0.5
+      },
       {
        "color": {
         "r": 0,
@@ -8171,6 +7922,15 @@
         "g": 0,
         "b": 0,
         "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 0.5
       }
@@ -8191,19 +7951,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "select",
-   "name": "select 内容",
+   "nm": "select 内容",
    "x": 1342,
    "y": 898,
    "w": 62,
    "h": 32,
    "text": "10 条/页",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,

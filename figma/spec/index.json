@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body",
+   "nm": "body",
    "x": 0,
    "y": 0,
    "w": 1440,
@@ -27,19 +27,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "h1",
-   "name": "h1 文本",
+   "nm": "h1 文本",
    "x": 184,
    "y": 40,
    "w": 1072,
    "h": 45,
    "text": "2026-2027 中汇新年福卡 · 交互原型",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -60,13 +58,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 184,
    "y": 93,
    "w": 780,
    "h": 50,
    "text": "按 2026 线上系统重做：H5 沿用深红金活动页（单页 + 底部 5 tab），后台沿用 Ant Design 浅色后台（白侧栏 + 蓝主按钮 + 筛选/表格/分页/弹窗）。去年已满足的功能保留，今年只做增量。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -87,7 +84,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.tag",
+   "nm": "span.tag",
    "x": 184,
    "y": 157,
    "w": 73,
@@ -114,19 +111,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.tag 文本",
+   "nm": "span.tag 文本",
    "x": 184,
    "y": 157,
    "w": 73,
    "h": 25,
    "text": "全量 V1.0",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.6313725490196078,
@@ -147,7 +142,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.tag.tag--blue",
+   "nm": "span.tag.tag--blue",
    "x": 265,
    "y": 157,
    "w": 101,
@@ -174,19 +169,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.tag.tag--blue 文本",
+   "nm": "span.tag.tag--blue 文本",
    "x": 265,
    "y": 157,
    "w": 101,
    "h": 25,
    "text": "基于 PRD V1.3",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -207,7 +200,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.tag.tag--blue",
+   "nm": "span.tag.tag--blue",
    "x": 374,
    "y": 157,
    "w": 130,
@@ -234,19 +227,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.tag.tag--blue 文本",
+   "nm": "span.tag.tag--blue 文本",
    "x": 374,
    "y": 157,
    "w": 130,
    "h": 25,
    "text": "参考 2026 线上系统",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.03529411764705882,
@@ -267,13 +258,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2 文本",
+   "nm": "h2 文本",
    "x": 184,
    "y": 214,
    "w": 1072,
    "h": 32,
    "text": "前台 H5",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -294,13 +284,12 @@
   {
    "type": "text",
    "tag": "small",
-   "name": "small 文本",
+   "nm": "small 文本",
    "x": 264,
    "y": 223,
    "w": 362,
    "h": 19,
    "text": "单页 + 底部 5 tab；二级页带「← 返回」；右下角 ✎ 可看说明与演示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -321,7 +310,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 184,
    "y": 258,
    "w": 349,
@@ -348,19 +337,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 201,
    "y": 274,
    "w": 315,
    "h": 22,
    "text": "H5-01 · 首页",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -381,7 +368,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 454,
    "y": 274,
    "w": 62,
@@ -408,19 +395,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 454,
    "y": 274,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -441,13 +426,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 201,
    "y": 303,
    "w": 315,
    "h": 24,
    "text": "H5 首页（4 个入口）",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -468,13 +452,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 201,
    "y": 333,
    "w": 315,
    "h": 62,
    "text": "按 2027 设计图：红色 MAIN★PAPER + 2027 福卡主视觉 + 领取福卡 / 查询福卡·中奖 / 活动奖项 / 活动细则与赞助。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -495,13 +478,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 201,
    "y": 401,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -522,7 +504,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 545,
    "y": 258,
    "w": 349,
@@ -549,19 +531,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 562,
    "y": 274,
    "w": 315,
    "h": 22,
    "text": "H5-02 · 活动查询",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -582,7 +562,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 816,
    "y": 274,
    "w": 62,
@@ -609,19 +589,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 816,
    "y": 274,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -642,13 +620,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 562,
    "y": 303,
    "w": 315,
    "h": 24,
    "text": "活动查询（含中奖查询）",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -669,13 +646,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 562,
    "y": 333,
    "w": 315,
    "h": 41,
    "text": "输入发票号 + 税号（CIF）验证后返回名下全部福卡（含其他发票）+ 我的邀请码；中奖状态直接显示在福卡上。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -696,13 +672,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 562,
    "y": 401,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -723,7 +698,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 907,
    "y": 258,
    "w": 349,
@@ -750,19 +725,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 924,
    "y": 274,
    "w": 315,
    "h": 22,
    "text": "H5-03 · 领取福卡",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -783,7 +756,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 1177,
    "y": 274,
    "w": 62,
@@ -810,19 +783,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 1177,
    "y": 274,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -843,13 +814,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 924,
    "y": 303,
    "w": 315,
    "h": 24,
    "text": "领取福卡（邀请有礼）",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -870,13 +840,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 924,
    "y": 333,
    "w": 315,
    "h": 41,
    "text": "CIF + 邀请码领取；成功 / 待达标 / 已领取 / 统一错误 / 邀请人上限。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -897,13 +866,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 924,
    "y": 401,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -924,7 +892,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 184,
    "y": 455,
    "w": 349,
@@ -951,19 +919,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 201,
    "y": 471,
    "w": 315,
    "h": 22,
    "text": "H5-04 · 礼品展示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -984,7 +950,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 454,
    "y": 471,
    "w": 62,
@@ -1011,19 +977,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 454,
    "y": 471,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -1044,13 +1008,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 201,
    "y": 499,
    "w": 315,
    "h": 24,
    "text": "礼品展示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1071,13 +1034,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 201,
    "y": 529,
    "w": 315,
    "h": 41,
    "text": "五档奖品：图片 + 名额 + 匹配方式 + 领奖说明；口径待市场部 11/5 确认。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1098,13 +1060,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 201,
    "y": 576,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -1125,7 +1086,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 545,
    "y": 455,
    "w": 349,
@@ -1152,19 +1113,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 562,
    "y": 471,
    "w": 315,
    "h": 22,
    "text": "H5-05 · 中奖公示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1185,7 +1144,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 816,
    "y": 471,
    "w": 62,
@@ -1212,19 +1171,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 816,
    "y": 471,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -1245,13 +1202,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 562,
    "y": 499,
    "w": 315,
    "h": 24,
    "text": "中奖公示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1272,13 +1228,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 562,
    "y": 529,
    "w": 315,
    "h": 41,
    "text": "脱敏名单（奖项 + CIF 打码 + 奖品），按奖项筛选，公示期提示。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1299,13 +1254,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 562,
    "y": 576,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -1326,7 +1280,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 907,
    "y": 455,
    "w": 349,
@@ -1353,19 +1307,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 924,
    "y": 471,
    "w": 315,
    "h": 22,
    "text": "H5-07 · 活动细则与赞助",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1386,7 +1338,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 1177,
    "y": 471,
    "w": 62,
@@ -1413,19 +1365,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 1177,
    "y": 471,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -1446,13 +1396,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 924,
    "y": 499,
    "w": 315,
    "h": 24,
    "text": "活动细则与赞助",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1473,13 +1422,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 924,
    "y": 529,
    "w": 315,
    "h": 41,
    "text": "活动时间 / 获卡方式 / 新客与邀请 / 福卡类型 / 规则全文（折叠）+ 赞助商（占位）。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1500,13 +1448,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 924,
    "y": 576,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -1527,7 +1474,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 184,
    "y": 630,
    "w": 349,
@@ -1554,19 +1501,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 201,
    "y": 646,
    "w": 315,
    "h": 22,
    "text": "H5-06 · 中奖登记",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1587,7 +1532,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 454,
    "y": 646,
    "w": 62,
@@ -1614,19 +1559,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 454,
    "y": 646,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -1647,13 +1590,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 201,
    "y": 675,
    "w": 315,
    "h": 24,
    "text": "中奖登记（二等奖）",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1674,13 +1616,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 201,
    "y": 705,
    "w": 315,
    "h": 41,
    "text": "仅二等奖 7 字段在线登记；校验 / 提交成功 / 修改 / 逾期放弃。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1701,13 +1642,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 201,
    "y": 752,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -1728,13 +1668,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2 文本",
+   "nm": "h2 文本",
    "x": 184,
    "y": 826,
    "w": 1072,
    "h": 32,
    "text": "后台",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1755,13 +1694,12 @@
   {
    "type": "text",
    "tag": "small",
-   "name": "small 文本",
+   "nm": "small 文本",
    "x": 234,
    "y": 835,
    "w": 516,
    "h": 19,
    "text": "6 个模块（V1.4 已删除新客资格 / 退单与失效 / 用户端首页）；「✎ 原型说明」含接口与开发规格",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1782,7 +1720,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 184,
    "y": 870,
    "w": 349,
@@ -1809,19 +1747,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 201,
    "y": 886,
    "w": 315,
    "h": 22,
    "text": "ADM-01 · 福卡管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1842,7 +1778,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 454,
    "y": 886,
    "w": 62,
@@ -1869,19 +1805,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 454,
    "y": 886,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -1902,13 +1836,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 201,
    "y": 914,
    "w": 315,
    "h": 24,
    "text": "福卡管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1929,13 +1862,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 201,
    "y": 944,
    "w": 315,
    "h": 41,
    "text": "沿用去年列（账套/客户/手机号/业务员/发票/金额/状态/备注/时间）+ 来源标签、号码池余量、失效。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1956,13 +1888,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 201,
    "y": 992,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -1983,7 +1914,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 545,
    "y": 870,
    "w": 349,
@@ -2010,19 +1941,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 562,
    "y": 886,
    "w": 315,
    "h": 22,
    "text": "ADM-02 · 邀请码管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2043,7 +1972,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 816,
    "y": 886,
    "w": 62,
@@ -2070,19 +1999,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 816,
    "y": 886,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -2103,13 +2030,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 562,
    "y": 914,
    "w": 315,
    "h": 24,
    "text": "邀请码管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2130,13 +2056,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 562,
    "y": 944,
    "w": 315,
    "h": 41,
    "text": "批量生成 / 停用恢复 / 使用记录（pending-success-expired）/ 官方码配置。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2157,13 +2082,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 562,
    "y": 992,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2184,7 +2108,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 907,
    "y": 870,
    "w": 349,
@@ -2211,19 +2135,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 924,
    "y": 886,
    "w": 315,
    "h": 22,
    "text": "ADM-03 · 抽奖管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2244,7 +2166,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 1177,
    "y": 886,
    "w": 62,
@@ -2271,19 +2193,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 1177,
    "y": 886,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -2304,13 +2224,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 924,
    "y": 914,
    "w": 315,
    "h": 24,
    "text": "抽奖管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2331,13 +2250,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 924,
    "y": 944,
    "w": 315,
    "h": 41,
    "text": "快照 → 录入号码 → 预览命中 → 复核 → 发布 → 撤回；超额截取 / 不足补抽 / 空开奖。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2358,13 +2276,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 924,
    "y": 992,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2385,7 +2302,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 184,
    "y": 1046,
    "w": 349,
@@ -2412,19 +2329,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 201,
    "y": 1062,
    "w": 315,
    "h": 22,
    "text": "ADM-04 · 奖品管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2445,7 +2360,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b",
+   "nm": "b",
    "x": 454,
    "y": 1062,
    "w": 62,
@@ -2472,19 +2387,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 454,
    "y": 1062,
    "w": 62,
    "h": 22,
    "text": "本期上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.2196078431372549,
@@ -2505,13 +2418,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 201,
    "y": 1090,
    "w": 315,
    "h": 24,
    "text": "奖品管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2532,13 +2444,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 201,
    "y": 1120,
    "w": 315,
    "h": 41,
    "text": "沿用去年列表 + 编辑弹窗；补名额、匹配位数、二选一与名额校验。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2559,13 +2470,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 201,
    "y": 1167,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2586,7 +2496,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 545,
    "y": 1046,
    "w": 349,
@@ -2613,19 +2523,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 562,
    "y": 1062,
    "w": 315,
    "h": 22,
    "text": "ADM-05 · 中奖记录",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2646,7 +2554,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b.part",
+   "nm": "b.part",
    "x": 816,
    "y": 1062,
    "w": 62,
@@ -2673,19 +2581,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b.part 文本",
+   "nm": "b.part 文本",
    "x": 816,
    "y": 1062,
    "w": 62,
    "h": 22,
    "text": "部分上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.8313725490196079,
@@ -2706,13 +2612,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 562,
    "y": 1090,
    "w": 315,
    "h": 24,
    "text": "中奖记录",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2733,13 +2638,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 562,
    "y": 1120,
    "w": 315,
    "h": 41,
    "text": "沿用去年列与批量编辑；新增二等奖登记信息、五等奖「随单发放（不追踪）」。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2760,13 +2664,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 562,
    "y": 1167,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2787,7 +2690,7 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.card",
+   "nm": "a.card",
    "x": 907,
    "y": 1046,
    "w": 349,
@@ -2814,19 +2717,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__k 文本",
+   "nm": "span.card__k 文本",
    "x": 924,
    "y": 1062,
    "w": 315,
    "h": 22,
    "text": "ADM-06 · 邮件日志",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2847,7 +2748,7 @@
   {
    "type": "box",
    "tag": "b",
-   "name": "b.part",
+   "nm": "b.part",
    "x": 1177,
    "y": 1062,
    "w": 62,
@@ -2874,19 +2775,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "b",
-   "name": "b.part 文本",
+   "nm": "b.part 文本",
    "x": 1177,
    "y": 1062,
    "w": 62,
    "h": 22,
    "text": "部分上线",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.8313725490196079,
@@ -2907,13 +2806,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__t 文本",
+   "nm": "span.card__t 文本",
    "x": 924,
    "y": 1090,
    "w": 315,
    "h": 24,
    "text": "邮件日志",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2934,13 +2832,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__d 文本",
+   "nm": "span.card__d 文本",
    "x": 924,
    "y": 1120,
    "w": 315,
    "h": 41,
    "text": "沿用去年日志与重发；补 6 类模板（本期 2 类）、失败原因、待人工联系清单。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -2961,13 +2858,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.card__l 文本",
+   "nm": "span.card__l 文本",
    "x": 924,
    "y": 1167,
    "w": 315,
    "h": 26,
    "text": "打开页面 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2988,7 +2884,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.note",
+   "nm": "div.note",
    "x": 184,
    "y": 1225,
    "w": 1072,
@@ -3015,19 +2911,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.note 文本",
+   "nm": "div.note 文本",
    "x": 184,
    "y": 1225,
    "w": 1072,
    "h": 74,
    "text": "每个页面右下角 ✎ 打开「原型说明」，可看对应 FR/AC、发布范围、状态与异常、待确认项，以及演示按钮（切成功/失败/空态等）。H5 页面同时支持手机与桌面浏览器浏览；后台为 1440 桌面版。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.47843137254901963,
@@ -3048,13 +2942,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 201,
    "y": 1242,
    "w": 52,
    "h": 16,
    "text": "怎么用：",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.6784313725490196,
@@ -3075,13 +2968,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2 文本",
+   "nm": "h2 文本",
    "x": 184,
    "y": 1331,
    "w": 1072,
    "h": 32,
    "text": "使用与交付说明",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3102,7 +2994,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.how__item",
+   "nm": "div.how__item",
    "x": 184,
    "y": 1377,
    "w": 349,
@@ -3129,19 +3021,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.how__item 文本",
+   "nm": "div.how__item 文本",
    "x": 184,
    "y": 1377,
    "w": 349,
    "h": 122,
    "text": "双击本目录 `打开原型.command`，或浏览器访问 ；也可直接双击 `index.html`。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3162,13 +3052,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 200,
    "y": 1391,
    "w": 317,
    "h": 23,
    "text": "本地打开",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3189,13 +3078,12 @@
   {
    "type": "text",
    "tag": "code",
-   "name": "code 文本",
+   "nm": "code 文本",
    "x": 200,
    "y": 1443,
    "w": 241,
    "h": 15,
    "text": "https://amberstone-7.github.io/mp-fuka-2027-prototype/index.html",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3216,7 +3104,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.how__item",
+   "nm": "div.how__item",
    "x": 545,
    "y": 1377,
    "w": 349,
@@ -3243,19 +3131,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.how__item 文本",
+   "nm": "div.how__item 文本",
    "x": 545,
    "y": 1377,
    "w": 349,
    "h": 122,
    "text": "全部为演示数据，不接后端；状态切换仅前端演示，刷新后恢复。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3276,13 +3162,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 561,
    "y": 1391,
    "w": 317,
    "h": 23,
    "text": "数据说明",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3303,7 +3188,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.how__item",
+   "nm": "div.how__item",
    "x": 907,
    "y": 1377,
    "w": 349,
@@ -3330,19 +3215,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.how__item 文本",
+   "nm": "div.how__item 文本",
    "x": 907,
    "y": 1377,
    "w": 349,
    "h": 122,
    "text": "PRD V1.3 + 2026 线上系统；旧版 24 页原型已归档在 `_archive/v0.9-旧版/`。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3363,13 +3246,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 923,
    "y": 1391,
    "w": 317,
    "h": 23,
    "text": "设计依据",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3390,13 +3272,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2 文本",
+   "nm": "h2 文本",
    "x": 184,
    "y": 1531,
    "w": 1072,
    "h": 32,
    "text": "2026 线上系统参考截图",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3417,13 +3298,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 184,
    "y": 1575,
    "w": 110,
    "h": 21,
    "text": "H5 首页 / 快速查询",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3444,13 +3324,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 310,
    "y": 1575,
    "w": 73,
    "h": 21,
    "text": "H5 活动信息",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3471,13 +3350,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 399,
    "y": 1575,
    "w": 151,
    "h": 21,
    "text": "H5 查询结果（福卡票券）",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3498,13 +3376,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 566,
    "y": 1575,
    "w": 73,
    "h": 21,
    "text": "H5 礼品展示",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3525,13 +3402,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 656,
    "y": 1575,
    "w": 108,
    "h": 21,
    "text": "后台 幸运福卡管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3552,13 +3428,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 779,
    "y": 1575,
    "w": 82,
    "h": 21,
    "text": "后台 奖品管理",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3579,13 +3454,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 877,
    "y": 1575,
    "w": 82,
    "h": 21,
    "text": "后台 菜单框架",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3606,13 +3480,18 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.foot",
+   "nm": "div.foot",
    "x": 184,
    "y": 1630,
    "w": 1072,
    "h": 36,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 0,
      "tr": 0,
@@ -3628,19 +3507,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 184,
    "y": 1647,
    "w": 315,
    "h": 19,
    "text": "2026-2027 中汇新年福卡 · 交互原型 V1.0 · 基于",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3661,13 +3538,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a 文本",
+   "nm": "a 文本",
    "x": 447,
    "y": 1649,
    "w": 52,
    "h": 15,
    "text": "PRD V1.4",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3688,13 +3564,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 944,
    "y": 1647,
    "w": 312,
    "h": 19,
    "text": "交付目录：",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -3715,7 +3590,7 @@
   {
    "type": "box",
    "tag": "code",
-   "name": "code",
+   "nm": "code",
    "x": 1004,
    "y": 1649,
    "w": 252,
@@ -3734,19 +3609,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "code",
-   "name": "code 文本",
+   "nm": "code 文本",
    "x": 1004,
    "y": 1649,
    "w": 252,
    "h": 16,
    "text": "2026-2027新春活动-产品文档/07-交互设计/",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,

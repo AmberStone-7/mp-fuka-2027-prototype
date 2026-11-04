@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body.h5",
+   "nm": "body.h5",
    "x": 0,
    "y": 0,
    "w": 390,
@@ -27,19 +27,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-veil",
+   "nm": "div.h5-veil",
    "x": 0,
    "y": 0,
    "w": 390,
    "h": 1163,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 180,
      "stops": [
@@ -79,19 +77,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-back 文本",
+   "nm": "a.h5-back 文本",
    "x": 16,
    "y": 15,
    "w": 39,
    "h": 24,
    "text": "‹ 返回",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -112,26 +108,22 @@
   {
    "type": "image",
    "tag": "img",
-   "name": "img.h5-wordmark.h5-wordmark--red",
+   "nm": "img.h5-wordmark.h5-wordmark--red",
    "x": 116,
    "y": 18,
    "w": 158,
    "h": 22,
-   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
-   "fit": "fill",
-   "radius": 0,
-   "section": "page"
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png"
   },
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2.h5-sec 文本",
+   "nm": "h2.h5-sec 文本",
    "x": 16,
    "y": 80,
    "w": 358,
    "h": 46,
    "text": "中奖公示",
-   "section": "title",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -152,21 +144,30 @@
   {
    "type": "box",
    "tag": "h2::after",
+   "nm": "h2.h5-sec::after",
    "x": 171,
    "y": 125,
    "w": 48,
    "h": 1,
    "style": {
-    "color": {
-     "r": 0.9647058823529412,
-     "g": 0.8901960784313725,
-     "b": 0.6901960784313725,
-     "a": 1
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
     },
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -178,10 +179,10 @@
       },
       {
        "color": {
-        "r": 0.9098039215686274,
-        "g": 0.7803921568627451,
-        "b": 0.47843137254901963,
-        "a": 1
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 1
       }
@@ -192,20 +193,13 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 22,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 35.2,
-    "letterSpacing": 2.2,
-    "textAlign": "center"
-   },
-   "name": "h2::after"
+    }
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-card",
+   "nm": "div.h5-card",
    "x": 16,
    "y": 142,
    "w": 358,
@@ -232,19 +226,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 31,
    "y": 155,
    "w": 328,
    "h": 42,
    "text": "公示期：2027-02-10 — 2027-03-31。仅公示奖项、CIF 打码与奖品，不公开完整卡号与 CIF。",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -265,13 +257,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab.is-active 文本",
+   "nm": "button.h5-tab.is-active 文本",
    "x": 16,
    "y": 226,
    "w": 44,
    "h": 26,
    "text": "全部",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -292,13 +283,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab 文本",
+   "nm": "button.h5-tab 文本",
    "x": 64,
    "y": 226,
    "w": 58,
    "h": 26,
    "text": "一等奖",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -319,13 +309,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab 文本",
+   "nm": "button.h5-tab 文本",
    "x": 126,
    "y": 226,
    "w": 58,
    "h": 26,
    "text": "二等奖",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -346,13 +335,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab 文本",
+   "nm": "button.h5-tab 文本",
    "x": 187,
    "y": 226,
    "w": 58,
    "h": 26,
    "text": "三等奖",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -373,13 +361,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab 文本",
+   "nm": "button.h5-tab 文本",
    "x": 249,
    "y": 226,
    "w": 58,
    "h": 26,
    "text": "四等奖",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -400,13 +387,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button.h5-tab 文本",
+   "nm": "button.h5-tab 文本",
    "x": 311,
    "y": 226,
    "w": 58,
    "h": 26,
    "text": "五等奖",
-   "section": "tabs",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -427,7 +413,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-pub-wrap",
+   "nm": "div.h5-pub-wrap",
    "x": 16,
    "y": 275,
    "w": 358,
@@ -454,19 +440,17 @@
       "a": 0.2
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 31,
    "y": 282,
    "w": 64,
    "h": 39,
    "text": "奖项",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -487,13 +471,12 @@
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 97,
    "y": 282,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "CIF",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -514,13 +497,12 @@
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
-   "x": 227,
+   "nm": "th 文本",
+   "x": 179,
    "y": 282,
-   "w": 132,
+   "w": 181,
    "h": 39,
    "text": "奖品",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -541,13 +523,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 333,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -578,19 +559,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 333,
    "w": 45,
    "h": 19,
    "text": "一等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -611,13 +590,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 323,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B1***78",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -638,13 +616,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 323,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "6,666 €",
-   "section": "page",
+   "text": "特斯拉 1 台（待定）",
    "style": {
     "color": {
      "r": 1,
@@ -665,13 +642,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 374,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -702,19 +678,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 374,
    "w": 45,
    "h": 19,
    "text": "二等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -735,13 +709,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 364,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B4***21",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -762,13 +735,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 364,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "智能手机",
-   "section": "page",
+   "text": "iPhone Duo 1 台",
    "style": {
     "color": {
      "r": 1,
@@ -789,13 +761,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 415,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -826,19 +797,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 415,
    "w": 45,
    "h": 19,
    "text": "二等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -859,13 +828,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 405,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B7***90",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -886,13 +854,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 405,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "智能手机",
-   "section": "page",
+   "text": "iPhone Duo 1 台",
    "style": {
     "color": {
      "r": 1,
@@ -913,13 +880,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 456,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -950,19 +916,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 456,
    "w": 45,
    "h": 19,
    "text": "三等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -983,13 +947,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 446,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B2***33",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1010,13 +973,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 446,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "智能手机",
-   "section": "page",
+   "text": "机票或 1,000€ 代金券",
    "style": {
     "color": {
      "r": 1,
@@ -1037,13 +999,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 497,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1074,19 +1035,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 497,
    "w": 45,
    "h": 19,
    "text": "三等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1107,13 +1066,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 487,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B5***67",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1134,13 +1092,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 487,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "智能手机",
-   "section": "page",
+   "text": "机票或 1,000€ 代金券",
    "style": {
     "color": {
      "r": 1,
@@ -1161,13 +1118,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 538,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1198,19 +1154,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 538,
    "w": 45,
    "h": 19,
    "text": "三等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1231,13 +1185,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 528,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B8***14",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1258,13 +1211,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 528,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "智能手机",
-   "section": "page",
+   "text": "机票或 1,000€ 代金券",
    "style": {
     "color": {
      "r": 1,
@@ -1285,13 +1237,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 579,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1322,19 +1273,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 579,
    "w": 45,
    "h": 19,
    "text": "四等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1355,13 +1304,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 569,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B3***55",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1382,13 +1330,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 569,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "平板电脑",
-   "section": "page",
+   "text": "MP 营销定制礼包",
    "style": {
     "color": {
      "r": 1,
@@ -1409,13 +1356,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 620,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1446,19 +1392,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 620,
    "w": 45,
    "h": 19,
    "text": "四等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1479,13 +1423,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 610,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B6***02",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1506,13 +1449,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 610,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "平板电脑",
-   "section": "page",
+   "text": "MP 营销定制礼包",
    "style": {
     "color": {
      "r": 1,
@@ -1533,13 +1475,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 661,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1570,19 +1511,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 661,
    "w": 45,
    "h": 19,
    "text": "四等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1603,13 +1542,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 651,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B9***46",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1630,13 +1568,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 651,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "平板电脑",
-   "section": "page",
+   "text": "MP 营销定制礼包",
    "style": {
     "color": {
      "r": 1,
@@ -1657,13 +1594,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 702,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1694,19 +1630,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 702,
    "w": 45,
    "h": 19,
    "text": "四等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1727,13 +1661,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 692,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B1***09",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1754,13 +1687,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 692,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "平板电脑",
-   "section": "page",
+   "text": "MP 营销定制礼包",
    "style": {
     "color": {
      "r": 1,
@@ -1781,13 +1713,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 743,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1818,19 +1749,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 743,
    "w": 45,
    "h": 19,
    "text": "四等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1851,13 +1780,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 733,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B4***72",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1878,13 +1806,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 733,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "平板电脑",
-   "section": "page",
+   "text": "MP 营销定制礼包",
    "style": {
     "color": {
      "r": 1,
@@ -1905,13 +1832,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 784,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -1942,19 +1868,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 784,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -1975,13 +1899,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 774,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B2***88",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2002,13 +1925,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 774,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2029,13 +1951,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 825,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2066,19 +1987,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 825,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2099,13 +2018,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 815,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B5***31",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2126,13 +2044,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 815,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2153,13 +2070,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 866,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2190,19 +2106,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 866,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2223,13 +2137,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 856,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B7***65",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2250,13 +2163,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 856,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2277,13 +2189,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 907,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2314,19 +2225,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 907,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2347,13 +2256,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 897,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B9***20",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2374,13 +2282,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 897,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2401,13 +2308,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 948,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2438,19 +2344,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 948,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2471,13 +2375,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 938,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B3***47",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2498,13 +2401,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 938,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2525,13 +2427,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 989,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2562,19 +2463,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 989,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2595,13 +2494,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 979,
-   "w": 128,
+   "w": 80,
    "h": 39,
    "text": "B6***93",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2622,13 +2520,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 979,
-   "w": 132,
+   "w": 181,
    "h": 39,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2649,13 +2546,12 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-pub-level",
+   "nm": "span.h5-pub-level",
    "x": 35,
    "y": 1030,
    "w": 45,
    "h": 19,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
@@ -2686,19 +2582,17 @@
      "bl": 3
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-pub-level 文本",
+   "nm": "span.h5-pub-level 文本",
    "x": 35,
    "y": 1030,
    "w": 45,
    "h": 19,
    "text": "五等奖",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.42745098039215684,
@@ -2719,13 +2613,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.h5-pub-cif 文本",
+   "nm": "td.h5-pub-cif 文本",
    "x": 97,
    "y": 1020,
-   "w": 128,
+   "w": 80,
    "h": 38,
    "text": "B8***16",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -2746,13 +2639,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
-   "x": 227,
+   "nm": "td 文本",
+   "x": 179,
    "y": 1020,
-   "w": 132,
+   "w": 181,
    "h": 38,
-   "text": "新春礼包",
-   "section": "page",
+   "text": "MP 定制礼盒",
    "style": {
     "color": {
      "r": 1,
@@ -2773,13 +2665,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 16,
    "y": 1085,
    "w": 358,
    "h": 42,
    "text": "如对公示结果有异议，请在公示期内联系活动客服；逾期不再受理。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9294117647058824,

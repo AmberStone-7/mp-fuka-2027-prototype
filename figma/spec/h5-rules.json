@@ -2,17 +2,17 @@
  "name": "H5-07 活动细则与赞助",
  "group": "h5",
  "w": 390,
- "h": 2606,
+ "h": 2731,
  "file": "h5/rules.html",
  "nodes": [
   {
    "type": "box",
    "tag": "body",
-   "name": "body.h5",
+   "nm": "body.h5",
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 2606,
+   "h": 2731,
    "style": {
     "bg": {
      "r": 0.0392156862745098,
@@ -27,19 +27,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-veil",
+   "nm": "div.h5-veil",
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 2606,
+   "h": 2731,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 180,
      "stops": [
@@ -79,19 +77,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-back 文本",
+   "nm": "a.h5-back 文本",
    "x": 16,
    "y": 15,
    "w": 39,
    "h": 24,
    "text": "‹ 返回",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -112,26 +108,22 @@
   {
    "type": "image",
    "tag": "img",
-   "name": "img.h5-wordmark.h5-wordmark--red",
+   "nm": "img.h5-wordmark.h5-wordmark--red",
    "x": 116,
    "y": 18,
    "w": 158,
    "h": 22,
-   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
-   "fit": "fill",
-   "radius": 0,
-   "section": "page"
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png"
   },
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2.h5-sec 文本",
+   "nm": "h2.h5-sec 文本",
    "x": 16,
    "y": 80,
    "w": 358,
    "h": 46,
    "text": "活动信息",
-   "section": "title",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -152,21 +144,30 @@
   {
    "type": "box",
    "tag": "h2::after",
+   "nm": "h2.h5-sec::after",
    "x": 171,
    "y": 125,
    "w": 48,
    "h": 1,
    "style": {
-    "color": {
-     "r": 0.9647058823529412,
-     "g": 0.8901960784313725,
-     "b": 0.6901960784313725,
-     "a": 1
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
     },
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -178,10 +179,10 @@
       },
       {
        "color": {
-        "r": 0.9098039215686274,
-        "g": 0.7803921568627451,
-        "b": 0.47843137254901963,
-        "a": 1
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 1
       }
@@ -192,20 +193,13 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 22,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 35.2,
-    "letterSpacing": 2.2,
-    "textAlign": "center"
-   },
-   "name": "h2::after"
+    }
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-info",
+   "nm": "div.h5-info",
    "x": 16,
    "y": 142,
    "w": 358,
@@ -232,19 +226,17 @@
       "a": 0.18
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__t 文本",
+   "nm": "div.h5-info__t 文本",
    "x": 31,
    "y": 156,
    "w": 328,
    "h": 22,
    "text": "福卡活动时间",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -265,13 +257,12 @@
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__d 文本",
+   "nm": "div.h5-info__d 文本",
    "x": 31,
    "y": 185,
    "w": 328,
    "h": 46,
    "text": "2026 年 12 月 1 日 00:00 — 2027 年 2 月 9 日 24:00（西班牙当地时间）",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -292,7 +283,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-info",
+   "nm": "div.h5-info",
    "x": 16,
    "y": 255,
    "w": 358,
@@ -319,19 +310,17 @@
       "a": 0.18
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__t 文本",
+   "nm": "div.h5-info__t 文本",
    "x": 31,
    "y": 269,
    "w": 328,
    "h": 22,
    "text": "福卡获取方式",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -352,13 +341,12 @@
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__d 文本",
+   "nm": "div.h5-info__d 文本",
    "x": 31,
    "y": 297,
    "w": 328,
    "h": 93,
    "text": "1. 在活动时间内下单并完成付款的 MP 客户，可根据实际付款金额获得福卡； 2. 单张发票不含 IVA 金额每满 得 1 张福卡，单张发票独立计算、多张发票不叠加。",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -379,13 +367,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 199,
    "y": 347,
    "w": 60,
    "h": 14,
    "text": "1,000 欧元",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -406,7 +393,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-info",
+   "nm": "div.h5-info",
    "x": 16,
    "y": 414,
    "w": 358,
@@ -433,19 +420,17 @@
       "a": 0.18
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__t 文本",
+   "nm": "div.h5-info__t 文本",
    "x": 31,
    "y": 428,
    "w": 328,
    "h": 22,
    "text": "新客奖励",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -466,13 +451,12 @@
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__d 文本",
+   "nm": "div.h5-info__d 文本",
    "x": 31,
    "y": 456,
    "w": 328,
    "h": 46,
    "text": "新客户自然月内首个单张 ≥ 1,000 欧元（不含 IVA）的发票，额外获得 1 张福卡，活动期内最多 3 张。",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -493,7 +477,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-info",
+   "nm": "div.h5-info",
    "x": 16,
    "y": 526,
    "w": 358,
@@ -520,19 +504,17 @@
       "a": 0.18
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__t 文本",
+   "nm": "div.h5-info__t 文本",
    "x": 31,
    "y": 540,
    "w": 328,
    "h": 22,
    "text": "邀请有礼",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -553,13 +535,12 @@
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__d 文本",
+   "nm": "div.h5-info__d 文本",
    "x": 31,
    "y": 569,
    "w": 328,
    "h": 46,
    "text": "老客户把邀请码分享给新客户，新客户达标后双方各得 1 张福卡。",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -580,13 +561,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-link 文本",
+   "nm": "a.h5-link 文本",
    "x": 31,
    "y": 625,
    "w": 91,
    "h": 20,
    "text": "新客领取福卡 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -607,13 +587,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-link 文本",
+   "nm": "a.h5-link 文本",
    "x": 256,
    "y": 625,
    "w": 103,
    "h": 20,
    "text": "查看我的邀请码 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -634,7 +613,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-info",
+   "nm": "div.h5-info",
    "x": 16,
    "y": 669,
    "w": 358,
@@ -661,19 +640,17 @@
       "a": 0.18
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__t 文本",
+   "nm": "div.h5-info__t 文本",
    "x": 31,
    "y": 683,
    "w": 328,
    "h": 22,
    "text": "福卡开奖时间",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -694,13 +671,12 @@
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-info__d 文本",
+   "nm": "div.h5-info__d 文本",
    "x": 31,
    "y": 711,
    "w": 328,
    "h": 46,
    "text": "2027 年 2 月 10 日统一开奖；中奖结果可在「查询福卡/中奖」页查看；二等奖中奖卡可直接填写领奖信息。",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -721,13 +697,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2.h5-sec 文本",
+   "nm": "h2.h5-sec 文本",
    "x": 16,
    "y": 798,
    "w": 358,
    "h": 46,
    "text": "活动规则",
-   "section": "title",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -748,21 +723,30 @@
   {
    "type": "box",
    "tag": "h2::after",
+   "nm": "h2.h5-sec::after",
    "x": 171,
    "y": 843,
    "w": 48,
    "h": 1,
    "style": {
-    "color": {
-     "r": 0.9647058823529412,
-     "g": 0.8901960784313725,
-     "b": 0.6901960784313725,
-     "a": 1
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
     },
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -774,10 +758,10 @@
       },
       {
        "color": {
-        "r": 0.9098039215686274,
-        "g": 0.7803921568627451,
-        "b": 0.47843137254901963,
-        "a": 1
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 1
       }
@@ -788,24 +772,17 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 22,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 35.2,
-    "letterSpacing": 2.2,
-    "textAlign": "center"
-   },
-   "name": "h2::after"
+    }
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-card",
+   "nm": "div.h5-card",
    "x": 16,
    "y": 860,
    "w": 358,
-   "h": 1395,
+   "h": 1520,
    "style": {
     "bg": {
      "r": 0.09411764705882353,
@@ -828,181 +805,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "summary",
-   "name": "summary 文本",
+   "nm": "summary 文本",
    "x": 31,
    "y": 867,
    "w": 328,
    "h": 50,
    "text": "参与资格",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.88
-    },
-    "fontSize": 13.5,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 21.6,
-    "letterSpacing": 0.405,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "p",
-   "name": "p 文本",
-   "x": 49,
-   "y": 916,
-   "w": 308,
-   "h": 48,
-   "text": "活动面向 Mainpaper S.L（中汇文具）已登记的企业客户；活动期间新注册客户同样参与。",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.7
-    },
-    "fontSize": 12.5,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 23.75,
-    "letterSpacing": 0,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "p",
-   "name": "p 文本",
-   "x": 49,
-   "y": 970,
-   "w": 308,
-   "h": 48,
-   "text": "参与需使用活动期内的有效发票：发票类型为 F2、未取消、未全额红冲，且客户与发票匹配。",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.7
-    },
-    "fontSize": 12.5,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 23.75,
-    "letterSpacing": 0,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "summary",
-   "name": "summary 文本",
-   "x": 31,
-   "y": 1032,
-   "w": 328,
-   "h": 50,
-   "text": "获卡规则",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.88
-    },
-    "fontSize": 13.5,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 21.6,
-    "letterSpacing": 0.405,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "p",
-   "name": "p 文本",
-   "x": 49,
-   "y": 1082,
-   "w": 308,
-   "h": 48,
-   "text": "单张发票福卡数 = 不含 IVA 金额 ÷ 1,000 向下取整；金额不足 1,000 欧元不发卡。",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.7
-    },
-    "fontSize": 12.5,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 23.75,
-    "letterSpacing": 0,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "p",
-   "name": "p 文本",
-   "x": 49,
-   "y": 1136,
-   "w": 308,
-   "h": 48,
-   "text": "号码池 00001–20000，随机发放、一卡一号、全池唯一；失效卡的号码不回收。",
-   "section": "card",
-   "style": {
-    "color": {
-     "r": 1,
-     "g": 0.9529411764705882,
-     "b": 0.8941176470588236,
-     "a": 0.7
-    },
-    "fontSize": 12.5,
-    "fontWeight": 400,
-    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
-    "lineHeight": 23.75,
-    "letterSpacing": 0,
-    "textAlign": "start",
-    "uppercase": false,
-    "opacity": 1
-   }
-  },
-  {
-   "type": "text",
-   "tag": "summary",
-   "name": "summary 文本",
-   "x": 31,
-   "y": 1198,
-   "w": 328,
-   "h": 50,
-   "text": "福卡类型",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1022,8 +835,308 @@
   },
   {
    "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 867,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 891,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "nm": "p 文本",
+   "x": 49,
+   "y": 916,
+   "w": 308,
+   "h": 48,
+   "text": "活动面向 Mainpaper S.L（中汇文具）已登记的企业客户；活动期间新注册客户同样参与。",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.7
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 23.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "nm": "p 文本",
+   "x": 49,
+   "y": 970,
+   "w": 308,
+   "h": 48,
+   "text": "参与需使用活动期内的有效发票：发票类型为 F2、未取消、未全额红冲，且客户与发票匹配。",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.7
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 23.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "summary",
+   "nm": "summary 文本",
+   "x": 31,
+   "y": 1032,
+   "w": 328,
+   "h": 50,
+   "text": "获卡规则",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.88
+    },
+    "fontSize": 13.5,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 21.6,
+    "letterSpacing": 0.405,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 1032,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 1056,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "nm": "p 文本",
+   "x": 49,
+   "y": 1082,
+   "w": 308,
+   "h": 48,
+   "text": "单张发票福卡数 = 不含 IVA 金额 ÷ 1,000 向下取整；金额不足 1,000 欧元不发卡。",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.7
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 23.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "nm": "p 文本",
+   "x": 49,
+   "y": 1136,
+   "w": 308,
+   "h": 48,
+   "text": "号码池 00001–20000，随机发放、一卡一号、全池唯一；失效卡的号码不回收。",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.7
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 23.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "summary",
+   "nm": "summary 文本",
+   "x": 31,
+   "y": 1198,
+   "w": 328,
+   "h": 50,
+   "text": "福卡类型",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.88
+    },
+    "fontSize": 13.5,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 21.6,
+    "letterSpacing": 0.405,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 1198,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 1222,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
    "tag": "span",
-   "name": "span.h5-source.h5-source--order",
+   "nm": "span.h5-source.h5-source--order",
    "x": 49,
    "y": 1255,
    "w": 63,
@@ -1050,19 +1163,17 @@
       "a": 0.35
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-source.h5-source--order 文本",
+   "nm": "span.h5-source.h5-source--order 文本",
    "x": 49,
    "y": 1255,
    "w": 63,
    "h": 24,
    "text": "订单福卡",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.5411764705882353,
@@ -1083,13 +1194,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 120,
    "y": 1254,
    "w": 237,
    "h": 45,
    "text": "活动期内有效发票按不含 IVA 金额每满 1,000€ 发放 1 张。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1110,7 +1220,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-source.h5-source--new",
+   "nm": "span.h5-source.h5-source--new",
    "x": 49,
    "y": 1308,
    "w": 63,
@@ -1137,19 +1247,17 @@
       "a": 0.35
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-source.h5-source--new 文本",
+   "nm": "span.h5-source.h5-source--new 文本",
    "x": 49,
    "y": 1308,
    "w": 63,
    "h": 24,
    "text": "新客福卡",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.11372549019607843,
@@ -1170,13 +1278,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 120,
    "y": 1307,
    "w": 237,
    "h": 45,
    "text": "新客户自然月首个单张 ≥1,000€ 的发票额外 1 张，活动期最多 3 张。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1197,7 +1304,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-source.h5-source--invite",
+   "nm": "span.h5-source.h5-source--invite",
    "x": 49,
    "y": 1361,
    "w": 63,
@@ -1224,19 +1331,17 @@
       "a": 0.32
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-source.h5-source--invite 文本",
+   "nm": "span.h5-source.h5-source--invite 文本",
    "x": 49,
    "y": 1361,
    "w": 63,
    "h": 24,
    "text": "邀请福卡",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.5411764705882353,
@@ -1257,13 +1362,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 120,
    "y": 1360,
    "w": 226,
    "h": 23,
    "text": "老带新达标后，邀请人与新客各得 1 张。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1284,7 +1388,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span.h5-source.h5-source--official",
+   "nm": "span.h5-source.h5-source--official",
    "x": 49,
    "y": 1394,
    "w": 63,
@@ -1311,19 +1415,17 @@
       "a": 0.32
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.h5-source.h5-source--official 文本",
+   "nm": "span.h5-source.h5-source--official 文本",
    "x": 49,
    "y": 1394,
    "w": 63,
    "h": 24,
    "text": "官方福卡",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.3568627450980392,
@@ -1344,13 +1446,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 120,
    "y": 1393,
    "w": 237,
    "h": 45,
    "text": "特别官方码发放，每个 CIF 限 1 张，与订单卡一样参与抽奖。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1371,13 +1472,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
    "y": 1446,
    "w": 308,
    "h": 71,
    "text": "卡号为随机 5 位数字，不包含类型信息；查询结果、中奖查询与公示中看到的类型标签，来自该卡的发放来源。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1398,13 +1498,12 @@
   {
    "type": "text",
    "tag": "summary",
-   "name": "summary 文本",
+   "nm": "summary 文本",
    "x": 31,
    "y": 1532,
    "w": 328,
    "h": 50,
    "text": "抽奖与奖项",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1423,15 +1522,62 @@
    }
   },
   {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 1532,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 1556,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
    "y": 1581,
    "w": 308,
-   "h": 48,
-   "text": "2027-02-10 统一开奖：一等奖至四等奖按 5 位号码全匹配，五等奖按末位 1 位匹配。",
-   "section": "card",
+   "h": 119,
+   "text": "奖项设置：一等奖 特斯拉 1 台（待定，1 名）；二等奖 iPhone Duo 1 台（2 名）；三等奖 全球目的地机票或 1,000€ MP 代金券（二选一，待定，3 名）；四等奖 MP 营销定制礼包 1 份（15 名）；五等奖 MP 定制礼盒 1 份（2,000 名）。",
    "style": {
     "color": {
      "r": 1,
@@ -1452,13 +1598,38 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 1635,
+   "y": 1706,
+   "w": 308,
+   "h": 48,
+   "text": "2027-02-10 统一开奖：一等奖至四等奖按 5 位号码全匹配，五等奖按末位 1 位匹配。",
+   "style": {
+    "color": {
+     "r": 1,
+     "g": 0.9529411764705882,
+     "b": 0.8941176470588236,
+     "a": 0.7
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 23.75,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "p",
+   "nm": "p 文本",
+   "x": 49,
+   "y": 1760,
    "w": 308,
    "h": 48,
    "text": "一卡一奖、取最高；五等奖 2,000 名，超额按卡号升序截取，不足允许补抽。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1479,13 +1650,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 1688,
+   "y": 1813,
    "w": 308,
    "h": 48,
    "text": "奖项与名额见「礼品展示」页，具体以最终采购与规则页为准。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1506,13 +1676,12 @@
   {
    "type": "text",
    "tag": "summary",
-   "name": "summary 文本",
+   "nm": "summary 文本",
    "x": 31,
-   "y": 1751,
+   "y": 1876,
    "w": 328,
    "h": 50,
    "text": "退单与失效",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1531,15 +1700,62 @@
    }
   },
   {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 1876,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 1900,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 1801,
+   "y": 1925,
    "w": 308,
    "h": 48,
    "text": "发票退单、红冲或取消时，关联福卡失效；已中奖福卡失效将取消中奖资格并进入候补。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1560,13 +1776,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 1854,
+   "y": 1979,
    "w": 308,
    "h": 48,
    "text": "失效福卡不参与开奖，号码保留占用、不回收、不再分配。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1587,13 +1802,12 @@
   {
    "type": "text",
    "tag": "summary",
-   "name": "summary 文本",
+   "nm": "summary 文本",
    "x": 31,
-   "y": 1917,
+   "y": 2041,
    "w": 328,
    "h": 50,
    "text": "兑奖与期限",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1612,15 +1826,62 @@
    }
   },
   {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 2041,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 2065,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 1966,
+   "y": 2091,
    "w": 308,
    "h": 48,
    "text": "二等奖需在结果发布后 15 日内在线填写领奖信息，逾期视为放弃并进入候补。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1641,13 +1902,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 2020,
+   "y": 2144,
    "w": 308,
    "h": 48,
    "text": "一等奖、三等奖、四等奖由工作人员联系兑奖；五等奖随订单发放，请在订单备注填写【2027福卡五等奖】。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1668,13 +1928,12 @@
   {
    "type": "text",
    "tag": "summary",
-   "name": "summary 文本",
+   "nm": "summary 文本",
    "x": 31,
-   "y": 2082,
+   "y": 2207,
    "w": 328,
    "h": 50,
    "text": "隐私与投诉",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1693,15 +1952,62 @@
    }
   },
   {
+   "type": "box",
+   "tag": "summary::before",
+   "nm": "summary::before",
+   "x": 190,
+   "y": 2207,
+   "w": 9,
+   "h": 14,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "summary::after",
+   "nm": "summary::after",
+   "x": 190,
+   "y": 2231,
+   "w": 10,
+   "h": 26,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "grad": null,
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    }
+   }
+  },
+  {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 2132,
+   "y": 2256,
    "w": 308,
    "h": 48,
    "text": "查询仅返回与发票匹配的福卡信息，不展示完整 CIF；中奖公示仅展示奖项、CIF 打码与奖品。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1722,13 +2028,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p 文本",
+   "nm": "p 文本",
    "x": 49,
-   "y": 2185,
+   "y": 2310,
    "w": 308,
    "h": 48,
    "text": "如对活动有疑问，请联系您的业务员或活动客服；个人信息仅用于本次活动与奖品发放。",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1749,13 +2054,12 @@
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2.h5-sec 文本",
+   "nm": "h2.h5-sec 文本",
    "x": 16,
-   "y": 2281,
+   "y": 2405,
    "w": 358,
    "h": 46,
    "text": "赞助商信息",
-   "section": "title",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -1776,21 +2080,30 @@
   {
    "type": "box",
    "tag": "h2::after",
+   "nm": "h2.h5-sec::after",
    "x": 171,
-   "y": 2326,
+   "y": 2451,
    "w": 48,
    "h": 1,
    "style": {
-    "color": {
-     "r": 0.9647058823529412,
-     "g": 0.8901960784313725,
-     "b": 0.6901960784313725,
-     "a": 1
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
     },
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -1802,10 +2115,10 @@
       },
       {
        "color": {
-        "r": 0.9098039215686274,
-        "g": 0.7803921568627451,
-        "b": 0.47843137254901963,
-        "a": 1
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 1
       }
@@ -1816,22 +2129,15 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 22,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 35.2,
-    "letterSpacing": 2.2,
-    "textAlign": "center"
-   },
-   "name": "h2::after"
+    }
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-card",
+   "nm": "div.h5-card",
    "x": 16,
-   "y": 2343,
+   "y": 2468,
    "w": 358,
    "h": 169,
    "style": {
@@ -1856,19 +2162,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 31,
-   "y": 2358,
+   "y": 2483,
    "w": 328,
    "h": 42,
    "text": "感谢以下品牌对本次活动的大力支持（2027 赞助商信息待市场部提供，以下为占位）。",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -1889,9 +2193,9 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-sponsor__item",
+   "nm": "div.h5-sponsor__item",
    "x": 31,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "style": {
@@ -1916,19 +2220,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-sponsor__item 文本",
+   "nm": "div.h5-sponsor__item 文本",
    "x": 31,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "text": "品牌挚友",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -1949,9 +2251,9 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-sponsor__item",
+   "nm": "div.h5-sponsor__item",
    "x": 143,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "style": {
@@ -1976,19 +2278,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-sponsor__item 文本",
+   "nm": "div.h5-sponsor__item 文本",
    "x": 143,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "text": "品牌挚友",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -2009,9 +2309,9 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-sponsor__item",
+   "nm": "div.h5-sponsor__item",
    "x": 255,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "style": {
@@ -2036,19 +2336,17 @@
       "a": 0.22
      }
     }
-   },
-   "section": "card"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.h5-sponsor__item 文本",
+   "nm": "div.h5-sponsor__item 文本",
    "x": 255,
-   "y": 2410,
+   "y": 2535,
    "w": 104,
    "h": 54,
    "text": "品牌挚友",
-   "section": "card",
    "style": {
     "color": {
      "r": 1,
@@ -2069,13 +2367,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-link 文本",
+   "nm": "a.h5-link 文本",
    "x": 49,
-   "y": 2479,
+   "y": 2604,
    "w": 87,
    "h": 14,
    "text": "查看中奖公示 →",
-   "section": "card",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -2096,13 +2393,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 16,
-   "y": 2528,
+   "y": 2653,
    "w": 358,
    "h": 42,
    "text": "本页规则为中文版本，西语版本由市场部与法务定稿后替换；具体条款以最终发布的规则页为准。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9294117647058824,

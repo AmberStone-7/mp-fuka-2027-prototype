@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body.h5",
+   "nm": "body.h5",
    "x": 0,
    "y": 0,
    "w": 390,
@@ -27,19 +27,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-veil",
+   "nm": "div.h5-veil",
    "x": 0,
    "y": 0,
    "w": 390,
    "h": 844,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 180,
      "stops": [
@@ -79,19 +77,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-back 文本",
+   "nm": "a.h5-back 文本",
    "x": 16,
    "y": 15,
    "w": 39,
    "h": 24,
    "text": "‹ 返回",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,
@@ -112,26 +108,22 @@
   {
    "type": "image",
    "tag": "img",
-   "name": "img.h5-wordmark.h5-wordmark--red",
+   "nm": "img.h5-wordmark.h5-wordmark--red",
    "x": 116,
    "y": 18,
    "w": 158,
    "h": 22,
-   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
-   "fit": "fill",
-   "radius": 0,
-   "section": "page"
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png"
   },
   {
    "type": "text",
    "tag": "h2",
-   "name": "h2.h5-sec 文本",
+   "nm": "h2.h5-sec 文本",
    "x": 16,
    "y": 80,
    "w": 358,
    "h": 46,
    "text": "查询福卡/中奖",
-   "section": "title",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -152,21 +144,30 @@
   {
    "type": "box",
    "tag": "h2::after",
+   "nm": "h2.h5-sec::after",
    "x": 171,
    "y": 125,
    "w": 48,
    "h": 1,
    "style": {
-    "color": {
-     "r": 0.9647058823529412,
-     "g": 0.8901960784313725,
-     "b": 0.6901960784313725,
-     "a": 1
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
     },
-    "bg": null,
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -178,10 +179,10 @@
       },
       {
        "color": {
-        "r": 0.9098039215686274,
-        "g": 0.7803921568627451,
-        "b": 0.47843137254901963,
-        "a": 1
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 1
       }
@@ -192,20 +193,13 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 22,
-    "fontWeight": 900,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
-    "lineHeight": 35.2,
-    "letterSpacing": 2.2,
-    "textAlign": "center"
-   },
-   "name": "h2::after"
+    }
+   }
   },
   {
    "type": "box",
    "tag": "input",
-   "name": "input#invoice_no.h5-input",
+   "nm": "input#invoice_no.h5-input",
    "x": 18,
    "y": 144,
    "w": 354,
@@ -232,19 +226,17 @@
       "a": 0.62
      }
     }
-   },
-   "section": "form"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#invoice_no.h5-input 内容",
+   "nm": "input#invoice_no.h5-input 内容",
    "x": 32,
    "y": 144,
    "w": 326,
    "h": 50,
    "text": "发票号，示例 ES25000149",
-   "section": "form",
    "style": {
     "color": {
      "r": 1,
@@ -264,7 +256,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#cif.h5-input",
+   "nm": "input#cif.h5-input",
    "x": 18,
    "y": 207,
    "w": 354,
@@ -291,19 +283,17 @@
       "a": 0.62
      }
     }
-   },
-   "section": "form"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#cif.h5-input 内容",
+   "nm": "input#cif.h5-input 内容",
    "x": 32,
    "y": 207,
    "w": 326,
    "h": 50,
    "text": "税号/CIF，示例 B12345678",
-   "section": "form",
    "style": {
     "color": {
      "r": 1,
@@ -323,13 +313,12 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-query.h5-btn",
+   "nm": "button#btn-query.h5-btn",
    "x": 18,
    "y": 270,
    "w": 354,
    "h": 50,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 180,
      "stops": [
@@ -360,19 +349,17 @@
      "bl": 25
     },
     "border": null
-   },
-   "section": "form"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-query.h5-btn 文本",
+   "nm": "button#btn-query.h5-btn 文本",
    "x": 18,
    "y": 270,
    "w": 354,
    "h": 50,
    "text": "立即查询",
-   "section": "form",
    "style": {
     "color": {
      "r": 1,
@@ -393,13 +380,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 18,
    "y": 332,
    "w": 354,
    "h": 42,
    "text": "演示数据：发票号 + 税号 ，可查到名下 4 张福卡。",
-   "section": "form",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -420,13 +406,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 135,
    "y": 335,
    "w": 69,
    "h": 14,
    "text": "ES25000149",
-   "section": "form",
    "style": {
     "color": {
      "r": 1,
@@ -447,13 +432,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 246,
    "y": 335,
    "w": 62,
    "h": 14,
    "text": "B12345678",
-   "section": "form",
    "style": {
     "color": {
      "r": 1,
@@ -474,13 +458,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 18,
    "y": 386,
    "w": 354,
    "h": 42,
    "text": "验证通过后返回该税号名下全部福卡（含其他发票）与我的邀请码；福卡状态随开奖更新。",
-   "section": "form",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -501,13 +484,12 @@
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-tip 文本",
+   "nm": "p.h5-tip 文本",
    "x": 16,
    "y": 456,
    "w": 358,
    "h": 63,
    "text": "活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；抽奖日：2027-02-10。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9294117647058824,
@@ -528,13 +510,12 @@
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-link 文本",
+   "nm": "a.h5-link 文本",
    "x": 34,
    "y": 534,
    "w": 87,
    "h": 14,
    "text": "查看中奖公示 →",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9490196078431372,

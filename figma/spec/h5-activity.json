@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body.h5",
+   "nm": "body.h5",
    "x": 0,
    "y": 20,
    "w": 390,
@@ -27,19 +27,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "div",
-   "name": "div.h5-veil",
+   "nm": "div.h5-veil",
    "x": 0,
    "y": 0,
    "w": 390,
    "h": 864,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 180,
      "stops": [
@@ -79,65 +77,37 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "image",
    "tag": "img",
-   "name": "img.h5-home__logo",
+   "nm": "img.h5-home__logo",
    "x": 96,
    "y": 20,
    "w": 198,
    "h": 28,
-   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png",
-   "fit": "fill",
-   "radius": 0,
-   "section": "page"
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/mp-wordmark-red.png"
   },
   {
    "type": "image",
    "tag": "img",
-   "name": "img.h5-home__hero",
+   "nm": "img.h5-home__hero",
    "x": 62,
    "y": 78,
    "w": 267,
    "h": 267,
-   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/card-2027.png",
-   "fit": "fill",
-   "radius": 0,
-   "section": "page"
-  },
-  {
-   "type": "box",
-   "tag": "a",
-   "name": "a.h5-home__item",
-   "x": 25,
-   "y": 364,
-   "w": 340,
-   "h": 69,
-   "style": {
-    "bg": null,
-    "radius": {
-     "tl": 0,
-     "tr": 0,
-     "br": 0,
-     "bl": 0
-    },
-    "border": null
-   },
-   "section": "menu"
+   "src": "https://amberstone-7.github.io/mp-fuka-2027-prototype/assets/img/card-2027.png"
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-home__item 文本",
+   "nm": "a.h5-home__item 文本",
    "x": 25,
    "y": 364,
    "w": 340,
    "h": 69,
    "text": "领取福卡",
-   "section": "menu",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -158,16 +128,30 @@
   {
    "type": "box",
    "tag": "a::after",
+   "nm": "a.h5-home__item::after",
    "x": 59,
    "y": 432,
    "w": 272,
    "h": 1,
    "style": {
-    "color": null,
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -194,6 +178,15 @@
         "a": 0.9
        },
        "pos": 0.65
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 1
       }
      ]
     },
@@ -202,46 +195,18 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 26,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
-    "lineHeight": 41.6,
-    "letterSpacing": 3.64,
-    "textAlign": "center"
-   },
-   "name": "a::after"
-  },
-  {
-   "type": "box",
-   "tag": "a",
-   "name": "a.h5-home__item",
-   "x": 25,
-   "y": 433,
-   "w": 340,
-   "h": 69,
-   "style": {
-    "bg": null,
-    "radius": {
-     "tl": 0,
-     "tr": 0,
-     "br": 0,
-     "bl": 0
-    },
-    "border": null
-   },
-   "section": "menu"
+    }
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-home__item 文本",
+   "nm": "a.h5-home__item 文本",
    "x": 25,
    "y": 433,
    "w": 340,
    "h": 69,
    "text": "查询福卡/中奖",
-   "section": "menu",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -262,16 +227,30 @@
   {
    "type": "box",
    "tag": "a::after",
+   "nm": "a.h5-home__item::after",
    "x": 59,
    "y": 500,
    "w": 272,
    "h": 1,
    "style": {
-    "color": null,
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -298,6 +277,15 @@
         "a": 0.9
        },
        "pos": 0.65
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 1
       }
      ]
     },
@@ -306,46 +294,18 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 26,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
-    "lineHeight": 41.6,
-    "letterSpacing": 3.64,
-    "textAlign": "center"
-   },
-   "name": "a::after"
-  },
-  {
-   "type": "box",
-   "tag": "a",
-   "name": "a.h5-home__item",
-   "x": 25,
-   "y": 501,
-   "w": 340,
-   "h": 69,
-   "style": {
-    "bg": null,
-    "radius": {
-     "tl": 0,
-     "tr": 0,
-     "br": 0,
-     "bl": 0
-    },
-    "border": null
-   },
-   "section": "menu"
+    }
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-home__item 文本",
+   "nm": "a.h5-home__item 文本",
    "x": 25,
    "y": 501,
    "w": 340,
    "h": 69,
    "text": "活动奖项",
-   "section": "menu",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -366,16 +326,30 @@
   {
    "type": "box",
    "tag": "a::after",
+   "nm": "a.h5-home__item::after",
    "x": 59,
    "y": 569,
    "w": 272,
    "h": 1,
    "style": {
-    "color": null,
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -402,6 +376,15 @@
         "a": 0.9
        },
        "pos": 0.65
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 1
       }
      ]
     },
@@ -410,46 +393,18 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 26,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
-    "lineHeight": 41.6,
-    "letterSpacing": 3.64,
-    "textAlign": "center"
-   },
-   "name": "a::after"
-  },
-  {
-   "type": "box",
-   "tag": "a",
-   "name": "a.h5-home__item",
-   "x": 25,
-   "y": 570,
-   "w": 340,
-   "h": 69,
-   "style": {
-    "bg": null,
-    "radius": {
-     "tl": 0,
-     "tr": 0,
-     "br": 0,
-     "bl": 0
-    },
-    "border": null
-   },
-   "section": "menu"
+    }
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.h5-home__item 文本",
+   "nm": "a.h5-home__item 文本",
    "x": 25,
    "y": 570,
    "w": 340,
    "h": 69,
    "text": "活动细则与赞助",
-   "section": "menu",
    "style": {
     "color": {
      "r": 0.9647058823529412,
@@ -470,16 +425,30 @@
   {
    "type": "box",
    "tag": "a::after",
+   "nm": "a.h5-home__item::after",
    "x": 59,
    "y": 638,
    "w": 272,
    "h": 1,
    "style": {
-    "color": null,
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "grad": {
      "angle": 90,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0
+      },
       {
        "color": {
         "r": 0.9098039215686274,
@@ -506,6 +475,15 @@
         "a": 0.9
        },
        "pos": 0.65
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 1
       }
      ]
     },
@@ -514,26 +492,18 @@
      "tr": 0,
      "br": 0,
      "bl": 0
-    },
-    "fontSize": 26,
-    "fontWeight": 700,
-    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, serif",
-    "lineHeight": 41.6,
-    "letterSpacing": 3.64,
-    "textAlign": "center"
-   },
-   "name": "a::after"
+    }
+   }
   },
   {
    "type": "text",
    "tag": "p",
-   "name": "p.h5-home__foot 文本",
+   "nm": "p.h5-home__foot 文本",
    "x": 24,
    "y": 665,
    "w": 342,
    "h": 18,
    "text": "活动时间 2026.12.01 — 2027.02.09 · 开奖 2027.02.10",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,

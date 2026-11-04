@@ -8,7 +8,7 @@
   {
    "type": "box",
    "tag": "body",
-   "name": "body.adm",
+   "nm": "body.adm",
    "x": 0,
    "y": 0,
    "w": 1440,
@@ -27,13 +27,12 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "aside",
-   "name": "aside.adm-sider",
+   "nm": "aside.adm-sider",
    "x": 0,
    "y": 0,
    "w": 200,
@@ -52,19 +51,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "div",
-   "name": "div.adm-logo 文本",
+   "nm": "div.adm-logo 文本",
    "x": 0,
    "y": 0,
    "w": 199,
    "h": 64,
    "text": "抽奖后台管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -85,13 +82,18 @@
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 68,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -99,19 +101,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 68,
    "w": 183,
    "h": 40,
    "text": "福卡管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -132,24 +132,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 81,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 15h4\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"></rect><path d=\"M3 10h18\"></path><path d=\"M8 15h4\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 112,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -157,19 +161,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 112,
    "w": 183,
    "h": 40,
    "text": "邀请码管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -190,24 +192,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 125,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2\"></path><path d=\"M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2\"></path><path d=\"M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 156,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -215,19 +221,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 156,
    "w": 183,
    "h": 40,
    "text": "抽奖管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -248,24 +252,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 169,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M5 10v4l9 4V6L5 10z\"></path><path d=\"M14 9a3.5 3.5 0 0 1 0 6\"></path><path d=\"M7 14v4\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M5 10v4l9 4V6L5 10z\"></path><path d=\"M14 9a3.5 3.5 0 0 1 0 6\"></path><path d=\"M7 14v4\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 200,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -273,19 +281,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 200,
    "w": 183,
    "h": 40,
    "text": "奖品管理",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -306,24 +312,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 213,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11h16v9H4z\"></path><path d=\"M3 7h18v4H3z\"></path><path d=\"M12 7v13\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11h16v9H4z\"></path><path d=\"M3 7h18v4H3z\"></path><path d=\"M12 7v13\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item",
+   "nm": "a.adm-menu__item",
    "x": 8,
    "y": 244,
    "w": 183,
    "h": 40,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -331,19 +341,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item 文本",
+   "nm": "a.adm-menu__item 文本",
    "x": 8,
    "y": 244,
    "w": 183,
    "h": 40,
    "text": "中奖记录",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -364,18 +372,17 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 257,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"></rect><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"></rect><path d=\"M8 9h8M8 13h8M8 17h5\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "a",
-   "name": "a.adm-menu__item.is-active",
+   "nm": "a.adm-menu__item.is-active",
    "x": 8,
    "y": 288,
    "w": 183,
@@ -394,19 +401,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "a",
-   "name": "a.adm-menu__item.is-active 文本",
+   "nm": "a.adm-menu__item.is-active 文本",
    "x": 8,
    "y": 288,
    "w": 183,
    "h": 40,
    "text": "邮件日志",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -427,24 +432,28 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 20,
    "y": 301,
    "w": 15,
    "h": 15,
-   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"></rect><path d=\"M3 8l9 6 9-6\"></path></svg>",
-   "section": "sider"
+   "svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"></rect><path d=\"M3 8l9 6 9-6\"></path></svg>"
   },
   {
    "type": "box",
    "tag": "button",
-   "name": "button.adm-sider__collapse",
+   "nm": "button.adm-sider__collapse",
    "x": 8,
    "y": 934,
    "w": 183,
    "h": 44,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -452,19 +461,17 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "sider"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button.adm-sider__collapse 文本",
+   "nm": "button.adm-sider__collapse 文本",
    "x": 8,
    "y": 934,
    "w": 183,
    "h": 44,
    "text": "‹",
-   "section": "sider",
    "style": {
     "color": {
      "r": 0,
@@ -485,7 +492,7 @@
   {
    "type": "box",
    "tag": "main",
-   "name": "main.adm-main",
+   "nm": "main.adm-main",
    "x": 200,
    "y": 0,
    "w": 1240,
@@ -504,13 +511,12 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "box",
    "tag": "span",
-   "name": "span.adm-avatar",
+   "nm": "span.adm-avatar",
    "x": 1384,
    "y": 16,
    "w": 32,
@@ -529,19 +535,17 @@
      "bl": 50
     },
     "border": null
-   },
-   "section": "topbar"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-avatar 文本",
+   "nm": "span.adm-avatar 文本",
    "x": 1384,
    "y": 16,
    "w": 32,
    "h": 32,
    "text": "A",
-   "section": "topbar",
    "style": {
     "color": {
      "r": 1,
@@ -562,24 +566,22 @@
   {
    "type": "svg",
    "tag": "svg",
-   "name": "svg",
+   "nm": "svg",
    "x": 224,
    "y": 68,
    "w": 14,
    "h": 14,
-   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7\"></path><path d=\"M6 10v9h12v-9\"></path></svg>",
-   "section": "page"
+   "svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M4 11l8-7 8 7\"></path><path d=\"M6 10v9h12v-9\"></path></svg>"
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 246,
    "y": 64,
    "w": 4,
    "h": 22,
    "text": "/",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -600,13 +602,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 258,
    "y": 64,
    "w": 56,
    "h": 22,
    "text": "邮件日志",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -627,7 +628,7 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div#tpl-alert.adm-alert.adm-alert--warn",
+   "nm": "div#tpl-alert.adm-alert.adm-alert--warn",
    "x": 224,
    "y": 102,
    "w": 1192,
@@ -654,19 +655,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-alert__ico 文本",
+   "nm": "span.adm-alert__ico 文本",
    "x": 237,
    "y": 111,
    "w": 4,
    "h": 22,
    "text": "!",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.9803921568627451,
@@ -687,13 +686,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 249,
    "y": 111,
    "w": 1032,
    "h": 22,
    "text": "本期仅保留 2 类邮件模板： 、 ；邀请码告知 / 邀请绑定确认 / 邀请奖励到账 / 逾期提醒标「后续版本」。失败自动重试 3 次由后台任务完成，日志只展示最终结果。",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -714,13 +712,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 407,
    "y": 114,
    "w": 52,
    "h": 16,
    "text": "福卡发放",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -741,13 +738,12 @@
   {
    "type": "text",
    "tag": "b",
-   "name": "b 文本",
+   "nm": "b 文本",
    "x": 472,
    "y": 114,
    "w": 52,
    "h": 16,
    "text": "中奖通知",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -768,13 +764,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 224,
    "y": 171,
    "w": 56,
    "h": 22,
    "text": "福卡编号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -795,7 +790,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-card.adm-input",
+   "nm": "input#f-card.adm-input",
    "x": 288,
    "y": 166,
    "w": 180,
@@ -822,19 +817,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-card.adm-input 内容",
+   "nm": "input#f-card.adm-input 内容",
    "x": 302,
    "y": 166,
    "w": 152,
    "h": 32,
    "text": "请输入福卡编号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -854,13 +847,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 492,
    "y": 171,
    "w": 42,
    "h": 22,
    "text": "客户号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -881,7 +873,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-cif.adm-input",
+   "nm": "input#f-cif.adm-input",
    "x": 542,
    "y": 166,
    "w": 180,
@@ -908,19 +900,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-cif.adm-input 内容",
+   "nm": "input#f-cif.adm-input 内容",
    "x": 556,
    "y": 166,
    "w": 152,
    "h": 32,
    "text": "请输入客户号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -940,13 +930,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 746,
    "y": 171,
    "w": 56,
    "h": 22,
    "text": "客户邮箱",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -967,7 +956,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-email.adm-input",
+   "nm": "input#f-email.adm-input",
    "x": 810,
    "y": 166,
    "w": 180,
@@ -994,19 +983,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-email.adm-input 内容",
+   "nm": "input#f-email.adm-input 内容",
    "x": 824,
    "y": 166,
    "w": 152,
    "h": 32,
    "text": "请输入客户邮箱",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1026,13 +1013,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 1014,
    "y": 171,
    "w": 42,
    "h": 22,
    "text": "发票号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1053,7 +1039,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-invoice.adm-input",
+   "nm": "input#f-invoice.adm-input",
    "x": 1064,
    "y": 166,
    "w": 180,
@@ -1080,19 +1066,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-invoice.adm-input 内容",
+   "nm": "input#f-invoice.adm-input 内容",
    "x": 1078,
    "y": 166,
    "w": 152,
    "h": 32,
    "text": "请输入发票号",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1112,13 +1096,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 224,
    "y": 219,
    "w": 56,
    "h": 22,
    "text": "发送状态",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1139,16 +1122,24 @@
   {
    "type": "box",
    "tag": "select",
-   "name": "select#f-status.adm-select",
+   "nm": "select#f-status.adm-select",
    "x": 288,
    "y": 214,
    "w": 180,
    "h": 32,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 45,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0.5
+      },
       {
        "color": {
         "r": 0,
@@ -1164,6 +1155,15 @@
         "g": 0,
         "b": 0,
         "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 0.5
       }
@@ -1184,19 +1184,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "select",
-   "name": "select#f-status.adm-select 内容",
+   "nm": "select#f-status.adm-select 内容",
    "x": 300,
    "y": 214,
    "w": 156,
    "h": 32,
    "text": "全部状态",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1216,13 +1214,12 @@
   {
    "type": "text",
    "tag": "label",
-   "name": "label 文本",
+   "nm": "label 文本",
    "x": 492,
    "y": 219,
    "w": 56,
    "h": 22,
    "text": "发送时间",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1243,7 +1240,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-start.adm-input",
+   "nm": "input#f-start.adm-input",
    "x": 556,
    "y": 214,
    "w": 138,
@@ -1270,19 +1267,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-start.adm-input 内容",
+   "nm": "input#f-start.adm-input 内容",
    "x": 570,
    "y": 214,
    "w": 110,
    "h": 32,
    "text": "开始日期",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1302,13 +1297,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span 文本",
+   "nm": "span 文本",
    "x": 700,
    "y": 219,
    "w": 13,
    "h": 22,
    "text": "→",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1329,7 +1323,7 @@
   {
    "type": "box",
    "tag": "input",
-   "name": "input#f-end.adm-input",
+   "nm": "input#f-end.adm-input",
    "x": 719,
    "y": 214,
    "w": 138,
@@ -1356,19 +1350,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "input",
-   "name": "input#f-end.adm-input 内容",
+   "nm": "input#f-end.adm-input 内容",
    "x": 733,
    "y": 214,
    "w": 110,
    "h": 32,
    "text": "结束日期",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1388,7 +1380,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-search.adm-btn.adm-btn--primary",
+   "nm": "button#btn-search.adm-btn.adm-btn--primary",
    "x": 1280,
    "y": 218,
    "w": 64,
@@ -1415,19 +1407,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-search.adm-btn.adm-btn--primary 文本",
+   "nm": "button#btn-search.adm-btn.adm-btn--primary 文本",
    "x": 1280,
    "y": 218,
    "w": 64,
    "h": 32,
    "text": "查 询",
-   "section": "filter",
    "style": {
     "color": {
      "r": 1,
@@ -1448,7 +1438,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-reset.adm-btn",
+   "nm": "button#btn-reset.adm-btn",
    "x": 1352,
    "y": 218,
    "w": 64,
@@ -1475,19 +1465,17 @@
       "a": 1
      }
     }
-   },
-   "section": "filter"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-reset.adm-btn 文本",
+   "nm": "button#btn-reset.adm-btn 文本",
    "x": 1352,
    "y": 218,
    "w": 64,
    "h": 32,
    "text": "重 置",
-   "section": "filter",
    "style": {
     "color": {
      "r": 0,
@@ -1508,7 +1496,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-export.adm-btn",
+   "nm": "button#btn-export.adm-btn",
    "x": 224,
    "y": 266,
    "w": 64,
@@ -1535,19 +1523,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-export.adm-btn 文本",
+   "nm": "button#btn-export.adm-btn 文本",
    "x": 224,
    "y": 266,
    "w": 64,
    "h": 32,
    "text": "导 出",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1568,7 +1554,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-templates.adm-btn",
+   "nm": "button#btn-templates.adm-btn",
    "x": 296,
    "y": 266,
    "w": 88,
@@ -1595,19 +1581,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-templates.adm-btn 文本",
+   "nm": "button#btn-templates.adm-btn 文本",
    "x": 296,
    "y": 266,
    "w": 88,
    "h": 32,
    "text": "邮件模板",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -1628,7 +1612,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button#btn-contacts.adm-btn.adm-btn--primary",
+   "nm": "button#btn-contacts.adm-btn.adm-btn--primary",
    "x": 1260,
    "y": 266,
    "w": 156,
@@ -1655,19 +1639,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button#btn-contacts.adm-btn.adm-btn--primary 文本",
+   "nm": "button#btn-contacts.adm-btn.adm-btn--primary 文本",
    "x": 1260,
    "y": 266,
    "w": 156,
    "h": 32,
    "text": "待人工联系清单",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1688,7 +1670,7 @@
   {
    "type": "box",
    "tag": "span",
-   "name": "span#contact-count.em-count",
+   "nm": "span#contact-count.em-count",
    "x": 1382,
    "y": 273,
    "w": 18,
@@ -1707,19 +1689,17 @@
      "bl": 9
     },
     "border": null
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "span",
-   "name": "span#contact-count.em-count 文本",
+   "nm": "span#contact-count.em-count 文本",
    "x": 1382,
    "y": 273,
    "w": 18,
    "h": 18,
    "text": "4",
-   "section": "page",
    "style": {
     "color": {
      "r": 1,
@@ -1740,13 +1720,18 @@
   {
    "type": "box",
    "tag": "div",
-   "name": "div.adm-table-wrap.em-wrap",
+   "nm": "div.adm-table-wrap.em-wrap",
    "x": 224,
    "y": 314,
    "w": 1192,
    "h": 520,
    "style": {
-    "bg": null,
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
     "radius": {
      "tl": 8,
      "tr": 8,
@@ -1754,13 +1739,12 @@
      "bl": 8
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 224,
    "y": 314,
    "w": 55,
@@ -1779,19 +1763,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 224,
    "y": 314,
    "w": 55,
    "h": 45,
    "text": "ID",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -1812,7 +1794,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 279,
    "y": 314,
    "w": 48,
@@ -1831,19 +1813,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 279,
    "y": 314,
    "w": 48,
    "h": 45,
    "text": "账套",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -1864,7 +1844,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 327,
    "y": 314,
    "w": 79,
@@ -1883,19 +1863,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 327,
    "y": 314,
    "w": 79,
    "h": 45,
    "text": "客户号",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -1916,7 +1894,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 406,
    "y": 314,
    "w": 166,
@@ -1935,19 +1913,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 406,
    "y": 314,
    "w": 166,
    "h": 45,
    "text": "客户邮箱",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -1968,7 +1944,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 573,
    "y": 314,
    "w": 94,
@@ -1987,19 +1963,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 573,
    "y": 314,
    "w": 94,
    "h": 45,
    "text": "幸运福卡编号",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2020,7 +1994,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 667,
    "y": 314,
    "w": 94,
@@ -2039,19 +2013,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 667,
    "y": 314,
    "w": 94,
    "h": 45,
    "text": "绑定发票",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2072,7 +2044,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 761,
    "y": 314,
    "w": 133,
@@ -2091,19 +2063,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 761,
    "y": 314,
    "w": 133,
    "h": 45,
    "text": "发票金额（不含税）",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2124,7 +2094,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 894,
    "y": 314,
    "w": 142,
@@ -2143,19 +2113,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 894,
    "y": 314,
    "w": 142,
    "h": 45,
    "text": "发票创建时间",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2176,7 +2144,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1036,
    "y": 314,
    "w": 142,
@@ -2195,19 +2163,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1036,
    "y": 314,
    "w": 142,
    "h": 45,
    "text": "发送时间",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2228,7 +2194,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1177,
    "y": 314,
    "w": 68,
@@ -2247,19 +2213,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1177,
    "y": 314,
    "w": 68,
    "h": 45,
    "text": "发送状态",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2280,7 +2244,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1246,
    "y": 314,
    "w": 68,
@@ -2299,19 +2263,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1246,
    "y": 314,
    "w": 68,
    "h": 45,
    "text": "失败原因",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2332,7 +2294,7 @@
   {
    "type": "box",
    "tag": "th",
-   "name": "th",
+   "nm": "th",
    "x": 1314,
    "y": 314,
    "w": 102,
@@ -2351,19 +2313,17 @@
      "bl": 0
     },
     "border": null
-   },
-   "section": "table"
+   }
   },
   {
    "type": "text",
    "tag": "th",
-   "name": "th 文本",
+   "nm": "th 文本",
    "x": 1314,
    "y": 314,
    "w": 102,
    "h": 45,
    "text": "操作",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2384,13 +2344,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 359,
    "w": 55,
    "h": 47,
    "text": "10086",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2411,13 +2370,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 359,
    "w": 48,
    "h": 47,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2438,13 +2396,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 359,
    "w": 79,
    "h": 47,
    "text": "10009502",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2465,13 +2422,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 373,
    "w": 150,
    "h": 20,
    "text": "cliente.fernandez@empresa.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2492,13 +2448,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 359,
    "w": 94,
    "h": 47,
    "text": "01136",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2519,13 +2474,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 359,
    "w": 94,
    "h": 47,
    "text": "ES25000149",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2546,13 +2500,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 359,
    "w": 133,
    "h": 47,
    "text": "2,580.00 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2573,13 +2526,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 359,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:22",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2600,13 +2552,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 359,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:23",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2627,13 +2578,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status 文本",
+   "nm": "span.adm-status 文本",
    "x": 1185,
    "y": 374,
    "w": 42,
    "h": 17,
    "text": "已发送",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2654,13 +2604,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 375,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2681,13 +2630,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 372,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -2708,13 +2656,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 406,
    "w": 55,
    "h": 47,
    "text": "10085",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2735,13 +2682,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 406,
    "w": 48,
    "h": 47,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2762,13 +2708,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 406,
    "w": 79,
    "h": 47,
    "text": "10008496",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2789,13 +2734,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 420,
    "w": 150,
    "h": 20,
    "text": "maria.lopez@construcciones.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2816,13 +2760,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 406,
    "w": 94,
    "h": 47,
    "text": "01135",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2843,13 +2786,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 406,
    "w": 94,
    "h": 47,
    "text": "ES25000169",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2870,13 +2812,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 406,
    "w": 133,
    "h": 47,
    "text": "1,479.58 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2897,13 +2838,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 406,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2924,13 +2864,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 406,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:19",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2951,13 +2890,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status 文本",
+   "nm": "span.adm-status 文本",
    "x": 1185,
    "y": 421,
    "w": 42,
    "h": 17,
    "text": "已发送",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -2978,13 +2916,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 422,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3005,13 +2942,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 419,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3032,13 +2968,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 454,
    "w": 55,
    "h": 47,
    "text": "10084",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3059,13 +2994,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 454,
    "w": 48,
    "h": 47,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3086,13 +3020,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 454,
    "w": 79,
    "h": 47,
    "text": "10008496",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3113,13 +3046,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 467,
    "w": 150,
    "h": 20,
    "text": "maria.lopez@construcciones.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3140,13 +3072,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 454,
    "w": 94,
    "h": 47,
    "text": "01134",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3167,13 +3098,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 454,
    "w": 94,
    "h": 47,
    "text": "ES25000169",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3194,13 +3124,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 454,
    "w": 133,
    "h": 47,
    "text": "1,479.58 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3221,13 +3150,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 454,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:18",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3248,13 +3176,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 454,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:19",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3275,13 +3202,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status 文本",
+   "nm": "span.adm-status 文本",
    "x": 1185,
    "y": 469,
    "w": 42,
    "h": 17,
    "text": "已发送",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3302,13 +3228,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 469,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3329,13 +3254,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 466,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3356,13 +3280,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 501,
    "w": 55,
    "h": 47,
    "text": "10083",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3383,13 +3306,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 501,
    "w": 48,
    "h": 47,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3410,13 +3332,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 501,
    "w": 79,
    "h": 47,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3437,13 +3358,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 515,
    "w": 150,
    "h": 20,
    "text": "jose.ramirez@mainpaper.com",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3464,13 +3384,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 501,
    "w": 94,
    "h": 47,
    "text": "01132",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3491,13 +3410,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 501,
    "w": 94,
    "h": 47,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3518,13 +3436,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 501,
    "w": 133,
    "h": 47,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3545,13 +3462,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 501,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3572,13 +3488,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 501,
    "w": 142,
    "h": 47,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3599,13 +3514,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--invalid 文本",
+   "nm": "span.adm-status.adm-status--invalid 文本",
    "x": 1185,
    "y": 516,
    "w": 28,
    "h": 17,
    "text": "失败",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8117647058823529,
@@ -3626,13 +3540,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 517,
    "w": 48,
    "h": 18,
    "text": "默认邮箱",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3653,13 +3566,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 514,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3680,13 +3592,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1370,
    "y": 514,
    "w": 38,
    "h": 22,
    "text": "重发",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -3707,13 +3618,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 549,
    "w": 55,
    "h": 47,
    "text": "10082",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3734,13 +3644,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 549,
    "w": 48,
    "h": 47,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3761,13 +3670,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 549,
    "w": 79,
    "h": 47,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3788,13 +3696,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 562,
    "w": 144,
    "h": 20,
    "text": "EJEMPLO@GMAIL.COM",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3815,13 +3722,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 549,
    "w": 94,
    "h": 47,
    "text": "01131",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3842,13 +3748,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 549,
    "w": 94,
    "h": 47,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3869,13 +3774,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 549,
    "w": 133,
    "h": 47,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3896,13 +3800,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 549,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3923,13 +3826,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 549,
    "w": 142,
    "h": 47,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -3950,13 +3852,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--invalid 文本",
+   "nm": "span.adm-status.adm-status--invalid 文本",
    "x": 1185,
    "y": 563,
    "w": 28,
    "h": 17,
    "text": "失败",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8117647058823529,
@@ -3977,13 +3878,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 564,
    "w": 48,
    "h": 18,
    "text": "默认邮箱",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4004,13 +3904,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 561,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4031,13 +3930,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1370,
    "y": 561,
    "w": 38,
    "h": 22,
    "text": "重发",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4058,13 +3956,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 596,
    "w": 55,
    "h": 47,
    "text": "10081",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4085,13 +3982,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 596,
    "w": 48,
    "h": 47,
    "text": "ES02",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4112,13 +4008,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 596,
    "w": 79,
    "h": 47,
    "text": "10019544",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4139,13 +4034,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.muted 文本",
+   "nm": "span.muted 文本",
    "x": 414,
    "y": 612,
    "w": 39,
    "h": 16,
    "text": "（空）",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4166,13 +4060,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 596,
    "w": 94,
    "h": 47,
    "text": "01130",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4193,13 +4086,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 596,
    "w": 94,
    "h": 47,
    "text": "ES25000001",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4220,13 +4112,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 596,
    "w": 133,
    "h": 47,
    "text": "5,156.13 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4247,13 +4138,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 596,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 10:12",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4274,13 +4164,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 596,
    "w": 142,
    "h": 47,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4301,13 +4190,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--invalid 文本",
+   "nm": "span.adm-status.adm-status--invalid 文本",
    "x": 1185,
    "y": 611,
    "w": 28,
    "h": 17,
    "text": "失败",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8117647058823529,
@@ -4328,13 +4216,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 612,
    "w": 36,
    "h": 18,
    "text": "空邮箱",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4355,13 +4242,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 609,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4382,13 +4268,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1370,
    "y": 609,
    "w": 38,
    "h": 22,
    "text": "重发",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4409,13 +4294,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 644,
    "w": 55,
    "h": 47,
    "text": "10080",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4436,13 +4320,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 644,
    "w": 48,
    "h": 47,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4463,13 +4346,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 644,
    "w": 79,
    "h": 47,
    "text": "10013992",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4490,13 +4372,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 657,
    "w": 150,
    "h": 20,
    "text": "ana.gil@distribuciones.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4517,13 +4398,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 644,
    "w": 94,
    "h": 47,
    "text": "01129",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4544,13 +4424,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 644,
    "w": 94,
    "h": 47,
    "text": "ES25000016",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4571,13 +4450,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 644,
    "w": 133,
    "h": 47,
    "text": "2,850.69 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4598,13 +4476,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 644,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4625,13 +4502,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 644,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:52",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4652,13 +4528,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status 文本",
+   "nm": "span.adm-status 文本",
    "x": 1185,
    "y": 658,
    "w": 42,
    "h": 17,
    "text": "已发送",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4679,13 +4554,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 659,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4706,13 +4580,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 656,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -4733,13 +4606,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 691,
    "w": 55,
    "h": 47,
    "text": "10079",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4760,13 +4632,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 691,
    "w": 48,
    "h": 47,
    "text": "ES01",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4787,13 +4658,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 691,
    "w": 79,
    "h": 47,
    "text": "10013992",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4814,13 +4684,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 704,
    "w": 150,
    "h": 20,
    "text": "ana.gil@distribuciones.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4841,13 +4710,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 691,
    "w": 94,
    "h": 47,
    "text": "01128",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4868,13 +4736,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 691,
    "w": 94,
    "h": 47,
    "text": "ES25000016",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4895,13 +4762,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 691,
    "w": 133,
    "h": 47,
    "text": "2,850.69 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4922,13 +4788,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 691,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:51",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4949,13 +4814,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 691,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:52",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -4976,13 +4840,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status 文本",
+   "nm": "span.adm-status 文本",
    "x": 1185,
    "y": 706,
    "w": 42,
    "h": 17,
    "text": "已发送",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5003,13 +4866,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 706,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5030,13 +4892,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 703,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5057,13 +4918,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 738,
    "w": 55,
    "h": 47,
    "text": "10078",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5084,13 +4944,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 738,
    "w": 48,
    "h": 47,
    "text": "ES03",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5111,13 +4970,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 738,
    "w": 79,
    "h": 47,
    "text": "10022871",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5138,13 +4996,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 752,
    "w": 150,
    "h": 20,
    "text": "pablo.sanchez@tienda.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5165,13 +5022,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 738,
    "w": 94,
    "h": 47,
    "text": "01127",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5192,13 +5048,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 738,
    "w": 94,
    "h": 47,
    "text": "ES25000033",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5219,13 +5074,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 738,
    "w": 133,
    "h": 47,
    "text": "999.99 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5246,13 +5100,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 738,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:33",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5273,13 +5126,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 738,
    "w": 142,
    "h": 47,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5300,13 +5152,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--won 文本",
+   "nm": "span.adm-status.adm-status--won 文本",
    "x": 1185,
    "y": 753,
    "w": 42,
    "h": 17,
    "text": "发送中",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8313725490196079,
@@ -5327,13 +5178,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 754,
    "w": 11,
    "h": 18,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5354,13 +5204,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 751,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5381,13 +5230,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 224,
    "y": 786,
    "w": 55,
    "h": 47,
    "text": "10077",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5408,13 +5256,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td 文本",
+   "nm": "td 文本",
    "x": 279,
    "y": 786,
    "w": 48,
    "h": 47,
    "text": "ES03",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5435,13 +5282,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 327,
    "y": 786,
    "w": 79,
    "h": 47,
    "text": "10022871",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5462,13 +5308,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-email 文本",
+   "nm": "span.em-email 文本",
    "x": 414,
    "y": 799,
    "w": 150,
    "h": 20,
    "text": "pablo.sanchez@tienda.es",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5489,13 +5334,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 573,
    "y": 786,
    "w": 94,
    "h": 47,
    "text": "01126",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5516,13 +5360,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 667,
    "y": 786,
    "w": 94,
    "h": 47,
    "text": "ES25000033",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5543,13 +5386,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num 文本",
+   "nm": "td.num 文本",
    "x": 761,
    "y": 786,
    "w": 133,
    "h": 47,
    "text": "999.99 €",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5570,13 +5412,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 894,
    "y": 786,
    "w": 142,
    "h": 47,
    "text": "2026-12-01 09:33",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5597,13 +5438,12 @@
   {
    "type": "text",
    "tag": "td",
-   "name": "td.num.nowrap 文本",
+   "nm": "td.num.nowrap 文本",
    "x": 1036,
    "y": 786,
    "w": 142,
    "h": 47,
    "text": "—",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5624,13 +5464,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.adm-status.adm-status--invalid 文本",
+   "nm": "span.adm-status.adm-status--invalid 文本",
    "x": 1185,
    "y": 801,
    "w": 28,
    "h": 17,
    "text": "失败",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.8117647058823529,
@@ -5651,13 +5490,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span.em-reason 文本",
+   "nm": "span.em-reason 文本",
    "x": 1254,
    "y": 801,
    "w": 48,
    "h": 18,
    "text": "发送超时",
-   "section": "table",
    "style": {
     "color": {
      "r": 0,
@@ -5678,13 +5516,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1322,
    "y": 798,
    "w": 38,
    "h": 22,
    "text": "详情",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5705,13 +5542,12 @@
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1370,
    "y": 798,
    "w": 38,
    "h": 22,
    "text": "重发",
-   "section": "table",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5732,13 +5568,12 @@
   {
    "type": "text",
    "tag": "span",
-   "name": "span#pager-total.adm-pager__total 文本",
+   "nm": "span#pager-total.adm-pager__total 文本",
    "x": 1099,
    "y": 855,
    "w": 51,
    "h": 22,
    "text": "共 14 条",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -5759,7 +5594,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1166,
    "y": 850,
    "w": 32,
@@ -5786,19 +5621,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1166,
    "y": 850,
    "w": 32,
    "h": 32,
    "text": "‹",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -5819,7 +5652,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button.is-active",
+   "nm": "button.is-active",
    "x": 1206,
    "y": 850,
    "w": 32,
@@ -5846,19 +5679,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button.is-active 文本",
+   "nm": "button.is-active 文本",
    "x": 1206,
    "y": 850,
    "w": 32,
    "h": 32,
    "text": "1",
-   "section": "page",
    "style": {
     "color": {
      "r": 0.08627450980392157,
@@ -5879,7 +5710,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1246,
    "y": 850,
    "w": 32,
@@ -5906,19 +5737,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1246,
    "y": 850,
    "w": 32,
    "h": 32,
    "text": "2",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -5939,7 +5768,7 @@
   {
    "type": "box",
    "tag": "button",
-   "name": "button",
+   "nm": "button",
    "x": 1286,
    "y": 850,
    "w": 32,
@@ -5966,19 +5795,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "button",
-   "name": "button 文本",
+   "nm": "button 文本",
    "x": 1286,
    "y": 850,
    "w": 32,
    "h": 32,
    "text": "›",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
@@ -5999,16 +5826,24 @@
   {
    "type": "box",
    "tag": "select",
-   "name": "select#page-size",
+   "nm": "select#page-size",
    "x": 1330,
    "y": 850,
    "w": 86,
    "h": 32,
    "style": {
-    "bg": null,
     "grad": {
      "angle": 45,
      "stops": [
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+       },
+       "pos": 0.5
+      },
       {
        "color": {
         "r": 0,
@@ -6024,6 +5859,15 @@
         "g": 0,
         "b": 0,
         "a": 0.45
+       },
+       "pos": 0.5
+      },
+      {
+       "color": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
        },
        "pos": 0.5
       }
@@ -6044,19 +5888,17 @@
       "a": 1
      }
     }
-   },
-   "section": "page"
+   }
   },
   {
    "type": "text",
    "tag": "select",
-   "name": "select#page-size 内容",
+   "nm": "select#page-size 内容",
    "x": 1342,
    "y": 850,
    "w": 62,
    "h": 32,
    "text": "10 条/页",
-   "section": "page",
    "style": {
     "color": {
      "r": 0,
