@@ -1638,3 +1638,9 @@ body.h5 {
   border-color: rgba(255, 235, 199, 0.75);
   box-shadow: inset 0 0 0 3px rgba(255, 235, 199, 0.18);
 }
+
+.ticket--official .h5-source--official {
+  color: #fff4e6;
+  background: rgba(255, 235, 199, 0.18);
+  border-color: rgba(255, 235, 199, 0.5);
+}
