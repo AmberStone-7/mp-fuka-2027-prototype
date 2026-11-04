@@ -2,7 +2,7 @@
  "name": "H5-08 福卡样式总览",
  "group": "h5",
  "w": 390,
- "h": 3853,
+ "h": 4114,
  "file": "h5/card-styles.html",
  "nodes": [
   {
@@ -12,7 +12,7 @@
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 3853,
+   "h": 4114,
    "style": {
     "bg": {
      "r": 0.0392156862745098,
@@ -36,7 +36,7 @@
    "x": 0,
    "y": 0,
    "w": 390,
-   "h": 3853,
+   "h": 4114,
    "style": {
     "grad": {
      "angle": 180,
@@ -7193,6 +7193,500 @@
    "y": 2891,
    "w": 358,
    "h": 24,
+   "text": "官方福卡（红底白字，无发票）",
+   "style": {
+    "color": {
+     "r": 0.9647058823529412,
+     "g": 0.8901960784313725,
+     "b": 0.6901960784313725,
+     "a": 1
+    },
+    "fontSize": 15,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 24,
+    "letterSpacing": 0.9,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "article",
+   "nm": "article.ticket.ticket--pending",
+   "x": 16,
+   "y": 2925,
+   "w": 358,
+   "h": 206,
+   "style": {
+    "grad": {
+     "angle": 158,
+     "stops": [
+      {
+       "color": {
+        "r": 0.9764705882352941,
+        "g": 0.9254901960784314,
+        "b": 0.796078431372549,
+        "a": 1
+       },
+       "pos": 0
+      },
+      {
+       "color": {
+        "r": 0.9490196078431372,
+        "g": 0.8588235294117647,
+        "b": 0.6627450980392157,
+        "a": 1
+       },
+       "pos": 0.58
+      },
+      {
+       "color": {
+        "r": 0.9019607843137255,
+        "g": 0.7764705882352941,
+        "b": 0.5568627450980392,
+        "a": 1
+       },
+       "pos": 1
+      }
+     ]
+    },
+    "radius": {
+     "tl": 8,
+     "tr": 8,
+     "br": 8,
+     "bl": 8
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.8627450980392157,
+      "g": 0.7254901960784313,
+      "b": 0.47843137254901963,
+      "a": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "article::before",
+   "nm": "article.ticket.ticket--pending::before",
+   "x": 184,
+   "y": 2925,
+   "w": 22,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 0.16862745098039217,
+     "g": 0.043137254901960784,
+     "b": 0.054901960784313725,
+     "a": 1
+    },
+    "grad": null,
+    "radius": {
+     "tl": 50,
+     "tr": 50,
+     "br": 50,
+     "bl": 50
+    }
+   }
+  },
+  {
+   "type": "box",
+   "tag": "article::after",
+   "nm": "article.ticket.ticket--pending::after",
+   "x": 184,
+   "y": 3108,
+   "w": 22,
+   "h": 22,
+   "style": {
+    "bg": {
+     "r": 0.16862745098039217,
+     "g": 0.043137254901960784,
+     "b": 0.054901960784313725,
+     "a": 1
+    },
+    "grad": null,
+    "radius": {
+     "tl": 50,
+     "tr": 50,
+     "br": 50,
+     "bl": 50
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span 文本",
+   "x": 34,
+   "y": 2952,
+   "w": 107,
+   "h": 21,
+   "text": "幸运福卡号码：",
+   "style": {
+    "color": {
+     "r": 0.43529411764705883,
+     "g": 0.12549019607843137,
+     "b": 0.06274509803921569,
+     "a": 1
+    },
+    "fontSize": 15,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 24,
+    "letterSpacing": 0.3,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "b",
+   "nm": "b 文本",
+   "x": 143,
+   "y": 2948,
+   "w": 75,
+   "h": 25,
+   "text": "07001",
+   "style": {
+    "color": {
+     "r": 0.43529411764705883,
+     "g": 0.12549019607843137,
+     "b": 0.06274509803921569,
+     "a": 1
+    },
+    "fontSize": 22,
+    "fontWeight": 900,
+    "fontFamily": "\"SF Mono\", Menlo, monospace",
+    "lineHeight": 35.2,
+    "letterSpacing": 1.76,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "nm": "span.ticket__stamp",
+   "x": 287,
+   "y": 2934,
+   "w": 75,
+   "h": 75,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "radius": {
+     "tl": 50,
+     "tr": 50,
+     "br": 50,
+     "bl": 50
+    },
+    "border": {
+     "w": 2,
+     "color": {
+      "r": 0.6470588235294118,
+      "g": 0.4745098039215686,
+      "b": 0.22745098039215686,
+      "a": 0.72
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.ticket__stamp 文本",
+   "x": 287,
+   "y": 2934,
+   "w": 75,
+   "h": 75,
+   "text": "待开奖",
+   "style": {
+    "color": {
+     "r": 0.6470588235294118,
+     "g": 0.4745098039215686,
+     "b": 0.22745098039215686,
+     "a": 1
+    },
+    "fontSize": 12,
+    "fontWeight": 700,
+    "fontFamily": "\"Noto Serif SC\", \"Songti SC\", STSong, SimSun, serif",
+    "lineHeight": 14.4,
+    "letterSpacing": 0,
+    "textAlign": "center",
+    "uppercase": false,
+    "opacity": 0.9
+   }
+  },
+  {
+   "type": "box",
+   "tag": "span",
+   "nm": "span.h5-source.h5-source--official",
+   "x": 34,
+   "y": 3009,
+   "w": 63,
+   "h": 24,
+   "style": {
+    "bg": {
+     "r": 0.4823529411764706,
+     "g": 0.24705882352941178,
+     "b": 0.596078431372549,
+     "a": 0.18
+    },
+    "radius": {
+     "tl": 3,
+     "tr": 3,
+     "br": 3,
+     "bl": 3
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.3568627450980392,
+      "g": 0.16470588235294117,
+      "b": 0.47843137254901963,
+      "a": 0.32
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "span",
+   "nm": "span.h5-source.h5-source--official 文本",
+   "x": 34,
+   "y": 3009,
+   "w": 63,
+   "h": 24,
+   "text": "官方福卡",
+   "style": {
+    "color": {
+     "r": 0.3568627450980392,
+     "g": 0.16470588235294117,
+     "b": 0.47843137254901963,
+     "a": 1
+    },
+    "fontSize": 11,
+    "fontWeight": 700,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0.22,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "dl",
+   "nm": "dl.ticket__rows",
+   "x": 34,
+   "y": 3043,
+   "w": 322,
+   "h": 31,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.4823529411764706,
+      "g": 0.16862745098039217,
+      "b": 0.09411764705882353,
+      "a": 0.28
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "dt",
+   "nm": "dt 文本",
+   "x": 34,
+   "y": 3054,
+   "w": 50,
+   "h": 20,
+   "text": "客户号：",
+   "style": {
+    "color": {
+     "r": 0.43529411764705883,
+     "g": 0.12549019607843137,
+     "b": 0.06274509803921569,
+     "a": 0.68
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "dd",
+   "nm": "dd 文本",
+   "x": 90,
+   "y": 3054,
+   "w": 56,
+   "h": 20,
+   "text": "10009502",
+   "style": {
+    "color": {
+     "r": 0.37254901960784315,
+     "g": 0.10980392156862745,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 12.5,
+    "fontWeight": 600,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "dt",
+   "nm": "dt 文本",
+   "x": 201,
+   "y": 3054,
+   "w": 50,
+   "h": 20,
+   "text": "手机号：",
+   "style": {
+    "color": {
+     "r": 0.43529411764705883,
+     "g": 0.12549019607843137,
+     "b": 0.06274509803921569,
+     "a": 0.68
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "dd",
+   "nm": "dd 文本",
+   "x": 257,
+   "y": 3054,
+   "w": 70,
+   "h": 20,
+   "text": "666 666 666",
+   "style": {
+    "color": {
+     "r": 0.37254901960784315,
+     "g": 0.10980392156862745,
+     "b": 0.050980392156862744,
+     "a": 1
+    },
+    "fontSize": 12.5,
+    "fontWeight": 600,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "box",
+   "tag": "div",
+   "nm": "div.ticket__basis",
+   "x": 34,
+   "y": 3086,
+   "w": 322,
+   "h": 30,
+   "style": {
+    "bg": {
+     "r": 0,
+     "g": 0,
+     "b": 0,
+     "a": 0
+    },
+    "radius": {
+     "tl": 0,
+     "tr": 0,
+     "br": 0,
+     "bl": 0
+    },
+    "border": {
+     "w": 1,
+     "color": {
+      "r": 0.4823529411764706,
+      "g": 0.16862745098039217,
+      "b": 0.09411764705882353,
+      "a": 0.3
+     }
+    }
+   }
+  },
+  {
+   "type": "text",
+   "tag": "div",
+   "nm": "div.ticket__basis 文本",
+   "x": 34,
+   "y": 3086,
+   "w": 322,
+   "h": 30,
+   "text": "发放依据：官方码发放（每 CIF 限 1 张）",
+   "style": {
+    "color": {
+     "r": 0.37254901960784315,
+     "g": 0.10980392156862745,
+     "b": 0.050980392156862744,
+     "a": 0.8
+    },
+    "fontSize": 12.5,
+    "fontWeight": 400,
+    "fontFamily": "Arial, \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif",
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "start",
+    "uppercase": false,
+    "opacity": 1
+   }
+  },
+  {
+   "type": "text",
+   "tag": "h3",
+   "nm": "h3.style-section-title 文本",
+   "x": 16,
+   "y": 3152,
+   "w": 358,
+   "h": 24,
    "text": "福卡字段来源",
    "style": {
     "color": {
@@ -7216,7 +7710,7 @@
    "tag": "div",
    "nm": "div.h5-card",
    "x": 16,
-   "y": 2925,
+   "y": 3186,
    "w": 358,
    "h": 838,
    "style": {
@@ -7248,7 +7742,7 @@
    "tag": "th",
    "nm": "th 文本",
    "x": 29,
-   "y": 2938,
+   "y": 3199,
    "w": 162,
    "h": 33,
    "text": "字段",
@@ -7274,7 +7768,7 @@
    "tag": "th",
    "nm": "th 文本",
    "x": 191,
-   "y": 2938,
+   "y": 3199,
    "w": 100,
    "h": 33,
    "text": "来源",
@@ -7300,7 +7794,7 @@
    "tag": "th",
    "nm": "th 文本",
    "x": 291,
-   "y": 2938,
+   "y": 3199,
    "w": 70,
    "h": 33,
    "text": "说明",
@@ -7326,7 +7820,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 2971,
+   "y": 3232,
    "w": 162,
    "h": 125,
    "text": "福卡号",
@@ -7352,7 +7846,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 2971,
+   "y": 3232,
    "w": 100,
    "h": 125,
    "text": "card.card_no",
@@ -7378,7 +7872,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 2971,
+   "y": 3232,
    "w": 70,
    "h": 125,
    "text": "发卡时从号码池 00001–20000 分配，随机、唯一",
@@ -7404,7 +7898,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3096,
+   "y": 3358,
    "w": 162,
    "h": 89,
    "text": "福卡类型",
@@ -7430,7 +7924,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3096,
+   "y": 3358,
    "w": 100,
    "h": 89,
    "text": "card.source_type",
@@ -7456,7 +7950,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3096,
+   "y": 3358,
    "w": 70,
    "h": 89,
    "text": "订单 / 新客 / 邀请 / 官方，由发卡来源决定",
@@ -7482,7 +7976,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3185,
+   "y": 3446,
    "w": 162,
    "h": 52,
    "text": "客户号、手机号",
@@ -7508,7 +8002,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3185,
+   "y": 3446,
    "w": 100,
    "h": 52,
    "text": "客户主数据",
@@ -7534,7 +8028,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3185,
+   "y": 3446,
    "w": 70,
    "h": 52,
    "text": "按发卡时的 CIF 关联",
@@ -7560,7 +8054,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3236,
+   "y": 3498,
    "w": 162,
    "h": 125,
    "text": "发票号、税前金额、发生时间",
@@ -7586,7 +8080,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3236,
+   "y": 3498,
    "w": 100,
    "h": 125,
    "text": "发票表",
@@ -7612,7 +8106,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3236,
+   "y": 3498,
    "w": 70,
    "h": 125,
    "text": "订单/新客卡取触发发卡的发票；邀请人卡、官方卡无发票",
@@ -7638,7 +8132,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3362,
+   "y": 3623,
    "w": 162,
    "h": 52,
    "text": "发放时间",
@@ -7664,7 +8158,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3362,
+   "y": 3623,
    "w": 100,
    "h": 52,
    "text": "card.issued_at",
@@ -7690,7 +8184,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3362,
+   "y": 3623,
    "w": 70,
    "h": 52,
    "text": "系统发卡时间",
@@ -7716,7 +8210,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3414,
+   "y": 3675,
    "w": 162,
    "h": 70,
    "text": "状态",
@@ -7742,7 +8236,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3414,
+   "y": 3675,
    "w": 100,
    "h": 70,
    "text": "card.status",
@@ -7768,7 +8262,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3414,
+   "y": 3675,
    "w": 70,
    "h": 70,
    "text": "待开奖 / 已中奖 / 未中奖 / 已失效",
@@ -7794,7 +8288,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3484,
+   "y": 3745,
    "w": 162,
    "h": 70,
    "text": "奖项、奖品",
@@ -7820,7 +8314,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3484,
+   "y": 3745,
    "w": 100,
    "h": 70,
    "text": "中奖记录",
@@ -7846,7 +8340,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3484,
+   "y": 3745,
    "w": 70,
    "h": 70,
    "text": "开奖发布后写入；未开奖为空",
@@ -7872,7 +8366,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3554,
+   "y": 3815,
    "w": 162,
    "h": 107,
    "text": "失效原因、时间",
@@ -7898,7 +8392,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3554,
+   "y": 3815,
    "w": 100,
    "h": 107,
    "text": "失效记录",
@@ -7924,7 +8418,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3554,
+   "y": 3815,
    "w": 70,
    "h": 107,
    "text": "退单 / 红冲 / 手工失效；开奖后失效会取消中奖资格",
@@ -7950,7 +8444,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 29,
-   "y": 3661,
+   "y": 3922,
    "w": 162,
    "h": 89,
    "text": "发放依据（邀请卡）",
@@ -7976,7 +8470,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 191,
-   "y": 3661,
+   "y": 3922,
    "w": 100,
    "h": 89,
    "text": "邀请绑定",
@@ -8002,7 +8496,7 @@
    "tag": "td",
    "nm": "td 文本",
    "x": 291,
-   "y": 3661,
+   "y": 3922,
    "w": 70,
    "h": 89,
    "text": "邀请新客首单达标；不展示被邀请人发票/CIF",
@@ -8028,7 +8522,7 @@
    "tag": "p",
    "nm": "p.h5-tip 文本",
    "x": 16,
-   "y": 3775,
+   "y": 4036,
    "w": 358,
    "h": 42,
    "text": "原型演示：邀请福卡不展示被邀请人的客户号/税号/发票；如需展示，请确认口径后调整。",

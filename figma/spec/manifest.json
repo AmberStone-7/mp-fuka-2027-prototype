@@ -51,7 +51,7 @@
     "name": "H5-08 福卡样式总览",
     "group": "h5",
     "w": 390,
-    "h": 3853,
+    "h": 4114,
     "slug": "h5-card-styles",
     "spec": "figma/spec/h5-card-styles.json"
   },
@@ -67,7 +67,7 @@
     "name": "ADM-01 福卡管理",
     "group": "adm",
     "w": 1440,
-    "h": 978,
+    "h": 969,
     "slug": "adm-cards",
     "spec": "figma/spec/adm-cards.json"
   },
@@ -75,7 +75,7 @@
     "name": "ADM-02 邀请码管理",
     "group": "adm",
     "w": 1440,
-    "h": 1047,
+    "h": 900,
     "slug": "adm-invite",
     "spec": "figma/spec/adm-invite.json"
   },
@@ -83,7 +83,7 @@
     "name": "ADM-03 抽奖管理",
     "group": "adm",
     "w": 1440,
-    "h": 937,
+    "h": 900,
     "slug": "adm-draw",
     "spec": "figma/spec/adm-draw.json"
   },

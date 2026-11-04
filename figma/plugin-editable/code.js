@@ -47,7 +47,7 @@ const PAGES = [
     "name": "H5-08 福卡样式总览",
     "group": "h5",
     "w": 390,
-    "h": 3853,
+    "h": 4114,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/h5-card-styles.json"
   },
   {
@@ -61,21 +61,21 @@ const PAGES = [
     "name": "ADM-01 福卡管理",
     "group": "adm",
     "w": 1440,
-    "h": 978,
+    "h": 969,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-cards.json"
   },
   {
     "name": "ADM-02 邀请码管理",
     "group": "adm",
     "w": 1440,
-    "h": 1047,
+    "h": 900,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-invite.json"
   },
   {
     "name": "ADM-03 抽奖管理",
     "group": "adm",
     "w": 1440,
-    "h": 937,
+    "h": 900,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-draw.json"
   },
   {

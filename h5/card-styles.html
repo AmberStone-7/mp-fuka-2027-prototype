@@ -39,6 +39,9 @@
     <h3 class="style-section-title">邀请福卡（邀请人，无发票）</h3>
     <div id="group-invite"></div>
 
+    <h3 class="style-section-title">官方福卡（红底白字，无发票）</h3>
+    <div id="group-official"></div>
+
     <h3 class="style-section-title">福卡字段来源</h3>
     <div class="h5-card" style="padding:12px">
       <table class="style-source">
@@ -133,11 +136,15 @@
       var invite = [
         { no: "01138", source: "邀请福卡", sourceCls: "invite", status: "pending", basis: "邀请新客首单达标" }
       ];
+      var official = [
+        { no: "07001", source: "官方福卡", sourceCls: "official", status: "pending", basis: "官方码发放（每 CIF 限 1 张）" }
+      ];
       $("#group-pending").innerHTML = pending.map(ticket).join("");
       $("#group-won").innerHTML = won.map(ticket).join("");
       $("#group-lost").innerHTML = lost.map(ticket).join("");
       $("#group-invalid").innerHTML = invalid.map(ticket).join("");
       $("#group-invite").innerHTML = invite.map(ticket).join("");
+      $("#group-official").innerHTML = official.map(ticket).join("");
     })();
   </script>
 </body>

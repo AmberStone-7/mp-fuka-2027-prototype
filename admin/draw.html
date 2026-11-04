@@ -8,64 +8,22 @@
   <link rel="stylesheet" href="../assets/css/base.css">
   <link rel="stylesheet" href="../assets/css/admin.css">
   <style>
-    /* ---------- 抽奖管理页内样式（仅本页，前缀 draw-） ---------- */
-    .draw-snap {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px 24px;
-      margin: 12px 0 16px;
-      padding: 12px 14px;
-      border: 1px solid #f0f0f0;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    .draw-snap__label { font-size: 13px; color: rgba(0, 0, 0, 0.45); }
-    .draw-snap__id {
-      padding: 0 6px;
-      border: 1px solid #91caff;
-      border-radius: 4px;
-      font-family: "SF Mono", Menlo, Consolas, monospace;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 22px;
-      color: #1677ff;
-      background: #e6f4ff;
-    }
-    .draw-snap__id--empty {
-      border-color: #ffa39e;
-      color: #cf1322;
-      background: #fff1f0;
-    }
-    .draw-snap__item { font-size: 13px; color: rgba(0, 0, 0, 0.45); }
-    .draw-snap__item b { margin-left: 4px; font-weight: 600; color: rgba(0, 0, 0, 0.88); }
-    .draw-snap__badge {
-      padding: 0 7px;
-      border: 1px solid #d9d9d9;
-      border-radius: 4px;
-      font-size: 12px;
-      line-height: 20px;
-      color: rgba(0, 0, 0, 0.45);
-    }
+    .draw-snap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 12px 16px; margin-bottom: 14px; background: #f6f8ff; border: 1px solid #d6e4ff; border-radius: 8px; font-size: 13px; color: #1f3b66; }
+    .draw-snap b { color: #0958d9; }
     .draw-snap__btn { margin-left: auto; }
-
-    .draw-st--draft { color: rgba(0, 0, 0, 0.65); }
-    .draw-st--confirmed { color: #0958d9; }
+    .draw-match-wrap { max-height: 420px; overflow: auto; border: 1px solid #f0f0f0; border-radius: 6px; }
+    .draw-match { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .draw-match th, .draw-match td { padding: 8px 10px; border-bottom: 1px solid #f2f2f2; text-align: left; white-space: nowrap; }
+    .draw-match th { position: sticky; top: 0; background: #fafafa; font-weight: 600; color: #595959; z-index: 1; }
+    .draw-match-pager { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 10px; font-size: 13px; color: #595959; }
+    .draw-match-pager button { min-width: 28px; height: 28px; border: 1px solid #d9d9d9; background: #fff; border-radius: 4px; cursor: pointer; }
+    .draw-match-pager button.is-active { border-color: #1677ff; color: #1677ff; }
+    .draw-modal-summary { font-size: 13px; color: #595959; margin-bottom: 10px; line-height: 1.8; }
+    .draw-modal-summary b { color: #262626; }
+    .adm-modal__box--wide { width: 900px; max-width: 96vw; }
+    .draw-warn { color: #cf1322; }
+    .draw-st--draft { color: #d48806; }
     .draw-st--published { color: #389e0d; }
-    .draw-st--revoked { color: #cf1322; }
-    .draw-sub { margin-left: 2px; font-family: inherit; font-size: 12px; font-weight: 400; color: rgba(0, 0, 0, 0.45); }
-
-    .draw-pg { display: flex; align-items: center; gap: 8px; }
-    .draw-preview { margin: -4px 0 16px; }
-    .draw-preview[hidden], .draw-check[hidden] { display: none !important; }
-    .draw-preview .adm-alert { margin-bottom: 0; }
-    .draw-check { margin: 10px 0 0; }
-    .draw-check .adm-form-item__ctrl { padding-top: 2px; }
-    .draw-check__label { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
-    .draw-check__label input { width: 16px; height: 16px; accent-color: #1677ff; }
-    .draw-tip-line { margin-top: 4px; }
-    .adm-form-item__ctrl .draw-num { width: 160px; font-family: "SF Mono", Menlo, Consolas, monospace; letter-spacing: 1px; }
-    .draw-revoke-reason.adm-input { width: 100%; height: auto; min-height: 72px; padding: 6px 11px; resize: vertical; line-height: 1.6; }
   </style>
 </head>
 <body class="adm">
@@ -73,82 +31,53 @@
 <aside class="adm-sider">
   <div class="adm-logo">抽奖后台管理</div>
   <nav class="adm-menu" aria-label="后台菜单">
-    <a class="adm-menu__item" href="cards.html">
-      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>
-      福卡管理
-    </a>
-    <a class="adm-menu__item" href="invite.html">
-      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>
-      邀请码管理
-    </a>
-    <a class="adm-menu__item is-active" href="draw.html">
-      <svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>
-      抽奖管理
-    </a>
-    <a class="adm-menu__item" href="prizes.html">
-      <svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>
-      奖品管理
-    </a>
-    <a class="adm-menu__item" href="winners.html">
-      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
-      中奖记录
-    </a>
-    <a class="adm-menu__item" href="email.html">
-      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
-      邮件日志
-    </a>
+    <a class="adm-menu__item" href="cards.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>福卡管理</a>
+    <a class="adm-menu__item" href="invite.html"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>邀请码管理</a>
+    <a class="adm-menu__item is-active" href="draw.html"><svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>抽奖管理</a>
+    <a class="adm-menu__item" href="prizes.html"><svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>奖品管理</a>
+    <a class="adm-menu__item" href="winners.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>中奖记录</a>
+    <a class="adm-menu__item" href="email.html"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>邮件日志</a>
   </nav>
   <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
 </aside>
 
 <main class="adm-main">
   <div class="adm-topbar"><span class="adm-avatar">A</span></div>
-
   <div class="adm-crumb">
-    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
-    <span>/</span>
-    <b>抽奖管理</b>
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>/</span><b>抽奖管理</b>
   </div>
 
-  <div class="draw-snap" id="snap-bar">
-    <span class="draw-snap__label">当前卡池快照</span>
-    <span class="draw-snap__id" id="snap-id">SNAP-20270210-01</span>
-    <span class="draw-snap__item">生成时间<b id="snap-time">2027-02-10 09:30</b></span>
-    <span class="draw-snap__item">有效福卡<b id="snap-count">18,500 张</b></span>
-    <span class="draw-snap__item">算法版本<b>v2027.1</b></span>
-    <span class="draw-snap__badge" id="snap-badge">不可变</span>
-    <button class="adm-btn draw-snap__btn" id="btn-snapshot" type="button">生成快照</button>
+  <div class="draw-snap">
+    <span>卡池快照：<b id="snap-id">S20270210-01</b></span>
+    <span>有效福卡 <b id="snap-count">8,420</b> 张</span>
+    <span>算法版本 v2027.1</span>
+    <button class="adm-btn draw-snap__btn" id="btn-snapshot" type="button">重新生成快照</button>
   </div>
 
   <form class="adm-filters" id="filters" onsubmit="return false">
     <div class="adm-field">
-      <label for="f-batch">批次编号</label>
-      <input class="adm-input" id="f-batch" placeholder="请输入批次编号" autocomplete="off">
+      <label for="f-batch">批次号</label>
+      <input class="adm-input" id="f-batch" placeholder="请输入批次号" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-level">奖品级别</label>
       <select class="adm-select" id="f-level">
         <option value="">全部级别</option>
-        <option value="1">一等奖</option>
-        <option value="2">二等奖</option>
-        <option value="3">三等奖</option>
-        <option value="4">四等奖</option>
-        <option value="5">五等奖</option>
+        <option value="1">一等奖</option><option value="2">二等奖</option><option value="3">三等奖</option>
+        <option value="4">四等奖</option><option value="5">五等奖</option>
       </select>
     </div>
     <div class="adm-field">
       <label for="f-status">状态</label>
       <select class="adm-select" id="f-status">
         <option value="">全部状态</option>
-        <option value="draft">草稿</option>
-        <option value="confirmed">已复核</option>
+        <option value="draft">草稿（待发布）</option>
         <option value="published">已发布</option>
-        <option value="revoked">已撤回</option>
       </select>
     </div>
     <div class="adm-field">
       <label for="f-lucky">幸运数字</label>
-      <input class="adm-input adm-input--sm" id="f-lucky" placeholder="如 12345" autocomplete="off">
+      <input class="adm-input" id="f-lucky" placeholder="请输入幸运数字" autocomplete="off">
     </div>
     <div class="adm-filters__btns">
       <button class="adm-btn adm-btn--primary" id="btn-search" type="button">查 询</button>
@@ -157,41 +86,24 @@
   </form>
 
   <div class="adm-actions">
-    <button class="adm-btn" id="btn-audit" type="button">导出审计清单</button>
-    <button class="adm-btn adm-btn--primary adm-actions__right" id="btn-add" type="button">添加抽奖结果</button>
+    <button class="adm-btn" id="btn-export" type="button">导 出</button>
+    <button class="adm-btn adm-btn--primary" id="btn-add" type="button" style="margin-left:auto">添加抽奖结果</button>
   </div>
 
   <div class="adm-table-wrap">
     <table class="adm-table">
       <thead>
         <tr>
-          <th>批次编号</th>
-          <th>奖品级别</th>
-          <th>幸运数字</th>
-          <th>匹配人数</th>
-          <th>状态</th>
-          <th>最近操作时间</th>
-          <th>操作</th>
+          <th>批次号</th><th>奖品级别</th><th>幸运数字</th><th>命中福卡</th><th>状态</th><th>录入/发布时间</th><th>操作</th>
         </tr>
       </thead>
       <tbody id="rows"></tbody>
     </table>
   </div>
-
-  <div class="adm-pager">
-    <span class="adm-pager__total" id="pager-total">共 12 条</span>
-    <button type="button" id="pg-prev" aria-label="上一页">‹</button>
-    <span class="draw-pg" id="pg-nums"></span>
-    <button type="button" id="pg-next" aria-label="下一页">›</button>
-    <select aria-label="每页条数" id="pg-size">
-      <option value="10">10 条/页</option>
-      <option value="20">20 条/页</option>
-      <option value="50">50 条/页</option>
-    </select>
-  </div>
+  <div class="adm-pager" id="pager"></div>
 </main>
 
-<!-- 添加 / 编辑抽奖结果 -->
+<!-- 添加/编辑抽奖结果 -->
 <div class="adm-modal" id="modal-result" aria-hidden="true">
   <div class="adm-modal__mask" data-close></div>
   <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-result-title">
@@ -217,68 +129,65 @@
       <div class="adm-form-item" id="item-num">
         <label class="required" for="r-num">幸运数字</label>
         <div class="adm-form-item__ctrl">
-          <input class="adm-input draw-num" id="r-num" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="请输入幸运数字">
-          <p class="adm-form-item__err" id="err-num">请输入幸运数字</p>
+          <input class="adm-input" id="r-num" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="请输入幸运数字">
+          <p class="adm-form-item__err" id="err-num">输入不满足要求</p>
           <p class="adm-form-tip" id="num-tip">一至四等奖：5 位（00001–20000）；五等奖：末位 1 位（0–9）</p>
         </div>
       </div>
-      <p class="adm-form-tip draw-tip-line" id="quota-tip">请选择奖品级别后查看本期名额。</p>
-      <div class="draw-preview" id="preview" hidden>
-        <div class="adm-alert" id="preview-alert">
-          <span class="adm-alert__ico" id="preview-ico">✓</span>
-          <span id="preview-text"></span>
-        </div>
-        <div class="adm-form-item draw-check" id="item-empty" hidden>
-          <label></label>
-          <div class="adm-form-item__ctrl">
-            <label class="draw-check__label" for="r-empty"><input type="checkbox" id="r-empty"> 记录空开奖（留痕）</label>
-          </div>
-        </div>
-      </div>
-      <p class="adm-form-tip">一卡一奖、取最高（DEC-017）：已中奖（含待发布）的福卡不参与后续匹配；保存后状态为草稿。</p>
+      <p class="adm-form-tip">确认后将展示匹配的福卡信息，由用户核对后再保存为抽奖结果；保存后可在发布前修改。</p>
     </div>
     <div class="adm-modal__foot">
       <button class="adm-btn" type="button" data-close>取 消</button>
-      <button class="adm-btn" type="button" id="btn-preview">预览匹配</button>
-      <button class="adm-btn adm-btn--primary" type="button" id="btn-result-ok">保存草稿</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-confirm">确 认</button>
     </div>
   </div>
 </div>
 
-<!-- 发布（二次确认） -->
+<!-- 匹配福卡确认 -->
+<div class="adm-modal" id="modal-match" aria-hidden="true">
+  <div class="adm-modal__mask" data-close></div>
+  <div class="adm-modal__box adm-modal__box--wide" role="dialog" aria-modal="true" aria-labelledby="modal-match-title">
+    <div class="adm-modal__head">
+      <span class="adm-modal__title" id="modal-match-title">抽奖结果</span>
+      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
+    </div>
+    <div class="adm-modal__body">
+      <div class="draw-modal-summary" id="match-summary"></div>
+      <div class="draw-match-wrap">
+        <table class="draw-match">
+          <thead><tr><th>账套</th><th>幸运福卡卡号</th><th>客户号</th><th>业务员号</th><th>客户手机号</th><th>发票号</th></tr></thead>
+          <tbody id="match-rows"></tbody>
+        </table>
+      </div>
+      <div class="draw-match-pager">
+        <span id="match-total"></span>
+        <button type="button" id="match-prev">‹</button>
+        <span id="match-page-btns" style="display:flex;gap:6px"></span>
+        <button type="button" id="match-next">›</button>
+        <select id="match-size" aria-label="每页条数"><option value="10">10 条/页</option><option value="20">20 条/页</option><option value="50">50 条/页</option></select>
+      </div>
+    </div>
+    <div class="adm-modal__foot">
+      <button class="adm-btn" type="button" id="btn-regenerate">重新生成</button>
+      <button class="adm-btn adm-btn--primary" type="button" id="btn-save-result">确认开奖结果</button>
+    </div>
+  </div>
+</div>
+
+<!-- 发布确认 -->
 <div class="adm-modal" id="modal-publish" aria-hidden="true">
   <div class="adm-modal__mask" data-close></div>
   <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-publish-title">
     <div class="adm-modal__head">
-      <span class="adm-modal__title" id="modal-publish-title">发布开奖结果</span>
+      <span class="adm-modal__title" id="modal-publish-title">发布中奖结果</span>
       <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
     </div>
     <div class="adm-modal__body">
-      <div class="adm-alert adm-alert--warn">
+      <div class="draw-modal-summary" id="publish-summary"></div>
+      <div class="adm-alert" style="margin-top:4px">
         <span class="adm-alert__ico">!</span>
-        <span>发布后客户可在 H5 查询中奖结果；结果不可无痕修改，如需变更必须撤回并填写原因（AC-028）。</span>
+        <span><b class="draw-warn">发布后不可撤回。</b>发布后福卡状态与中奖公示将同步更新到 H5，请确认幸运数字与匹配结果无误。</span>
       </div>
-      <div class="adm-form-item">
-        <label>批次编号</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="p-id" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>奖品级别</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="p-level" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>幸运数字</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="p-lucky" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>匹配人数</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="p-matched" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>操作人</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" value="管理员 A（演示）" readonly></div>
-      </div>
-      <p class="adm-form-tip">发布将写入中奖记录并触发中奖通知邮件（本期仅 2 类邮件模板）。</p>
     </div>
     <div class="adm-modal__foot">
       <button class="adm-btn" type="button" data-close>取 消</button>
@@ -287,827 +196,281 @@
   </div>
 </div>
 
-<!-- 撤回（原因必填） -->
-<div class="adm-modal" id="modal-revoke" aria-hidden="true">
-  <div class="adm-modal__mask" data-close></div>
-  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-revoke-title">
-    <div class="adm-modal__head">
-      <span class="adm-modal__title" id="modal-revoke-title">撤回开奖结果</span>
-      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
-    </div>
-    <div class="adm-modal__body">
-      <div class="adm-alert adm-alert--warn">
-        <span class="adm-alert__ico">!</span>
-        <span>撤回后客户不可再查询该批次结果；已生成的中奖记录需同步作废或候补（本期人工处理），全程留痕。</span>
-      </div>
-      <div class="adm-form-item">
-        <label>批次编号</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="v-id" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>批次摘要</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="v-summary" readonly></div>
-      </div>
-      <div class="adm-form-item" id="item-revoke-reason">
-        <label class="required" for="revoke-reason">撤回原因</label>
-        <div class="adm-form-item__ctrl">
-          <textarea class="adm-input draw-revoke-reason" id="revoke-reason" placeholder="请填写撤回原因（必填），如：幸运数字录入错误、误发布"></textarea>
-          <p class="adm-form-item__err">请填写撤回原因</p>
-        </div>
-      </div>
-      <p class="adm-form-tip">撤回记录操作人、时间与算法版本，不可删除（AC-028）。</p>
-    </div>
-    <div class="adm-modal__foot">
-      <button class="adm-btn" type="button" data-close>取 消</button>
-      <button class="adm-btn adm-btn--danger" type="button" id="btn-revoke-ok">确认撤回</button>
-    </div>
-  </div>
-</div>
-
-<!-- 生成快照 -->
-<div class="adm-modal" id="modal-snap" aria-hidden="true">
-  <div class="adm-modal__mask" data-close></div>
-  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-snap-title">
-    <div class="adm-modal__head">
-      <span class="adm-modal__title" id="modal-snap-title">生成卡池快照</span>
-      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
-    </div>
-    <div class="adm-modal__body">
-      <div class="adm-alert adm-alert--warn">
-        <span class="adm-alert__ico">!</span>
-        <span>快照一经生成不可变（FR-015）。生成后冻结全部 status=pending 且在有效期内的福卡；未生成快照时录入按钮禁用。</span>
-      </div>
-      <div class="adm-form-item">
-        <label>当前快照</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="snap-current" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>本次冻结</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="snap-new-count" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>算法版本</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" value="v2027.1" readonly></div>
-      </div>
-      <p class="adm-form-tip" id="snap-note"></p>
-    </div>
-    <div class="adm-modal__foot">
-      <button class="adm-btn" type="button" data-close>取 消</button>
-      <button class="adm-btn adm-btn--primary" type="button" id="btn-snap-ok">生成快照</button>
-    </div>
-  </div>
-</div>
-
-<!-- 批次详情 -->
-<div class="adm-modal" id="modal-detail" aria-hidden="true">
-  <div class="adm-modal__mask" data-close></div>
-  <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-detail-title">
-    <div class="adm-modal__head">
-      <span class="adm-modal__title" id="modal-detail-title">开奖批次详情</span>
-      <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
-    </div>
-    <div class="adm-modal__body">
-      <div class="adm-form-item">
-        <label>批次编号</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-id" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>奖品级别</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-level" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>幸运数字</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-lucky" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>匹配人数</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-matched" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>状态</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-status" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>最近操作</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-time" readonly></div>
-      </div>
-      <div class="adm-form-item">
-        <label>快照 / 算法</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="d-snap" readonly></div>
-      </div>
-      <p class="adm-form-tip" id="d-log"></p>
-    </div>
-    <div class="adm-modal__foot">
-      <button class="adm-btn" type="button" data-close>关 闭</button>
-    </div>
-  </div>
-</div>
-
 <script>
   window.PAGE_META = {
-    id: "ADM-04",
+    id: "ADM-03",
     title: "抽奖管理",
     live: "yes",
-    note: "沿用去年「抽奖管理」，升级为 快照 / 预览匹配 / 复核 / 发布 / 撤回",
+    note: "录入 → 匹配确认 → 保存草稿 → 发布（发布后不可撤回）",
     fr: ["FR-015"],
     ac: ["AC-023 ~ AC-028"],
-    goal: "把开奖从去年的人工摸球，变成可自证的四步流转：冻结快照 → 录入号码并预览匹配 → 复核 → 发布（可撤回留痕）。",
+    goal: "录入幸运数字并校验：一至四等奖 5 位 00001–20000，五等奖 1 位 0–9；确认后展示匹配福卡，用户核对后保存为草稿；发布前可修改，发布后不可撤回并同步 H5 福卡与中奖公示。",
     states: [
-      "开奖前：未生成快照，录入按钮禁用，表格空态。",
-      "开奖中：草稿可编辑与复核；已复核可发布；发布需管理员二次确认。",
-      "已发布：客户 H5 可见；不可无痕修改，只能撤回（原因必填）并留痕。",
-      "五等奖：末位 1 位匹配；超额按卡号升序截取 2,000 条；不足允许补抽；无匹配需勾选「记录空开奖」。",
-      "异常：号码超出 00001–20000 拦截；快照与实时有效卡数不一致时阻止开奖（PRD）。"
+      "校验失败：幸运数字输入框下方红字提示，不能确认。",
+      "匹配列表：展示账套/福卡号/客户号/业务员号/手机号/发票号，支持分页。",
+      "保存草稿：状态为草稿，可在发布前修改或重新生成。",
+      "发布：二次确认并提示发布后不可撤回，发布后同步 H5。",
+      "五等奖超额：按卡号升序截取名额；命中不足不补抽，按实际数量发布。"
     ],
     notes: [
-      "快照不可变：生成后冻结全部 pending 且在有效期内的福卡（演示 18,500 张）；录入按钮仅在快照存在时可用。",
-      "一卡一奖、取最高（DEC-017）：已中奖（含待发布）的卡不参与后续匹配；本期以草稿 → 复核 → 发布 → 撤回流转，每次记录操作人、时间、算法版本与批次 ID。",
-      "互斥锁：同一奖级不允许两个批次同时处于「已复核」之后；发布需管理员二次确认。",
-      "发布后可撤回（原因必填）并留痕；本期不做审计导出（后续版本）。",
-      "表格沿用去年三列（编号 / 中奖级别 / 中奖人数），补幸运数字、状态、最近操作时间与行内流转操作。"
+      "一至四等奖按 5 位全匹配；五等奖按末位 1 位匹配。",
+      "确认开奖结果只保存为草稿，需在列表中点「发布」才同步 H5。",
+      "发布后不可撤回；如需修正只能下一次活动处理。",
+      "超额截取不改变福卡状态，未截取卡仍为待开奖/未中奖。"
     ],
     todo: [
-      "快照与实时有效卡数不一致的判定方式（PRD 要求阻止并重新生成）待开发确认。",
-      "补抽（匹配不足）与候补（名额空缺）都由人工确认，具体触发流程与剩余名额计算口径待运营确认。",
-      "审计清单导出 CSV/PDF 本期不做，列为后续版本。"
+      "匹配结果来源于快照；开发需按快照卡号匹配并返回上述字段。",
+      "发布通知邮件的发送时机与模板待确认。"
     ]
   };
-
-  window.DEMOS = [
-    { label: "添加抽奖结果", fn: function () { window.__draw.openAdd(); } },
-    { label: "五等奖末位 5（超额截取）", fn: function () { window.__draw.previewOver(); } },
-    { label: "五等奖末位 3（不足补抽）", fn: function () { window.__draw.previewShort(); } },
-    { label: "无匹配（需记录空开奖）", fn: function () { window.__draw.previewNone(); } },
-    { label: "号码越界 00000（AC-025）", fn: function () { window.__draw.outOfRange(); } },
-    { label: "发布二次确认", fn: function () { window.__draw.openPublish(); } },
-    { label: "撤回（原因必填）", fn: function () { window.__draw.openRevoke(); } },
-    { label: "生成快照", fn: function () { window.__draw.openSnap(); } },
-    { label: "重置为开奖前（无快照）", fn: function () { window.__draw.resetPreDraw(); } }
-  ];
-</script>
-<script>
-  Object.assign(window.PAGE_META, {
-  "api": [
-    {
-      "method": "POST",
-      "path": "/api/admin/draw/snapshot",
-      "desc": "生成不可变卡池快照：{snapshot_id, card_count, algorithm_version}"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/draw/preview",
-      "desc": "入参 {prize_level, lucky_number, snapshot_id}；出参 {matched_count, truncated, rows[]}"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/draw/publish",
-      "desc": "入参 {batch_id}；二次确认后发布，客户立即可见"
-    },
-    {
-      "method": "POST",
-      "path": "/api/admin/draw/revoke",
-      "desc": "撤回已发布批次：原因必填，留痕"
-    }
-  ],
-  "fields": [
-    "奖级：一等~五等；幸运数字：一~四等 5 位（00001–20000），五等奖末位 0–9",
-    "批次 ID/快照 ID/算法版本/操作人/时间/状态"
-  ],
-  "rules": [
-    "开奖前必须生成快照；与实时有效卡数不一致则阻止",
-    "一卡一奖、取最高；已中奖卡不参与后续匹配",
-    "五等奖 2,000 名：超出按卡号升序截取并告警；不足允许补抽",
-    "无匹配默认禁止确认，需勾选「记录空开奖」",
-    "状态机 draft → confirmed → published → revoked；同奖级互斥；发布后不可无痕修改"
-  ],
-  "permissions": [
-    "管理员：录入/复核/发布/撤回",
-    "运营：录入不可发布",
-    "只读：不可见"
-  ],
-  "events": [
-    "draw_publish（batch_id, prize_level, matched_count, truncated）"
-  ],
-  "devNotes": [
-    "快照不可变，需落库快照明细或哈希",
-    "算法版本写入批次；发布后客户可见，缓存需失效",
-    "本期不做审计导出（05 裁剪），如恢复需补 CSV/PDF"
-  ]
-});
 </script>
 <script src="../assets/js/legacy.js"></script>
 <script>
-  (function () {
-    "use strict";
-    var $ = U.$;
-    var $$ = U.$$;
+(function () {
+  var $ = U.$, $$ = U.$$;
+  var LEVELS = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
+  var QUOTA = { 1: 1, 2: 2, 3: 3, 4: 15, 5: 2000 };
+  var STATUS = { draft: "草稿", published: "已发布" };
+  var PAGE_SIZE = 10, page = 1;
 
-    var DEMO_NOW = "2027-02-10 10:12";
-    var LEVELS = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
-    var QUOTA = { 1: 1, 2: 2, 3: 3, 4: 5, 5: 2000 };
-    var STATUS = { draft: "草稿", confirmed: "已复核", published: "已发布", revoked: "已撤回" };
+  var state = {
+    rows: [
+      { id: "B20270210-01", level: 1, lucky: "12345", matched: 1, status: "published", time: "2027-02-10 10:05" },
+      { id: "B20270210-02", level: 2, lucky: "08812", matched: 2, status: "published", time: "2027-02-10 10:04" },
+      { id: "B20270210-03", level: 3, lucky: "03126", matched: 3, status: "draft", time: "2027-02-10 10:03" },
+      { id: "B20270210-04", level: 4, lucky: "07734", matched: 15, status: "draft", time: "2027-02-10 10:02" },
+      { id: "B20270210-05", level: 5, lucky: "5", matched: 2000, status: "draft", time: "2027-02-10 10:00" }
+    ],
+    all: null, page: 1, editId: null, match: null
+  };
+  state.all = state.rows.slice();
 
-    var SEED = [
-      { id: "B20270210-01", level: 1, lucky: "12345", matched: 1, note: "", status: "published", time: "2027-02-10 10:05" },
-      { id: "B20270210-02", level: 2, lucky: "08812", matched: 2, note: "", status: "published", time: "2027-02-10 10:04" },
-      { id: "B20270210-03", level: 3, lucky: "03126", matched: 3, note: "", status: "confirmed", time: "2027-02-10 10:03" },
-      { id: "B20270210-04", level: 4, lucky: "07734", matched: 5, note: "", status: "draft", time: "2027-02-10 10:02" },
-      { id: "B20270210-05", level: 5, lucky: "5", matched: 2000, note: "截取 2,150", status: "published", time: "2027-02-10 10:00" },
-      { id: "B20270209-01", level: 1, lucky: "00099", matched: 1, note: "", status: "revoked", time: "2027-02-09 17:20" },
-      { id: "B20270209-02", level: 2, lucky: "02222", matched: 2, note: "", status: "revoked", time: "2027-02-09 17:19" },
-      { id: "B20270209-03", level: 3, lucky: "03333", matched: 3, note: "", status: "revoked", time: "2027-02-09 17:18" },
-      { id: "B20270209-04", level: 4, lucky: "04444", matched: 5, note: "", status: "revoked", time: "2027-02-09 17:17" },
-      { id: "B20270209-05", level: 5, lucky: "7", matched: 2000, note: "截取 2,050", status: "revoked", time: "2027-02-09 17:16" },
-      { id: "B20270209-06", level: 3, lucky: "05120", matched: 3, note: "", status: "revoked", time: "2027-02-09 17:15" },
-      { id: "B20270209-07", level: 5, lucky: "1", matched: 980, note: "", status: "revoked", time: "2027-02-09 17:14" }
-    ];
+  var SNAP = { id: "S20270210-01", count: 8420 };
 
-    var state = {
-      master: SEED.slice(),
-      rows: SEED.slice(),
-      page: 1,
-      pageSize: 10,
-      filtered: false,
-      snap: { id: "SNAP-20270210-01", time: "2027-02-10 09:30", count: 18500 },
-      snapSeq: 1,
-      seq: 12,
-      editId: null,
-      actionId: null,
-      preview: null
-    };
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  function luckyText(r) { return r.level === 5 ? "末位 " + r.lucky : r.lucky; }
 
-    function fmt(n) { return Number(n).toLocaleString("en-US"); }
-    function find(id) {
-      for (var i = 0; i < state.master.length; i++) if (state.master[i].id === id) return state.master[i];
-      return null;
-    }
-    function luckyText(r) {
-      return r.level === 5 ? "末位 " + r.lucky : r.lucky;
-    }
+  function renderSnap() {
+    $("#snap-id").textContent = SNAP.id;
+    $("#snap-count").textContent = fmt(SNAP.count);
+  }
 
-    /* ---------------- 快照 ---------------- */
-    function renderSnap() {
-      var bar = $("#snap-bar");
-      var idEl = $("#snap-id");
-      var badge = $("#snap-badge");
-      var addBtn = $("#btn-add");
-      if (state.snap) {
-        bar.classList.remove("draw-snap--empty");
-        idEl.className = "draw-snap__id";
-        idEl.textContent = state.snap.id;
-        $("#snap-time").textContent = state.snap.time;
-        $("#snap-count").textContent = fmt(state.snap.count) + " 张";
-        badge.hidden = false;
-        addBtn.disabled = false;
-      } else {
-        bar.classList.add("draw-snap--empty");
-        idEl.className = "draw-snap__id draw-snap__id--empty";
-        idEl.textContent = "尚未生成";
-        $("#snap-time").textContent = "—";
-        $("#snap-count").textContent = "—";
-        badge.hidden = true;
-        addBtn.disabled = true;
-      }
-    }
+  function pageRows() {
+    var start = (state.page - 1) * PAGE_SIZE;
+    return state.all.slice(start, start + PAGE_SIZE);
+  }
 
-    function openSnap() {
-      $("#snap-current").value = state.snap
-        ? state.snap.id + " · " + state.snap.time + " · " + fmt(state.snap.count) + " 张"
-        : "尚未生成";
-      $("#snap-new-count").value = state.snap ? "18,472 张 pending 福卡（重新冻结）" : "18,500 张 pending 福卡（不可变）";
-      $("#snap-note").textContent = state.snap
-        ? "重新生成将产生新快照编号 " + nextSnapId() + "；生产环境需先撤回已发布批次（AC-028），本原型仅演示生成动作。"
-        : "生成后编号 SNAP-20270210-01，并解锁「添加抽奖结果」；未生成快照时录入按钮禁用。";
-      $("#btn-snap-ok").disabled = false;
-      $("#btn-snap-ok").textContent = "生成快照";
-      openModal("modal-snap");
-    }
-    function nextSnapId() {
-      return "SNAP-20270210-" + ("0" + (state.snapSeq + 1)).slice(-2);
-    }
-    function generateSnap() {
-      var btn = $("#btn-snap-ok");
-      if (btn.disabled) return;
-      btn.disabled = true;
-      btn.textContent = "生成中…";
-      setTimeout(function () {
-        state.snapSeq += 1;
-        state.snap = {
-          id: "SNAP-20270210-" + ("0" + state.snapSeq).slice(-2),
-          time: DEMO_NOW,
-          count: state.snapSeq === 1 ? 18500 : 18472
-        };
-        btn.disabled = false;
-        btn.textContent = "生成快照";
-        closeModal($("#modal-snap"));
-        render();
-        U.toast("已生成快照 " + state.snap.id + "（" + fmt(state.snap.count) + " 张，算法 v2027.1）；快照不可变");
-      }, 600);
-    }
-
-    /* ---------------- 表格 ---------------- */
-    function pageRows() {
-      var start = (state.page - 1) * state.pageSize;
-      return state.rows.slice(start, start + state.pageSize);
-    }
-
-    function opsHtml(r) {
-      var out = [];
+  function render() {
+    renderSnap();
+    $("#rows").innerHTML = pageRows().map(function (r) {
+      var ops = '<button type="button" data-act="view" data-id="' + r.id + '">查看</button>';
       if (r.status === "draft") {
-        out.push('<button type="button" data-act="edit" data-id="' + r.id + '">录入/预览</button>');
-        out.push('<button type="button" data-act="review" data-id="' + r.id + '">复核</button>');
+        ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button>' +
+              '<button type="button" data-act="publish" data-id="' + r.id + '">发布</button>' + ops;
       }
-      if (r.status === "confirmed") {
-        out.push('<button type="button" data-act="publish" data-id="' + r.id + '">发布</button>');
-      }
-      if (r.status === "published") {
-        out.push('<button type="button" data-act="revoke" data-id="' + r.id + '">撤回</button>');
-      }
-      out.push('<button type="button" data-act="detail" data-id="' + r.id + '">查看</button>');
-      return '<td><span class="adm-table__op">' + out.join("") + "</span></td>";
-    }
+      return "<tr>" +
+        '<td class="num">' + r.id + "</td>" +
+        '<td><span class="adm-source">' + LEVELS[r.level] + "</span></td>" +
+        '<td class="num">' + luckyText(r) + "</td>" +
+        '<td class="num">' + fmt(r.matched) + "</td>" +
+        '<td><span class="adm-status draw-st--' + r.status + '">' + STATUS[r.status] + "</span></td>" +
+        '<td class="nowrap muted">' + r.time + "</td>" +
+        '<td><span class="adm-table__op">' + ops + "</span></td>" +
+        "</tr>";
+    }).join("");
+    var pages = Math.max(1, Math.ceil(state.all.length / PAGE_SIZE));
+    if (state.page > pages) state.page = pages;
+    $("#pager").innerHTML =
+      '<span class="adm-pager__total">共 ' + state.all.length + " 条</span>" +
+      '<button type="button" ' + (state.page <= 1 ? "disabled" : "") + ' data-page="' + (state.page - 1) + '">‹</button>' +
+      Array.from({ length: pages }, function (_, i) { return i + 1; }).map(function (n) {
+        return '<button type="button" class="' + (n === state.page ? "is-active" : "") + '" data-page="' + n + '">' + n + "</button>";
+      }).join("") +
+      '<button type="button" ' + (state.page >= pages ? "disabled" : "") + ' data-page="' + (state.page + 1) + '">›</button>' +
+      '<select aria-label="每页条数"><option>10 条/页</option><option>20 条/页</option><option>50 条/页</option></select>';
+    bindOps();
+  }
 
-    function render() {
-      renderSnap();
-      var tb = $("#rows");
-      if (!state.rows.length) {
-        var msg = state.snap ? "暂无开奖批次，点击「添加抽奖结果」录入" : "尚未生成卡池快照，生成后可录入开奖结果";
-        tb.innerHTML = '<tr><td colspan="7"><div class="adm-empty"><div class="adm-empty__ico">—</div>' + msg + "</div></td></tr>";
-      } else {
-        tb.innerHTML = pageRows().map(function (r) {
-          return "<tr>" +
-            '<td class="num">' + r.id + "</td>" +
-            '<td><span class="adm-source">' + LEVELS[r.level] + "</span></td>" +
-            '<td class="num">' + r.lucky + (r.level === 5 ? '<span class="draw-sub">（末位）</span>' : "") + "</td>" +
-            '<td class="num">' + fmt(r.matched) + (r.note ? '<span class="draw-sub">（' + r.note + "）</span>" : "") + "</td>" +
-            '<td><span class="adm-status draw-st--' + r.status + '">' + STATUS[r.status] + "</span></td>" +
-            '<td class="nowrap muted">' + r.time + "</td>" +
-            opsHtml(r) +
-            "</tr>";
-        }).join("");
-      }
-      renderPager();
-    }
+  function bindOps() {
+    $$("[data-page]").forEach(function (b) { b.onclick = function () { state.page = Number(b.getAttribute("data-page")); render(); }; });
+    $$("[data-act]").forEach(function (b) {
+      var act = b.getAttribute("data-act"), id = b.getAttribute("data-id");
+      b.onclick = function () {
+        if (act === "edit") openAdd(id);
+        if (act === "publish") openPublish(id);
+        if (act === "view") { var r = find(id); U.toast(LEVELS[r.level] + " · " + luckyText(r) + " · 命中 " + fmt(r.matched) + " 条（演示查看）"); }
+      };
+    });
+    $("#pager select").onchange = function () { PAGE_SIZE = parseInt(this.value, 10) || 10; state.page = 1; render(); };
+  }
 
-    function renderPager() {
-      var total = state.rows.length;
-      var pages = Math.max(1, Math.ceil(total / state.pageSize));
-      if (state.page > pages) state.page = pages;
-      $("#pager-total").textContent = "共 " + fmt(total) + " 条";
-      var html = "";
-      for (var i = 1; i <= pages; i++) {
-        html += '<button type="button" data-page="' + i + '"' + (i === state.page ? ' class="is-active"' : "") + ">" + i + "</button>";
-      }
-      $("#pg-nums").innerHTML = html;
-      $("#pg-prev").disabled = state.page <= 1;
-      $("#pg-next").disabled = state.page >= pages;
-    }
+  function find(id) { return state.all.find(function (r) { return r.id === id; }); }
 
-    function filter() {
-      var batch = $("#f-batch").value.trim().toLowerCase();
-      var level = $("#f-level").value;
-      var status = $("#f-status").value;
-      var lucky = $("#f-lucky").value.trim();
-      state.rows = state.master.filter(function (r) {
-        return (!batch || r.id.toLowerCase().indexOf(batch) >= 0) &&
-          (!level || String(r.level) === level) &&
-          (!status || r.status === status) &&
-          (!lucky || r.lucky.indexOf(lucky) >= 0);
-      });
-      state.filtered = true;
-      state.page = 1;
-      render();
-      U.toast("查询完成，共 " + state.rows.length + " 条（演示数据）");
-    }
+  function openModal(id) { var m = document.getElementById(id); m.classList.add("is-open"); m.setAttribute("aria-hidden", "false"); }
+  function closeModal(m) { m.classList.remove("is-open"); m.setAttribute("aria-hidden", "true"); }
+  $$("[data-close]").forEach(function (b) { b.onclick = function () { closeModal(b.closest(".adm-modal")); }; });
 
-    function resetFilter() {
-      $("#filters").reset();
-      state.rows = state.master.slice();
-      state.filtered = false;
-      state.page = 1;
-      render();
-      U.toast("已重置筛选");
-    }
+  function clearErrors() { $("#item-level").classList.remove("is-error"); $("#item-num").classList.remove("is-error"); }
+  function updateTip() {
+    var lv = parseInt($("#r-level").value, 10);
+    if (lv === 5) { $("#r-num").setAttribute("maxlength", "1"); $("#num-tip").textContent = "五等奖：请输入 0–9 的一位数字"; }
+    else { $("#r-num").setAttribute("maxlength", "5"); $("#num-tip").textContent = "一至四等奖：请输入 00001–20000 之间的 5 位数字"; }
+  }
 
-    /* ---------------- 状态流转 ---------------- */
-    function review(id) {
+  function openAdd(id) {
+    state.editId = id || null;
+    clearErrors();
+    $("#r-level").value = "";
+    $("#r-num").value = "";
+    updateTip();
+    $("#modal-result-title").textContent = id ? "编辑抽奖结果 · " + id : "添加抽奖结果";
+    if (id) {
       var r = find(id);
-      if (!r || r.status !== "draft") return;
-      r.status = "confirmed";
-      r.time = DEMO_NOW;
-      render();
-      U.toast("已复核 " + id + "（复核人：管理员 A；算法 v2027.1，等待发布）");
-    }
-
-    function openPublish(id) {
-      var r = id ? find(id) : firstByStatus("confirmed");
-      if (!r) { U.toast("当前没有「已复核」的批次可发布"); return; }
-      state.actionId = r.id;
-      $("#p-id").value = r.id;
-      $("#p-level").value = LEVELS[r.level];
-      $("#p-lucky").value = luckyText(r);
-      $("#p-matched").value = fmt(r.matched) + (r.note ? "（" + r.note + "）" : "") + " 条";
-      openModal("modal-publish");
-    }
-
-    function openRevoke(id) {
-      var r = id ? find(id) : firstByStatus("published");
-      if (!r) { U.toast("当前没有「已发布」的批次可撤回"); return; }
-      state.actionId = r.id;
-      $("#v-id").value = r.id;
-      $("#v-summary").value = LEVELS[r.level] + " · 幸运数字 " + luckyText(r) + " · 命中 " + fmt(r.matched) + " 条";
-      $("#revoke-reason").value = "";
-      $("#item-revoke-reason").classList.remove("is-error");
-      openModal("modal-revoke");
-    }
-
-    function firstByStatus(st) {
-      for (var i = 0; i < state.master.length; i++) if (state.master[i].status === st) return state.master[i];
-      return null;
-    }
-
-    /* ---------------- 录入 / 预览 ---------------- */
-    function openAdd() {
-      if (!state.snap) { U.toast("请先生成卡池快照，再录入开奖结果"); return; }
-      state.editId = null;
-      state.preview = null;
-      $("#modal-result-title").textContent = "添加抽奖结果";
-      $("#r-level").value = "";
-      $("#r-num").value = "";
-      clearFormErrors();
-      hidePreview();
-      updateDigitTip();
-      openModal("modal-result");
-    }
-
-    function openEdit(id) {
-      var r = find(id);
-      if (!r || r.status !== "draft") return;
-      state.editId = r.id;
-      state.preview = null;
-      $("#modal-result-title").textContent = "编辑开奖草稿 · " + r.id;
       $("#r-level").value = String(r.level);
       $("#r-num").value = r.lucky;
-      clearFormErrors();
-      hidePreview();
-      updateDigitTip();
-      openModal("modal-result");
+      updateTip();
     }
+    openModal("modal-result");
+  }
 
-    function updateDigitTip() {
-      var level = parseInt($("#r-level").value, 10);
-      var tip = $("#num-tip");
-      var quota = $("#quota-tip");
-      if (!level) {
-        tip.textContent = "一至四等奖：5 位（00001–20000）；五等奖：末位 1 位（0–9）";
-        quota.textContent = "请选择奖品级别后查看本期名额。";
-        $("#r-num").setAttribute("maxlength", "5");
-        return;
-      }
-      if (level === 5) {
-        tip.textContent = "五等奖按末位 1 位匹配：请输入 0–9 的一位数字。";
-        quota.textContent = "本期名额：五等奖 2,000 名（满额截止；超额按卡号升序截取，不足允许补抽）。";
-        $("#r-num").setAttribute("maxlength", "1");
-      } else {
-        tip.textContent = "一至四等奖 5 位全匹配：输入 00001–20000 的五位数字。";
-        quota.textContent = "本期名额：" + LEVELS[level] + " " + fmt(QUOTA[level]) + " 名（5 位全匹配）。";
-        $("#r-num").setAttribute("maxlength", "5");
-      }
+  function validate() {
+    clearErrors();
+    var lv = parseInt($("#r-level").value, 10);
+    var num = $("#r-num").value.trim();
+    if (!lv) { $("#item-level").classList.add("is-error"); return null; }
+    var err = "";
+    if (lv === 5) {
+      if (!/^\d$/.test(num)) err = "请输入 0–9 的一位数字";
+    } else {
+      if (!/^\d{5}$/.test(num)) err = "请输入 00001–20000 之间位数为 5 位的数字";
+      else { var n = parseInt(num, 10); if (n < 1 || n > 20000) err = "请输入 00001–20000 之间位数为 5 位的数字"; }
     }
-
-    function numError(level, num) {
-      if (level === 5) {
-        if (!/^\d$/.test(num)) return "请输入 0–9 的一位数字";
-        return "";
-      }
-      if (!/^\d{5}$/.test(num)) return "请输入 5 位幸运数字（00001–20000）";
-      var n = parseInt(num, 10);
-      if (n < 1 || n > 20000) return "号码超出范围（00001–20000）";
-      return "";
+    if (err) {
+      $("#err-num").textContent = err;
+      $("#item-num").classList.add("is-error");
+      return null;
     }
+    return { level: lv, num: num };
+  }
 
-    /* 演示用命中数：一至四等奖为「卡号=号码」的命中，五等奖按末位 */
-    var MATCH5 = { "12345": 1, "08812": 2, "03126": 3, "07734": 5, "10388": 3, "14420": 5, "00231": 1, "05120": 3, "19002": 0, "19999": 0, "00099": 1, "02222": 2, "03333": 3, "04444": 5 };
-    var MATCH_LAST = { "0": 2000, "1": 980, "2": 1680, "3": 1200, "4": 2210, "5": 2150, "6": 760, "7": 2050, "8": 1876, "9": 1345 };
-
-    function matchCount(level, num) {
-      if (level === 5) return MATCH_LAST[num.slice(-1)];
-      if (MATCH5[num] !== undefined) return MATCH5[num];
-      var sum = 0;
-      for (var i = 0; i < num.length; i++) sum += parseInt(num.charAt(i), 10);
-      return (sum % QUOTA[level]) + 1;
-    }
-
-    function clearFormErrors() {
-      $$("#modal-result .adm-form-item").forEach(function (f) { f.classList.remove("is-error"); });
-      $("#item-empty").hidden = true;
-      $("#r-empty").checked = false;
-    }
-    function hidePreview() {
-      state.preview = null;
-      $("#preview").hidden = true;
-      $("#item-empty").hidden = true;
-      $("#r-empty").checked = false;
-      $("#preview-alert").className = "adm-alert";
-    }
-
-    function runPreview() {
-      $("#item-level").classList.remove("is-error");
-      $("#item-num").classList.remove("is-error");
-      var level = parseInt($("#r-level").value, 10);
-      if (!level) {
-        $("#item-level").classList.add("is-error");
-        U.toast("请选择奖品级别");
-        return;
-      }
-      var num = $("#r-num").value.trim();
-      var err = numError(level, num);
-      if (err) {
-        $("#err-num").textContent = err;
-        $("#item-num").classList.add("is-error");
-        hidePreview();
-        U.toast(err);
-        return;
-      }
-      $("#item-num").classList.remove("is-error");
-      var count = matchCount(level, num);
-      var quota = QUOTA[level];
-      var type = count === 0 ? "none" : (count > quota ? "over" : (count < quota ? "short" : "ok"));
-      state.preview = { level: level, num: num, count: count, quota: quota, type: type, truncated: Math.min(count, quota) };
-      showPreview(state.preview);
-    }
-
-    function showPreview(p) {
-      var alert = $("#preview-alert");
-      var ico = $("#preview-ico");
-      var text = $("#preview-text");
-      var name = LEVELS[p.level];
-      var all = p.level === 5 ? "末位 " + p.num + " 的福卡" : "卡号 " + p.num + " 的福卡";
-      alert.className = "adm-alert" + (p.type === "ok" ? "" : " adm-alert--warn");
-      ico.textContent = p.type === "ok" ? "✓" : "!";
-      if (p.type === "ok") {
-        text.textContent = "命中 " + fmt(p.count) + " 张（" + all + "）；" + name + "名额 " + fmt(p.quota) + " 名，匹配数一致，可保存草稿。";
-      } else if (p.type === "over") {
-        text.textContent = "命中 " + fmt(p.count) + " 张（" + all + "），超过" + name + "名额 " + fmt(p.quota) + " 名；将按卡号升序截取 " + fmt(p.quota) + " 条（超额 " + fmt(p.count - p.quota) + " 条，AC-026）。";
-      } else if (p.type === "short") {
-        text.textContent = "命中 " + fmt(p.count) + " 张（" + all + "），少于" + name + "名额 " + fmt(p.quota) + " 名；允许补抽，并记录首轮不足（AC-027）。";
-      } else {
-        text.textContent = "无匹配福卡（0 张）。默认禁止确认，需勾选「记录空开奖」留痕（FR-015 规则 6）。";
-      }
-      $("#item-empty").hidden = p.type !== "none";
-      $("#preview").hidden = false;
-    }
-
-    function saveResult() {
-      $("#item-level").classList.remove("is-error");
-      $("#item-num").classList.remove("is-error");
-      var level = parseInt($("#r-level").value, 10);
-      if (!level) {
-        $("#item-level").classList.add("is-error");
-        U.toast("请选择奖品级别");
-        return;
-      }
-      var num = $("#r-num").value.trim();
-      var err = numError(level, num);
-      if (err) {
-        $("#err-num").textContent = err;
-        $("#item-num").classList.add("is-error");
-        U.toast(err);
-        return;
-      }
-      if (!state.preview || state.preview.level !== level || state.preview.num !== num) {
-        U.toast("请先点击「预览匹配」查看命中数");
-        return;
-      }
-      if (state.preview.type === "none" && !$("#r-empty").checked) {
-        $("#item-empty").hidden = false;
-        $("#item-empty").classList.add("is-error");
-        U.toast("无匹配：请先勾选「记录空开奖」");
-        return;
-      }
-      var p = state.preview;
-      var note = "";
-      var matched = p.count;
-      if (p.type === "over") {
-        matched = p.quota;
-        note = "截取 " + fmt(p.count);
-      } else if (p.type === "short") {
-        note = "补抽 " + fmt(p.quota - p.count);
-      } else if (p.type === "none") {
-        note = "空开奖";
-      }
-      if (state.editId) {
-        var row = find(state.editId);
-        if (row) {
-          row.level = level;
-          row.lucky = num;
-          row.matched = matched;
-          row.note = note;
-          row.time = DEMO_NOW;
-        }
-        closeModal($("#modal-result"));
-        render();
-        U.toast("已更新草稿 " + state.editId + "（演示）");
-        return;
-      }
-      state.seq += 1;
-      state.master.unshift({
-        id: "B20270210-" + ("0" + state.seq).slice(-2),
-        level: level,
-        lucky: num,
-        matched: matched,
-        note: note,
-        status: "draft",
-        time: DEMO_NOW
+  function buildMatches(level, num, overrideCount) {
+    var count = overrideCount != null ? overrideCount : (level === 5 ? 2000 : QUOTA[level]);
+    var rows = [];
+    for (var i = 0; i < count; i++) {
+      rows.push({
+        account: "ES0" + (1 + (i % 3)),
+        card: String(3000 + i).padStart(5, "0"),
+        cif: "1000" + String(1600 + i).slice(-4) + "A" + (i % 10),
+        sales: String(5000 + (i % 40)),
+        phone: "6" + String(00000000 + i * 137).padStart(8, "0").slice(0, 8),
+        invoice: "ES2500" + String(1000 + i).slice(-4)
       });
-      state.rows = state.master.slice();
-      state.filtered = false;
-      state.page = 1;
-      $("#filters").reset();
-      closeModal($("#modal-result"));
-      render();
-      var msg = "命中 " + fmt(p.count) + " 条";
-      if (p.type === "over") msg = "命中 " + fmt(p.count) + " 条，按卡号升序截取 " + fmt(p.quota) + " 条";
-      if (p.type === "short") msg = "命中 " + fmt(p.count) + " 条，允许补抽（首轮不足）";
-      if (p.type === "none") msg = "记录空开奖（留痕）";
-      U.toast("已保存为草稿：" + LEVELS[level] + " · " + luckyText({ level: level, lucky: num }) + "，" + msg + "（演示）");
     }
+    return rows;
+  }
 
-    /* ---------------- 详情 ---------------- */
-    function openDetail(id) {
-      var r = find(id);
-      if (!r) return;
-      $("#d-id").value = r.id;
-      $("#d-level").value = LEVELS[r.level];
-      $("#d-lucky").value = r.level === 5 ? r.lucky + "（末位 1 位匹配）" : r.lucky;
-      $("#d-matched").value = fmt(r.matched) + (r.note ? "（" + r.note + "）" : "") + " 条";
-      $("#d-status").value = STATUS[r.status];
-      $("#d-time").value = r.time;
-      $("#d-snap").value = (state.snap ? state.snap.id : "SNAP-20270210-01") + " · v2027.1";
-      var log = {
-        draft: "保存草稿（管理员 A，" + r.time + "）",
-        confirmed: "保存草稿 → 复核（管理员 A，" + r.time + "）",
-        published: "保存草稿 → 复核 → 发布（管理员 A，" + r.time + "）",
-        revoked: "保存草稿 → 复核 → 发布 → 撤回（管理员 A，" + r.time + "；原因见撤回记录）"
-      };
-      $("#d-log").textContent = "操作记录：" + (log[r.status] || "—") + "；每次流转记录操作人、时间、算法版本与批次 ID。";
-      openModal("modal-detail");
+  var matchPage = 1, matchSize = 10;
+
+  $("#btn-confirm").onclick = function () {
+    var v = validate();
+    if (!v) return;
+    var quota = QUOTA[v.level];
+    var count = v.level === 5 ? 2000 : quota;
+    state.match = { level: v.level, num: v.num, rows: buildMatches(v.level, v.num, count), truncated: 0 };
+    closeModal(document.getElementById("modal-result"));
+    $("#match-summary").innerHTML = "幸运数字：<b>" + (v.level === 5 ? "末位 " + v.num : v.num) + "</b>　奖品级别：<b>" + LEVELS[v.level] + "</b>　命中：<b>" + fmt(count) + "</b> 条";
+    if (v.level === 5) {
+      $("#match-summary").innerHTML += "　<span class='muted'>超额按卡号升序截取 2,000 条</span>";
     }
+    matchPage = 1; matchSize = 10;
+    $("#match-size").value = "10";
+    renderMatch();
+    openModal("modal-match");
+  };
 
-    /* ---------------- 弹窗基础 ---------------- */
-    function openModal(id) {
-      var m = document.getElementById(id);
-      m.classList.add("is-open");
-      m.setAttribute("aria-hidden", "false");
+  function renderMatch() {
+    var rows = state.match.rows;
+    var total = rows.length, pages = Math.max(1, Math.ceil(total / matchSize));
+    if (matchPage > pages) matchPage = pages;
+    var start = (matchPage - 1) * matchSize;
+    $("#match-rows").innerHTML = rows.slice(start, start + matchSize).map(function (r) {
+      return "<tr><td>" + r.account + "</td><td class='num'>" + r.card + "</td><td class='num'>" + r.cif + "</td><td class='num'>" + r.sales + "</td><td class='num'>" + r.phone + "</td><td class='num'>" + r.invoice + "</td></tr>";
+    }).join("");
+    $("#match-total").textContent = "共 " + fmt(total) + " 条";
+    $("#match-page-btns").innerHTML = Array.from({ length: Math.min(5, pages) }, function (_, i) { return i + 1; }).map(function (n) {
+      return '<button type="button" class="' + (n === matchPage ? "is-active" : "") + '" data-mpage="' + n + '">' + n + "</button>";
+    }).join("");
+    $$("[data-mpage]").forEach(function (b) { b.onclick = function () { matchPage = Number(b.getAttribute("data-mpage")); renderMatch(); }; });
+    $("#match-prev").onclick = function () { if (matchPage > 1) { matchPage--; renderMatch(); } };
+    $("#match-next").onclick = function () { if (matchPage < pages) { matchPage++; renderMatch(); } };
+    $("#match-size").onchange = function () { matchSize = parseInt(this.value, 10) || 10; matchPage = 1; renderMatch(); };
+  }
+
+  $("#btn-regenerate").onclick = function () {
+    closeModal(document.getElementById("modal-match"));
+    openAdd(state.editId);
+  };
+
+  $("#btn-save-result").onclick = function () {
+    var m = state.match;
+    var id = state.editId || ("B20270210-" + String(state.all.length + 1).padStart(2, "0"));
+    var row = { id: id, level: m.level, lucky: m.num, matched: m.rows.length, status: "draft", time: "2027-02-10 10:0" + (state.all.length % 10) };
+    if (state.editId) {
+      var idx = state.all.findIndex(function (x) { return x.id === state.editId; });
+      if (idx >= 0) state.all[idx] = row;
+    } else {
+      state.all.unshift(row);
     }
-    function closeModal(m) {
-      if (!m) return;
-      m.classList.remove("is-open");
-      m.setAttribute("aria-hidden", "true");
-    }
-
-    /* ---------------- 事件绑定 ---------------- */
-    $$("[data-close]").forEach(function (b) {
-      b.addEventListener("click", function () { closeModal(b.closest(".adm-modal")); });
-    });
-
-    $("#btn-add").addEventListener("click", openAdd);
-    $("#btn-snapshot").addEventListener("click", openSnap);
-    $("#btn-snap-ok").addEventListener("click", generateSnap);
-    $("#btn-preview").addEventListener("click", runPreview);
-    $("#btn-result-ok").addEventListener("click", saveResult);
-    $("#btn-search").addEventListener("click", filter);
-    $("#btn-reset").addEventListener("click", resetFilter);
-    $("#btn-audit").addEventListener("click", function () {
-      U.toast("审计清单导出（CSV / PDF）本期不做，为后续版本");
-    });
-    $("#btn-publish-ok").addEventListener("click", function () {
-      var r = find(state.actionId);
-      if (!r) return;
-      r.status = "published";
-      r.time = DEMO_NOW;
-      closeModal($("#modal-publish"));
-      render();
-      U.toast("已发布 " + r.id + "：" + LEVELS[r.level] + " · 幸运数字 " + luckyText(r) + "，客户可在 H5 查询（演示）");
-    });
-    $("#btn-revoke-ok").addEventListener("click", function () {
-      var ta = $("#revoke-reason");
-      if (!ta.value.trim()) {
-        $("#item-revoke-reason").classList.add("is-error");
-        return;
-      }
-      var r = find(state.actionId);
-      if (!r) return;
-      var reason = ta.value.trim();
-      r.status = "revoked";
-      r.time = DEMO_NOW;
-      closeModal($("#modal-revoke"));
-      render();
-      U.toast("已撤回 " + r.id + "（原因：" + reason + "）；留痕并通知客户（演示）");
-    });
-
-    $("#r-level").addEventListener("change", function () {
-      hidePreview();
-      $("#item-num").classList.remove("is-error");
-      updateDigitTip();
-    });
-    $("#r-num").addEventListener("input", function () {
-      hidePreview();
-      $("#item-num").classList.remove("is-error");
-    });
-
-    $("#rows").addEventListener("click", function (e) {
-      var b = e.target.closest ? e.target.closest("button[data-act]") : null;
-      if (!b) return;
-      var id = b.getAttribute("data-id");
-      var act = b.getAttribute("data-act");
-      if (act === "edit") openEdit(id);
-      else if (act === "review") review(id);
-      else if (act === "publish") openPublish(id);
-      else if (act === "revoke") openRevoke(id);
-      else if (act === "detail") openDetail(id);
-    });
-
-    $("#pg-nums").addEventListener("click", function (e) {
-      var b = e.target.closest ? e.target.closest("button[data-page]") : null;
-      if (!b) return;
-      state.page = parseInt(b.getAttribute("data-page"), 10);
-      render();
-    });
-    $("#pg-prev").addEventListener("click", function () {
-      if (state.page > 1) { state.page -= 1; render(); }
-    });
-    $("#pg-next").addEventListener("click", function () {
-      var pages = Math.max(1, Math.ceil(state.rows.length / state.pageSize));
-      if (state.page < pages) { state.page += 1; render(); }
-    });
-    $("#pg-size").addEventListener("change", function () {
-      state.pageSize = parseInt(this.value, 10) || 10;
-      state.page = 1;
-      render();
-    });
-
-    U.$$(".adm-menu a[href]").forEach(function (a) {
-      a.addEventListener("click", function (e) {
-        if (a.getAttribute("href") === "draw.html") e.preventDefault();
-      });
-    });
-
-    /* ---------------- 演示 ---------------- */
-    function allCheckedSeed() { return firstByStatus("confirmed"); }
-
-    window.__draw = {
-      openAdd: openAdd,
-      previewOver: function () {
-        if (!state.snap) { U.toast("请先生成快照"); return; }
-        openAdd();
-        $("#r-level").value = "5";
-        updateDigitTip();
-        $("#r-num").value = "5";
-        runPreview();
-      },
-      previewShort: function () {
-        if (!state.snap) { U.toast("请先生成快照"); return; }
-        openAdd();
-        $("#r-level").value = "5";
-        updateDigitTip();
-        $("#r-num").value = "3";
-        runPreview();
-      },
-      previewNone: function () {
-        if (!state.snap) { U.toast("请先生成快照"); return; }
-        openAdd();
-        $("#r-level").value = "4";
-        updateDigitTip();
-        $("#r-num").value = "19999";
-        runPreview();
-      },
-      outOfRange: function () {
-        if (!state.snap) { U.toast("请先生成快照"); return; }
-        openAdd();
-        $("#r-level").value = "1";
-        updateDigitTip();
-        $("#r-num").value = "00000";
-        runPreview();
-      },
-      openPublish: function () { openPublish(allCheckedSeed() ? allCheckedSeed().id : null); },
-      openRevoke: function () { openRevoke(null); },
-      openSnap: openSnap,
-      resetPreDraw: function () {
-        state.master = [];
-        state.rows = [];
-        state.snap = null;
-        state.snapSeq = 0;
-        state.page = 1;
-        state.filtered = false;
-        $("#filters").reset();
-        render();
-        U.toast("已切到开奖前：未生成快照，录入按钮禁用（演示）");
-      }
-    };
-
+    closeModal(document.getElementById("modal-match"));
     render();
-  })();
+    U.toast("已保存为草稿，发布前可修改");
+  };
+
+  function openPublish(id) {
+    var r = find(id);
+    state.publishId = id;
+    $("#publish-summary").innerHTML = "批次号：<b>" + r.id + "</b>　奖品级别：<b>" + LEVELS[r.level] + "</b>　幸运数字：<b>" + luckyText(r) + "</b>　命中：<b>" + fmt(r.matched) + "</b> 条";
+    openModal("modal-publish");
+  }
+
+  $("#btn-publish-ok").onclick = function () {
+    var r = find(state.publishId);
+    if (r) { r.status = "published"; r.time = "2027-02-10 10:10"; }
+    closeModal(document.getElementById("modal-publish"));
+    render();
+    U.toast("已发布：已同步 H5 福卡状态与中奖公示");
+  };
+
+  $("#btn-snapshot").onclick = function () {
+    var btn = this; btn.disabled = true;
+    setTimeout(function () {
+      btn.disabled = false;
+      SNAP = { id: "S20270210-02", count: 8420 };
+      renderSnap();
+      U.toast("已重新生成卡池快照（演示）");
+    }, 500);
+  };
+
+  $("#btn-search").onclick = function () {
+    var batch = $("#f-batch").value.trim(), level = $("#f-level").value, st = $("#f-status").value, lucky = $("#f-lucky").value.trim();
+    state.all = state.rows.filter(function (r) {
+      return (!batch || r.id.indexOf(batch) >= 0) && (!level || String(r.level) === level) && (!st || r.status === st) && (!lucky || r.lucky.indexOf(lucky) >= 0);
+    });
+    state.page = 1; render();
+  };
+  $("#btn-reset").onclick = function () { $("#filters").reset(); state.all = state.rows.slice(); state.page = 1; render(); };
+  $("#btn-export").onclick = function () { U.toast("导出抽奖结果与审计清单（演示）"); };
+
+  window.DEMOS = [
+    { label: "添加一等奖结果", fn: function () { openAdd(); $("#r-level").value = "1"; $("#r-num").value = "12345"; updateTip(); } },
+    { label: "添加四等奖结果（15 条）", fn: function () { openAdd(); $("#r-level").value = "4"; $("#r-num").value = "07734"; updateTip(); } },
+    { label: "五等奖超额示例", fn: function () { openAdd(); $("#r-level").value = "5"; $("#r-num").value = "4"; updateTip(); } },
+    { label: "编辑草稿", fn: function () { openAdd("B20270210-03"); } },
+    { label: "发布确认", fn: function () { openPublish("B20270210-03"); } }
+  ];
+
+  render();
+})();
 </script>
 </body>
 </html>

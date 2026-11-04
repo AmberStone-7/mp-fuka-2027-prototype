@@ -87,13 +87,13 @@
       <input class="adm-input" id="f-invoice" placeholder="请输入发票号" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-source">来源</label>
+      <label for="f-source">福卡类型</label>
       <select class="adm-select" id="f-source">
-        <option value="">全部来源</option>
-        <option value="order">订单</option>
-        <option value="new">新客奖励</option>
-        <option value="invite">邀请奖励</option>
-        <option value="official">官方码</option>
+        <option value="">全部类型</option>
+        <option value="order">订单福卡</option>
+        <option value="new">新客福卡</option>
+        <option value="invite">邀请福卡</option>
+        <option value="official">官方福卡</option>
       </select>
     </div>
     <div class="adm-field">
@@ -126,23 +126,16 @@
     <button class="adm-btn adm-btn--primary adm-btn__right" id="btn-add" type="button" style="margin-left:auto">添加福卡</button>
   </div>
 
-  <div class="adm-pool" id="pool">
-    <span class="adm-pool__item">号码池<b>00001 – 20000</b></span>
-    <span class="adm-pool__item">已发<b id="pool-used">8,420</b></span>
-    <span class="adm-pool__item">余量<b id="pool-left">11,580</b></span>
-    <span class="adm-pool__progress"><span class="adm-pool__bar" id="pool-bar" style="width:42.1%"></span></span>
-    <span class="adm-pool__item" id="pool-tip">已用 42.1% · 不回收已失效号码</span>
-  </div>
-
   <div class="adm-table-wrap">
-    <table class="adm-table">
+    <table class="adm-table" style="min-width:1720px">
       <thead>
         <tr>
           <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
           <th>福卡编号</th>
           <th>账套</th>
           <th>客户号 / CIF</th>
-          <th>来源</th>
+          <th>福卡类型</th>
+          <th>邀请关系</th>
           <th>客户手机号</th>
           <th>业务员号</th>
           <th>绑定发票</th>
@@ -269,20 +262,20 @@
     id: "ADM-01",
     title: "福卡管理",
     live: "yes",
-    note: "沿用去年「幸运福卡管理」，加来源 / 号码池 / 失效",
+    note: "沿用去年「幸运福卡管理」，加福卡类型 / 邀请关系 / 失效",
     fr: ["FR-001", "FR-002", "FR-017"],
     ac: ["AC-001 ~ AC-005", "AC-035", "AC-036"],
-    goal: "沿用去年后台的筛选 + 表格 + 分页 + 添加弹窗，只补今年需要的「来源」「号码池余量」「失效」三项。",
+    goal: "沿用去年后台的筛选 + 表格 + 分页 + 添加弹窗；补今年的福卡类型、邀请关系与失效；不同来源展示不同字段。",
     states: [
-      "正常：分页列表 + 号码池余量。",
-      "号码池用尽：红字告警并阻止新发卡（演示：说明抽屉切换）。",
+      "正常：分页列表，按福卡类型展示不同字段。",
+      "官方福卡无发票，邀请人卡无发票但有邀请关系。",
       "失效：原因必填，失效后号码保留占用；已中奖福卡失效触发候补提示。",
       "空态：筛选无结果时展示空表。"
     ],
     notes: [
       "筛选、重置、分页、导出、批量失效、行内失效均可用。",
       "「添加福卡」沿用去年弹窗结构（账套 / 客户号 / 发票号 / 数量），仅管理员可操作。",
-      "来源标签：订单 / 新客奖励 / 邀请奖励 / 官方码。",
+      "福卡类型：订单福卡 / 新客福卡 / 邀请福卡 / 官方福卡；邀请关系区分邀请人/被邀请人。",
       "表格与分页沿用去年 Ant Design 样式，不额外加装饰。"
     ],
     todo: [
@@ -322,15 +315,15 @@
     }
   ],
   "fields": [
-    "筛选：福卡编号 / 客户号·CIF / 业务员号 / 发票号 / 来源 / 状态 / 发放时间",
+    "筛选：福卡编号 / 客户号·CIF / 业务员号 / 发票号 / 福卡类型 / 状态 / 发放时间",
     "失效：原因必填（退单/红冲/手工纠错/其他），备注选填",
     "添加福卡：账套、客户号、发票号、福卡数量（>0 整数）"
   ],
   "rules": [
-    "来源四类：订单福卡/新客福卡/邀请福卡/官方福卡",
+    "福卡类型四类：订单福卡/新客福卡/邀请福卡/官方福卡",
     "状态：待开奖/已中奖/未中奖/已失效",
-    "号码池 00001–20000，禁用 00000；失效号码不回收",
-    "号码池用尽时停止发卡并告警",
+    "官方福卡与邀请人卡无发票字段，展示「—」",
+    "邀请关系：邀请人 → B1***78 / 被邀请人 ← B1***78",
     "金额口径不含 IVA；时间 Europe/Madrid"
   ],
   "permissions": [
@@ -357,9 +350,10 @@
       { no: "01136", account: "ES01", cif: "10009502", source: "order", phone: "666666666", sales: "5025", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:22", modified: "2026-12-01 10:22" },
       { no: "01135", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
       { no: "01134", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "won", note: "二等奖", time: "2026-12-01 10:18", modified: "2027-02-10 15:02" },
-      { no: "01133", account: "ES01", cif: "10008496", source: "new", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "首单新客奖励", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
-      { no: "01132", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "lost", note: "邀请奖励", time: "2026-12-01 10:12", modified: "2027-02-10 15:40" },
-      { no: "01131", account: "ES01", cif: "10019544", source: "official", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "pending", note: "媒体官方码", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
+      { no: "01133", account: "ES01", cif: "10008496", source: "new", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "首单新客奖励", relation: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
+      { no: "01139", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "pending", note: "被邀请人 · 首单达标", relation: "被邀请人 ← B1***23", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
+      { no: "01132", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "lost", note: "邀请人 · 邀请新客达标", relation: "邀请人 → B1***78", time: "2026-12-01 10:12", modified: "2027-02-10 15:40" },
+      { no: "01131", account: "ES01", cif: "10019544", source: "official", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "pending", note: "官方码发放 · 每 CIF 限 1 张", relation: "—", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
       { no: "01130", account: "ES01", cif: "10019544", source: "order", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "invalid", note: "退单", time: "2026-12-01 10:12", modified: "2027-02-12 09:20" },
       { no: "01129", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
       { no: "01128", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
@@ -382,11 +376,12 @@
             '<td class="num">' + r.account + "</td>" +
             '<td class="num">' + r.cif + "</td>" +
             '<td><span class="adm-source adm-source--' + r.source + '">' + SOURCE[r.source] + "</span></td>" +
+            '<td>' + (r.relation || "—") + "</td>" +
             '<td class="num">' + r.phone + "</td>" +
             '<td class="num">' + r.sales + "</td>" +
-            '<td class="num">' + r.invoice + "</td>" +
-            '<td class="num">' + r.amount + " €</td>" +
-            '<td class="nowrap muted">' + r.created + "</td>" +
+            '<td class="num">' + (r.invoice || "—") + "</td>" +
+            '<td class="num">' + (r.amount ? r.amount + " €" : "—") + "</td>" +
+            '<td class="nowrap muted">' + (r.created || "—") + "</td>" +
             '<td><span class="adm-status adm-status--' + st + '">' + STATUS[st] + "</span></td>" +
             '<td class="muted">' + r.note + "</td>" +
             '<td class="nowrap muted">' + r.time + "</td>" +
@@ -435,7 +430,7 @@
       state.rows = ROWS.filter(function (r) {
         return (!no || r.no.indexOf(no) === 0) &&
           (!cif || r.cif.indexOf(cif) >= 0) &&
-          (!inv || r.invoice.indexOf(inv) >= 0) && (!sales || r.sales.indexOf(sales) >= 0) &&
+          (!inv || (r.invoice || "").indexOf(inv) >= 0) && (!sales || r.sales.indexOf(sales) >= 0) &&
           (!src || r.source === src) &&
           (!st || r.status === st);
       });
@@ -456,14 +451,6 @@
       state.rows = [];
       state.filtered = true;
       render();
-    }
-
-    function poolAlert() {
-      $("#pool-bar").style.width = "100%";
-      $("#pool-bar").classList.add("adm-pool__bar--warn");
-      $("#pool-used").textContent = "20,000";
-      $("#pool-left").textContent = "0";
-      $("#pool-tip").innerHTML = '<span style="color:#cf1322">号码池已用尽，已停止发卡</span>';
     }
 
     function openModal(id) {
@@ -541,7 +528,6 @@
     window.DEMOS = [
       { label: "打开添加福卡", fn: function () { openModal("modal-add"); } },
       { label: "打开失效弹窗", fn: function () { openVoid(ROWS[0].no); } },
-      { label: "号码池告警", fn: function () { poolAlert(); } },
       { label: "筛选空态", fn: function () { emptyState(); } }
     ];
 
