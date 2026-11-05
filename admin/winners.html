@@ -128,8 +128,12 @@
       <input class="adm-input" id="f-card" placeholder="请输入福卡编号" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-cust">客户号 / CIF</label>
-      <input class="adm-input" id="f-cust" placeholder="1000xxxx 或 B12xxxxxx" autocomplete="off">
+      <label for="f-cust">客户号</label>
+      <input class="adm-input" id="f-cust" placeholder="请输入客户号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-tax">税号 / CIF</label>
+      <input class="adm-input" id="f-tax" placeholder="请输入税号 / CIF" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-sales">业务员编号</label>
@@ -449,7 +453,7 @@
     {
       "method": "GET",
       "path": "/api/admin/winners",
-      "desc": "筛选：card_no, cif, sales, prize_level, delivery_type, receive_status, win_time"
+      "desc": "筛选：card_no, cust_no, cif, sales, prize_level, delivery_type, receive_status, win_time（客户号与税号分开）"
     },
     {
       "method": "PUT",
@@ -566,7 +570,7 @@
         '<td class="col-check"><input type="checkbox" data-check="' + r.id + '"' + (state.checked[r.id] ? " checked" : "") + "></td>" +
         '<td class="num">' + r.card + "</td>" +
         "<td>" + r.account + "</td>" +
-        '<td><span class="win-cust">' + esc(r.customer) + '<span class="win-cust__no">' + r.custNo + "</span></span></td>" +
+        '<td><span class="win-cust">' + esc(r.customer) + '<span class="win-cust__no">客户号 ' + r.custNo + " · CIF " + r.cif + "</span></span></td>" +
         '<td class="num nowrap">' + r.phone + "</td>" +
         '<td class="num">' + r.salesNo + "</td>" +
         '<td class="win-sales">' + esc(r.salesName) + "</td>" +
@@ -644,7 +648,8 @@
       state.rows = state.master.filter(function (r) {
         var day = r.won.slice(0, 10);
         return (!card || r.card.indexOf(card) >= 0) &&
-          (!cust || r.custNo.toLowerCase().indexOf(cust) >= 0 || r.cif.toLowerCase().indexOf(cust) >= 0) &&
+          (!cust || r.custNo.toLowerCase().indexOf(cust) >= 0) &&
+          (!tax || r.cif.toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
           (!sales || r.salesNo.toLowerCase().indexOf(sales) >= 0) &&
           (!level || String(r.level) === level) &&
           (!dispatch || r.dispatch === dispatch) &&

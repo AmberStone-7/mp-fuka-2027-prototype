@@ -61,14 +61,14 @@ const PAGES = [
     "name": "ADM-01 福卡管理",
     "group": "adm",
     "w": 1440,
-    "h": 969,
+    "h": 1042,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-cards.json"
   },
   {
     "name": "ADM-02 邀请码管理",
     "group": "adm",
     "w": 1440,
-    "h": 900,
+    "h": 911,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-invite.json"
   },
   {
@@ -89,7 +89,7 @@ const PAGES = [
     "name": "ADM-05 中奖记录",
     "group": "adm",
     "w": 1440,
-    "h": 1112,
+    "h": 1152,
     "spec": "https://amberstone-7.github.io/mp-fuka-2027-prototype/figma/spec/adm-winners.json"
   },
   {

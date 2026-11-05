@@ -69,8 +69,12 @@
       <input class="adm-input" id="f-code" placeholder="请输入邀请码" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-cif">客户号 / CIF</label>
-      <input class="adm-input" id="f-cif" placeholder="请输入客户号或 CIF" autocomplete="off">
+      <label for="f-cust">客户号</label>
+      <input class="adm-input" id="f-cust" placeholder="请输入客户号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-tax">税号 / CIF</label>
+      <input class="adm-input" id="f-tax" placeholder="请输入税号 / CIF" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-type">码类型</label>
@@ -105,7 +109,8 @@
       <thead>
         <tr>
           <th>邀请码</th>
-          <th>所属客户号 / CIF</th>
+          <th>客户号</th>
+          <th>税号 / CIF</th>
           <th>码类型</th>
           <th>已用 / 上限</th>
           <th>状态</th>
@@ -248,18 +253,18 @@
   var PAGE_SIZE = 10, currentPage = 1;
 
   var ROWS = [
-    { code: "MP-OFFICIAL-2027", type: "official", cif: "—", used: 1238, limit: null, status: "active", created: "2026-11-20 10:00:00" },
-    { code: "MP2027A8K3", type: "normal", cif: "10009502", used: 12, limit: 100, status: "active", created: "2026-11-20 10:12:00" },
-    { code: "MP2027B2C4", type: "normal", cif: "10008496", used: 100, limit: 100, status: "exhausted", created: "2026-11-20 10:12:00" },
-    { code: "MP2027C7D9", type: "normal", cif: "10019544", used: 36, limit: 100, status: "disabled", created: "2026-11-20 10:13:00" },
-    { code: "MP2027D1E5", type: "normal", cif: "10013992", used: 0, limit: 100, status: "active", created: "2026-11-20 10:13:00" },
-    { code: "MP2027E4F2", type: "normal", cif: "10022871", used: 58, limit: 100, status: "active", created: "2026-11-20 10:14:00" },
-    { code: "MP2027F9G6", type: "normal", cif: "10031120", used: 21, limit: 100, status: "active", created: "2026-11-20 10:14:00" },
-    { code: "MP2027H2J8", type: "normal", cif: "10040771", used: 77, limit: 100, status: "active", created: "2026-11-20 10:15:00" },
-    { code: "MP2027K5L1", type: "normal", cif: "10055882", used: 5, limit: 100, status: "disabled", created: "2026-11-20 10:15:00" },
-    { code: "MP2027M8N3", type: "normal", cif: "10066993", used: 44, limit: 100, status: "active", created: "2026-11-20 10:16:00" },
-    { code: "MP2027P1Q7", type: "normal", cif: "10077104", used: 90, limit: 100, status: "active", created: "2026-11-20 10:16:00" },
-    { code: "MP2027R4S2", type: "normal", cif: "10088215", used: 16, limit: 100, status: "active", created: "2026-11-20 10:17:00" }
+    { code: "MP-OFFICIAL-2027", type: "official", custNo: "—", taxId: "—", used: 1238, limit: null, status: "active", created: "2026-11-20 10:00:00" },
+    { code: "MP2027A8K3", type: "normal", custNo: "10009502", taxId: "B12345678", used: 12, limit: 100, status: "active", created: "2026-11-20 10:12:00" },
+    { code: "MP2027B2C4", type: "normal", custNo: "10008496", taxId: "B12456321", used: 100, limit: 100, status: "exhausted", created: "2026-11-20 10:12:00" },
+    { code: "MP2027C7D9", type: "normal", custNo: "10019544", taxId: "B12587496", used: 36, limit: 100, status: "disabled", created: "2026-11-20 10:13:00" },
+    { code: "MP2027D1E5", type: "normal", custNo: "10013992", taxId: "B12698523", used: 0, limit: 100, status: "active", created: "2026-11-20 10:13:00" },
+    { code: "MP2027E4F2", type: "normal", custNo: "10022871", taxId: "B12741258", used: 58, limit: 100, status: "active", created: "2026-11-20 10:14:00" },
+    { code: "MP2027F9G6", type: "normal", custNo: "10031120", taxId: "B12852369", used: 21, limit: 100, status: "active", created: "2026-11-20 10:14:00" },
+    { code: "MP2027H2J8", type: "normal", custNo: "10040771", taxId: "B12963470", used: 77, limit: 100, status: "active", created: "2026-11-20 10:15:00" },
+    { code: "MP2027K5L1", type: "normal", custNo: "10055882", taxId: "B12074185", used: 5, limit: 100, status: "disabled", created: "2026-11-20 10:15:00" },
+    { code: "MP2027M8N3", type: "normal", custNo: "10066993", taxId: "B12185296", used: 44, limit: 100, status: "active", created: "2026-11-20 10:16:00" },
+    { code: "MP2027P1Q7", type: "normal", custNo: "10077104", taxId: "B12296307", used: 90, limit: 100, status: "active", created: "2026-11-20 10:16:00" },
+    { code: "MP2027R4S2", type: "normal", custNo: "10088215", taxId: "B12529630", used: 16, limit: 100, status: "active", created: "2026-11-20 10:17:00" }
   ];
 
   var state = { rows: ROWS.slice(), page: 1, editing: null, usageCode: null, usagePage: 1, usageSize: 10 };
@@ -281,7 +286,8 @@
         : '<button type="button" data-edit="' + r.code + '">编辑</button><button type="button" data-usage="' + r.code + '">使用记录</button>';
       return "<tr>" +
         '<td class="inv-code">' + r.code + "</td>" +
-        "<td>" + (r.cif || "—") + "</td>" +
+        "<td>" + (r.custNo || "—") + "</td>" +
+        "<td>" + (r.taxId || "—") + "</td>" +
         "<td>" + TYPE[r.type] + "</td>" +
         '<td class="inv-mono">' + fmt(r.used) + " / " + (r.limit == null ? "不限" : fmt(r.limit)) + "</td>" +
         '<td><span class="adm-status adm-status--' + (r.status === "active" ? "pending" : r.status === "exhausted" ? "won" : "invalid") + '">' + STATUS[r.status] + "</span></td>" +
@@ -392,7 +398,7 @@
     openModal("modal-official");
   };
   $("#btn-official-ok").onclick = function () {
-    state.rows.unshift({ code: "MP-OFFICIAL-2027", type: "official", cif: "—", used: 0, limit: null, status: "active", created: "2026-11-20 10:00:00" });
+    state.rows.unshift({ code: "MP-OFFICIAL-2027", type: "official", custNo: "—", taxId: "—", used: 0, limit: null, status: "active", created: "2026-11-20 10:00:00" });
     closeModal(document.getElementById("modal-official"));
     render();
     $("#btn-official").disabled = true;
@@ -408,9 +414,12 @@
   }
 
   $("#btn-search").onclick = function () {
-    var code = $("#f-code").value.trim(), cif = $("#f-cif").value.trim(), type = $("#f-type").value, st = $("#f-status").value;
+    var code = $("#f-code").value.trim(), cust = $("#f-cust").value.trim(), tax = $("#f-tax").value.trim(), type = $("#f-type").value, st = $("#f-status").value;
     state.rows = ROWS.filter(function (r) {
-      return (!code || r.code.indexOf(code) >= 0) && (!cif || r.cif.indexOf(cif) >= 0) && (!type || r.type === type) && (!st || r.status === st);
+      return (!code || r.code.indexOf(code) >= 0) &&
+        (!cust || (r.custNo || "").indexOf(cust) >= 0) &&
+        (!tax || (r.taxId || "").toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
+        (!type || r.type === type) && (!st || r.status === st);
     });
     state.page = 1; render();
     U.toast("查询完成，共 " + state.rows.length + " 条");

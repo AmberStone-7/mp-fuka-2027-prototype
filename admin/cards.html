@@ -75,8 +75,12 @@
       <input class="adm-input" id="f-no" placeholder="请输入福卡编号" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-cif">客户号 / CIF</label>
-      <input class="adm-input" id="f-cif" placeholder="请输入客户号或 CIF" autocomplete="off">
+      <label for="f-cust">客户号</label>
+      <input class="adm-input" id="f-cust" placeholder="请输入客户号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-tax">税号 / CIF</label>
+      <input class="adm-input" id="f-tax" placeholder="请输入税号 / CIF" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-sales">业务员号</label>
@@ -133,7 +137,8 @@
           <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
           <th>福卡编号</th>
           <th>账套</th>
-          <th>客户号 / CIF</th>
+          <th>客户号</th>
+          <th>税号 / CIF</th>
           <th>福卡类型</th>
           <th>邀请关系</th>
           <th>客户手机号</th>
@@ -315,7 +320,7 @@
     }
   ],
   "fields": [
-    "筛选：福卡编号 / 客户号·CIF / 业务员号 / 发票号 / 福卡类型 / 状态 / 发放时间",
+    "筛选：福卡编号 / 客户号 / 税号(CIF) / 业务员号 / 发票号 / 福卡类型 / 状态 / 发放时间（客户号与税号分开搜索）",
     "失效：原因必填（退单/红冲/手工纠错/其他），备注选填",
     "添加福卡：账套、客户号、发票号、福卡数量（>0 整数）"
   ],
@@ -347,17 +352,17 @@
     var $ = U.$;
 
     var ROWS = [
-      { no: "01136", account: "ES01", cif: "10009502", source: "order", phone: "666666666", sales: "5025", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:22", modified: "2026-12-01 10:22" },
-      { no: "01135", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
-      { no: "01134", account: "ES01", cif: "10008496", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "won", note: "二等奖", time: "2026-12-01 10:18", modified: "2027-02-10 15:02" },
-      { no: "01133", account: "ES01", cif: "10008496", source: "new", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "首单新客奖励", relation: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
-      { no: "01139", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "pending", note: "被邀请人 · 首单达标", relation: "被邀请人 ← B1***23", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
-      { no: "01132", account: "ES01", cif: "10019544", source: "invite", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "lost", note: "邀请人 · 邀请新客达标", relation: "邀请人 → B1***78", time: "2026-12-01 10:12", modified: "2027-02-10 15:40" },
-      { no: "01131", account: "ES01", cif: "10019544", source: "official", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "pending", note: "官方码发放 · 每 CIF 限 1 张", relation: "—", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
-      { no: "01130", account: "ES01", cif: "10019544", source: "order", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "invalid", note: "退单", time: "2026-12-01 10:12", modified: "2027-02-12 09:20" },
-      { no: "01129", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
-      { no: "01128", account: "ES02", cif: "10013992", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
-      { no: "01127", account: "ES02", cif: "10022871", source: "order", phone: "611223344", sales: "5062", invoice: "ES25000033", amount: "999.99", created: "2025-06-08 00:00:00", status: "pending", note: "金额未达 1,000€ 不发卡", time: "2026-12-01 09:33", modified: "2026-12-01 09:33" }
+      { no: "01136", account: "ES01", custNo: "10009502", taxId: "B12345678", source: "order", phone: "666666666", sales: "5025", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:22", modified: "2026-12-01 10:22" },
+      { no: "01135", account: "ES01", custNo: "10008496", taxId: "B12456321", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
+      { no: "01134", account: "ES01", custNo: "10008496", taxId: "B12456321", source: "order", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "won", note: "二等奖", time: "2026-12-01 10:18", modified: "2027-02-10 15:02" },
+      { no: "01133", account: "ES01", custNo: "10008496", taxId: "B12456321", source: "new", phone: "688098140", sales: "5031", invoice: "ES25000169", amount: "1,479.58", created: "2025-01-07 00:00:00", status: "pending", note: "首单新客奖励", relation: "—", time: "2026-12-01 10:18", modified: "2026-12-01 10:18" },
+      { no: "01139", account: "ES01", custNo: "10019544", taxId: "B12587496", source: "invite", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "pending", note: "被邀请人 · 首单达标", relation: "被邀请人 ← B1***23", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
+      { no: "01132", account: "ES01", custNo: "10019544", taxId: "B12587496", source: "invite", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "lost", note: "邀请人 · 邀请新客达标", relation: "邀请人 → B1***78", time: "2026-12-01 10:12", modified: "2027-02-10 15:40" },
+      { no: "01131", account: "ES01", custNo: "10019544", taxId: "B12587496", source: "official", phone: "625676666", sales: "5047", invoice: null, amount: "", created: "", status: "pending", note: "官方码发放 · 每 CIF 限 1 张", relation: "—", time: "2026-12-01 10:12", modified: "2026-12-01 10:12" },
+      { no: "01130", account: "ES01", custNo: "10019544", taxId: "B12587496", source: "order", phone: "625676666", sales: "5047", invoice: "ES25000001", amount: "5,156.13", created: "2025-01-02 00:00:00", status: "invalid", note: "退单", time: "2026-12-01 10:12", modified: "2027-02-12 09:20" },
+      { no: "01129", account: "ES02", custNo: "10013992", taxId: "B12698523", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
+      { no: "01128", account: "ES02", custNo: "10013992", taxId: "B12698523", source: "order", phone: "688123776", sales: "5025", invoice: "ES25000016", amount: "2,850.69", created: "2025-03-19 00:00:00", status: "pending", note: "—", time: "2026-12-01 09:51", modified: "2026-12-01 09:51" },
+      { no: "01127", account: "ES02", custNo: "10022871", taxId: "B12741258", source: "order", phone: "611223344", sales: "5062", invoice: "ES25000033", amount: "999.99", created: "2025-06-08 00:00:00", status: "pending", note: "金额未达 1,000€ 不发卡", time: "2026-12-01 09:33", modified: "2026-12-01 09:33" }
     ];
     var STATUS = { pending: "待开奖", won: "已中奖", lost: "未中奖", invalid: "已失效" };
     var SOURCE = { order: "订单福卡", new: "新客福卡", invite: "邀请福卡", official: "官方福卡" };
@@ -374,7 +379,8 @@
             '<td class="col-check"><input type="checkbox" data-check="' + r.no + '"' + (state.checked[r.no] ? " checked" : "") + "></td>" +
             '<td class="num">' + r.no + "</td>" +
             '<td class="num">' + r.account + "</td>" +
-            '<td class="num">' + r.cif + "</td>" +
+            '<td class="num">' + r.custNo + "</td>" +
+            '<td class="num">' + r.taxId + "</td>" +
             '<td><span class="adm-source adm-source--' + r.source + '">' + SOURCE[r.source] + "</span></td>" +
             '<td>' + (r.relation || "—") + "</td>" +
             '<td class="num">' + r.phone + "</td>" +
@@ -422,14 +428,16 @@
 
     function filter() {
       var no = $("#f-no").value.trim();
-      var cif = $("#f-cif").value.trim();
+      var cust = $("#f-cust").value.trim();
+      var tax = $("#f-tax").value.trim();
       var inv = $("#f-invoice").value.trim();
       var sales = $("#f-sales").value.trim();
       var src = $("#f-source").value;
       var st = $("#f-status").value;
       state.rows = ROWS.filter(function (r) {
         return (!no || r.no.indexOf(no) === 0) &&
-          (!cif || r.cif.indexOf(cif) >= 0) &&
+          (!cust || r.custNo.indexOf(cust) >= 0) &&
+          (!tax || r.taxId.toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
           (!inv || (r.invoice || "").indexOf(inv) >= 0) && (!sales || r.sales.indexOf(sales) >= 0) &&
           (!src || r.source === src) &&
           (!st || r.status === st);

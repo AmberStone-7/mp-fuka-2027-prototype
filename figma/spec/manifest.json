@@ -67,7 +67,7 @@
     "name": "ADM-01 福卡管理",
     "group": "adm",
     "w": 1440,
-    "h": 969,
+    "h": 1042,
     "slug": "adm-cards",
     "spec": "figma/spec/adm-cards.json"
   },
@@ -75,7 +75,7 @@
     "name": "ADM-02 邀请码管理",
     "group": "adm",
     "w": 1440,
-    "h": 900,
+    "h": 911,
     "slug": "adm-invite",
     "spec": "figma/spec/adm-invite.json"
   },
@@ -99,7 +99,7 @@
     "name": "ADM-05 中奖记录",
     "group": "adm",
     "w": 1440,
-    "h": 1112,
+    "h": 1152,
     "slug": "adm-winners",
     "spec": "figma/spec/adm-winners.json"
   },

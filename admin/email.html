@@ -193,8 +193,12 @@
       <input class="adm-input" id="f-card" placeholder="请输入福卡编号" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-cif">客户号</label>
-      <input class="adm-input" id="f-cif" placeholder="请输入客户号" autocomplete="off">
+      <label for="f-cust">客户号</label>
+      <input class="adm-input" id="f-cust" placeholder="请输入客户号" autocomplete="off">
+    </div>
+    <div class="adm-field">
+      <label for="f-tax">税号 / CIF</label>
+      <input class="adm-input" id="f-tax" placeholder="请输入税号 / CIF" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-email">客户邮箱</label>
@@ -241,6 +245,7 @@
           <th>ID</th>
           <th>账套</th>
           <th>客户号</th>
+          <th>税号 / CIF</th>
           <th>客户邮箱</th>
           <th>幸运福卡编号</th>
           <th>绑定发票</th>
@@ -323,7 +328,7 @@
       <div class="adm-table-wrap em-wrap">
         <table class="adm-table em-contact-table" style="min-width: 860px">
           <thead>
-            <tr><th>类型</th><th>客户号</th><th>客户邮箱</th><th>幸运福卡编号</th><th>绑定发票</th><th>记录时间</th><th>处理状态</th><th>操作</th></tr>
+            <tr><th>类型</th><th>客户号</th><th>税号 / CIF</th><th>客户邮箱</th><th>幸运福卡编号</th><th>绑定发票</th><th>记录时间</th><th>处理状态</th><th>操作</th></tr>
           </thead>
           <tbody id="contact-rows"></tbody>
         </table>
@@ -381,7 +386,7 @@
     {
       "method": "GET",
       "path": "/api/admin/email/logs",
-      "desc": "筛选：card_no, cif, email, invoice_no, send_time, status"
+      "desc": "筛选：card_no, cust_no, cif, email, invoice_no, send_time, status（客户号与税号分开）"
     },
     {
       "method": "POST",
@@ -425,32 +430,32 @@
     var $ = U.$;
 
     var RAW = [
-      { id: 10086, account: "ES01", cif: "10009502", email: "cliente.fernandez@empresa.es", card: "01136", invoice: "ES25000149", amount: "2,580.00", invTime: "2026-12-01 10:22", sentTime: "2026-12-01 10:23", status: "sent", reason: "", tpl: "card" },
-      { id: 10085, account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es", card: "01135", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
-      { id: 10084, account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es", card: "01134", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
-      { id: 10083, account: "ES02", cif: "10019544", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
-      { id: 10082, account: "ES02", cif: "10019544", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（EJEMPLO@GMAIL.COM）", reasonShort: "默认邮箱", tpl: "card" },
-      { id: 10081, account: "ES02", cif: "10019544", email: "", card: "01130", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "空邮箱", reasonShort: "空邮箱", tpl: "card" },
-      { id: 10080, account: "ES01", cif: "10013992", email: "ana.gil@distribuciones.es", card: "01129", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
-      { id: 10079, account: "ES01", cif: "10013992", email: "ana.gil@distribuciones.es", card: "01128", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
-      { id: 10078, account: "ES03", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01127", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "sending", reason: "", tpl: "card" },
-      { id: 10077, account: "ES03", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "failed", reason: "发送超时（已重试 3 次）", reasonShort: "发送超时", tpl: "card" },
-      { id: 10076, account: "ES02", cif: "10031505", email: "lucia.moreno@hotel.es", card: "01125", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
-      { id: 10075, account: "ES02", cif: "10031505", email: "lucia.moreno@hotel.es", card: "01124", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
-      { id: 10074, account: "ES01", cif: "10040112", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
-      { id: 10073, account: "ES03", cif: "10040112", email: "rosa.diaz@empresa.pt", card: "01122", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "2026-11-30 17:41", status: "sent", reason: "", tpl: "card" }
+      { id: 10086, account: "ES01", custNo: "10009502", taxId: "B12345678", email: "cliente.fernandez@empresa.es", card: "01136", invoice: "ES25000149", amount: "2,580.00", invTime: "2026-12-01 10:22", sentTime: "2026-12-01 10:23", status: "sent", reason: "", tpl: "card" },
+      { id: 10085, account: "ES01", custNo: "10008496", taxId: "B12456321", email: "maria.lopez@construcciones.es", card: "01135", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
+      { id: 10084, account: "ES01", custNo: "10008496", taxId: "B12456321", email: "maria.lopez@construcciones.es", card: "01134", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18", sentTime: "2026-12-01 10:19", status: "sent", reason: "", tpl: "card" },
+      { id: 10083, account: "ES02", custNo: "10019544", taxId: "B12587496", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10082, account: "ES02", custNo: "10019544", taxId: "B12587496", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "默认邮箱（EJEMPLO@GMAIL.COM）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10081, account: "ES02", custNo: "10019544", taxId: "B12587496", email: "", card: "01130", invoice: "ES25000001", amount: "5,156.13", invTime: "2026-12-01 10:12", sentTime: "—", status: "failed", reason: "空邮箱", reasonShort: "空邮箱", tpl: "card" },
+      { id: 10080, account: "ES01", custNo: "10013992", taxId: "B12698523", email: "ana.gil@distribuciones.es", card: "01129", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
+      { id: 10079, account: "ES01", custNo: "10013992", taxId: "B12698523", email: "ana.gil@distribuciones.es", card: "01128", invoice: "ES25000016", amount: "2,850.69", invTime: "2026-12-01 09:51", sentTime: "2026-12-01 09:52", status: "sent", reason: "", tpl: "card" },
+      { id: 10078, account: "ES03", custNo: "10022871", taxId: "B12741258", email: "pablo.sanchez@tienda.es", card: "01127", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "sending", reason: "", tpl: "card" },
+      { id: 10077, account: "ES03", custNo: "10022871", taxId: "B12741258", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", amount: "999.99", invTime: "2026-12-01 09:33", sentTime: "—", status: "failed", reason: "发送超时（已重试 3 次）", reasonShort: "发送超时", tpl: "card" },
+      { id: 10076, account: "ES02", custNo: "10031505", taxId: "B12852369", email: "lucia.moreno@hotel.es", card: "01125", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
+      { id: 10075, account: "ES02", custNo: "10031505", taxId: "B12852369", email: "lucia.moreno@hotel.es", card: "01124", invoice: "ES25000041", amount: "3,240.00", invTime: "2026-11-30 18:05", sentTime: "2026-11-30 18:06", status: "sent", reason: "", tpl: "card" },
+      { id: 10074, account: "ES01", custNo: "10040112", taxId: "B12963470", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "—", status: "failed", reason: "默认邮箱（@mainpaper.com）", reasonShort: "默认邮箱", tpl: "card" },
+      { id: 10073, account: "ES03", custNo: "10040112", taxId: "B12963470", email: "rosa.diaz@empresa.pt", card: "01122", invoice: "ES25000052", amount: "1,120.00", invTime: "2026-11-30 17:40", sentTime: "2026-11-30 17:41", status: "sent", reason: "", tpl: "card" }
     ];
 
     var CONTACTS_RAW = [
-      { type: "默认邮箱", cif: "10019544", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
-      { type: "默认邮箱", cif: "10019544", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
-      { type: "空邮箱", cif: "10019544", email: "", card: "01130", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
-      { type: "默认邮箱", cif: "10040112", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", time: "2026-11-30 17:40", done: true },
-      { type: "发送超时", cif: "10022871", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", time: "2026-12-01 09:33", done: false }
+      { type: "默认邮箱", custNo: "10019544", taxId: "B12587496", email: "jose.ramirez@mainpaper.com", card: "01132", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "默认邮箱", custNo: "10019544", taxId: "B12587496", email: "EJEMPLO@GMAIL.COM", card: "01131", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "空邮箱", custNo: "10019544", taxId: "B12587496", email: "", card: "01130", invoice: "ES25000001", time: "2026-12-01 10:12", done: false },
+      { type: "默认邮箱", custNo: "10040112", taxId: "B12963470", email: "pedro.ruiz@mainpaper.com", card: "01123", invoice: "ES25000052", time: "2026-11-30 17:40", done: true },
+      { type: "发送超时", custNo: "10022871", taxId: "B12741258", email: "pablo.sanchez@tienda.es", card: "01126", invoice: "ES25000033", time: "2026-12-01 09:33", done: false }
     ];
 
     var WIN_SAMPLE = {
-      id: "10088", account: "ES01", cif: "10008496", email: "maria.lopez@construcciones.es",
+      id: "10088", account: "ES01", custNo: "10008496", taxId: "B12456321", email: "maria.lopez@construcciones.es",
       card: "01135", invoice: "ES25000169", amount: "1,479.58", invTime: "2026-12-01 10:18",
       sentTime: "2027-02-10 09:12", status: "sent", reason: "", tpl: "win", sample: true
     };
@@ -483,7 +488,8 @@
     function readCriteria() {
       return {
         card: $("#f-card").value.trim(),
-        cif: $("#f-cif").value.trim(),
+        cust: $("#f-cust").value.trim(),
+        tax: $("#f-tax").value.trim(),
         email: $("#f-email").value.trim().toLowerCase(),
         invoice: $("#f-invoice").value.trim(),
         status: $("#f-status").value,
@@ -496,7 +502,8 @@
 
     function matchRow(r, c) {
       return (!c.card || r.card.indexOf(c.card) >= 0) &&
-        (!c.cif || r.cif.indexOf(c.cif) >= 0) &&
+        (!c.cust || r.custNo.indexOf(c.cust) >= 0) &&
+        (!c.tax || r.taxId.toLowerCase().indexOf(c.tax.toLowerCase()) >= 0) &&
         (!c.email || r.email.toLowerCase().indexOf(c.email) >= 0) &&
         (!c.invoice || r.invoice.indexOf(c.invoice) >= 0) &&
         (!c.status || r.status === c.status) &&
@@ -522,13 +529,14 @@
     function render() {
       var tb = $("#rows");
       if (!currentRows().length) {
-        tb.innerHTML = '<tr><td colspan="12"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
+        tb.innerHTML = '<tr><td colspan="13"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
       } else {
         tb.innerHTML = pageRows().map(function (r) {
           return "<tr>" +
             '<td class="num">' + r.id + "</td>" +
             "<td>" + r.account + "</td>" +
-            '<td class="num">' + r.cif + "</td>" +
+            '<td class="num">' + r.custNo + "</td>" +
+            '<td class="num">' + r.taxId + "</td>" +
             "<td>" + (r.email ? '<span class="em-email" title="' + r.email + '">' + r.email + "</span>" : '<span class="muted">（空）</span>') + "</td>" +
             '<td class="num">' + r.card + "</td>" +
             '<td class="num">' + r.invoice + "</td>" +
@@ -618,14 +626,14 @@
     function mailBodyEs(r) {
       if (r.tpl === "win") {
         return '<p class="em-mail__subject">Asunto: ¡Enhorabuena! Has ganado en el sorteo de la Suerte 2027</p>' +
-          "<p>Hola, cliente <b>" + r.cif + "</b>:</p>" +
-          "<p>Tu tarjeta n.º <b>" + r.card + "</b> ha resultado premiada con el <b>Segundo premio · Lingote de oro de 10 g</b>.</p>" +
-          "<p>Nuestro equipo se pondrá en contacto contigo para coordinar la entrega. Plazo de confirmación: 15 días naturales desde la publicación.</p>" +
+          "<p>Hola, cliente <b>" + r.custNo + "</b>:</p>" +
+          "<p>Tu tarjeta n.º <b>" + r.card + "</b> ha resultado premiada con el <b>Segundo premio · iPhone Duo 1 unidad</b>.</p>" +
+          "<p>Nuestro equipo se pondrá en contacto contigo para coordinar la entrega. Nuestro equipo se pondrá en contacto contigo para coordinar la entrega.</p>" +
           '<p><span class="em-mail__cta">VER LOS DETALLES DEL PREMIO</span></p>' +
           '<p class="em-mail__small">Mainpaper S.L · Correo automático, no responda a este mensaje.</p>';
       }
       return '<p class="em-mail__subject">Asunto: ¡Tus Tarjetas de la Suerte 2027 ya están disponibles!</p>' +
-        "<p>Hola, cliente <b>" + r.cif + "</b>:</p>" +
+        "<p>Hola, cliente <b>" + r.custNo + "</b>:</p>" +
         "<p>Tu factura <b>" + r.invoice + "</b> por importe de <b>" + r.amount + " €</b> (sin IVA) te ha dado <b>1</b> Tarjeta de la Suerte.</p>" +
         '<div class="em-mail__card">N.º de tarjeta · <b>' + r.card + "</b></div>" +
         "<p>Guarda tu número y consúltalo antes del <b>10 de febrero de 2027</b>; el sorteo se realizará ese mismo día.</p>" +
@@ -636,14 +644,14 @@
     function mailBodyZh(r) {
       if (r.tpl === "win") {
         return '<p class="em-mail__subject">主题：恭喜您获得 2027 新春福卡抽奖奖项</p>' +
-          "<p>尊敬的客户 <b>" + r.cif + "</b>：</p>" +
+          "<p>尊敬的客户 <b>" + r.custNo + "</b>：</p>" +
           "<p>您的福卡 <b>" + r.card + "</b> 中得 <b>二等奖 · iPhone Duo 1 台</b>。</p>" +
           "<p>我们将尽快与您联系，协调兑奖事宜。</p>" +
           '<p><span class="em-mail__cta">查看奖品详情</span></p>' +
           '<p class="em-mail__small">Mainpaper S.L · 本邮件由系统自动发送，请勿直接回复。</p>';
       }
       return '<p class="em-mail__subject">主题：您的 2027 新春福卡已到账</p>' +
-        "<p>尊敬的客户 <b>" + r.cif + "</b>：</p>" +
+        "<p>尊敬的客户 <b>" + r.custNo + "</b>：</p>" +
         "<p>您的发票 <b>" + r.invoice + "</b>（不含税金额 <b>" + r.amount + " €</b>）已获得 <b>1</b> 张新春福卡。</p>" +
         '<div class="em-mail__card">福卡编号 · <b>' + r.card + "</b></div>" +
         "<p>请于 <b>2027 年 2 月 10 日</b>开奖前保存并查询您的福卡；开奖当日可在活动页查看结果。</p>" +
@@ -665,7 +673,8 @@
       var cells = [
         ["邮件 ID", r.id],
         ["账套", r.account],
-        ["客户号", r.cif],
+        ["客户号", r.custNo],
+        ["税号 / CIF", r.taxId],
         ["收件人", r.email || "（空）"],
         ["幸运福卡编号", r.card],
         ["绑定发票", r.invoice],
@@ -744,7 +753,8 @@
       $("#contact-rows").innerHTML = state.contacts.map(function (c, i) {
         return "<tr>" +
           '<td><span class="adm-source">' + c.type + "</span></td>" +
-          '<td class="num">' + c.cif + "</td>" +
+          '<td class="num">' + c.custNo + "</td>" +
+          '<td class="num">' + c.taxId + "</td>" +
           "<td>" + (c.email ? '<span class="em-email" title="' + c.email + '">' + c.email + "</span>" : '<span class="muted">（空）</span>') + "</td>" +
           '<td class="num">' + c.card + "</td>" +
           '<td class="num">' + c.invoice + "</td>" +
