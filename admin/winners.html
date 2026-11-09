@@ -195,6 +195,8 @@
         <tr>
           <th class="col-check"><input type="checkbox" id="check-all" aria-label="全选"></th>
           <th>幸运福卡编号</th>
+          <th>奖池</th>
+          <th>复核状态</th>
           <th>账套</th>
           <th>所属客户</th>
           <th>客户手机号</th>
@@ -202,8 +204,6 @@
           <th>业务员名称</th>
           <th>奖品名称</th>
           <th>奖品级别</th>
-          <th>奖池</th>
-          <th>复核状态</th>
           <th>派发方式</th>
           <th>领取状态</th>
           <th>备注</th>
@@ -582,6 +582,8 @@
       return "<tr>" +
         '<td class="col-check"><input type="checkbox" data-check="' + r.id + '"' + (state.checked[r.id] ? " checked" : "") + "></td>" +
         '<td class="num">' + r.card + "</td>" +
+        '<td><b>' + poolOf(r) + "</b></td>" +
+        '<td><span class="adm-status ' + (reviewOf(r)=="待复核" ? "adm-status--won" : "adm-status--filled") + '">' + reviewOf(r) + "</span></td>" +
         "<td>" + r.account + "</td>" +
         '<td><span class="win-cust">' + esc(r.customer) + '<span class="win-cust__no">客户号 ' + r.custNo + " · CIF " + r.cif + "</span></span></td>" +
         '<td class="num nowrap">' + r.phone + "</td>" +
@@ -589,8 +591,6 @@
         '<td class="win-sales">' + esc(r.salesName) + "</td>" +
         '<td class="win-prize"><span class="win-ellipsis" title="' + esc(PRIZE[r.level]) + '">' + esc(PRIZE[r.level]) + "</span></td>" +
         '<td><span class="adm-source">' + LEVEL[r.level] + "</span></td>" +
-        '<td>' + poolOf(r) + "</td>" +
-        '<td><span class="adm-status ' + (reviewOf(r)=="待复核" ? "adm-status--won" : "adm-status--filled") + '">' + reviewOf(r) + "</span></td>" +
         "<td>" + r.dispatch + "</td>" +
         '<td><span class="adm-status ' + stCls + '"' + (isAuto ? ' title="五等奖系统不追踪发放状态，随单发放（DEC-037）"' : "") + ">" + STATUS[r.status] + "</span></td>" +
         '<td class="win-remark"><span class="win-ellipsis" title="' + esc(r.remark) + '">' + esc(r.remark) + "</span></td>" +
