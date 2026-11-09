@@ -27,7 +27,7 @@
     <h3 class="style-section-title">待开奖</h3>
     <div id="group-pending"></div>
 
-    <h3 class="style-section-title">已中奖 · 一至五等奖</h3>
+    <h3 class="style-section-title">已中奖 · 月度奖池 / 终极大奖池</h3>
     <div id="group-won"></div>
 
     <h3 class="style-section-title">未中奖</h3>
@@ -86,7 +86,7 @@
       ],
       todo: [
         "邀请福卡字段展示口径待确认（当前为不展示被邀请人信息）。",
-        "1–5 等奖颜色区分是否需要更强，待确认。"
+        "月度/终极奖项颜色区分是否需要更强，待确认。"
       ]
     };
     window.DEMOS = [
@@ -121,11 +121,12 @@
         { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", status: "pending" }
       ];
       var won = [
-        { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", status: "won", levelText: "一等奖", prize: "特斯拉 1 台" },
-        { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", status: "won", levelText: "二等奖", prize: "iPhone Duo 1 台" },
-        { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", status: "won", levelText: "三等奖", prize: "全球目的地机票或 1,000€ MP 代金券" },
-        { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", status: "won", levelText: "四等奖", prize: "MP 营销定制礼包 1 份" },
-        { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", status: "won", levelText: "五等奖", prize: "MP 定制礼盒 1 份" }
+        { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", status: "won", levelText: "终极一等奖", prize: "Tesla Model 3" },
+        { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", status: "won", levelText: "月度一等奖", prize: "5888€ MP 随您购" },
+        { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", status: "won", levelText: "月度二等奖", prize: "iPhone Duo 512G" },
+        { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", status: "won", levelText: "月度三等奖", prize: "iPhone 18 Pro Max" },
+        { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", status: "won", levelText: "月度四等奖", prize: "iPad" },
+        { no: "07111", source: "订单福卡", sourceCls: "order", invoice: "ES25000711", amount: "1,300.00", created: "2026-02-06", status: "won", levelText: "参与奖", prize: "MP 定制礼盒" }
       ];
       var lost = [
         { no: "01137", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", status: "lost" }
