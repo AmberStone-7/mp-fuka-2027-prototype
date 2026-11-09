@@ -20,11 +20,11 @@
     <h2 class="h5-sec">礼品展示</h2>
 
     <div class="h5-card" style="padding:12px 14px">
-      <p class="h5-tip" style="margin:0">活动时间：2026-12-01 — 2027-02-28。<br>奖池分「月度奖池（12/1/2 月）」与「终极大奖池」；一卡一奖，月度中奖卡不参与终极抽奖。</p>
+      <p class="h5-tip" style="margin:0">活动时间：2026-12-01 — 2027-02-28。<br>奖池分「月度奖池（12/1/2 月）」与「终极大奖池」；一卡一奖：12 月/1 月/2 月奖池中奖卡均不参与终极抽奖。</p>
     </div>
 
-    <h3 class="style-section-title">月度奖池（每月各 1 期）</h3>
-    <p class="h5-tip" style="margin-top:0">一至四等奖均为福卡 5 位数字全匹配；每月独立配置名额。</p>
+    <h3 class="style-section-title">月度奖池（12 月 / 1 月 / 2 月分别独立）</h3>
+    <p class="h5-tip" style="margin-top:0">12 月、1 月、2 月各自独立配置奖品与名额（当前三个月奖品一致）；一至四等奖均为福卡 5 位数字全匹配。</p>
     <div class="h5-prize-list" id="monthly-list"></div>
 
     <h3 class="style-section-title">终极大奖池</h3>
@@ -39,22 +39,22 @@
       id: "H5-04",
       title: "礼品展示",
       live: "yes",
-      note: "V2.0：月度奖池 4 档 + 终极大奖池 2 档",
+      note: "V2.0：12/1/2 月月度奖池各 4 档 + 终极大奖池 2 档",
       fr: ["FR-015", "FR-022"],
       ac: ["AC-065"],
-      goal: "展示月月抽两套奖池：月度奖池 4 档奖品（每月独立名额），终极大奖池 Tesla Model 3 1 名 + 参与奖 1,500 名；大奖开奖时间 2027 年 3 月，月度开奖日期待公布。",
+      goal: "展示月月抽奖池：12 月/1 月/2 月月度奖池各 4 档（分别独立），终极大奖池 Tesla Model 3 1 名 + 参与奖 1,500 名；大奖开奖时间 2027 年 3 月。",
       states: [
-        "月度奖池：5888€ MP 随您购 1 名、iPhone Duo 512G 1 名、iPhone Pro Max 256G 2 名、iPad 3 名，均 5 位全匹配。",
-        "终极大奖池：Tesla Model 3 1 名（5 位全匹配）、参与奖 MP 定制礼盒 1,500 名（末位匹配）。",
+        "月度奖池（12 月 / 1 月 / 2 月分别独立）：5888€ MP 随您购 1 名、iPhone Duo 512G 1 名、iPhone 18 Pro Max 2 名、iPad 3 名，均 5 位全匹配。",
+        "12 月/1 月/2 月月度奖池分别配置 4 档奖品；终极大奖池：Tesla Model 3 1 名（5 位全匹配）、参与奖 MP 定制礼盒 1,500 名（末位匹配）。",
         "奖品下架/未配置：该档隐藏。"
       ],
       notes: [
-        "一卡一奖：月度中奖卡不参与终极大奖池。",
+        "一卡一奖：12 月、1 月、2 月奖池中奖的福卡均不参与终极大奖池。",
         "参与奖超过 1,500 名按卡号升序截取，不足不补抽。",
         "大奖开奖时间 2027 年 3 月；月度开奖日期待公布。"
       ],
       changes: [
-        "奖品从单池 5 档改为「月度 4 档 + 终极 2 档」双奖池。",
+        "奖品从单池 5 档改为「12 月/1 月/2 月各 4 档 + 终极 2 档」。",
         "按 v11.0 方案替换为 MP 随您购（5888）、iPhone Duo、iPhone 18 Pro Max、iPad、Tesla Model 3、参与奖礼盒。",
         "移除原一等奖机票/代金券、四等奖礼包、五等奖 2,000 名口径。",
         "展示大奖开奖时间 2027 年 3 月；月度开奖日期待公布。提示兑奖改为客服微信。"
@@ -65,7 +65,7 @@
       ]
     };
     window.DEMOS = [
-      { label: "查看月度奖池", fn: function () { window.scrollTo({ top: document.getElementById("monthly-list").offsetTop - 20, behavior: "smooth" }); } },
+      { label: "查看 12/1/2 月月度奖池", fn: function () { window.scrollTo({ top: document.getElementById("monthly-list").offsetTop - 20, behavior: "smooth" }); } },
       { label: "查看终极大奖池", fn: function () { window.scrollTo({ top: document.getElementById("ultimate-list").offsetTop - 20, behavior: "smooth" }); } }
     ];
   </script>

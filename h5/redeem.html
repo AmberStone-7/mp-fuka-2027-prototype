@@ -19,7 +19,7 @@
 
     <img class="redeem-hero" src="../assets/img/card-2027.png" alt="2027 中汇新年福卡">
     <h2 class="h5-sec">礼品领取登记</h2>
-    <div class="redeem-badge" id="prize-badge">月度一等奖</div>
+    <div class="redeem-badge" id="prize-badge">12 月奖池 · 一等奖</div>
 
     <section class="redeem-panel">
       <div class="redeem-qr">
@@ -47,7 +47,7 @@
       ac: ["AC-045", "AC-058"],
       goal: "中奖客户进入本页：所有奖项展示客服微信二维码，按奖品显示领取说明；参与奖沿用订单备注提示。",
       states: [
-        "月度一至四等奖：客服微信 + 对应奖品说明。",
+        "12 月/1 月/2 月月度奖池一至四等奖：客服微信 + 对应奖品说明。",
         "终极一等奖：客服微信 + Tesla 领取条件。",
         "参与奖：客服微信 + 联系业务员、订单备注提示。"
       ],
@@ -65,36 +65,37 @@
       todo: ["客服微信二维码待运营提供，当前为占位。", "参与奖随单起始时间待运营确认。"]
     };
     window.DEMOS = [
-      { label: "月度一等奖（5888）", fn: function () { setPrize("monthly1"); } },
-      { label: "月度二等奖（iPhone Duo）", fn: function () { setPrize("monthly2"); } },
-      { label: "月度三等奖（iPhone 18 Pro Max）", fn: function () { setPrize("monthly3"); } },
-      { label: "月度四等奖（iPad）", fn: function () { setPrize("monthly4"); } },
-      { label: "终极一等奖（Tesla）", fn: function () { setPrize("ultimate1"); } },
-      { label: "参与奖（订单备注）", fn: function () { setPrize("participation"); } }
+      { label: "12 月奖池一等奖（5888）", fn: function () { setPrize("monthly1", "12 月奖池"); } },
+      { label: "1 月奖池二等奖（iPhone Duo）", fn: function () { setPrize("monthly2", "1 月奖池"); } },
+      { label: "2 月奖池三等奖（iPhone 18 Pro Max）", fn: function () { setPrize("monthly3", "2 月奖池"); } },
+      { label: "2 月奖池四等奖（iPad）", fn: function () { setPrize("monthly4", "2 月奖池"); } },
+      { label: "终极大奖池一等奖（Tesla）", fn: function () { setPrize("ultimate1", "终极大奖池"); } },
+      { label: "终极参与奖（订单备注）", fn: function () { setPrize("participation", "终极大奖池"); } }
     ];
   </script>
   <script src="../assets/js/legacy.js"></script>
   <script>
     (function () {
       var MAP = {
-        monthly1: { badge: "月度一等奖", tips: "MP 随您购：总价值 5888 欧元（税前）的 MP 产品包，可自行点货；超出部分自付；有效期至 2027-12-31，不可兑换现金。" },
-        monthly2: { badge: "月度二等奖", tips: "iPhone Duo 512G：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
-        monthly3: { badge: "月度三等奖", tips: "iPhone 18 Pro Max：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
-        monthly4: { badge: "月度四等奖", tips: "iPad：此礼品不支持兑换现金，也不支持自费升级。" },
+        monthly1: { badge: "一等奖", tips: "MP 随您购：总价值 5888 欧元（税前）的 MP 产品包，可自行点货；超出部分自付；有效期至 2027-12-31，不可兑换现金。" },
+        monthly2: { badge: "二等奖", tips: "iPhone Duo 512G：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
+        monthly3: { badge: "三等奖", tips: "iPhone 18 Pro Max：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
+        monthly4: { badge: "四等奖", tips: "iPad：此礼品不支持兑换现金，也不支持自费升级。" },
         ultimate1: { badge: "终极一等奖", tips: "Tesla Model 3：需持欧盟有效驾照及官方身份证明，年龄≥21 周岁；仅支持西班牙半岛提车；个人税费、保险、上牌等费用自理；不可兑换现金。" },
         participation: { badge: "参与奖", tips: "请联系业务员，在下单时备注【2027 福卡参与奖】；礼品随单发放，具体以业务员沟通为准。" }
       };
-      function setPrize(code) {
+      function setPrize(code, pool) {
         var p = MAP[code] || MAP.monthly1;
-        document.getElementById("prize-badge").textContent = p.badge;
+        document.getElementById("prize-badge").textContent = (pool ? pool + " · " : "") + p.badge;
         document.getElementById("tips-text").textContent = p.tips;
         var isPart = code === "participation";
         document.getElementById("main-text").innerHTML = isPart
           ? "请联系您的业务员<br>在下单时备注<br>“2027 福卡参与奖”"
           : "请添加上方客服微信<br>进行礼品登记";
       }
-      var code = new URLSearchParams(location.search).get("prize") || "monthly1";
-      setPrize(code);
+      var qs = new URLSearchParams(location.search);
+      var code = qs.get("prize") || "monthly1";
+      setPrize(code, qs.get("pool") || (code === "ultimate1" || code === "participation" ? "终极大奖池" : ""));
     })();
   </script>
 </body>
