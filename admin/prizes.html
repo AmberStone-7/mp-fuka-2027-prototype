@@ -166,7 +166,9 @@
     <div class="adm-field">
       <label for="f-pool">奖池</label>
       <select class="adm-select" id="f-pool">
-        <option value="monthly">月度奖池（每月）</option>
+        <option value="m12">12 月月度奖池</option>
+        <option value="m1">1 月月度奖池</option>
+        <option value="m2">2 月月度奖池</option>
         <option value="ultimate">终极大奖池</option>
       </select>
     </div>
@@ -232,6 +234,18 @@
       <button class="adm-modal__close" type="button" data-close aria-label="关闭">×</button>
     </div>
     <div class="adm-modal__body">
+      <div class="adm-form-item">
+        <label class="required" for="prize-pool">奖池</label>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="prize-pool">
+            <option value="m12">12 月月度奖池</option>
+            <option value="m1">1 月月度奖池</option>
+            <option value="m2">2 月月度奖池</option>
+            <option value="ultimate">终极大奖池</option>
+          </select>
+          <p class="adm-form-item__err">请选择奖池</p>
+        </div>
+      </div>
       <div class="adm-form-item">
         <label>奖品图片</label>
         <div class="adm-form-item__ctrl">
@@ -404,20 +418,22 @@
     var IMGS = ["prize-monthly-1.png", "prize-monthly-2.png", "prize-monthly-3.png", "prize-monthly-4.png", "prize-ultimate-1.png", "prize-ultimate-participation.png"];
     var LEVELS = ["一等奖", "二等奖", "三等奖", "四等奖", "参与奖"];
     var POOLS = {
-      monthly: [
+      m12: [
         { id: 1, name: "5888€ MP 随您购", level: "一等奖", quota: 1, match: "full", value: 5888, choice: false, img: "prize-monthly-1.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" },
         { id: 2, name: "iPhone Duo 512G", level: "二等奖", quota: 1, match: "full", value: 1200, choice: false, img: "prize-monthly-2.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" },
         { id: 3, name: "iPhone 18 Pro Max", level: "三等奖", quota: 2, match: "full", value: 1200, choice: false, img: "prize-monthly-3.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" },
         { id: 4, name: "iPad", level: "四等奖", quota: 3, match: "full", value: 600, choice: false, img: "prize-monthly-4.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" }
       ],
+      m1: [],
+      m2: [],
       ultimate: [
         { id: 5, name: "Tesla Model 3", level: "一等奖", quota: 1, match: "full", value: 35000, choice: false, img: "prize-ultimate-1.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" },
         { id: 6, name: "MP 定制礼盒（参与奖）", level: "参与奖", quota: 1500, match: "last", value: 50, choice: false, img: "prize-ultimate-participation.png", created: "2026-11-09 10:00:00", modified: "2026-11-09 10:00:00" }
       ]
     };
     var state = {
-      rows: POOLS.monthly.slice(),
-      pool: "monthly",
+      rows: POOLS.m12.slice(),
+      pool: "m12",
       filtered: false,
       page: 1,
       pageSize: 10,
@@ -425,6 +441,9 @@
       editingId: null,
       imgIdx: 0
     };
+
+    POOLS.m1 = POOLS.m12.map(function (x) { return Object.assign({}, x, { id: x.id + 100 }); });
+    POOLS.m2 = POOLS.m12.map(function (x) { return Object.assign({}, x, { id: x.id + 200 }); });
 
     document.getElementById("f-pool").onchange = function () {
       state.pool = this.value;
@@ -576,6 +595,8 @@
       U.$$('input[name="prize-choice"]').forEach(function (r) { r.checked = r.value === "0"; });
       state.imgIdx = 0;
       $("#prize-img").src = STORE + IMGS[0];
+      $("#prize-pool").value = state.pool;
+      fillLevelOptions(state.pool);
     }
 
     function openAdd() {
@@ -596,11 +617,22 @@
       $("#prize-quota").value = r.quota;
       $("#prize-match").value = r.match;
       $("#prize-value").value = r.value;
+      $("#prize-pool").value = state.pool;
+      fillLevelOptions(state.pool);
+      $("#prize-level").value = r.level;
       U.$$('input[name="prize-choice"]').forEach(function (x) { x.checked = (x.value === "1") === r.choice; });
       state.imgIdx = Math.max(0, IMGS.indexOf(r.img));
       $("#prize-img").src = STORE + r.img;
       openModal("modal-prize");
     }
+
+    function fillLevelOptions(pool) {
+      var opts = pool === "ultimate"
+        ? ['<option value="">请选择奖品级别</option>','<option value="一等奖">一等奖</option>','<option value="参与奖">参与奖</option>']
+        : ['<option value="">请选择奖品级别</option>','<option value="一等奖">一等奖</option>','<option value="二等奖">二等奖</option>','<option value="三等奖">三等奖</option>','<option value="四等奖">四等奖</option>'];
+      $("#prize-level").innerHTML = opts.join("");
+    }
+    $("#prize-pool").addEventListener("change", function () { fillLevelOptions(this.value); $("#prize-level").value = ""; });
 
     function validate() {
       var ok = true;
@@ -626,7 +658,8 @@
     function savePrize() {
       if (!validate()) return;
       var level = $("#prize-level").value;
-      var match = (level === "五等奖") ? "last" : $("#prize-match").value;
+      var poolKey = $("#prize-pool").value;
+      var match = (level === "参与奖") ? "last" : $("#prize-match").value;
       var choice = U.$$('input[name="prize-choice"]').some(function (r) { return r.checked && r.value === "1"; });
       var data = {
         name: $("#prize-name").value.trim(),
@@ -641,8 +674,10 @@
         data.id = Date.now();
         data.created = nowStr();
         data.modified = nowStr();
-        POOLS[state.pool].unshift(data);
-        state.rows = POOLS[state.pool].slice();
+        POOLS[poolKey].unshift(data);
+        state.pool = poolKey;
+        $("#f-pool").value = poolKey;
+        state.rows = POOLS[poolKey].slice();
         state.filtered = false;
         state.page = 1;
         state.sortDir = "desc";
@@ -650,12 +685,18 @@
         closeModal($("#modal-prize"));
         U.toast("已添加奖品「" + data.name + "」（演示）");
       } else {
-        var r = POOLS[state.pool].find(function (x) { return x.id === state.editingId; });
+        var oldPool = state.pool;
+        var r = POOLS[oldPool].find(function (x) { return x.id === state.editingId; });
         if (r) {
           Object.keys(data).forEach(function (k) { r[k] = data[k]; });
           r.modified = nowStr();
+          if (oldPool !== poolKey) {
+            POOLS[oldPool] = POOLS[oldPool].filter(function (x) { return x.id !== state.editingId; });
+            POOLS[poolKey].unshift(r);
+          }
         }
-        state.rows = state.filtered ? state.rows : POOLS[state.pool].slice();
+        state.pool = poolKey; $("#f-pool").value = poolKey;
+        state.rows = POOLS[poolKey].slice();
         render();
         closeModal($("#modal-prize"));
         U.toast("奖品「" + data.name + "」已保存（演示）");
@@ -709,7 +750,7 @@
     $("#btn-export").addEventListener("click", function () { U.toast("已导出当前列表（演示，含图片链接）"); });
     $("#btn-add").addEventListener("click", openAdd);
     $("#prize-level").addEventListener("change", function () {
-      if (this.value === "五等奖") $("#prize-match").value = "last";
+      if (this.value === "参与奖") $("#prize-match").value = "last";
       else if (this.value) $("#prize-match").value = "full";
     });
     $("#btn-prize-img").addEventListener("click", function () {
