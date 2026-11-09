@@ -79,7 +79,7 @@
       </div>
     </section>
 
-    <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-28 23:59:59（西班牙时间）；开奖日期待运营公布。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
+    <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-28 23:59:59（西班牙时间）；大奖开奖 2027 年 3 月；月度开奖日期待公布。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
     <p class="h5-tip"><a class="h5-link" href="publicity.html">查看中奖公示 →</a></p>
     <p class="h5-tip"><a class="h5-link" href="card-styles.html">福卡样式总览（演示）→</a></p>
   </div>
@@ -176,16 +176,16 @@
       ];
 
       var CARDS_ALL = [
-        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending" },
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending", pool: "12 月奖池" },
         { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", issued: "2026-12-01", status: "won", levelText: "终极一等奖", prize: "Tesla Model 3", level: 1, prizeCode: "ultimate1", pool: "终极大奖池" },
         { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", issued: "2026-12-02", status: "won", levelText: "月度二等奖", prize: "iPhone Duo 512G", level: 2, prizeCode: "monthly2", pool: "1 月奖池" },
         { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", issued: "2026-12-08", status: "won", levelText: "月度三等奖", prize: "iPhone 18 Pro Max", level: 3, prizeCode: "monthly3", pool: "2 月奖池" },
         { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", issued: "2026-12-09", status: "won", levelText: "月度四等奖", prize: "iPad", level: 4, prizeCode: "monthly4", pool: "2 月奖池" },
         { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", issued: "2026-12-09", status: "won", levelText: "参与奖", prize: "MP 定制礼盒", level: 5, prizeCode: "participation", pool: "终极大奖池" },
-        { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost" },
-        { no: "01088", source: "订单福卡", sourceCls: "order", invoice: "ES25000089", amount: "1,240.00", created: "2025-09-18", issued: "2026-12-01", status: "invalid", reason: "退单", invalidAt: "2027-02-12 10:20" },
-        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "pending", basis: "邀请新客首单达标" },
-        { no: "07001", source: "官方福卡", sourceCls: "official", invoice: null, amount: "", created: "", issued: "2026-12-10", status: "pending", basis: "官方码发放（每 CIF 限 1 张）" }
+        { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", pool: "12 月奖池" },
+        { no: "01088", source: "订单福卡", sourceCls: "order", invoice: "ES25000089", amount: "1,240.00", created: "2025-09-18", issued: "2026-12-01", status: "invalid", reason: "退单", invalidAt: "2027-02-12 10:20", pool: "12 月奖池" },
+        { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "pending", basis: "邀请新客首单达标", pool: "12 月奖池" },
+        { no: "07001", source: "官方福卡", sourceCls: "official", invoice: null, amount: "", created: "", issued: "2026-12-10", status: "pending", basis: "官方码发放（每 CIF 限 1 张）", pool: "12 月奖池" }
       ];
 
       function fmtCard(c) {

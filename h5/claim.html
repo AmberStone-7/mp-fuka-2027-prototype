@@ -31,7 +31,7 @@
       <ul style="display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.75;color:rgba(255,243,228,.82)">
         <li>1. 分享您的邀请码给新客户，新客户下单即参与活动。</li>
         <li>2. 新客户在活动期内有单张 ≥ 1,000 €（不含 IVA）的发票，<span class="h5-text-gold">双方各得 1 张福卡</span>。</li>
-        <li>3. 提交时未达标也能先记录邀请关系，达标后系统自动发放，截止 2027-02-10 00:00。</li>
+        <li>3. 提交时未达标也能先记录邀请关系，达标后系统自动发放，截止 2027-02-28 24:00。</li>
       </ul>
     </section>
 
@@ -100,7 +100,7 @@
       <div id="result-body"></div>
     </section>
 
-    <p class="h5-tip" style="margin-top:18px">活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；新客指活动前 12 个月内无有效发票的企业客户。</p>
+    <p class="h5-tip" style="margin-top:18px">活动时间：2026-12-01 00:00 — 2027-02-28 24:00（西班牙时间）；新客指 2025-01-01 起已注册未下单的客户，或未注册的 CIF 客户（后端取数逻辑待确认）。</p>
   </div>
 
   <script>
@@ -155,7 +155,7 @@
   ],
   "rules": [
     "success 后锁定，不可再提交；pending 允许本人覆盖换码，以最后一次为准",
-    "未达标先记 pending，达标后自动发放双方各 1 张，截止 2027-02-10 00:00",
+    "未达标先记 pending，达标后自动发放双方各 1 张，截止 2027-02-28 24:00",
     "邀请人上限 100 张：达上限时新客照发、邀请人不发并记录",
     "错误统一提示「信息不匹配，请核对后重试」，不暴露具体原因",
     "invetee_cif 唯一；双方发卡同事务，任一失败全回滚"
@@ -214,7 +214,7 @@
           box.innerHTML =
             '<div class="h5-notice h5-notice--success" style="margin-bottom:12px">邀请成功！您与新客各得 1 张福卡，已发送至双方账户。</div>' +
             ticket("01136", "我的福卡号") + ticket("01137", "新客福卡号") +
-            '<p class="h5-tip">福卡已进入 2027-02-10 抽奖池，可在「活动查询」查看状态。</p>';
+            '<p class="h5-tip">福卡已进入对应月度奖池，可在「活动查询」查看状态。</p>';
         } else if (kind === "pending") {
           box.innerHTML =
             '<div class="h5-notice h5-notice--warn" style="margin-bottom:12px">已记录您的邀请关系，待发票金额满 1,000 欧元后自动发放。</div>' +
