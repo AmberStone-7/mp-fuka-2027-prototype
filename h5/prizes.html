@@ -31,7 +31,7 @@
     <p class="h5-tip" style="margin-top:0">覆盖 12/1/2 月全部有效福卡；已中月度奖的福卡不再参与。</p>
     <div class="h5-prize-list" id="ultimate-list"></div>
 
-    <p class="h5-tip">奖品图片由市场部提供；具体兑奖由客服微信沟通。开奖日期待运营确认，本页暂不展示。</p>
+    <p class="h5-tip">奖品图片由市场部提供；大奖开奖时间：2027 年 3 月；月度开奖日期待公布。具体兑奖由客服微信沟通。</p>
   </div>
 
   <script>
@@ -42,26 +42,26 @@
       note: "V2.0：月度奖池 4 档 + 终极大奖池 2 档",
       fr: ["FR-015", "FR-022"],
       ac: ["AC-065"],
-      goal: "展示月月抽两套奖池：月度奖池 4 档奖品（每月独立名额），终极大奖池 Tesla Model 3 1 名 + 安慰奖 1,500 名；不展示具体开奖日期。",
+      goal: "展示月月抽两套奖池：月度奖池 4 档奖品（每月独立名额），终极大奖池 Tesla Model 3 1 名 + 参与奖 1,500 名；大奖开奖时间 2027 年 3 月，月度开奖日期待公布。",
       states: [
         "月度奖池：5888€ MP 随您购 1 名、iPhone Duo 512G 1 名、iPhone Pro Max 256G 2 名、iPad 3 名，均 5 位全匹配。",
-        "终极大奖池：Tesla Model 3 1 名（5 位全匹配）、安慰奖 MP 定制礼盒 1,500 名（末位匹配）。",
+        "终极大奖池：Tesla Model 3 1 名（5 位全匹配）、参与奖 MP 定制礼盒 1,500 名（末位匹配）。",
         "奖品下架/未配置：该档隐藏。"
       ],
       notes: [
         "一卡一奖：月度中奖卡不参与终极大奖池。",
-        "安慰奖超过 1,500 名按卡号升序截取，不足不补抽。",
-        "开奖日期待定，H5 暂不展示。"
+        "参与奖超过 1,500 名按卡号升序截取，不足不补抽。",
+        "大奖开奖时间 2027 年 3 月；月度开奖日期待公布。"
       ],
       changes: [
         "奖品从单池 5 档改为「月度 4 档 + 终极 2 档」双奖池。",
-        "按 v11.0 方案替换为 MP 随您购（5888）、iPhone Duo、iPhone 18 Pro Max、iPad、Tesla Model 3、安慰奖礼盒。",
+        "按 v11.0 方案替换为 MP 随您购（5888）、iPhone Duo、iPhone 18 Pro Max、iPad、Tesla Model 3、参与奖礼盒。",
         "移除原一等奖机票/代金券、四等奖礼包、五等奖 2,000 名口径。",
-        "删除开奖日期展示（待运营确认）；提示兑奖改为客服微信。"
+        "展示大奖开奖时间 2027 年 3 月；月度开奖日期待公布。提示兑奖改为客服微信。"
       ],
       todo: [
         "新奖品正式图片待市场部提供，当前为占位图。",
-        "月度开奖日期待定。"
+        "月度开奖日期待公布。"
       ]
     };
     window.DEMOS = [
@@ -80,14 +80,14 @@
           '</div>';
       }
       var monthly = [
-        { img: "prize-mp.png", name: "5888€ MP 随您购", quota: "每月 1 名", match: "5 位全匹配" },
-        { img: "prize-duo.png", name: "iPhone Duo 512G 1 台", quota: "每月 1 名", match: "5 位全匹配" },
-        { img: "prize-promax.png", name: "iPhone 18 Pro Max 1 台", quota: "每月 2 名", match: "5 位全匹配" },
-        { img: "prize-ipad.png", name: "iPad 1 台", quota: "每月 3 名", match: "5 位全匹配" }
+        { img: "prize-monthly-1.png", name: "5888€ MP 随您购", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-monthly-2.png", name: "iPhone Duo 512G 1 台", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-monthly-3.png", name: "iPhone 18 Pro Max 1 台", quota: "每月 2 名", match: "5 位全匹配" },
+        { img: "prize-monthly-4.png", name: "iPad 1 台", quota: "每月 3 名", match: "5 位全匹配" }
       ];
       var ultimate = [
-        { img: "prize-tesla.png", name: "Tesla Model 3 1 台", quota: "1 名", match: "5 位全匹配" },
-        { img: "prize-giftbox.png", name: "MP 定制礼盒 1 份", quota: "1,500 名", match: "末位 1 位匹配" }
+        { img: "prize-ultimate-1.png", name: "Tesla Model 3 1 台", quota: "1 名", match: "5 位全匹配" },
+        { img: "prize-ultimate-participation.png", name: "MP 定制礼盒 1 份", quota: "1,500 名", match: "末位 1 位匹配" }
       ];
       document.getElementById("monthly-list").innerHTML = monthly.map(card).join("");
       document.getElementById("ultimate-list").innerHTML = ultimate.map(card).join("");
