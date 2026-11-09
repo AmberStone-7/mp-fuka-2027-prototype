@@ -144,6 +144,7 @@
           <th>客户号</th>
           <th>税号 / CIF</th>
           <th>福卡类型</th>
+          <th>所属奖池</th>
           <th>邀请关系</th>
           <th>客户手机号</th>
           <th>业务员号</th>
@@ -372,7 +373,15 @@
     var SOURCE = { order: "订单福卡", new: "新客福卡", invite: "邀请福卡", official: "官方福卡" };
     var state = { rows: ROWS.slice(), checked: {}, voidNo: null };
 
-    function render() {
+    function poolOf(r) {
+    var t = r.time || "";
+    if (t.indexOf("2026-12") === 0) return "12 月奖池";
+    if (t.indexOf("2027-01") === 0) return "1 月奖池";
+    if (t.indexOf("2027-02") === 0) return "2 月奖池";
+    return "12 月奖池";
+  }
+
+  function render() {
       var tb = $("#rows");
       if (!state.rows.length) {
         tb.innerHTML = '<tr><td colspan="15"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
@@ -386,6 +395,7 @@
             '<td class="num">' + r.custNo + "</td>" +
             '<td class="num">' + r.taxId + "</td>" +
             '<td><span class="adm-source adm-source--' + r.source + '">' + SOURCE[r.source] + "</span></td>" +
+            '<td>' + poolOf(r) + "</td>" +
             '<td>' + (r.relation || "—") + "</td>" +
             '<td class="num">' + r.phone + "</td>" +
             '<td class="num">' + r.sales + "</td>" +

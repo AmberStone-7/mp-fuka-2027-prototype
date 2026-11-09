@@ -122,7 +122,7 @@
 
   <div class="win-banner" id="banner">
     <span class="win-banner__ico" id="banner-ico">i</span>
-    <span id="banner-text">本期开奖已于 2027-02-10 完成；兑奖由工作人员与中奖客户线下协调，后台仅记录跟进状态；五等奖随单发放、系统不追踪。</span>
+    <span id="banner-text">V2.0 双奖池：月度奖池 + 终极大奖池；中奖结果发布前需复核；参与奖随单发放、系统不追踪。</span>
     <span class="win-banner__muted" id="banner-extra">演示数据 14 条</span>
   </div>
 
@@ -206,6 +206,8 @@
           <th>业务员名称</th>
           <th>奖品名称</th>
           <th>奖品级别</th>
+          <th>奖池</th>
+          <th>复核状态</th>
           <th>派发方式</th>
           <th>领取状态</th>
           <th>备注</th>
@@ -508,7 +510,7 @@
     var $$ = U.$$;
 
     var NOW = "2027-02-22 15:30";
-    var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
+    var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "参与奖" };
     var PRIZE = {
       1: "特斯拉 1 台",
       2: "iPhone Duo 1 台",
@@ -528,7 +530,7 @@
       { id: "W-2027-0006", card: "01842", account: "ES02", customer: "DISTRIBUCIONES AVE, S.L.", custNo: "10007345", cif: "B12741258", phone: "+34 699 553 208", salesNo: "V0319", salesName: "JAVIER ORTEGA", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
       { id: "W-2027-0007", card: "01633", account: "ES01", customer: "TPV SOLUTIONS, S.L.", custNo: "10008123", cif: "B12852369", phone: "+34 610 664 329", salesNo: "V0402", salesName: "ELENA RUIZ", level: 4, dispatch: "快递", status: "expired", won: "2027-02-10 10:12", updated: "2027-02-16 18:00", remark: "客户放弃领奖 → 已失效（可逆，需管理员留痕）", form: null },
       { id: "W-2027-0008", card: "01022", account: "ES03", customer: "IMPRENTA MAR, S.L.", custNo: "10009256", cif: "B12963470", phone: "+34 621 775 430", salesNo: "V0224", salesName: "PAU SERRANO", level: 3, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "代金券已发至客户邮箱（模板 E-03）", form: null },
-      { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "工作人员尚未录入兑奖联系信息", form: null },
+      { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "工作人员尚未录入兑奖联系信息", form: null, reviewed: false },
       { id: "W-2027-0010", card: "00456", account: "ES02", customer: "MATERIAL ESCOLAR PRO, S.L.", custNo: "10011472", cif: "B12185296", phone: "+34 643 997 652", salesNo: "V0367", salesName: "DAVID NAVARRO", level: 4, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
       { id: "W-2027-0011", card: "00009", account: "ES03", customer: "SUMINISTROS NORTE, S.L.", custNo: "10012563", cif: "B12296307", phone: "+34 654 108 763", salesNo: "V0298", salesName: "MARTA SOLER", level: 1, dispatch: "自提", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-19 16:40", remark: "已交付，签收单 SA-0231", form: null },
       { id: "W-2027-0012", card: "01276", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
@@ -565,11 +567,20 @@
       return state.rows.slice(start, start + state.pageSize);
     }
 
+    function poolOf(r) {
+      if (r.pool) return r.pool;
+      if (r.level === 5) return "终极大奖池";
+      if (r.card === "00009") return "终极大奖池";
+      return "月度奖池";
+    }
+    function reviewOf(r) { return r.reviewed === false ? "待复核" : "已复核"; }
+
     function rowHtml(r) {
       var stCls = STATUS_CLASS[r.status];
       var isAuto = r.status === "auto_ship";
       var ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button>';
       if (r.level === 2) ops += '<button type="button" data-act="form" data-id="' + r.id + '">兑奖信息</button>';
+      if (reviewOf(r) === "待复核") ops += '<button type="button" data-act="review" data-id="' + r.id + '">复核</button>';
       return "<tr>" +
         '<td class="col-check"><input type="checkbox" data-check="' + r.id + '"' + (state.checked[r.id] ? " checked" : "") + "></td>" +
         '<td class="num">' + r.card + "</td>" +
@@ -580,6 +591,8 @@
         '<td class="win-sales">' + esc(r.salesName) + "</td>" +
         '<td class="win-prize"><span class="win-ellipsis" title="' + esc(PRIZE[r.level]) + '">' + esc(PRIZE[r.level]) + "</span></td>" +
         '<td><span class="adm-source">' + LEVEL[r.level] + "</span></td>" +
+        '<td>' + poolOf(r) + "</td>" +
+        '<td><span class="adm-status ' + (reviewOf(r)=="待复核" ? "adm-status--won" : "adm-status--filled") + '">' + reviewOf(r) + "</span></td>" +
         "<td>" + r.dispatch + "</td>" +
         '<td><span class="adm-status ' + stCls + '"' + (isAuto ? ' title="五等奖系统不追踪发放状态，随单发放（DEC-037）"' : "") + ">" + STATUS[r.status] + "</span></td>" +
         '<td class="win-remark"><span class="win-ellipsis" title="' + esc(r.remark) + '">' + esc(r.remark) + "</span></td>" +
@@ -613,7 +626,7 @@
       } else {
         banner.classList.remove("win-banner--warn");
         $("#banner-ico").textContent = "i";
-        $("#banner-text").textContent = "本期开奖已于 2027-02-10 完成；兑奖由工作人员与中奖客户线下协调，后台仅记录跟进状态；五等奖随单发放、系统不追踪。";
+        $("#banner-text").textContent = "V2.0 双奖池：月度奖池 + 终极大奖池；中奖结果发布前需复核；参与奖随单发放、系统不追踪。";
         $("#banner-extra").textContent = "演示数据 " + state.rows.length + " 条";
       }
     }
@@ -643,6 +656,7 @@
     function filter() {
       var card = $("#f-card").value.trim();
       var cust = $("#f-cust").value.trim().toLowerCase();
+      var tax = $("#f-tax").value.trim();
       var sales = $("#f-sales").value.trim().toLowerCase();
       var level = $("#f-level").value;
       var dispatch = $("#f-dispatch").value;
@@ -838,6 +852,9 @@
       var id = b.getAttribute("data-id");
       if (b.getAttribute("data-act") === "edit") openEdit(id);
       else if (b.getAttribute("data-act") === "form") openForm(id);
+      else if (b.getAttribute("data-act") === "review") {
+        var r = find(id); if (r) { r.reviewed = true; render(); U.toast("复核通过：" + id); }
+      }
     });
     $("#rows").addEventListener("change", function (e) {
       var c = e.target;
