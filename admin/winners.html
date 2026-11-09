@@ -72,7 +72,11 @@
     #form-body[hidden], #form-empty[hidden] { display: none !important; }
     #modal-form .adm-modal__box { width: min(560px, 100%); }
     #modal-form .adm-form-item > label { width: 132px; }
-  </style>
+  
+  /* 奖池/复核列加宽，避免竖排换行 */
+  .win-table th:nth-child(3), .win-table td:nth-child(3) { min-width: 96px; white-space: nowrap; }
+  .win-table th:nth-child(4), .win-table td:nth-child(4) { min-width: 80px; white-space: nowrap; }
+</style>
 </head>
 <body class="adm">
 
