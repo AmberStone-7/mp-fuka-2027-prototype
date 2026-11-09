@@ -64,9 +64,9 @@
 <script>
 (function () {
   var POOLS = [
-    { name: "12 月月度奖池", period: "2026-12-01 — 2026-12-31", cards: 3120, prizes: "4 档（月度）", status: "已配置 · 待开奖", pool: "m12" },
-    { name: "1 月月度奖池", period: "2027-01-01 — 2027-01-31", cards: 2870, prizes: "4 档（月度）", status: "已配置 · 待开奖", pool: "m1" },
-    { name: "2 月月度奖池", period: "2027-02-01 — 2027-02-28", cards: 2430, prizes: "4 档（月度）", status: "已配置 · 待开奖", pool: "m2" },
+    { name: "12 月月度奖池", period: "2026-12-01 — 2026-12-31", cards: 3120, prizes: "4 档（月度）", status: "已发布", pool: "m12" },
+    { name: "1 月月度奖池", period: "2027-01-01 — 2027-01-31", cards: 2870, prizes: "4 档（月度）", status: "复核中", pool: "m1" },
+    { name: "2 月月度奖池", period: "2027-02-01 — 2027-02-28", cards: 2430, prizes: "4 档（月度）", status: "待开奖", pool: "m2" },
     { name: "终极大奖池", period: "2026-12-01 — 2027-02-28", cards: 8420, prizes: "Tesla 1 + 参与奖 1,500", status: "待 2 月月度开奖后生成快照", pool: "ultimate" }
   ];
   document.getElementById("rows").innerHTML = POOLS.map(function (p) {
