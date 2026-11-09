@@ -75,6 +75,7 @@
       (meta.states && meta.states.length ? "<section><h3>状态与异常</h3>" + li(meta.states) + "</section>" : "") +
       (meta.permissions && meta.permissions.length ? "<section><h3>权限</h3>" + li(meta.permissions) + "</section>" : "") +
       (meta.events && meta.events.length ? "<section><h3>埋点</h3>" + li(meta.events) + "</section>" : "") +
+      (meta.changes && meta.changes.length ? "<section><h3>本次改动（V2.0）</h3>" + li(meta.changes) + "</section>" : "") +
       (meta.notes && meta.notes.length ? "<section><h3>交互说明</h3>" + li(meta.notes) + "</section>" : "") +
       (meta.devNotes && meta.devNotes.length ? "<section><h3>开发注意</h3>" + li(meta.devNotes) + "</section>" : "") +
       (demos.length ? "<section><h3>演示控制</h3><div class=\"proto-demo\" id=\"proto-demo\"></div></section>" : "") +
@@ -131,8 +132,23 @@
     document.body.appendChild(a);
   }
 
+  function buildChangeFlag() {
+    var meta = window.PAGE_META;
+    if (!meta || !meta.changes || !meta.changes.length) return;
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "proto-chg";
+    b.textContent = "V2.0 本次改动";
+    b.onclick = function () {
+      var n = document.querySelector(".proto-notes-btn");
+      if (n) n.click();
+    };
+    document.body.appendChild(b);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildNotes();
     buildProtoNav();
+    buildChangeFlag();
   });
 })();

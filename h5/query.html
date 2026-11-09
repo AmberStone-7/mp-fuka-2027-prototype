@@ -57,7 +57,7 @@
             <div><b id="q-invited-left">97</b><span>剩余名额</span></div>
           </div>
         </div>
-        <p class="h5-tip">以上为验证客户后名下全部福卡（含其他发票）；福卡状态随 2027-02-10 开奖结果更新。</p>
+        <p class="h5-tip">以上为验证客户后名下全部福卡（含其他发票）；福卡状态随各奖池开奖结果更新。</p>
       </div>
 
       <div class="h5-tabs" id="status-tabs">
@@ -79,7 +79,7 @@
       </div>
     </section>
 
-    <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-09 24:00（西班牙时间）；抽奖日：2027-02-10。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
+    <p class="h5-tip" style="margin-top:16px">活动时间：2026-12-01 00:00 — 2027-02-28 23:59:59（西班牙时间）；开奖日期待运营公布。发票不含 IVA 金额每满 1,000 欧元得 1 张福卡。</p>
     <p class="h5-tip"><a class="h5-link" href="publicity.html">查看中奖公示 →</a></p>
     <p class="h5-tip"><a class="h5-link" href="card-styles.html">福卡样式总览（演示）→</a></p>
   </div>
@@ -107,6 +107,7 @@
         "邀请码卡片放在结果顶部（状态筛选之前），仅展示已成功邀请数量与剩余名额，不展示邀请记录。",
         "中奖公示入口移到底部链接与「活动细则与赞助」页。"
       ],
+      changes: ["开奖日期改为「待运营公布」；状态文案改为奖池口径。", "（下一批将增加奖池标签与新奖品展示。）"],
       todo: [
         "PRD FR-010 原文为「仅返回该发票关联福卡」，本页按业务要求改为客户维度全部福卡，PRD V1.7 已同步更新。",
         "发票号格式 PRD 未定义，演示按 6–20 位字母数字。",
@@ -266,7 +267,7 @@
             state.status = "all";
             $("#invite-block").hidden = false;
             $("#result-notice").innerHTML = '<div class="h5-notice" style="margin-bottom:10px">' + (state.published
-              ? "抽奖已于 2027-02-10 完成，福卡状态已更新；中奖卡可点「查看领取方式」按奖项登记/备注。"
+              ? "奖池已开奖，福卡状态已更新；中奖卡可点「查看领取方式」按奖项登记/备注。"
               : "验证通过：返回该税号名下全部福卡（含其他发票）与我的邀请码。") + "</div>";
             U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
             renderCards();
@@ -310,7 +311,7 @@
         $("#invite-block").hidden = false;
         $("#status-tabs").hidden = false;
         $("#result-notice").innerHTML = '<div class="h5-notice' + (flag ? " h5-notice--success" : "") + '" style="margin-bottom:10px">' +
-          (flag ? "抽奖已于 2027-02-10 完成：01136 已中奖（二等奖），可查看领取方式；其余 3 张未中奖。" : "当前为开奖前状态：名下 4 张福卡均为待开奖。") + "</div>";
+          (flag ? "演示：01136 已在月度奖池中奖，可查看领取方式；其余 3 张未中奖。" : "当前为开奖前状态：名下 4 张福卡均为待开奖。") + "</div>";
         U.$$("#status-tabs .h5-tab").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-status") === "all"); });
         renderCards();
         window.scrollTo({ top: $("#result").offsetTop - 20, behavior: "smooth" });

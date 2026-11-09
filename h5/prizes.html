@@ -9,26 +9,29 @@
   <link rel="stylesheet" href="../assets/css/h5.css">
 </head>
 <body class="h5">
-  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
-    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
-  </video>
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata"><source src="../assets/video/bg-h5.mp4" type="video/mp4"></video>
   <div class="h5-veil"></div>
-
   <div class="h5-frame">
     <header class="h5-top">
       <a class="h5-back" href="activity.html">‹ 返回</a>
       <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
     </header>
 
-    <h2 class="h5-sec"><i>◆</i>礼品展示<i>◆</i></h2>
+    <h2 class="h5-sec">礼品展示</h2>
 
     <div class="h5-card" style="padding:12px 14px">
-      <p class="h5-tip" style="margin:0">抽奖时间：2027-02-10 · 一至四等奖 5 位号码全匹配，五等奖末位 1 位匹配；一卡一奖、取最高；名额为活动期总额。</p>
+      <p class="h5-tip" style="margin:0">活动时间：2026-12-01 — 2027-02-28。<br>奖池分「月度奖池（12/1/2 月）」与「终极大奖池」；一卡一奖，月度中奖卡不参与终极抽奖。</p>
     </div>
 
-    <div class="h5-prize-list" id="prize-list"></div>
+    <h3 class="style-section-title">月度奖池（每月各 1 期）</h3>
+    <p class="h5-tip" style="margin-top:0">一至四等奖均为福卡 5 位数字全匹配；每月独立配置名额。</p>
+    <div class="h5-prize-list" id="monthly-list"></div>
 
-    <p class="h5-tip" style="margin-top:16px">奖品图片由市场部提供，实物以最终采购版本为准；中奖后按中奖卡「查看领取方式」登记：一至四等奖扫码加对应微信，五等奖联系业务员备注。</p>
+    <h3 class="style-section-title">终极大奖池</h3>
+    <p class="h5-tip" style="margin-top:0">覆盖 12/1/2 月全部有效福卡；已中月度奖的福卡不再参与。</p>
+    <div class="h5-prize-list" id="ultimate-list"></div>
+
+    <p class="h5-tip">奖品图片由市场部提供；具体兑奖由客服微信沟通。开奖日期待运营确认，本页暂不展示。</p>
   </div>
 
   <script>
@@ -36,78 +39,58 @@
       id: "H5-04",
       title: "礼品展示",
       live: "yes",
-      note: "沿用去年礼品展示页结构",
-      fr: ["FR-022"],
-      ac: ["AC-022"],
-      goal: "五档奖品按奖级从上到下排列：图片 + 奖品名 + 名额 + 匹配方式；名额与匹配规则以 2026-11-03 确认版为准，兑奖由工作人员线下协调。",
+      note: "V2.0：月度奖池 4 档 + 终极大奖池 2 档",
+      fr: ["FR-015", "FR-022"],
+      ac: ["AC-065"],
+      goal: "展示月月抽两套奖池：月度奖池 4 档奖品（每月独立名额），终极大奖池 Tesla Model 3 1 名 + 安慰奖 1,500 名；不展示具体开奖日期。",
       states: [
-        "正常：五档奖品全部展示。",
-        "奖品下架/未配置：该档显示「敬请期待」。",
-        "活动未开始：页面可看，奖品以最终规则为准。"
+        "月度奖池：5888€ MP 随您购 1 名、iPhone Duo 512G 1 名、iPhone Pro Max 256G 2 名、iPad 3 名，均 5 位全匹配。",
+        "终极大奖池：Tesla Model 3 1 名（5 位全匹配）、安慰奖 MP 定制礼盒 1,500 名（末位匹配）。",
+        "奖品下架/未配置：该档隐藏。"
       ],
       notes: [
-        "五档奖品按奖级排列：市场部奖品图（含奖级/名额）+ 奖品名称 + 匹配方式。",
-        "名额与匹配规则已确认（2026-11-03）：1 / 2 / 3 / 15 / 2,000 名；一至四等奖 5 位全匹配，五等奖末位 1 位。",
-        "名额与匹配规则以 2026-11-03 规则文件为准；兑奖方式见中奖卡「查看领取方式」。",
-        "五等奖随单发放，订单备注填写【2027福卡五等奖】。"
+        "一卡一奖：月度中奖卡不参与终极大奖池。",
+        "安慰奖超过 1,500 名按卡号升序截取，不足不补抽。",
+        "开奖日期待定，H5 暂不展示。"
+      ],
+      changes: [
+        "奖品从单池 5 档改为「月度 4 档 + 终极 2 档」双奖池。",
+        "新增 5888€ MP 随您购、iPhone Duo 512G、iPhone Pro Max 256G、iPad、Tesla Model 3、安慰奖 1,500 名。",
+        "移除原一等奖机票/代金券、四等奖礼包、五等奖 2,000 名口径。",
+        "删除开奖日期展示（待运营确认）；提示兑奖改为客服微信。"
       ],
       todo: [
-        "兑奖不设线上流程，由工作人员与中奖客户线下协调。",
-        "奖品图已替换为市场部 2027 素材（191–195.png）。"
+        "新奖品正式图片待市场部提供，当前为占位图。",
+        "月度开奖日期待定。"
       ]
     };
-
     window.DEMOS = [
-      { label: "查看奖品口径", fn: function () { U.toast("活动期总额：1/2/3/15/2,000 名；一至四等奖 5 位全匹配，五等奖末位 1 位"); } }
+      { label: "查看月度奖池", fn: function () { window.scrollTo({ top: document.getElementById("monthly-list").offsetTop - 20, behavior: "smooth" }); } },
+      { label: "查看终极大奖池", fn: function () { window.scrollTo({ top: document.getElementById("ultimate-list").offsetTop - 20, behavior: "smooth" }); } }
     ];
-  </script>
-  <script>
-    Object.assign(window.PAGE_META, {
-  "api": [
-    {
-      "method": "GET",
-      "path": "/api/prizes",
-      "desc": "出参 {level, name, image, quota, match_digits, note}[]；H5 只读"
-    }
-  ],
-  "fields": [
-    "无表单；5 档奖品为配置数据"
-  ],
-  "rules": [
-    "一至四等奖 5 位全匹配；五等奖末位 1 位",
-    "一卡一奖、取最高",
-    "名额为活动期总额：1 / 2 / 3 / 15 / 2,000 名（2026-11-03 确认）",
-    "五等奖随单发放，订单备注【2027福卡五等奖】"
-  ],
-  "permissions": [
-    "公开"
-  ],
-  "events": [
-    "page_view"
-  ],
-  "devNotes": [
-    "奖品文案/名额读配置，不写死；图片可替换为正式素材",
-    "口径确认后只改配置数据，不改页面结构"
-  ]
-});
   </script>
   <script src="../assets/js/legacy.js"></script>
   <script>
     (function () {
-      var PRIZES = [
-        { img: "prize-01.png", level: "一等奖", name: "特斯拉 1 台", quota: "1 名", match: "5 位全匹配", note: "" },
-        { img: "prize-02.png", level: "二等奖", name: "iPhone Duo 1 台", quota: "2 名", match: "5 位全匹配", note: "" },
-        { img: "prize-03.png", level: "三等奖", name: "全球目的地机票 或 1,000€ MP 代金券", quota: "3 名", match: "5 位全匹配", note: "" },
-        { img: "prize-04.png", level: "四等奖", name: "MP 营销定制礼包 1 份", quota: "15 名", match: "5 位全匹配", note: "" },
-        { img: "prize-05.png", level: "五等奖", name: "MP 定制礼盒 1 份", quota: "2,000 名", match: "末位 1 位匹配", note: "" }
-      ];
-      document.getElementById("prize-list").innerHTML = PRIZES.map(function (p, i) {
+      function card(p) {
         return '<div class="h5-prize">' +
-          '<img class="h5-prize__img" src="../assets/img/' + p.img + '" alt="' + p.level + ' ' + p.name + '">' +
+          '<img class="h5-prize__img" src="../assets/img/' + p.img + '" alt="' + p.name + '">' +
           '<div class="h5-prize__name">' + p.name + '</div>' +
-          '<div class="h5-prize__meta">名额 ' + p.quota + ' · ' + p.match + (p.note ? ' · ' + p.note : '') + '</div>' +
+          '<div class="h5-prize__meta">名额 ' + p.quota + ' · ' + p.match + '</div>' +
           '</div>';
-      }).join("");
+      }
+      var monthly = [
+        { img: "prize-06.png", name: "5888€ MP 随您购", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-02.png", name: "iPhone Duo 512G 1 台", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-07.png", name: "iPhone Pro Max 256G 1 台", quota: "每月 2 名", match: "5 位全匹配" },
+        { img: "prize-08.png", name: "iPad 1 台", quota: "每月 3 名", match: "5 位全匹配" }
+      ];
+      var ultimate = [
+        { img: "prize-01.png", name: "Tesla Model 3 1 台", quota: "1 名", match: "5 位全匹配" },
+        { img: "prize-05.png", name: "MP 定制礼盒 1 份", quota: "1,500 名", match: "末位 1 位匹配" }
+      ];
+      document.getElementById("monthly-list").innerHTML = monthly.map(card).join("");
+      document.getElementById("ultimate-list").innerHTML = ultimate.map(card).join("");
     })();
   </script>
 </body>
