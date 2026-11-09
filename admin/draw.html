@@ -33,7 +33,6 @@
   <nav class="adm-menu" aria-label="后台菜单">
     <a class="adm-menu__item" href="cards.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>福卡管理</a>
     <a class="adm-menu__item" href="invite.html"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>邀请码管理</a>
-    <a class="adm-menu__item" href="pools.html"><svg viewBox="0 0 24 24"><path d="M4 7h16v4H4z"/><path d="M6 11v8h12v-8"/><path d="M9 7V5h6v2"/></svg>奖池管理</a>
     <a class="adm-menu__item is-active" href="draw.html"><svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>抽奖管理</a>
     <a class="adm-menu__item" href="prizes.html"><svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>奖品管理</a>
     <a class="adm-menu__item" href="winners.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>中奖记录</a>
@@ -104,7 +103,14 @@
     <div class="adm-modal__body">
       <div class="adm-form-item">
         <label>奖池</label>
-        <div class="adm-form-item__ctrl"><input class="adm-input" id="r-pool" readonly></div>
+        <div class="adm-form-item__ctrl">
+          <select class="adm-select" id="r-pool">
+            <option value="m12">12 月月度奖池</option>
+            <option value="m1">1 月月度奖池</option>
+            <option value="m2">2 月月度奖池</option>
+            <option value="ultimate">终极大奖池</option>
+          </select>
+        </div>
       </div>
       <div class="adm-form-item" id="item-prize">
         <label class="required" for="r-prize">奖品</label>
@@ -264,12 +270,13 @@
     $("#r-num").setAttribute("maxlength", p && p.digits === 1 ? "1" : "5");
   }
   $("#r-prize").onchange = updateTip;
+  $("#r-pool").onchange = function () { state.pool = this.value; fillPrizeOptions(); $("#r-num").value = ""; updateTip(); };
 
   function openAdd(id) {
     state.editId = id || null;
     var r = id ? find(id) : null;
     if (r) state.pool = r.pool;
-    $("#r-pool").value = POOL_NAME[state.pool];
+    $("#r-pool").value = state.pool;
     fillPrizeOptions();
     $("#r-prize").value = r ? PRIZES[state.pool].find(function (p) { return p.name === r.prize; }).key : PRIZES[state.pool][0].key;
     $("#r-num").value = r ? r.lucky : "";
