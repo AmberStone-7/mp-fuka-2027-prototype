@@ -52,6 +52,36 @@
     <button class="adm-btn draw-snap__btn" id="btn-snapshot" type="button">生成/刷新快照</button>
   </div>
 
+  <div class="adm-alert" style="margin-bottom:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <span class="adm-alert__ico">▶</span>
+    <span>直播配置：仅需填写直播链接、上传直播预告图，不做直播平台联动。</span>
+    <a class="adm-btn" id="btn-live" style="margin-left:auto" href="javascript:;">编辑直播配置</a>
+  </div>
+
+  <div class="adm-modal" id="modal-live" aria-hidden="true">
+    <div class="adm-modal__mask" data-close></div>
+    <div class="adm-modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-live-title">
+      <div class="adm-modal__head"><span class="adm-modal__title" id="modal-live-title">直播配置</span><button class="adm-modal__close" type="button" data-close>×</button></div>
+      <div class="adm-modal__body">
+        <div class="adm-form-item">
+          <label for="live-url">直播链接</label>
+          <div class="adm-form-item__ctrl"><input class="adm-input" id="live-url" placeholder="https://..." autocomplete="off"></div>
+        </div>
+        <div class="adm-form-item">
+          <label>直播预告图</label>
+          <div class="adm-form-item__ctrl">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div id="live-preview" style="width:180px;height:96px;border:1px dashed #d9d9d9;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px">未上传</div>
+              <button class="adm-btn" id="btn-live-img" type="button">上传图片</button>
+            </div>
+            <p class="adm-form-tip">建议比例 16:9；H5 首页直播板块展示。</p>
+          </div>
+        </div>
+      </div>
+      <div class="adm-modal__foot"><button class="adm-btn" type="button" data-close>取 消</button><button class="adm-btn adm-btn--primary" type="button" id="btn-live-save">保 存</button></div>
+    </div>
+  </div>
+
   <form class="adm-filters" id="filters" onsubmit="return false">
     <div class="adm-field">
       <label for="f-pool">奖池</label>
@@ -179,7 +209,8 @@
       "奖品按奖池切换：月度 4 档、终极 2 档。",
       "新增重抽（重新生成）与发布前复核状态。",
       "参与奖 1,500 名、末位匹配、超额升序截取。",
-      "发布后同步 H5 福卡与中奖公示。"
+      "发布后同步 H5 福卡与中奖公示。",
+      "直播配置仅保存链接与预告图，不做平台联动。"
     ],
     notes: ["系统记录投球结果与重抽记录。", "发布后不可撤回。"],
     todo: ["月度无中奖最终处理待运营确认。"]
@@ -212,8 +243,8 @@
       { id: "B20261231-01", pool: "m12", prize: "一等奖 · 5888€ MP 随您购", lucky: "03112", matched: 1, status: "draft", time: "2026-12-31 20:10" },
       { id: "B20261231-02", pool: "m12", prize: "二等奖 · iPhone Duo 512G", lucky: "04218", matched: 1, status: "reviewed", time: "2026-12-31 20:05" },
       { id: "B20261231-03", pool: "m12", prize: "三等奖 · iPhone 18 Pro Max", lucky: "05120", matched: 2, status: "published", time: "2026-12-31 20:00" },
-      { id: "B20270228-01", pool: "ultimate", prize: "一等奖 · Tesla Model 3", lucky: "01208", matched: 1, status: "draft", time: "2027-02-28 21:00" },
-      { id: "B20270228-02", pool: "ultimate", prize: "参与奖 · MP 定制礼盒", lucky: "6", matched: 1500, status: "draft", time: "2027-02-28 20:58" }
+      { id: "B20270226-01", pool: "ultimate", prize: "一等奖 · Tesla Model 3", lucky: "01208", matched: 1, status: "draft", time: "2027-02-26 21:00" },
+      { id: "B20270226-02", pool: "ultimate", prize: "参与奖 · MP 定制礼盒", lucky: "6", matched: 1500, status: "draft", time: "2027-02-26 20:58" }
     ],
     all: null, page: 1, editId: null, pool: "m12", match: null, matchPage: 1, matchSize: 10
   };
@@ -327,7 +358,7 @@
   $("#btn-save-result").onclick = function () {
     var m = state.match;
     var id = state.editId || ("B-" + Date.now().toString().slice(-6));
-    var row = { id: id, pool: m.pool, prize: m.prize.name, lucky: m.num, matched: m.count, status: "draft", time: "2027-02-28 21:00" };
+    var row = { id: id, pool: m.pool, prize: m.prize.name, lucky: m.num, matched: m.count, status: "draft", time: "2027-02-26 21:00" };
     if (state.editId) { var i = state.all.findIndex(function (x) { return x.id === state.editId; }); if (i >= 0) state.all[i] = row; }
     else state.all.unshift(row);
     closeModal(document.getElementById("modal-match"));
@@ -351,6 +382,15 @@
   $("#btn-reset").onclick = function () { $("#filters").reset(); state.pool = "m12"; state.all = state.rows.slice(); state.page = 1; render(); };
   $("#btn-export").onclick = function () { U.toast("导出抽奖结果（演示）"); };
   $("#btn-snapshot").onclick = function () { U.toast("已生成 " + POOL_NAME[state.pool] + " 快照（演示）"); };
+  $("#btn-live").onclick = function () { document.getElementById("modal-live").classList.add("is-open"); document.getElementById("modal-live").setAttribute("aria-hidden","false"); };
+  $("#btn-live-img").onclick = function () {
+    var prev = document.getElementById("live-preview");
+    prev.textContent = "预告图已选择（演示）"; prev.style.borderStyle = "solid"; prev.style.color = "#1677ff";
+  };
+  $("#btn-live-save").onclick = function () {
+    document.getElementById("modal-live").classList.remove("is-open"); document.getElementById("modal-live").setAttribute("aria-hidden","true");
+    U.toast("直播配置已保存（演示）：H5 首页同步链接与预告图");
+  };
 
   window.DEMOS = [
     { label: "12 月一等奖录入", fn: function () { state.pool = "m12"; $("#f-pool").value = "m12"; openAdd(); } },
