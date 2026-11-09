@@ -1652,3 +1652,15 @@ body.h5 {
   font-weight: 700;
   color: #f6e3b0;
 }
+
+
+.ticket__pool {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  color: #6f2010;
+  background: rgba(217, 169, 81, 0.35);
+  border: 1px solid rgba(138, 55, 30, 0.3);
+}

@@ -9,11 +9,8 @@
   <link rel="stylesheet" href="../assets/css/h5.css">
 </head>
 <body class="h5">
-  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
-    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
-  </video>
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata"><source src="../assets/video/bg-h5.mp4" type="video/mp4"></video>
   <div class="h5-veil"></div>
-
   <div class="h5-frame">
     <header class="h5-top">
       <a class="h5-back" href="query.html">‹ 返回</a>
@@ -21,32 +18,23 @@
     </header>
 
     <img class="redeem-hero" src="../assets/img/card-2027.png" alt="2027 中汇新年福卡">
-
     <h2 class="h5-sec">礼品领取登记</h2>
+    <div class="redeem-badge" id="prize-badge">月度一等奖</div>
 
-    <div class="redeem-badge" id="redeem-level">三等奖</div>
-
-    <!-- 一至四等奖：添加对应微信登记 -->
-    <section class="redeem-panel" id="panel-wechat">
-      <div class="redeem-qr" id="redeem-qr">
-        <span>对应奖项微信二维码</span>
-        <span>（待运营提供）</span>
+    <section class="redeem-panel">
+      <div class="redeem-qr">
+        <span>客服微信二维码</span>
+        <span>（运营提供）</span>
       </div>
-      <p class="redeem-panel__text">请添加上方微信<br>进行礼品登记</p>
+      <p class="redeem-panel__text" id="main-text">请添加上方客服微信<br>进行礼品登记</p>
     </section>
 
-    <!-- 五等奖：联系业务员 + 下单备注 -->
-    <section class="redeem-panel" id="panel-five" hidden>
-      <p class="redeem-panel__text">请联系您的业务员<br>在下单时备注<br>“新年五等奖”</p>
-    </section>
-
-    <div class="redeem-tips" id="redeem-tips" hidden>
-      <b>温馨提示</b>
-      <p>本礼品将通过订单，随单发放<br>需要备注信息</p>
-      <p style="margin-top:10px">礼品随单时间自<br><span class="h5-text-gold">2027 年 4 月 1 日</span>起</p>
+    <div class="redeem-tips" id="prize-tips" style="margin-top:18px">
+      <b>领取说明</b>
+      <p id="tips-text"></p>
     </div>
 
-    <p class="h5-tip" id="redeem-foot" style="text-align:center">如已添加微信，请发送：中奖奖项 + 福卡号 + 客户名称，工作人员会尽快为您登记。</p>
+    <p class="h5-tip" style="text-align:center">添加客服后请发送：奖项 + 中奖福卡号 + 客户名称，工作人员会尽快为您登记。</p>
   </div>
 
   <script>
@@ -54,51 +42,59 @@
       id: "H5-06",
       title: "礼品领取登记",
       live: "yes",
-      note: "一至四等奖添加对应微信登记；五等奖联系业务员下单备注",
+      note: "V2.0：所有奖品统一客服微信；参与奖按订单备注提示",
       fr: ["FR-014"],
-      ac: ["AC-045", "AC-046", "AC-058"],
-      goal: "中奖客户查看福卡后进入本页：一至四等奖扫码添加对应奖项微信完成礼品登记；五等奖提示联系业务员并在下单时备注「新年五等奖」，礼品自 2027-04-01 起随单发放。",
+      ac: ["AC-045", "AC-058"],
+      goal: "中奖客户进入本页：所有奖项展示客服微信二维码，按奖品显示领取说明；参与奖沿用订单备注提示。",
       states: [
-        "一至四等奖：显示对应奖项微信二维码与「请添加上方微信进行礼品登记」。",
-        "五等奖：显示联系业务员、下单备注「新年五等奖」及随单发放时间。",
-        "二维码未配置：显示占位提示，仍可联系业务员/客服登记。"
+        "月度一至四等奖：客服微信 + 对应奖品说明。",
+        "终极一等奖：客服微信 + Tesla 领取条件。",
+        "参与奖：客服微信 + 联系业务员、订单备注提示。"
       ],
       notes: [
-        "本页从「查询福卡/中奖」的中奖福卡进入，按奖项展示不同领取方式。",
-        "一至四等奖的微信二维码由运营按奖项配置，扫码后人工登记。",
-        "五等奖不需要扫码，业务员在订单备注「新年五等奖」，礼品自 2027-04-01 起随单发放。",
-        "不采集领取人地址/电话等敏感信息，登记由工作人员在微信中完成。"
+        "所有奖品统一一个客服微信二维码，不再按奖项区分微信。",
+        "Tesla 需欧盟驾照/身份证明、年龄≥21、西班牙半岛提车、税费保险自理。",
+        "iPhone 可自费升级 1 次；iPad 不可升级；MP 随您购有效期至 2027-12-31、不可兑现金。",
+        "中奖公示展示完整福卡号。"
       ],
-      todo: [
-        "一至四等奖对应微信二维码/微信号待运营提供，当前为占位。",
-        "五等奖随单起始时间 2027-04-01 是否调整待运营确认。"
-      ]
+      changes: [
+        "领取方式由「一至四等奖各自微信」改为「统一客服微信二维码」。",
+        "新增 Tesla / iPhone / iPad / MP 随您购 / 参与奖的领取说明。",
+        "「安慰奖」更名为「参与奖」，沿用订单备注提示。"
+      ],
+      todo: ["客服微信二维码待运营提供，当前为占位。", "参与奖随单起始时间待运营确认。"]
     };
+    window.DEMOS = [
+      { label: "月度一等奖（5888）", fn: function () { setPrize("monthly1"); } },
+      { label: "月度二等奖（iPhone Duo）", fn: function () { setPrize("monthly2"); } },
+      { label: "月度三等奖（iPhone 18 Pro Max）", fn: function () { setPrize("monthly3"); } },
+      { label: "月度四等奖（iPad）", fn: function () { setPrize("monthly4"); } },
+      { label: "终极一等奖（Tesla）", fn: function () { setPrize("ultimate1"); } },
+      { label: "参与奖（订单备注）", fn: function () { setPrize("participation"); } }
+    ];
   </script>
   <script src="../assets/js/legacy.js"></script>
   <script>
     (function () {
-      var params = new URLSearchParams(location.search);
-      var level = params.get("level") || "3";
-      var map = { "1": "一等奖", "2": "二等奖", "3": "三等奖", "4": "四等奖", "5": "五等奖" };
-      if (!map[level]) level = "3";
-      document.getElementById("redeem-level").textContent = map[level];
-      var isFive = level === "5";
-      document.getElementById("panel-wechat").hidden = isFive;
-      document.getElementById("panel-five").hidden = !isFive;
-      document.getElementById("redeem-tips").hidden = !isFive;
-      var foot = document.getElementById("redeem-foot");
-      if (foot) foot.hidden = isFive;
-      var qr = document.getElementById("redeem-qr");
-      if (qr) qr.querySelector("span").textContent = map[level] + "微信二维码";
-
-      window.DEMOS = [
-        { label: "一等奖领取登记", fn: function () { location.href = "redeem.html?level=1"; } },
-        { label: "二等奖领取登记", fn: function () { location.href = "redeem.html?level=2"; } },
-        { label: "三等奖领取登记", fn: function () { location.href = "redeem.html?level=3"; } },
-        { label: "四等奖领取登记", fn: function () { location.href = "redeem.html?level=4"; } },
-        { label: "五等奖提示", fn: function () { location.href = "redeem.html?level=5"; } }
-      ];
+      var MAP = {
+        monthly1: { badge: "月度一等奖", tips: "MP 随您购：总价值 5888 欧元（税前）的 MP 产品包，可自行点货；超出部分自付；有效期至 2027-12-31，不可兑换现金。" },
+        monthly2: { badge: "月度二等奖", tips: "iPhone Duo 512G：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
+        monthly3: { badge: "月度三等奖", tips: "iPhone 18 Pro Max：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
+        monthly4: { badge: "月度四等奖", tips: "iPad：此礼品不支持兑换现金，也不支持自费升级。" },
+        ultimate1: { badge: "终极一等奖", tips: "Tesla Model 3：需持欧盟有效驾照及官方身份证明，年龄≥21 周岁；仅支持西班牙半岛提车；个人税费、保险、上牌等费用自理；不可兑换现金。" },
+        participation: { badge: "参与奖", tips: "请联系业务员，在下单时备注【2027 福卡参与奖】；礼品随单发放，具体以业务员沟通为准。" }
+      };
+      function setPrize(code) {
+        var p = MAP[code] || MAP.monthly1;
+        document.getElementById("prize-badge").textContent = p.badge;
+        document.getElementById("tips-text").textContent = p.tips;
+        var isPart = code === "participation";
+        document.getElementById("main-text").innerHTML = isPart
+          ? "请联系您的业务员<br>在下单时备注<br>“2027 福卡参与奖”"
+          : "请添加上方客服微信<br>进行礼品登记";
+      }
+      var code = new URLSearchParams(location.search).get("prize") || "monthly1";
+      setPrize(code);
     })();
   </script>
 </body>

@@ -169,7 +169,7 @@
         { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "pending", statusText: "待开奖" }
       ];
       var CARDS_POST = [
-        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "won", statusText: "已中奖 · 二等奖", prize: "iPhone Duo 1 台", levelText: "二等奖", level: 2 },
+        { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "won", statusText: "已中奖 · 月度一等奖", prize: "5888€ MP 随您购", levelText: "月度一等奖", level: 1, prizeCode: "monthly1", pool: "12 月奖池" },
         { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost", statusText: "未中奖" },
         { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "lost", statusText: "未中奖", basis: "邀请新客首单达标" },
         { no: "01142", source: "订单福卡", sourceCls: "order", invoice: "ES25000155", amount: "1,200.00", created: "2025-11-18", issued: "2026-12-09", status: "lost", statusText: "未中奖" }
@@ -177,11 +177,11 @@
 
       var CARDS_ALL = [
         { no: "01136", source: "订单福卡", sourceCls: "order", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "pending" },
-        { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", issued: "2026-12-01", status: "won", levelText: "一等奖", prize: "特斯拉 1 台", level: 1 },
-        { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", issued: "2026-12-02", status: "won", levelText: "二等奖", prize: "iPhone Duo 1 台", level: 2 },
-        { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", issued: "2026-12-08", status: "won", levelText: "三等奖", prize: "全球目的地机票或 1,000€ MP 代金券", level: 3 },
-        { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", issued: "2026-12-09", status: "won", levelText: "四等奖", prize: "MP 营销定制礼包 1 份", level: 4 },
-        { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", issued: "2026-12-09", status: "won", levelText: "五等奖", prize: "MP 定制礼盒 1 份", level: 5 },
+        { no: "01208", source: "订单福卡", sourceCls: "order", invoice: "ES25000201", amount: "8,200.00", created: "2025-12-18", issued: "2026-12-01", status: "won", levelText: "终极一等奖", prize: "Tesla Model 3", level: 1, prizeCode: "ultimate1", pool: "终极大奖池" },
+        { no: "03112", source: "新客福卡", sourceCls: "new", invoice: "ES25000333", amount: "3,400.00", created: "2026-01-06", issued: "2026-12-02", status: "won", levelText: "月度二等奖", prize: "iPhone Duo 512G", level: 2, prizeCode: "monthly2", pool: "1 月奖池" },
+        { no: "04118", source: "邀请福卡", sourceCls: "invite", invoice: "ES25000456", amount: "2,100.00", created: "2026-01-21", issued: "2026-12-08", status: "won", levelText: "月度三等奖", prize: "iPhone 18 Pro Max", level: 3, prizeCode: "monthly3", pool: "2 月奖池" },
+        { no: "05220", source: "订单福卡", sourceCls: "order", invoice: "ES25000578", amount: "1,850.00", created: "2026-02-02", issued: "2026-12-09", status: "won", levelText: "月度四等奖", prize: "iPad", level: 4, prizeCode: "monthly4", pool: "2 月奖池" },
+        { no: "06123", source: "订单福卡", sourceCls: "order", invoice: "ES25000690", amount: "1,150.00", created: "2026-02-05", issued: "2026-12-09", status: "won", levelText: "参与奖", prize: "MP 定制礼盒", level: 5, prizeCode: "participation", pool: "终极大奖池" },
         { no: "01137", source: "新客福卡", sourceCls: "new", invoice: "ES25000149", amount: "2,580.00", created: "2025-09-25", issued: "2026-12-01", status: "lost" },
         { no: "01088", source: "订单福卡", sourceCls: "order", invoice: "ES25000089", amount: "1,240.00", created: "2025-09-18", issued: "2026-12-01", status: "invalid", reason: "退单", invalidAt: "2027-02-12 10:20" },
         { no: "01138", source: "邀请福卡", sourceCls: "invite", invoice: null, amount: "", created: "", issued: "2026-12-01", status: "pending", basis: "邀请新客首单达标" },
@@ -193,7 +193,7 @@
         var stamp = st === "won" ? "已中奖" : st === "lost" ? "未中奖" : st === "invalid" ? "已失效" : "待开奖";
         var cls = (c.sourceCls === "official" ? " ticket--official" : "") + (st === "won" ? " ticket--win" : st === "lost" ? " ticket--lost" : st === "invalid" ? " ticket--invalid" : " ticket--pending");
         var prize = c.status === "won"
-          ? '<div class="ticket__prize"><span class="ticket__level">' + (c.levelText || "二等奖") + '</span><span class="ticket__prize-name">' + (c.prize || "") + '</span><a class="ticket__link" href="redeem.html?level=' + (c.level || 2) + '">查看领取方式 →</a></div>'
+          ? '<div class="ticket__prize"><span class="ticket__level">' + (c.levelText || "二等奖") + '</span><span class="ticket__prize-name">' + (c.prize || "") + '</span><a class="ticket__link" href="redeem.html?prize=' + (c.prizeCode || "monthly2") + '">查看领取方式 →</a></div>'
           : "";
         var invalid = st === "invalid"
           ? '<div class="ticket__invalid">失效原因：' + (c.reason || "退单") + ' · ' + (c.invalidAt || "2027-02-12 10:20") + '</div>'
@@ -208,6 +208,7 @@
           '<span class="ticket__stamp">' + stamp + '</span>' +
           '</div>' +
           '<span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span>' +
+          (c.pool ? '<span class="ticket__pool">' + c.pool + '</span>' : '') +
           '<dl class="ticket__rows">' +
           '<div class="ticket__row"><dt>客户号：</dt><dd>10009502</dd></div>' +
           '<div class="ticket__row"><dt>手机号：</dt><dd>666 666 666</dd></div>' +
