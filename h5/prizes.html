@@ -55,7 +55,7 @@
       ],
       changes: [
         "奖品从单池 5 档改为「月度 4 档 + 终极 2 档」双奖池。",
-        "新增 5888€ MP 随您购、iPhone Duo 512G、iPhone Pro Max 256G、iPad、Tesla Model 3、安慰奖 1,500 名。",
+        "按 v11.0 方案替换为 MP 随您购（5888）、iPhone Duo、iPhone 18 Pro Max、iPad、Tesla Model 3、安慰奖礼盒。",
         "移除原一等奖机票/代金券、四等奖礼包、五等奖 2,000 名口径。",
         "删除开奖日期展示（待运营确认）；提示兑奖改为客服微信。"
       ],
@@ -80,14 +80,14 @@
           '</div>';
       }
       var monthly = [
-        { img: "prize-06.png", name: "5888€ MP 随您购", quota: "每月 1 名", match: "5 位全匹配" },
-        { img: "prize-02.png", name: "iPhone Duo 512G 1 台", quota: "每月 1 名", match: "5 位全匹配" },
-        { img: "prize-07.png", name: "iPhone Pro Max 256G 1 台", quota: "每月 2 名", match: "5 位全匹配" },
-        { img: "prize-08.png", name: "iPad 1 台", quota: "每月 3 名", match: "5 位全匹配" }
+        { img: "prize-mp.png", name: "5888€ MP 随您购", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-duo.png", name: "iPhone Duo 512G 1 台", quota: "每月 1 名", match: "5 位全匹配" },
+        { img: "prize-promax.png", name: "iPhone 18 Pro Max 1 台", quota: "每月 2 名", match: "5 位全匹配" },
+        { img: "prize-ipad.png", name: "iPad 1 台", quota: "每月 3 名", match: "5 位全匹配" }
       ];
       var ultimate = [
-        { img: "prize-01.png", name: "Tesla Model 3 1 台", quota: "1 名", match: "5 位全匹配" },
-        { img: "prize-05.png", name: "MP 定制礼盒 1 份", quota: "1,500 名", match: "末位 1 位匹配" }
+        { img: "prize-tesla.png", name: "Tesla Model 3 1 台", quota: "1 名", match: "5 位全匹配" },
+        { img: "prize-giftbox.png", name: "MP 定制礼盒 1 份", quota: "1,500 名", match: "末位 1 位匹配" }
       ];
       document.getElementById("monthly-list").innerHTML = monthly.map(card).join("");
       document.getElementById("ultimate-list").innerHTML = ultimate.map(card).join("");

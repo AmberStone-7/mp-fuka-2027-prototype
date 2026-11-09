@@ -9,35 +9,31 @@
   <link rel="stylesheet" href="../assets/css/h5.css">
 </head>
 <body class="h5">
-  <video class="h5-bg" autoplay muted loop playsinline preload="metadata">
-    <source src="../assets/video/bg-h5.mp4" type="video/mp4">
-  </video>
+  <video class="h5-bg" autoplay muted loop playsinline preload="metadata"><source src="../assets/video/bg-h5.mp4" type="video/mp4"></video>
   <div class="h5-veil"></div>
-
   <div class="h5-frame">
     <header class="h5-top">
-      <a class="h5-back" href="query.html">‹ 返回</a>
+      <a class="h5-back" href="activity.html">‹ 返回</a>
       <img class="h5-wordmark h5-wordmark--red" src="../assets/img/mp-wordmark-red.png" alt="MAIN ★ PAPER">
     </header>
 
-    <h2 class="h5-sec"><i>◆</i>中奖公示<i>◆</i></h2>
+    <h2 class="h5-sec">中奖公示</h2>
 
     <div class="h5-card" style="padding:12px 14px">
-      <p class="h5-tip" style="margin:0">公示期：2027-02-10 — 2027-03-31。仅公示奖项、CIF 打码与奖品，不公开完整卡号与 CIF。</p>
+      <p class="h5-tip" style="margin:0">按奖池公示：12 月 / 1 月 / 2 月月度奖池、终极大奖池。展示中奖福卡完整 5 位号码、奖项、奖品与脱敏 CIF。公示期 2027-03（具体日期待确认）。</p>
     </div>
 
     <div class="h5-tabs" id="pub-tabs">
-      <button class="h5-tab is-active" data-level="all" type="button">全部</button>
-      <button class="h5-tab" data-level="1" type="button">一等奖</button>
-      <button class="h5-tab" data-level="2" type="button">二等奖</button>
-      <button class="h5-tab" data-level="3" type="button">三等奖</button>
-      <button class="h5-tab" data-level="4" type="button">四等奖</button>
-      <button class="h5-tab" data-level="5" type="button">五等奖</button>
+      <button class="h5-tab is-active" data-pool="all" type="button">全部</button>
+      <button class="h5-tab" data-pool="m12" type="button">12 月奖池</button>
+      <button class="h5-tab" data-pool="m1" type="button">1 月奖池</button>
+      <button class="h5-tab" data-pool="m2" type="button">2 月奖池</button>
+      <button class="h5-tab" data-pool="ultimate" type="button">终极大奖池</button>
     </div>
 
     <div class="h5-pub-wrap">
       <table class="h5-pub-table">
-        <thead><tr><th style="width:64px">奖项</th><th>CIF</th><th>奖品</th></tr></thead>
+        <thead><tr><th style="width:86px">中奖福卡号码</th><th style="width:66px">奖项</th><th>奖品</th><th style="width:78px">CIF</th></tr></thead>
         <tbody id="pub-rows"></tbody>
       </table>
     </div>
@@ -45,7 +41,7 @@
     <div class="h5-pub-wrap" id="pub-empty" hidden>
       <div class="h5-empty">
         <div class="h5-empty__ico">奖</div>
-        <div class="h5-empty__t">该奖项暂无中奖记录</div>
+        <div class="h5-empty__t">该奖池暂无中奖记录</div>
         <div class="h5-empty__d">抽奖结果发布后在此公示</div>
       </div>
     </div>
@@ -58,94 +54,98 @@
       id: "H5-05",
       title: "中奖公示",
       live: "yes",
-      note: "DEC-018；P07 公示页",
-      fr: ["FR-015", "DEC-018"],
-      ac: ["AC-023"],
-      goal: "开奖后公示脱敏名单：奖项 + CIF 打码 + 奖品；不公开完整卡号与 CIF。",
+      note: "V2.0：按奖池展示，不按奖项等级；展示完整福卡号",
+      fr: ["FR-015"],
+      ac: ["AC-068"],
+      goal: "按奖池（12 月 / 1 月 / 2 月月度池、终极池）公示中奖名单；展示中奖福卡完整 5 位号码、奖项、奖品与脱敏 CIF。",
       states: [
-        "已开奖：展示按奖项筛选的脱敏名单。",
-        "未开奖：提示抽奖于 2027-02-10 进行（批量阶段接入状态）。",
-        "某奖项无记录：空态。"
+        "已开奖：按奖池切换查看。",
+        "未开奖：提示该奖池暂无记录。",
+        "终极池：Tesla 一等奖 + 安慰奖 1,500 名。"
       ],
       notes: [
-        "沿用去年奖品/公示的深色列表样式，不做复杂卡片。",
-        "CIF 打码规则：保留前 2 位与后 2 位，中间以 *** 代替。",
-        "公示期 2027-02-10 — 2027-03-31（待法务确认）。"
+        "不再按一至五等奖分组，改为按奖池分组。",
+        "中奖福卡号码完整展示（5 位），CIF 脱敏。",
+        "公示期起止与异议渠道待法务确认。"
       ],
-      todo: [
-        "公示期起止与异议渠道待法务 11/12 确认。",
-        "五等奖 2,000 条名单是否全量公示待市场部确认。"
-      ]
+      changes: [
+        "公示维度由「奖项等级」改为「奖池」：12 月/1 月/2 月/终极。",
+        "新增「中奖福卡号码」列，展示完整 5 位号码。",
+        "奖品与奖项按 V2.0 双奖池更新（月度 4 档 + 终极 Tesla/安慰奖）。",
+        "公示期改为 2027-03（待确认）。"
+      ],
+      todo: ["公示期与异议渠道待法务确认。", "安慰奖 1,500 条名单是否全量展示待确认。"]
     };
 
-  </script>
-  <script>
-    Object.assign(window.PAGE_META, {
-  "api": [
-    {
-      "method": "GET",
-      "path": "/api/winners/public",
-      "desc": "入参 {level?}；出参 {prize_level, cif_masked, prize_name}[]（脱敏）"
-    }
-  ],
-  "fields": [
-    "level：all / 1..5（可选）"
-  ],
-  "rules": [
-    "仅公示奖项 + CIF 打码 + 奖品；不公开完整卡号/CIF",
-    "脱敏规则：保留前 2 位与后 2 位，中间 ***",
-    "公示期 2027-02-10 — 2027-03-31（待法务确认）",
-    "五等奖名单量大时分页/懒加载"
-  ],
-  "permissions": [
-    "公开"
-  ],
-  "events": [
-    "page_view"
-  ],
-  "devNotes": [
-    "脱敏在后端完成，前端不接触明文 CIF",
-    "名单量 2,000 条级，需分页/虚拟列表",
-    "异议入口待法务确认"
-  ]
-});
   </script>
   <script src="../assets/js/legacy.js"></script>
   <script>
     (function () {
-      var PRIZE = { 1: "特斯拉 1 台", 2: "iPhone Duo 1 台", 3: "机票或 1,000€ 代金券", 4: "MP 营销定制礼包", 5: "MP 定制礼盒" };
-      var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "五等奖" };
+      var LEVEL = { monthly1: "一等奖", monthly2: "二等奖", monthly3: "三等奖", monthly4: "四等奖", ultimate1: "一等奖", consolation: "安慰奖" };
+      var PRIZE = {
+        monthly1: "5888€ MP 随您购",
+        monthly2: "iPhone Duo 512G",
+        monthly3: "iPhone 18 Pro Max",
+        monthly4: "iPad",
+        ultimate1: "Tesla Model 3",
+        consolation: "MP 定制礼盒"
+      };
       var ROWS = [
-        [1, "B1***78", 1], [2, "B4***21", 2], [2, "B7***90", 2],
-        [3, "B2***33", 3], [3, "B5***67", 3], [3, "B8***14", 3],
-        [4, "B3***55", 4], [4, "B6***02", 4], [4, "B9***46", 4], [4, "B1***09", 4], [4, "B4***72", 4],
-        [5, "B2***88", 5], [5, "B5***31", 5], [5, "B7***65", 5], [5, "B9***20", 5], [5, "B3***47", 5], [5, "B6***93", 5], [5, "B8***16", 5]
+        { pool: "m12", card: "03112", level: "monthly1", cif: "B1***78" },
+        { pool: "m12", card: "04218", level: "monthly2", cif: "B4***21" },
+        { pool: "m12", card: "05120", level: "monthly3", cif: "B7***90" },
+        { pool: "m12", card: "06133", level: "monthly3", cif: "B2***33" },
+        { pool: "m12", card: "07108", level: "monthly4", cif: "B5***67" },
+        { pool: "m12", card: "07215", level: "monthly4", cif: "B8***14" },
+        { pool: "m12", card: "07322", level: "monthly4", cif: "B3***55" },
+        { pool: "m1", card: "08120", level: "monthly1", cif: "B6***02" },
+        { pool: "m1", card: "08231", level: "monthly2", cif: "B9***46" },
+        { pool: "m1", card: "09112", level: "monthly3", cif: "B1***09" },
+        { pool: "m1", card: "09133", level: "monthly3", cif: "B4***72" },
+        { pool: "m1", card: "10111", level: "monthly4", cif: "B2***88" },
+        { pool: "m1", card: "10122", level: "monthly4", cif: "B5***31" },
+        { pool: "m1", card: "10133", level: "monthly4", cif: "B7***65" },
+        { pool: "m2", card: "11120", level: "monthly1", cif: "B9***20" },
+        { pool: "m2", card: "11231", level: "monthly2", cif: "B3***47" },
+        { pool: "m2", card: "12112", level: "monthly3", cif: "B6***93" },
+        { pool: "m2", card: "12133", level: "monthly3", cif: "B8***16" },
+        { pool: "m2", card: "13111", level: "monthly4", cif: "B1***61" },
+        { pool: "m2", card: "13122", level: "monthly4", cif: "B4***28" },
+        { pool: "m2", card: "13133", level: "monthly4", cif: "B7***39" },
+        { pool: "ultimate", card: "01208", level: "ultimate1", cif: "B1***78" },
+        { pool: "ultimate", card: "01136", level: "consolation", cif: "B1***78" },
+        { pool: "ultimate", card: "02145", level: "consolation", cif: "B4***21" },
+        { pool: "ultimate", card: "02266", level: "consolation", cif: "B7***90" },
+        { pool: "ultimate", card: "02377", level: "consolation", cif: "B2***33" },
+        { pool: "ultimate", card: "02488", level: "consolation", cif: "B5***67" }
       ];
 
-      function render(level, forceEmpty) {
-        var list = forceEmpty ? [] : ROWS.filter(function (r) { return level === "all" || String(r[0]) === String(level); });
+      function render(pool, forceEmpty) {
+        var list = forceEmpty ? [] : ROWS.filter(function (r) { return pool === "all" || r.pool === pool; });
         document.getElementById("pub-rows").innerHTML = list.map(function (r) {
-          return '<tr><td><span class="h5-pub-level">' + LEVEL[r[0]] + '</span></td>' +
-            '<td class="h5-pub-cif">' + r[1] + '</td>' +
-            '<td>' + PRIZE[r[0]] + '</td></tr>';
+          return '<tr><td class="h5-pub-card">' + r.card + '</td>' +
+            '<td><span class="h5-pub-level">' + LEVEL[r.level] + '</span></td>' +
+            '<td>' + PRIZE[r.level] + '</td>' +
+            '<td class="h5-pub-cif">' + r.cif + '</td></tr>';
         }).join("");
         document.getElementById("pub-empty").hidden = list.length > 0;
         document.querySelector(".h5-pub-wrap").hidden = list.length === 0;
         U.$$("#pub-tabs .h5-tab").forEach(function (b) {
-          b.classList.toggle("is-active", b.getAttribute("data-level") === String(level));
+          b.classList.toggle("is-active", b.getAttribute("data-pool") === pool);
         });
       }
 
       U.$$("#pub-tabs .h5-tab").forEach(function (b) {
-        b.addEventListener("click", function () { render(b.getAttribute("data-level"), false); });
+        b.addEventListener("click", function () { render(b.getAttribute("data-pool"), false); });
       });
 
-      window.DEMOS = [
-        { label: "一等奖空态", fn: function () { render("1", true); } },
-        { label: "查看全部", fn: function () { render("all", false); } }
-      ];
-
       render("all", false);
+
+      window.DEMOS = [
+        { label: "12 月奖池", fn: function () { render("m12", false); } },
+        { label: "终极大奖池", fn: function () { render("ultimate", false); } },
+        { label: "某奖池空态", fn: function () { render("m2", true); } }
+      ];
     })();
   </script>
 </body>

@@ -1644,3 +1644,11 @@ body.h5 {
   background: rgba(255, 235, 199, 0.18);
   border-color: rgba(255, 235, 199, 0.5);
 }
+
+
+/* 中奖公示：按奖池 */
+.h5-pub-card {
+  font-family: "SF Mono", Menlo, monospace;
+  font-weight: 700;
+  color: #f6e3b0;
+}
