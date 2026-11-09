@@ -508,11 +508,11 @@
     var NOW = "2027-02-22 15:30";
     var LEVEL = { 1: "一等奖", 2: "二等奖", 3: "三等奖", 4: "四等奖", 5: "参与奖" };
     var PRIZE = {
-      1: "特斯拉 1 台",
-      2: "iPhone Duo 1 台",
-      3: "机票 / 1,000€ 代金券（二选一）",
-      4: "MP 营销定制礼包 1 份",
-      5: "MP 定制礼盒 1 份"
+      1: "终极大奖池 · Tesla Model 3",
+      2: "月度奖池 · 5888€ MP 随您购",
+      3: "月度奖池 · iPhone Duo 512G",
+      4: "月度奖池 · iPhone 18 Pro Max",
+      5: "终极大奖池 · 参与奖 MP 定制礼盒"
     };
     var STATUS = { to_contact: "待联系", contacted: "已联系", fulfilled: "已发放", expired: "已失效", auto_ship: "随单发放（不追踪）" };
     var STATUS_CLASS = { to_contact: "win-st--to", contacted: "win-st--contacted", fulfilled: "win-st--fulfilled", expired: "win-st--expired", auto_ship: "win-st--auto" };
@@ -520,16 +520,16 @@
     var SEED = [
       { id: "W-2027-0001", card: "01208", account: "ES01", customer: "BARNA PAPER, S.L.", custNo: "10002213", cif: "B12345678", phone: "+34 612 345 678", salesNo: "V0231", salesName: "JOSÉ LUIS", level: 1, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-12 09:20", remark: "客户确认特斯拉，由业务员线下对接", form: null },
       { id: "W-2027-0002", card: "00231", account: "ES01", customer: "OFICINA GLOBAL, S.L.", custNo: "10003188", cif: "B12098765", phone: "+34 634 118 902", salesNo: "V0117", salesName: "MARÍA JOSÉ", level: 2, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-14 11:40", remark: "工作人员已录入兑奖联系信息，线下跟进", form: { salesperson: "MARÍA JOSÉ", cif: "B12098765", receiver: "ANTONIO PÉREZ", phone: "+34 634 118 902", address: "C/ Mayor 45, 46001 Valencia", postcode: "46001", upgrade: "是" } },
-      { id: "W-2027-0003", card: "03126", account: "ES02", customer: "GRÁFICAS LEVANTE, S.L.", custNo: "10004762", cif: "B12456321", phone: "+34 655 209 771", salesNo: "V0342", salesName: "ANA BELÉN", level: 3, dispatch: "快递", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "机票已出票（经济舱，含税费，不可退改）", form: null },
+      { id: "W-2027-0003", card: "03126", account: "ES02", customer: "GRÁFICAS LEVANTE, S.L.", custNo: "10004762", cif: "B12456321", phone: "+34 655 209 771", salesNo: "V0342", salesName: "ANA BELÉN", level: 3, dispatch: "快递", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "MP 随您购已登记，客服跟进点货", form: null },
       { id: "W-2027-0004", card: "07734", account: "ES01", customer: "MUEBLES RUIZ, S.L.", custNo: "10005891", cif: "B12587496", phone: "+34 677 331 204", salesNo: "V0208", salesName: "CARLOS MARTÍN", level: 4, dispatch: "自提", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系；自提点 Valencia 仓", form: null },
-      { id: "W-2027-0005", card: "01998", account: "ES03", customer: "PAPELERA SUR, S.L.", custNo: "10006612", cif: "B12698523", phone: "+34 688 442 117", salesNo: "V0286", salesName: "LUCÍA FERNÁNDEZ", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
-      { id: "W-2027-0006", card: "01842", account: "ES02", customer: "DISTRIBUCIONES AVE, S.L.", custNo: "10007345", cif: "B12741258", phone: "+34 699 553 208", salesNo: "V0319", salesName: "JAVIER ORTEGA", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
+      { id: "W-2027-0005", card: "01998", account: "ES03", customer: "PAPELERA SUR, S.L.", custNo: "10006612", cif: "B12698523", phone: "+34 688 442 117", salesNo: "V0286", salesName: "LUCÍA FERNÁNDEZ", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡参与奖】· 随单发放", form: null },
+      { id: "W-2027-0006", card: "01842", account: "ES02", customer: "DISTRIBUCIONES AVE, S.L.", custNo: "10007345", cif: "B12741258", phone: "+34 699 553 208", salesNo: "V0319", salesName: "JAVIER ORTEGA", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡参与奖】· 随单发放", form: null },
       { id: "W-2027-0007", card: "01633", account: "ES01", customer: "TPV SOLUTIONS, S.L.", custNo: "10008123", cif: "B12852369", phone: "+34 610 664 329", salesNo: "V0402", salesName: "ELENA RUIZ", level: 4, dispatch: "快递", status: "expired", won: "2027-02-10 10:12", updated: "2027-02-16 18:00", remark: "客户放弃领奖 → 已失效（可逆，需管理员留痕）", form: null },
       { id: "W-2027-0008", card: "01022", account: "ES03", customer: "IMPRENTA MAR, S.L.", custNo: "10009256", cif: "B12963470", phone: "+34 621 775 430", salesNo: "V0224", salesName: "PAU SERRANO", level: 3, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-20 15:10", remark: "代金券已发至客户邮箱（模板 E-03）", form: null },
       { id: "W-2027-0009", card: "00987", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 2, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "工作人员尚未录入兑奖联系信息", form: null, reviewed: false },
       { id: "W-2027-0010", card: "00456", account: "ES02", customer: "MATERIAL ESCOLAR PRO, S.L.", custNo: "10011472", cif: "B12185296", phone: "+34 643 997 652", salesNo: "V0367", salesName: "DAVID NAVARRO", level: 4, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
       { id: "W-2027-0011", card: "00009", account: "ES03", customer: "SUMINISTROS NORTE, S.L.", custNo: "10012563", cif: "B12296307", phone: "+34 654 108 763", salesNo: "V0298", salesName: "MARTA SOLER", level: 1, dispatch: "自提", status: "fulfilled", won: "2027-02-10 10:12", updated: "2027-02-19 16:40", remark: "已交付，签收单 SA-0231", form: null },
-      { id: "W-2027-0012", card: "01276", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡五等奖】· 2027-03-31 后随单发放", form: null },
+      { id: "W-2027-0012", card: "01276", account: "ES01", customer: "COPIAS RÁPIDAS, S.L.", custNo: "10010389", cif: "B12074185", phone: "+34 632 886 541", salesNo: "V0155", salesName: "ROSA GIL", level: 5, dispatch: "随单", status: "auto_ship", won: "2027-02-10 10:12", updated: "2027-02-10 10:40", remark: "订单备注【2027福卡参与奖】· 随单发放", form: null },
       { id: "W-2027-0013", card: "00591", account: "ES02", customer: "LIBRERÍA ATLAS, S.L.", custNo: "10013648", cif: "B12418529", phone: "+34 665 219 874", salesNo: "V0178", salesName: "SERGIO MOLINA", level: 3, dispatch: "快递", status: "to_contact", won: "2027-02-10 10:12", updated: "2027-02-10 10:12", remark: "待联系", form: null },
       { id: "W-2027-0014", card: "00177", account: "ES03", customer: "ESTUDIO GRAF, S.L.", custNo: "10014739", cif: "B12529630", phone: "+34 676 320 985", salesNo: "V0391", salesName: "NOELIA VEGA", level: 4, dispatch: "快递", status: "contacted", won: "2027-02-10 10:12", updated: "2027-02-18 10:00", remark: "平板已寄出，物流 ES-77120", form: null }
     ];
@@ -566,6 +566,7 @@
     function poolOf(r) {
       if (r.pool) return r.pool;
       if (r.level === 5) return "终极大奖池";
+      if (r.id === "W-2027-0001") return "终极大奖池";
       if (r.card === "00009") return "终极大奖池";
       var n = parseInt(r.card, 10) % 3;
       return ["12 月奖池", "1 月奖池", "2 月奖池"][n];
