@@ -101,6 +101,16 @@
       </select>
     </div>
     <div class="adm-field">
+      <label for="f-pool">所属奖池</label>
+      <select class="adm-select" id="f-pool">
+        <option value="">全部奖池</option>
+        <option value="12 月奖池">12 月奖池</option>
+        <option value="1 月奖池">1 月奖池</option>
+        <option value="2 月奖池">2 月奖池</option>
+        <option value="终极大奖池">终极大奖池</option>
+      </select>
+    </div>
+    <div class="adm-field">
       <label for="f-status">状态</label>
       <select class="adm-select" id="f-status">
         <option value="">全部状态</option>
@@ -141,7 +151,6 @@
           <th>税号 / CIF</th>
           <th>福卡类型</th>
           <th>所属奖池</th>
-          <th>邀请关系</th>
           <th>客户手机号</th>
           <th>业务员号</th>
           <th>绑定发票</th>
@@ -268,20 +277,20 @@
     id: "ADM-01",
     title: "福卡管理",
     live: "yes",
-    note: "沿用去年「幸运福卡管理」，加福卡类型 / 邀请关系 / 失效",
+    note: "沿用去年「幸运福卡管理」，加福卡类型 / 所属奖池 / 失效",
     fr: ["FR-001", "FR-002", "FR-017"],
     ac: ["AC-001 ~ AC-005", "AC-035", "AC-036"],
-    goal: "沿用去年后台的筛选 + 表格 + 分页 + 添加弹窗；补今年的福卡类型、邀请关系与失效；不同来源展示不同字段。",
+    goal: "沿用去年后台的筛选 + 表格 + 分页 + 添加弹窗；补今年的福卡类型、所属奖池与失效；不同来源展示不同字段。",
     states: [
       "正常：分页列表，按福卡类型展示不同字段。",
-      "官方福卡无发票，邀请人卡无发票但有邀请关系。",
+      "官方福卡无发票；福卡按发放时间归入对应月份奖池。",
       "失效：原因必填，失效后号码保留占用；已中奖福卡失效触发候补提示。",
       "空态：筛选无结果时展示空表。"
     ],
     notes: [
       "筛选、重置、分页、导出、批量失效、行内失效均可用。",
       "「添加福卡」沿用去年弹窗结构（账套 / 客户号 / 发票号 / 数量），仅管理员可操作。",
-      "福卡类型：订单福卡 / 新客福卡 / 邀请福卡 / 官方福卡；邀请关系区分邀请人/被邀请人。",
+      "福卡类型：订单福卡 / 新客福卡 / 邀请福卡 / 官方福卡；所属奖池按发放时间归池。",
       "表格与分页沿用去年 Ant Design 样式，不额外加装饰。"
     ],
     todo: [
@@ -329,7 +338,7 @@
     "福卡类型四类：订单福卡/新客福卡/邀请福卡/官方福卡",
     "状态：待开奖/已中奖/未中奖/已失效",
     "官方福卡与邀请人卡无发票字段，展示「—」",
-    "邀请关系：邀请人 → B1***78 / 被邀请人 ← B1***78",
+    "所属奖池：按发放时间归入 12 月/1 月/2 月奖池，终极大奖池共享。",
     "金额口径不含 IVA；时间 Europe/Madrid"
   ],
   "permissions": [
@@ -380,7 +389,7 @@
   function render() {
       var tb = $("#rows");
       if (!state.rows.length) {
-        tb.innerHTML = '<tr><td colspan="15"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
+        tb.innerHTML = '<tr><td colspan="17"><div class="adm-empty"><div class="adm-empty__ico">—</div>暂无数据</div></td></tr>';
       } else {
         tb.innerHTML = state.rows.map(function (r) {
           var st = r.status;
@@ -392,7 +401,6 @@
             '<td class="num">' + r.taxId + "</td>" +
             '<td><span class="adm-source adm-source--' + r.source + '">' + SOURCE[r.source] + "</span></td>" +
             '<td>' + poolOf(r) + "</td>" +
-            '<td>' + (r.relation || "—") + "</td>" +
             '<td class="num">' + r.phone + "</td>" +
             '<td class="num">' + r.sales + "</td>" +
             '<td class="num">' + (r.invoice || "—") + "</td>" +
@@ -443,6 +451,7 @@
       var inv = $("#f-invoice").value.trim();
       var sales = $("#f-sales").value.trim();
       var src = $("#f-source").value;
+      var pool = $("#f-pool").value;
       var st = $("#f-status").value;
       state.rows = ROWS.filter(function (r) {
         return (!no || r.no.indexOf(no) === 0) &&
@@ -450,6 +459,7 @@
           (!tax || r.taxId.toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
           (!inv || (r.invoice || "").indexOf(inv) >= 0) && (!sales || r.sales.indexOf(sales) >= 0) &&
           (!src || r.source === src) &&
+          (!pool || poolOf(r) === pool) &&
           (!st || r.status === st);
       });
       state.filtered = true;

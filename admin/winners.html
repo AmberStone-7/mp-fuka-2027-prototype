@@ -155,6 +155,16 @@
       </select>
     </div>
     <div class="adm-field">
+      <label for="f-pool">所属奖池</label>
+      <select class="adm-select" id="f-pool">
+        <option value="">全部奖池</option>
+        <option value="12 月奖池">12 月奖池</option>
+        <option value="1 月奖池">1 月奖池</option>
+        <option value="2 月奖池">2 月奖池</option>
+        <option value="终极大奖池">终极大奖池</option>
+      </select>
+    </div>
+    <div class="adm-field">
       <label for="f-dispatch">派发方式</label>
       <select class="adm-select" id="f-dispatch">
         <option value="">全部方式</option>
@@ -661,6 +671,7 @@
       var tax = $("#f-tax").value.trim();
       var sales = $("#f-sales").value.trim().toLowerCase();
       var level = $("#f-level").value;
+      var pool = $("#f-pool").value;
       var dispatch = $("#f-dispatch").value;
       var status = $("#f-status").value;
       var start = $("#f-won-start").value.trim();
@@ -672,6 +683,7 @@
           (!tax || r.cif.toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
           (!sales || r.salesNo.toLowerCase().indexOf(sales) >= 0) &&
           (!level || String(r.level) === level) &&
+          (!pool || poolOf(r) === pool) &&
           (!dispatch || r.dispatch === dispatch) &&
           (!status || r.status === status) &&
           (!start || day >= start) &&

@@ -77,14 +77,6 @@
       <input class="adm-input" id="f-tax" placeholder="请输入税号 / CIF" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-type">码类型</label>
-      <select class="adm-select" id="f-type">
-        <option value="">全部类型</option>
-        <option value="normal">普通码</option>
-        <option value="official">官方码</option>
-      </select>
-    </div>
-    <div class="adm-field">
       <label for="f-status">状态</label>
       <select class="adm-select" id="f-status">
         <option value="">全部状态</option>
@@ -414,12 +406,12 @@
   }
 
   $("#btn-search").onclick = function () {
-    var code = $("#f-code").value.trim(), cust = $("#f-cust").value.trim(), tax = $("#f-tax").value.trim(), type = $("#f-type").value, st = $("#f-status").value;
+    var code = $("#f-code").value.trim(), cust = $("#f-cust").value.trim(), tax = $("#f-tax").value.trim(), st = $("#f-status").value;
     state.rows = ROWS.filter(function (r) {
       return (!code || r.code.indexOf(code) >= 0) &&
         (!cust || (r.custNo || "").indexOf(cust) >= 0) &&
         (!tax || (r.taxId || "").toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
-        (!type || r.type === type) && (!st || r.status === st);
+        (!st || r.status === st);
     });
     state.page = 1; render();
     U.toast("查询完成，共 " + state.rows.length + " 条");
