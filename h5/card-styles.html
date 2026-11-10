@@ -101,7 +101,7 @@
       function ticket(c) {
         var st = c.status;
         var stamp = st === "won" ? "已中奖" : st === "lost" ? "未中奖" : st === "invalid" ? "已失效" : "待开奖";
-        var cls = st === "won" ? " ticket--win" : st === "lost" ? " ticket--lost" : st === "invalid" ? " ticket--invalid" : " ticket--pending";
+        var cls = (c.sourceCls === "official" ? " ticket--official" : "") + (st === "won" ? " ticket--win" : st === "lost" ? " ticket--lost" : st === "invalid" ? " ticket--invalid" : " ticket--pending");
         var invoice = c.invoice
           ? '<table class="ticket__invoices"><thead><tr><th>发票号</th><th>发票税前金额</th><th>发票发生时间</th></tr></thead><tbody><tr><td>' + c.invoice + '</td><td>' + c.amount + ' €</td><td>' + c.created + '</td></tr></tbody></table>'
           : '<div class="ticket__basis">发放依据：' + (c.basis || "邀请新客首单达标") + '</div>';
