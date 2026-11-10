@@ -56,8 +56,8 @@
       </select>
     </div>
     <div class="adm-field">
-      <label for="f-batch">批次号</label>
-      <input class="adm-input" id="f-batch" placeholder="请输入批次号" autocomplete="off">
+      <label for="f-batch">序号</label>
+      <input class="adm-input" id="f-batch" placeholder="请输入序号" autocomplete="off">
     </div>
     <div class="adm-field">
       <label for="f-status">状态</label>
@@ -81,7 +81,7 @@
 
   <div class="adm-table-wrap">
     <table class="adm-table" style="min-width:1100px">
-      <thead><tr><th>批次号</th><th>奖池</th><th>奖品</th><th>幸运数字</th><th>命中</th><th>状态</th><th>时间</th><th>操作</th></tr></thead>
+      <thead><tr><th>序号</th><th>奖池</th><th>奖品</th><th>幸运数字</th><th>命中</th><th>状态</th><th>时间</th><th>操作</th></tr></thead>
       <tbody id="rows"></tbody>
     </table>
   </div>
@@ -220,7 +220,7 @@
       var ops = '<button type="button" data-act="view" data-id="' + r.id + '">查看</button>';
       if (r.status === "draft") ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button><button type="button" data-act="review" data-id="' + r.id + '">提交复核</button>' + ops;
       if (r.status === "reviewed") ops = '<button type="button" data-act="publish" data-id="' + r.id + '">发布</button>' + ops;
-      return "<tr><td class='num'>" + r.id + "</td><td>" + POOL_NAME[r.pool] + "</td><td>" + r.prize + "</td><td class='num'>" + luckyText(r) + "</td><td class='num'>" + fmt(r.matched) + "</td><td><span class='adm-status draw-st--" + r.status + "'>" + STATUS[r.status] + "</span></td><td class='muted nowrap'>" + r.time + "</td><td><span class='adm-table__op'>" + ops + "</span></td></tr>";
+      return "<tr><td class='num'>" + (state.rows.indexOf(r) + 1) + "</td><td>" + POOL_NAME[r.pool] + "</td><td>" + r.prize + "</td><td class='num'>" + luckyText(r) + "</td><td class='num'>" + fmt(r.matched) + "</td><td><span class='adm-status draw-st--" + r.status + "'>" + STATUS[r.status] + "</span></td><td class='muted nowrap'>" + r.time + "</td><td><span class='adm-table__op'>" + ops + "</span></td></tr>";
     }).join("");
     var pages = Math.max(1, Math.ceil(state.all.length / PAGE_SIZE));
     if (state.page > pages) state.page = pages;
@@ -323,7 +323,7 @@
 
   function openPublish(id) {
     var r = find(id); state.publishId = id;
-    $("#publish-summary").innerHTML = "批次：<b>" + r.id + "</b>　奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　命中：<b>" + fmt(r.matched) + "</b> 条";
+    $("#publish-summary").innerHTML = "序号：<b>" + (state.rows.indexOf(r) + 1) + "</b>　奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　命中：<b>" + fmt(r.matched) + "</b> 条";
     openModal("modal-publish");
   }
   $("#btn-publish-ok").onclick = function () {
@@ -331,8 +331,8 @@
     closeModal(document.getElementById("modal-publish")); render(); U.toast("已发布：已同步 H5 福卡状态与中奖公示");
   };
   $("#btn-search").onclick = function () {
-    var pool = $("#f-pool").value, batch = $("#f-batch").value.trim(), st = $("#f-status").value;
-    state.all = state.rows.filter(function (r) { return r.pool === pool && (!batch || r.id.indexOf(batch) >= 0) && (!st || r.status === st); });
+    var pool = $("#f-pool").value, seq = $("#f-batch").value.trim(), st = $("#f-status").value;
+    state.all = state.rows.filter(function (r) { return r.pool === pool && (!seq || (state.rows.indexOf(r) + 1) === Number(seq)) && (!st || r.status === st); });
     state.page = 1; render();
   };
   $("#btn-reset").onclick = function () { $("#filters").reset(); state.pool = "m12"; state.all = state.rows.slice(); state.page = 1; render(); };

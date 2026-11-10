@@ -177,17 +177,6 @@
       <input class="adm-input" id="f-name" placeholder="请输入奖品名称" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-level">奖品级别</label>
-      <select class="adm-select" id="f-level">
-        <option value="">全部级别</option>
-        <option value="一等奖">一等奖</option>
-        <option value="二等奖">二等奖</option>
-        <option value="三等奖">三等奖</option>
-        <option value="四等奖">四等奖</option>
-        <option value="五等奖">五等奖</option>
-      </select>
-    </div>
-    <div class="adm-field">
       <label for="f-start">创建时间</label>
       <span class="adm-daterange">
         <input class="adm-input" id="f-start" placeholder="开始日期">
@@ -303,15 +292,6 @@
           <p class="adm-form-item__err">请输入大于 0 的奖品价值（€）</p>
         </div>
       </div>
-      <div class="adm-form-item">
-        <label>是否二选一</label>
-        <div class="adm-form-item__ctrl">
-          <div class="pz-radio">
-            <label><input type="radio" name="prize-choice" value="1"> 是（客户二选一）</label>
-            <label><input type="radio" name="prize-choice" value="0" checked> 否</label>
-          </div>
-        </div>
-      </div>
       <p class="adm-form-tip">
         名额与「抽奖管理」的匹配人数联动：名额为 0 或非整数时拒绝保存（AC-037）；匹配位数随奖级联动，一至四等奖 5 位全匹配、五等奖末位 1 位。
       </p>
@@ -328,10 +308,10 @@
     id: "ADM-05",
     title: "奖品管理",
     live: "yes",
-    note: "沿用去年奖品列表，补名额 / 匹配位数 / 价值 / 二选一",
+    note: "沿用去年奖品列表，补名额 / 匹配位数 / 价值",
     fr: ["需求单 4.2", "FR-018"],
     ac: ["AC-037", "AC-026（名额联动，见抽奖管理）"],
-    goal: "沿用去年「奖品管理」的筛选 + 列表 + 添加/编辑弹窗，补齐今年抽奖所需的名额、匹配位数与二选一配置，并守住「名额必须大于 0」的校验。",
+    goal: "沿用去年「奖品管理」的筛选 + 列表 + 添加/编辑弹窗，补齐今年抽奖所需的名额、匹配位数与价值，并守住「名额必须大于 0」的校验。",
     states: [
       "正常：奖品列表分页展示图片、名称、级别与创建/修改时间。",
       "名额非法：名额为 0、负数或非整数时，弹窗内报错并阻止保存（AC-037）。",
@@ -348,7 +328,7 @@
     todo: [
       "奖项口径：活动期总额制（1/2/3/15/2,000 名），按 2026-11-03 规则文件执行。",
       "名额与匹配规则已按 2026-11-03 确认版更新：1/2/3/15/2,000 名，一至四等奖 5 位、五等奖末位。",
-      "二选一是否在后台持久化客户选择结果：PRD 为一/三等奖线下确认，后台只备注。",
+      "",
       "图片上传、奖品价值为演示字段，正式环境接对象存储与财务口径。"
     ]
   };
@@ -387,7 +367,7 @@
     }
   ],
   "fields": [
-    "奖品图片、名称、级别、名额、匹配位数（5/1）、价值（演示）、是否二选一"
+    "奖品图片、名称、级别、名额、匹配位数（5/1）、价值（演示）"
   ],
   "rules": [
     "一~四等奖 5 位全匹配，五等奖末位 1 位",
@@ -481,7 +461,7 @@
           return "<tr>" +
             '<td><img class="pz-thumb" src="' + STORE + r.img + '" alt="' + r.name + '"></td>' +
             '<td><div class="pz-name"><span>' + r.name + "</span>" +
-            '<span class="pz-meta">' + fmtQuota(r.quota) + " · " + matchText(r.match) + (r.choice ? " · 二选一" : "") + " · 价值 " + fmtVal(r.value) + "</span></div></td>" +
+            '<span class="pz-meta">' + fmtQuota(r.quota) + " · " + matchText(r.match) + " · 价值 " + fmtVal(r.value) + "</span></div></td>" +
             "<td>" + r.level + "</td>" +
             '<td class="num nowrap muted">' + r.created + "</td>" +
             '<td class="num nowrap muted">' + r.modified + "</td>" +
@@ -546,13 +526,11 @@
 
     function filter() {
       var name = $("#f-name").value.trim().toLowerCase();
-      var level = $("#f-level").value;
       var start = $("#f-start").value.trim();
       var end = $("#f-end").value.trim();
       state.rows = POOLS[state.pool].filter(function (r) {
         var day = r.created.slice(0, 10);
         return (!name || r.name.toLowerCase().indexOf(name) >= 0) &&
-          (!level || r.level === level) &&
           (!start || day >= start) &&
           (!end || day <= end);
       });
@@ -592,7 +570,6 @@
       $("#prize-quota").value = "";
       $("#prize-match").value = "full";
       $("#prize-value").value = "";
-      U.$$('input[name="prize-choice"]').forEach(function (r) { r.checked = r.value === "0"; });
       state.imgIdx = 0;
       $("#prize-img").src = STORE + IMGS[0];
       $("#prize-pool").value = state.pool;
@@ -620,7 +597,6 @@
       $("#prize-pool").value = state.pool;
       fillLevelOptions(state.pool);
       $("#prize-level").value = r.level;
-      U.$$('input[name="prize-choice"]').forEach(function (x) { x.checked = (x.value === "1") === r.choice; });
       state.imgIdx = Math.max(0, IMGS.indexOf(r.img));
       $("#prize-img").src = STORE + r.img;
       openModal("modal-prize");
@@ -660,14 +636,12 @@
       var level = $("#prize-level").value;
       var poolKey = $("#prize-pool").value;
       var match = (level === "参与奖") ? "last" : $("#prize-match").value;
-      var choice = U.$$('input[name="prize-choice"]').some(function (r) { return r.checked && r.value === "1"; });
       var data = {
         name: $("#prize-name").value.trim(),
         level: level,
         quota: parseInt($("#prize-quota").value.trim(), 10),
         match: match,
         value: parseFloat($("#prize-value").value.trim()),
-        choice: choice,
         img: IMGS[state.imgIdx]
       };
       if (state.editingId == null) {

@@ -144,17 +144,6 @@
       <input class="adm-input" id="f-sales" placeholder="请输入业务员编号" autocomplete="off">
     </div>
     <div class="adm-field">
-      <label for="f-level">奖品级别</label>
-      <select class="adm-select" id="f-level">
-        <option value="">全部级别</option>
-        <option value="1">一等奖</option>
-        <option value="2">二等奖</option>
-        <option value="3">三等奖</option>
-        <option value="4">四等奖</option>
-        <option value="5">五等奖</option>
-      </select>
-    </div>
-    <div class="adm-field">
       <label for="f-pool">所属奖池</label>
       <select class="adm-select" id="f-pool">
         <option value="">全部奖池</option>
@@ -670,7 +659,6 @@
       var cust = $("#f-cust").value.trim().toLowerCase();
       var tax = $("#f-tax").value.trim();
       var sales = $("#f-sales").value.trim().toLowerCase();
-      var level = $("#f-level").value;
       var pool = $("#f-pool").value;
       var dispatch = $("#f-dispatch").value;
       var status = $("#f-status").value;
@@ -682,7 +670,6 @@
           (!cust || r.custNo.toLowerCase().indexOf(cust) >= 0) &&
           (!tax || r.cif.toLowerCase().indexOf(tax.toLowerCase()) >= 0) &&
           (!sales || r.salesNo.toLowerCase().indexOf(sales) >= 0) &&
-          (!level || String(r.level) === level) &&
           (!pool || poolOf(r) === pool) &&
           (!dispatch || r.dispatch === dispatch) &&
           (!status || r.status === status) &&
@@ -913,7 +900,7 @@
     window.__win = {
       demoFilter: function () {
         state.notDrawn = false;
-        $("#f-level").value = "1";
+        $("#f-pool").value = "12 月奖池";
         filter();
       },
       setNotDrawn: function (on) {
