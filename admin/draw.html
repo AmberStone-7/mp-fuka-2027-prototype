@@ -56,10 +56,6 @@
       </select>
     </div>
     <div class="adm-field">
-      <label for="f-batch">序号</label>
-      <input class="adm-input" id="f-batch" placeholder="请输入序号" autocomplete="off">
-    </div>
-    <div class="adm-field">
       <label for="f-status">状态</label>
       <select class="adm-select" id="f-status">
         <option value="">全部状态</option>
@@ -331,11 +327,11 @@
     closeModal(document.getElementById("modal-publish")); render(); U.toast("已发布：已同步 H5 福卡状态与中奖公示");
   };
   $("#btn-search").onclick = function () {
-    var pool = $("#f-pool").value, seq = $("#f-batch").value.trim(), st = $("#f-status").value;
-    state.all = state.rows.filter(function (r) { return r.pool === pool && (!seq || (state.rows.indexOf(r) + 1) === Number(seq)) && (!st || r.status === st); });
+    var pool = $("#f-pool").value, st = $("#f-status").value;
+    state.all = state.rows.filter(function (r) { return r.pool === pool && (!st || r.status === st); });
     state.page = 1; render();
   };
-  $("#btn-reset").onclick = function () { $("#filters").reset(); state.pool = "m12"; state.all = state.rows.slice(); state.page = 1; render(); };
+  $("#btn-reset").onclick = function () { $("#filters").reset(); state.pool = "m12"; state.all = state.rows.filter(function (r) { return r.pool === "m12"; }); state.page = 1; render(); };
   $("#btn-export").onclick = function () { U.toast("导出抽奖结果（演示）"); };
   window.DEMOS = [
     { label: "12 月一等奖录入", fn: function () { state.pool = "m12"; $("#f-pool").value = "m12"; openAdd(); } },
