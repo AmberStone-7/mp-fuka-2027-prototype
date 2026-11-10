@@ -114,7 +114,7 @@
         return '<article class="ticket' + cls + '">' +
           '<div class="ticket__head"><div class="ticket__no-line"><span>幸运福卡号码：</span><b>' + c.no + '</b></div><span class="ticket__stamp">' + stamp + '</span></div>' +
           '<span class="h5-source h5-source--' + c.sourceCls + '">' + c.source + '</span>' + (c.pool ? '<span class="ticket__pool">' + c.pool + '</span>' : '') +
-          '<dl class="ticket__rows"><div class="ticket__row"><dt>客户号：</dt><dd>10009502</dd></div><div class="ticket__row"><dt>手机号：</dt><dd>666 666 666</dd></div></dl>' +
+          '<dl class="ticket__rows"><div class="ticket__row"><dt>客户号：</dt><dd>10009502</dd></div><div class="ticket__row"><dt>手机号：</dt><dd>666 666 666</dd></div><div class="ticket__row"><dt>发放时间：</dt><dd>' + (c.issued || "2026-12-01") + '</dd></div></dl>' +
           invoice + invalid + prize + '</article>';
       }
       var pending = [
