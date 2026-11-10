@@ -132,6 +132,92 @@
     document.body.appendChild(a);
   }
 
+
+  /* ---------------- antd 风格下拉（后台 .adm-select） ---------------- */
+  function buildAntdSelects() {
+    if (!document.body.classList.contains("adm")) return;
+    document.querySelectorAll("select.adm-select").forEach(function (sel) {
+      if (sel.dataset.antdReady) return;
+      sel.dataset.antdReady = "1";
+      var wrap = document.createElement("span");
+      wrap.className = "antd-select";
+      sel.parentNode.insertBefore(wrap, sel);
+      wrap.appendChild(sel);
+      sel.classList.add("antd-select__native");
+      var trigger = document.createElement("button");
+      trigger.type = "button";
+      trigger.className = "antd-select__trigger";
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.innerHTML = '<span class="antd-select__value"></span><span class="antd-select__arrow"></span>';
+      wrap.appendChild(trigger);
+      var drop = document.createElement("div");
+      drop.className = "antd-select__dropdown";
+      drop.setAttribute("role", "listbox");
+      wrap.appendChild(drop);
+
+      function selectedText() {
+        var o = sel.options[sel.selectedIndex];
+        return o ? o.textContent : "";
+      }
+      function sync() {
+        trigger.querySelector(".antd-select__value").textContent = selectedText();
+        trigger.classList.toggle("is-placeholder", !sel.value);
+        trigger.disabled = sel.disabled;
+      }
+      function buildOptions() {
+        drop.innerHTML = "";
+        Array.prototype.forEach.call(sel.options, function (opt) {
+          var item = document.createElement("div");
+          item.className = "antd-select__option" + (opt.value === sel.value ? " is-selected" : "") + (opt.disabled ? " is-disabled" : "");
+          item.setAttribute("role", "option");
+          item.setAttribute("aria-selected", opt.value === sel.value ? "true" : "false");
+          item.textContent = opt.textContent;
+          item.onclick = function () {
+            if (opt.disabled) return;
+            sel.value = opt.value;
+            sel.dispatchEvent(new Event("change", { bubbles: true }));
+            sync(); close();
+          };
+          drop.appendChild(item);
+        });
+      }
+      function open() {
+        document.querySelectorAll(".antd-select.is-open").forEach(function (w) {
+          if (w !== wrap) { w.classList.remove("is-open"); w.querySelector(".antd-select__trigger").setAttribute("aria-expanded", "false"); }
+        });
+        buildOptions(); sync();
+        wrap.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        var cur = drop.querySelector(".is-selected");
+        if (cur) cur.scrollIntoView({ block: "nearest" });
+      }
+      function close() {
+        wrap.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+      trigger.onclick = function (e) {
+        e.stopPropagation();
+        if (sel.disabled) return;
+        wrap.classList.contains("is-open") ? close() : open();
+      };
+      trigger.onkeydown = function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") { e.preventDefault(); open(); }
+        if (e.key === "Escape") close();
+      };
+      document.addEventListener("click", function (e) { if (!wrap.contains(e.target)) close(); });
+      sel.addEventListener("change", sync);
+      sel.addEventListener("focus", sync);
+      if (window.MutationObserver) {
+        new MutationObserver(function () { sync(); if (wrap.classList.contains("is-open")) buildOptions(); })
+          .observe(sel, { childList: true, subtree: true, attributes: true, attributeFilter: ["disabled"] });
+      }
+      var form = sel.closest("form");
+      if (form) form.addEventListener("reset", function () { setTimeout(sync, 0); });
+      sync();
+    });
+  }
+
   function buildChangeFlag() {
     var meta = window.PAGE_META;
     if (!meta || !meta.changes || !meta.changes.length) return;
@@ -150,5 +236,6 @@
     buildNotes();
     buildProtoNav();
     buildChangeFlag();
+    buildAntdSelects();
   });
 })();
