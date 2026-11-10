@@ -218,7 +218,7 @@
           invalid + prize +
           (st === "won" && c.pool ? '<div class="ticket__win-pool">中奖奖池：' + c.pool + '</div>' : "") +
           (st === "lost" && c.pool && c.pool.indexOf("终极") < 0 ? '<div class="ticket__hint">月度未中奖，仍可参与终极大奖池</div>' : "") +
-          (st === "pending" && c.pool && c.pool.indexOf("终极") < 0 ? '<div class="ticket__hint">月度奖池待开奖，仍可参与终极大奖池</div>' : "") +
+          (st === "pending" && c.pool && c.pool.indexOf("终极") < 0 ? '<div class="ticket__hint">' + c.pool + '待开奖，仍可参与终极大奖池</div>' : "") +
           '</article>';
       }
 
