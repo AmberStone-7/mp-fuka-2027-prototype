@@ -44,7 +44,7 @@
       states: [
         "12 月/1 月/2 月月度奖池一至四等奖：客服微信 + 对应奖品说明。",
         "终极一等奖：客服微信 + Tesla 领取条件。",
-        "参与奖：客服微信 + 联系业务员、订单备注提示。"
+        "参与奖：客服微信 + 联系客服或业务员、订单备注提示。"
       ],
       notes: [
         "所有奖品统一一个客服微信二维码，不再按奖项区分微信。",
@@ -77,14 +77,14 @@
         monthly3: { badge: "三等奖", tips: "iPhone 18 Pro Max：完成登记后可选择自费升级库存或自选颜色，需补齐差价；升级仅限 1 次，升级后不可降级。" },
         monthly4: { badge: "四等奖", tips: "iPad：此礼品不支持兑换现金，也不支持自费升级。" },
         ultimate1: { badge: "终极一等奖", tips: "Tesla Model 3：需持欧盟有效驾照及官方身份证明，年龄≥21 周岁；仅支持西班牙半岛提车；个人税费、保险、上牌等费用自理；不可兑换现金。" },
-        participation: { badge: "参与奖", tips: "请联系业务员，在下单时备注【2027 福卡参与奖】；礼品随单发放，具体以业务员沟通为准。" }
+        participation: { badge: "参与奖", tips: "请联系客服或业务员，在下单时备注【2027 福卡参与奖】；礼品随单发放，具体以客服/业务员沟通为准。" }
       };
       function setPrize(code, pool) {
         var p = MAP[code] || MAP.monthly1;
         document.getElementById("prize-badge").textContent = (pool ? pool + " · " : "") + p.badge;
         var isPart = code === "participation";
         document.getElementById("main-text").innerHTML = isPart
-          ? "请联系您的业务员<br>在下单时备注<br>“2027 福卡参与奖”"
+          ? "请联系客服或业务员<br>下单备注<br>“2027 福卡参与奖”"
           : "请添加上方客服微信<br>进行礼品登记";
       }
       var qs = new URLSearchParams(location.search);

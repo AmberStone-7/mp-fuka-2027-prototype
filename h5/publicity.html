@@ -38,6 +38,8 @@
       </table>
     </div>
 
+    <div class="h5-pub-pager" id="pub-pager"></div>
+
     <div class="h5-pub-wrap" id="pub-empty" hidden>
       <div class="h5-empty">
         <div class="h5-empty__ico">奖</div>
@@ -120,23 +122,36 @@
         { pool: "ultimate", card: "02488", level: "consolation", cif: "B5***67" }
       ];
 
+      var state = { pool: "all", page: 1, size: 6 };
       function render(pool, forceEmpty) {
-        var list = forceEmpty ? [] : ROWS.filter(function (r) { return pool === "all" || r.pool === pool; });
+        state.pool = pool;
+        var all = forceEmpty ? [] : ROWS.filter(function (r) { return pool === "all" || r.pool === pool; });
+        var pages = Math.max(1, Math.ceil(all.length / state.size));
+        if (state.page > pages) state.page = pages;
+        var start = (state.page - 1) * state.size;
+        var list = all.slice(start, start + state.size);
         document.getElementById("pub-rows").innerHTML = list.map(function (r) {
           return '<tr><td class="h5-pub-card">' + r.card + '</td>' +
             '<td><span class="h5-pub-level">' + LEVEL[r.level] + '</span></td>' +
             '<td>' + PRIZE[r.level] + '</td>' +
             '<td class="h5-pub-cif">' + r.cif + '</td></tr>';
         }).join("");
-        document.getElementById("pub-empty").hidden = list.length > 0;
-        document.querySelector(".h5-pub-wrap").hidden = list.length === 0;
+        document.getElementById("pub-empty").hidden = all.length > 0;
+        document.querySelector(".h5-pub-wrap").hidden = all.length === 0;
+        var pager = document.getElementById("pub-pager");
+        pager.hidden = all.length === 0;
+        pager.innerHTML = '<span>共 ' + all.length + ' 条</span>' +
+          '<button type="button" data-pp="' + (state.page - 1) + '"' + (state.page <= 1 ? " disabled" : "") + '>‹</button>' +
+          '<span>' + state.page + ' / ' + pages + '</span>' +
+          '<button type="button" data-pp="' + (state.page + 1) + '"' + (state.page >= pages ? " disabled" : "") + '>›</button>';
+        U.$$("[data-pp]").forEach(function (b) { b.onclick = function () { state.page = Number(b.getAttribute("data-pp")); render(state.pool, false); }; });
         U.$$("#pub-tabs .h5-tab").forEach(function (b) {
           b.classList.toggle("is-active", b.getAttribute("data-pool") === pool);
         });
       }
 
       U.$$("#pub-tabs .h5-tab").forEach(function (b) {
-        b.addEventListener("click", function () { render(b.getAttribute("data-pool"), false); });
+        b.addEventListener("click", function () { state.page = 1; render(b.getAttribute("data-pool"), false); });
       });
 
       render("all", false);
