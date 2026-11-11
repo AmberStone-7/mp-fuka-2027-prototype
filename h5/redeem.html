@@ -29,11 +29,6 @@
       <p class="redeem-panel__text" id="main-text">请添加上方客服微信<br>进行礼品登记</p>
     </section>
 
-    <div class="redeem-tips" id="prize-tips" style="margin-top:18px">
-      <b>领取说明</b>
-      <p id="tips-text"></p>
-    </div>
-
     <p class="h5-tip" style="text-align:center">添加客服后请发送：奖项 + 中奖福卡号 + 客户名称，工作人员会尽快为您登记。</p>
   </div>
 
@@ -42,10 +37,10 @@
       id: "H5-06",
       title: "礼品领取登记",
       live: "yes",
-      note: "V2.0：所有奖品统一客服微信；参与奖按订单备注提示",
+      note: "V2.8：仅展示客服微信二维码与登记文案，不展示领取说明",
       fr: ["FR-014"],
       ac: ["AC-045", "AC-058"],
-      goal: "中奖客户进入本页：所有奖项展示客服微信二维码，按奖品显示领取说明；参与奖沿用订单备注提示。",
+      goal: "中奖客户进入本页：所有奖项展示客服微信二维码与登记文案；不展示奖品领取说明；参与奖沿用订单备注提示。",
       states: [
         "12 月/1 月/2 月月度奖池一至四等奖：客服微信 + 对应奖品说明。",
         "终极一等奖：客服微信 + Tesla 领取条件。",
@@ -58,9 +53,9 @@
         "中奖公示展示完整福卡号。"
       ],
       changes: [
-        "领取方式由「一至四等奖各自微信」改为「统一客服微信二维码」。",
-        "新增 Tesla / iPhone / iPad / MP 随您购 / 参与奖的领取说明。",
-        "「安慰奖」更名为「参与奖」，沿用订单备注提示。"
+        "所有奖项统一客服微信二维码。",
+        "V2.8 删除页面下方「领取说明」区域，只保留二维码与登记文案。",
+        "参与奖沿用订单备注提示。"
       ],
       todo: ["客服微信二维码待运营提供，当前为占位。", "参与奖随单起始时间待运营确认。"]
     };
@@ -87,7 +82,6 @@
       function setPrize(code, pool) {
         var p = MAP[code] || MAP.monthly1;
         document.getElementById("prize-badge").textContent = (pool ? pool + " · " : "") + p.badge;
-        document.getElementById("tips-text").textContent = p.tips;
         var isPart = code === "participation";
         document.getElementById("main-text").innerHTML = isPart
           ? "请联系您的业务员<br>在下单时备注<br>“2027 福卡参与奖”"
