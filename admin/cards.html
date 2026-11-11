@@ -52,6 +52,10 @@
       <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
       中奖记录
     </a>
+    <a class="adm-menu__item" href="live.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 10l4 3-4 3v-6z"/></svg>
+      直播配置
+    </a>
     <a class="adm-menu__item" href="email.html">
       <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
       邮件日志
@@ -98,6 +102,7 @@
         <option value="new">新客福卡</option>
         <option value="invite">邀请福卡</option>
         <option value="official">官方福卡</option>
+        <option value="cumulative">累计满额福卡</option>
       </select>
     </div>
     <div class="adm-field">
@@ -335,7 +340,7 @@
     "添加福卡：账套、客户号、发票号、福卡数量（>0 整数）"
   ],
   "rules": [
-    "福卡类型四类：订单福卡/新客福卡/邀请福卡/官方福卡",
+    "福卡类型五类：订单福卡/新客福卡/邀请福卡/官方福卡/累计满额福卡",
     "状态：待开奖/已中奖/未中奖/已失效",
     "官方福卡与邀请人卡无发票字段，展示「—」",
     "所属奖池：按发放时间归入 12 月/1 月/2 月奖池，终极大奖池共享。",
@@ -375,7 +380,7 @@
       { no: "01127", account: "ES02", custNo: "10022871", taxId: "B12741258", source: "order", phone: "611223344", sales: "5062", invoice: "ES25000033", amount: "999.99", created: "2025-06-08 00:00:00", status: "pending", note: "金额未达 1,000€ 不发卡", time: "2026-12-01 09:33", modified: "2026-12-01 09:33" }
     ];
     var STATUS = { pending: "待开奖", won: "已中奖", lost: "未中奖", invalid: "已失效" };
-    var SOURCE = { order: "订单福卡", new: "新客福卡", invite: "邀请福卡", official: "官方福卡" };
+    var SOURCE = { order: "订单福卡", new: "新客福卡", invite: "邀请福卡", official: "官方福卡", cumulative: "累计满额福卡" };
     var state = { rows: ROWS.slice(), checked: {}, voidNo: null };
 
     function poolOf(r) {

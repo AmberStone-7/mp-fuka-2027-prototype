@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>直播配置 · 抽奖后台</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/admin.css?v=20261110b">
+</head>
+<body class="adm">
+<aside class="adm-sider">
+  <div class="adm-logo">抽奖后台管理</div>
+  <nav class="adm-menu" aria-label="后台菜单">
+    <a class="adm-menu__item" href="cards.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/></svg>福卡管理</a>
+    <a class="adm-menu__item" href="invite.html"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 1 0-6l3-3a4 4 0 0 1 6 6l-2 2"/><path d="M14 10a4 4 0 0 1 0 6l-3 3a4 4 0 0 1-6-6l2-2"/></svg>邀请码管理</a>
+    <a class="adm-menu__item" href="draw.html"><svg viewBox="0 0 24 24"><path d="M5 10v4l9 4V6L5 10z"/><path d="M14 9a3.5 3.5 0 0 1 0 6"/><path d="M7 14v4"/></svg>抽奖管理</a>
+    <a class="adm-menu__item" href="prizes.html"><svg viewBox="0 0 24 24"><path d="M4 11h16v9H4z"/><path d="M3 7h18v4H3z"/><path d="M12 7v13"/></svg>奖品管理</a>
+    <a class="adm-menu__item" href="winners.html"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>中奖记录</a>
+    <a class="adm-menu__item" href="email.html"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 8l9 6 9-6"/></svg>邮件日志</a>
+    <a class="adm-menu__item is-active" href="live.html"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 10l4 3-4 3v-6z"/></svg>直播配置</a>
+  </nav>
+  <button class="adm-sider__collapse" type="button" title="收起菜单">‹</button>
+</aside>
+<main class="adm-main">
+  <div class="adm-topbar"><span class="adm-avatar">A</span></div>
+  <div class="adm-crumb"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg><span>/</span><b>直播配置</b></div>
+
+  <div class="adm-alert" style="margin-bottom:14px">
+    <span class="adm-alert__ico">i</span>
+    <span>三场直播：1/10 开 12 月奖池、2/10 开 1 月奖池、3/10 开 2 月奖池 + 终极大奖池。H5 首页读取「下一场」展示日期、倒计时、预告图与链接；不接直播平台。</span>
+  </div>
+
+  <div class="adm-table-wrap">
+    <table class="adm-table" style="min-width:1100px">
+      <thead><tr><th>场次</th><th>开奖奖池</th><th>直播日期</th><th>直播链接</th><th>预告图</th><th>状态</th><th>操作</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="adm-form-tip" style="margin-top:14px">日期只展示到天，H5 不展示具体时刻；倒计时按“距日期还有 X 天”。</p>
+</main>
+<script>
+  window.PAGE_META = {
+    id: "ADM-08", title: "直播配置", live: "yes",
+    note: "V2.7 新增：三场直播日期 / 链接 / 预告图",
+    fr: ["FR-024"], ac: ["AC-074"],
+    goal: "配置三场直播的日期、直播链接、预告图；H5 首页读取下一场并展示倒计时/状态。",
+    states: ["待开始：预告图 + 倒计时", "当天：直播中 + 链接", "结束后：下一场预告", "3/10 后：直播结束 + 中奖公示"],
+    changes: ["新增直播配置页面", "三场：1/10、2/10、3/10", "仅日期，不展示具体时刻"],
+    notes: ["不接直播平台，仅保存链接与图片。"],
+    todo: []
+  };
+</script>
+<script src="../assets/js/legacy.js?v=20261110b"></script>
+<script>
+(function () {
+  var ROWS = [
+    { name: "1 月直播", pool: "12 月奖池", date: "2027-01-10", status: "待开始" },
+    { name: "2 月直播", pool: "1 月奖池", date: "2027-02-10", status: "待开始" },
+    { name: "3 月终极直播", pool: "2 月奖池 + 终极大奖池", date: "2027-03-10", status: "待开始" }
+  ];
+  document.getElementById("rows").innerHTML = ROWS.map(function (r, i) {
+    return "<tr><td><b>" + r.name + "</b></td><td>" + r.pool + "</td>" +
+      '<td><input class="adm-input" type="date" value="' + r.date + '" data-date="' + i + '"></td>' +
+      '<td><input class="adm-input" placeholder="https://..." data-link="' + i + '" style="width:220px"></td>' +
+      '<td><button class="adm-btn" type="button" data-img="' + i + '">上传预告图</button></td>' +
+      "<td><span class='adm-status adm-status--won'>" + r.status + "</span></td>" +
+      '<td><span class="adm-table__op"><button type="button" data-save="' + i + '">保存</button></span></td></tr>';
+  }).join("");
+  U.$$("[data-img]").forEach(function (b) { b.onclick = function () { b.textContent = "已选择（演示）"; }; });
+  U.$$("[data-save]").forEach(function (b) { b.onclick = function () { U.toast("已保存直播配置（演示）"); }; });
+})();
+</script>
+</body>
+</html>

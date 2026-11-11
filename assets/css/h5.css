@@ -1720,3 +1720,10 @@ body.h5 {
   font-weight: 700;
 }
 .h5-live__tip { margin: 8px 0 0; font-size: 10.5px; color: rgba(246, 227, 176, 0.55); }
+
+
+.h5-source--cumulative {
+  color: #7a4a00;
+  background: rgba(214, 169, 44, 0.24);
+  border-color: rgba(122, 74, 0, 0.35);
+}

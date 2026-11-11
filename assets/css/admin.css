@@ -830,3 +830,10 @@ input[type="radio"] { accent-color: #1677ff; }
 .adm-btn { border-radius: 6px; }
 .adm-btn--primary { background: #1677ff; border-color: #1677ff; }
 .adm-btn--primary:hover { background: #4096ff; border-color: #4096ff; }
+
+
+.adm-source--cumulative {
+  color: #7a4a00;
+  background: rgba(214, 169, 44, 0.18);
+  border-color: rgba(122, 74, 0, 0.3);
+}
