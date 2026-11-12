@@ -27,17 +27,18 @@
 
     <section class="h5-live" id="live-section">
       <div class="h5-live__head">直播抽奖</div>
+      <div class="h5-live__preview-note">原型状态切换（正式上线隐藏）</div>
+      <div class="h5-tabs h5-live__tabs" id="live-tabs">
+        <button class="h5-tab" type="button" data-live="pre1">第一场前</button>
+        <button class="h5-tab" type="button" data-live="pre2">第一场后</button>
+        <button class="h5-tab" type="button" data-live="pre3">第二场后</button>
+        <button class="h5-tab" type="button" data-live="ended">第三场后</button>
+      </div>
+
       <div class="h5-live__cover" id="live-cover">直播预告图<br><span>（运营上传）</span></div>
       <div class="h5-live__meta" id="live-meta">Loading…</div>
       <a class="h5-live__btn" id="live-link" href="#" target="_blank" rel="noopener" hidden>观看直播 →</a>
       <p class="h5-live__tip" id="live-tip">直播链接与预告图由后台配置。</p>
-      <div class="h5-live__preview">
-        <span>原型状态预览</span>
-        <button type="button" data-live="pre1">第一场前</button>
-        <button type="button" data-live="pre2">第一场后</button>
-        <button type="button" data-live="pre3">第二场后</button>
-        <button type="button" data-live="ended">第三场后</button>
-      </div>
     </section>
 
     <p class="h5-home__foot">活动时间 2026.12.01 — 2027.02.26 · 大奖开奖 2027.03</p>
@@ -156,11 +157,24 @@
         }
         showEnded();
       }
+      function setActive(mode) {
+        document.querySelectorAll("#live-tabs [data-live]").forEach(function (b) {
+          b.classList.toggle("is-active", b.getAttribute("data-live") === mode);
+        });
+      }
       document.querySelectorAll("[data-live]").forEach(function (b) {
-        b.onclick = function () { render(b.getAttribute("data-live")); };
+        b.onclick = function () {
+          var mode = b.getAttribute("data-live");
+          render(mode); setActive(mode);
+        };
       });
       var initial = new URLSearchParams(location.search).get("live");
-      render(initial);
+      if (!initial) {
+        var t = new Date(); t.setHours(0,0,0,0);
+        var d1 = new Date("2027-01-10T00:00:00"), d2 = new Date("2027-02-10T00:00:00"), d3 = new Date("2027-03-10T00:00:00");
+        initial = t < d1 ? "pre1" : t < d2 ? "pre2" : t < d3 ? "pre3" : "ended";
+      }
+      render(initial); setActive(initial);
       setInterval(function () { if (!initial) render(); }, 60000);
     })();
   </script>
