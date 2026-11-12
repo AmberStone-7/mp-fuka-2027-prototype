@@ -59,12 +59,21 @@
     { name: "2 月直播", pool: "1 月奖池", date: "2027-02-10", status: "待开始" },
     { name: "3 月终极直播", pool: "2 月奖池 + 终极大奖池", date: "2027-03-10", status: "待开始" }
   ];
+  function statusOf(dateStr) {
+    var now = new Date(); now.setHours(0,0,0,0);
+    var d = new Date(dateStr + "T00:00:00");
+    if (now.getTime() < d.getTime()) return "预告中";
+    if (now.getTime() === d.getTime()) return "直播中";
+    return "已结束";
+  }
   document.getElementById("rows").innerHTML = ROWS.map(function (r, i) {
+    var st = statusOf(r.date);
+    var cls = st === "直播中" ? "adm-status--won" : (st === "已结束" ? "adm-status--invalid" : "adm-status--filled");
     return "<tr><td><b>" + r.name + "</b></td><td>" + r.pool + "</td>" +
       '<td><input class="adm-input" type="date" value="' + r.date + '" data-date="' + i + '"></td>' +
       '<td><input class="adm-input" placeholder="https://..." data-link="' + i + '" style="width:220px"></td>' +
       '<td><button class="adm-btn" type="button" data-img="' + i + '">上传预告图</button></td>' +
-      "<td><span class='adm-status adm-status--won'>" + r.status + "</span></td>" +
+      "<td><span class='adm-status " + cls + "'>" + st + "</span></td>" +
       '<td><span class="adm-table__op"><button type="button" data-save="' + i + '">保存</button></span></td></tr>';
   }).join("");
   U.$$("[data-img]").forEach(function (b) { b.onclick = function () { b.textContent = "已选择（演示）"; }; });

@@ -122,7 +122,7 @@
         }
         if (current) {
           cover.innerHTML = "直播中<br><span>点击下方链接进入直播间</span>";
-          meta.textContent = current.name + " · " + fmtDate(current.date) + " · 开 " + current.pool;
+          meta.textContent = "直播中 · " + current.name + " · " + fmtDate(current.date) + " · 开 " + current.pool;
           link.hidden = false;
           link.textContent = "进入直播间 →";
           tip.textContent = "直播进行中；如无法进入请稍后重试。";
@@ -131,16 +131,14 @@
         if (next) {
           var days = Math.ceil((startOfDay(next.date) - today) / 86400000);
           cover.innerHTML = "直播预告图<br><span>（运营上传）</span>";
-          meta.textContent = next.name + " · " + fmtDate(next.date) + " · 开 " + next.pool;
+          meta.textContent = "预告 · " + next.name + " · " + fmtDate(next.date) + " · 开 " + next.pool;
           link.hidden = true;
           tip.textContent = days > 0 ? "距 " + fmtDate(next.date) + " 还有 " + days + " 天" : "今日直播，敬请关注";
           return;
         }
-        cover.innerHTML = "终极大奖直播已结束<br><span>查看中奖公示</span>";
-        meta.textContent = "终极大奖直播已结束";
-        link.hidden = false;
-        link.href = "publicity.html";
-        link.textContent = "查看中奖公示 →";
+        cover.innerHTML = "直播抽奖已结束";
+        meta.textContent = "直播抽奖已结束";
+        link.hidden = true;
         tip.textContent = "感谢参与 2026-2027 中汇新年福卡活动。";
       }
       render();
