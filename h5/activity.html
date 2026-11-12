@@ -31,6 +31,13 @@
       <div class="h5-live__meta" id="live-meta">Loading…</div>
       <a class="h5-live__btn" id="live-link" href="#" target="_blank" rel="noopener" hidden>观看直播 →</a>
       <p class="h5-live__tip" id="live-tip">直播链接与预告图由后台配置。</p>
+      <div class="h5-live__preview">
+        <span>原型状态预览</span>
+        <button type="button" data-live="pre1">第一场前</button>
+        <button type="button" data-live="pre2">第一场后</button>
+        <button type="button" data-live="pre3">第二场后</button>
+        <button type="button" data-live="ended">第三场后</button>
+      </div>
     </section>
 
     <p class="h5-home__foot">活动时间 2026.12.01 — 2027.02.26 · 大奖开奖 2027.03</p>
@@ -111,38 +118,50 @@
       var tip = document.getElementById("live-tip");
       function startOfDay(d) { var x = new Date(d); x.setHours(0, 0, 0, 0); return x; }
       function fmtDate(s) { var p = s.split("-"); return parseInt(p[1], 10) + " 月 " + parseInt(p[2], 10) + " 日"; }
-      function render() {
-        var now = new Date();
-        var today = startOfDay(now);
+      function showPreview(ev, note) {
+        cover.innerHTML = "直播预告图<br><span>（运营上传）</span>";
+        meta.textContent = "预告 · " + ev.name + " · " + fmtDate(ev.date) + " · 开 " + ev.pool;
+        link.hidden = true;
+        tip.textContent = note || "直播预告";
+      }
+      function showLive(ev) {
+        cover.innerHTML = "直播中<br><span>点击下方链接进入直播间</span>";
+        meta.textContent = "直播中 · " + ev.name + " · " + fmtDate(ev.date) + " · 开 " + ev.pool;
+        link.hidden = false;
+        link.textContent = "进入直播间 →";
+        tip.textContent = "直播进行中；如无法进入请稍后重试。";
+      }
+      function showEnded() {
+        cover.innerHTML = "直播抽奖已结束";
+        meta.textContent = "直播抽奖已结束";
+        link.hidden = true;
+        tip.textContent = "感谢参与 2026-2027 中汇新年福卡活动。";
+      }
+      function render(force) {
+        if (force === "pre1") return showPreview(EVENTS[0], "第一场直播前，展示第一场预告");
+        if (force === "pre2") return showPreview(EVENTS[1], "第一场直播后，展示第二场预告");
+        if (force === "pre3") return showPreview(EVENTS[2], "第二场直播后，展示第三场预告");
+        if (force === "ended") return showEnded();
+        var today = startOfDay(new Date());
         var current = null, next = null;
         for (var i = 0; i < EVENTS.length; i++) {
           var d = startOfDay(EVENTS[i].date);
           if (today.getTime() === d.getTime()) { current = EVENTS[i]; break; }
           if (d > today) { next = EVENTS[i]; break; }
         }
-        if (current) {
-          cover.innerHTML = "直播中<br><span>点击下方链接进入直播间</span>";
-          meta.textContent = "直播中 · " + current.name + " · " + fmtDate(current.date) + " · 开 " + current.pool;
-          link.hidden = false;
-          link.textContent = "进入直播间 →";
-          tip.textContent = "直播进行中；如无法进入请稍后重试。";
-          return;
-        }
+        if (current) return showLive(current);
         if (next) {
           var days = Math.ceil((startOfDay(next.date) - today) / 86400000);
-          cover.innerHTML = "直播预告图<br><span>（运营上传）</span>";
-          meta.textContent = "预告 · " + next.name + " · " + fmtDate(next.date) + " · 开 " + next.pool;
-          link.hidden = true;
-          tip.textContent = days > 0 ? "距 " + fmtDate(next.date) + " 还有 " + days + " 天" : "今日直播，敬请关注";
-          return;
+          return showPreview(next, "距 " + fmtDate(next.date) + " 还有 " + days + " 天");
         }
-        cover.innerHTML = "直播抽奖已结束";
-        meta.textContent = "直播抽奖已结束";
-        link.hidden = true;
-        tip.textContent = "感谢参与 2026-2027 中汇新年福卡活动。";
+        showEnded();
       }
-      render();
-      setInterval(render, 60000);
+      document.querySelectorAll("[data-live]").forEach(function (b) {
+        b.onclick = function () { render(b.getAttribute("data-live")); };
+      });
+      var initial = new URLSearchParams(location.search).get("live");
+      render(initial);
+      setInterval(function () { if (!initial) render(); }, 60000);
     })();
   </script>
 </body>

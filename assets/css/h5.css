@@ -1748,3 +1748,27 @@ body.h5 {
   cursor: pointer;
 }
 .h5-pub-pager button[disabled] { opacity: .35; pointer-events: none; }
+
+
+/* 原型：直播状态预览 */
+.h5-live__preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(217, 169, 81, 0.3);
+  font-size: 10px;
+  color: rgba(246, 227, 176, 0.7);
+}
+.h5-live__preview button {
+  padding: 2px 7px;
+  border: 1px solid rgba(217, 169, 81, 0.45);
+  border-radius: 3px;
+  background: transparent;
+  color: #f6e3b0;
+  font-size: 10px;
+  cursor: pointer;
+}
