@@ -50,6 +50,20 @@
     </div>
   </div>
 
+  <div style="margin-bottom:16px;padding:14px 16px;border:1px solid #f0f0f0;border-radius:8px;background:#fff">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <b>H5 前台状态预览</b>
+      <span style="font-size:12px;color:#8c8c8c">选择时间阶段，查看首页直播板块的展示效果</span>
+      <div id="live-preview-tabs" style="margin-left:auto;display:flex;gap:6px">
+        <button class="adm-btn" type="button" data-preview="pre1">第一场前</button>
+        <button class="adm-btn" type="button" data-preview="pre2">第一场后</button>
+        <button class="adm-btn" type="button" data-preview="pre3">第二场后</button>
+        <button class="adm-btn" type="button" data-preview="ended">第三场后</button>
+      </div>
+    </div>
+    <div id="live-preview-card" style="margin-top:14px;padding:14px;border-radius:8px;background:#4a0d0a;color:#f6e3b0;text-align:center"></div>
+  </div>
+
   <div class="adm-table-wrap">
     <table class="adm-table" style="min-width:1100px">
       <thead><tr><th>场次</th><th>开奖奖池</th><th>直播日期</th><th>直播链接</th><th>预告图</th><th>状态</th><th>操作</th></tr></thead>
@@ -95,6 +109,26 @@
       "<td><span class='adm-status " + cls + "'>" + st + "</span></td>" +
       '<td><span class="adm-table__op"><button type="button" data-save="' + i + '">保存</button></span></td></tr>';
   }).join("");
+  function preview(mode) {
+    var box = document.getElementById("live-preview-card");
+    var tabs = document.querySelectorAll("[data-preview]");
+    tabs.forEach(function (b) { b.classList.toggle("adm-btn--primary", b.getAttribute("data-preview") === mode); });
+    if (mode === "ended") {
+      box.innerHTML = "<div style='font-size:16px;font-weight:700'>直播抽奖已结束</div><div style='margin-top:6px;font-size:12px;opacity:.7'>感谢参与 2026-2027 中汇新年福卡活动</div>";
+      return;
+    }
+    var idx = mode === "pre1" ? 0 : mode === "pre2" ? 1 : 2;
+    var ev = ROWS[idx];
+    box.innerHTML = "<div style='font-size:12px;opacity:.65'>直播预告图（运营上传）</div>" +
+      "<div style='height:70px;margin:8px 0;border:1px dashed rgba(246,227,176,.4);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px'>预告图</div>" +
+      "<div style='font-size:13px;font-weight:700'>预告 · " + ev.name + " · " + ev.date + " · 开 " + ev.pool + "</div>" +
+      "<div style='margin-top:6px;font-size:12px;opacity:.7'>" + (mode === "pre1" ? "第一场直播前，展示第一场预告" : mode === "pre2" ? "第一场直播后，展示第二场预告" : "第二场直播后，展示第三场预告") + "</div>";
+  }
+  document.querySelectorAll("[data-preview]").forEach(function (b) {
+    b.onclick = function () { preview(b.getAttribute("data-preview")); };
+  });
+  preview("pre1");
+
   U.$$("[data-img]").forEach(function (b) { b.onclick = function () { b.textContent = "已选择（演示）"; }; });
   U.$$("[data-save]").forEach(function (b) { b.onclick = function () { U.toast("已保存直播配置（演示）"); }; });
 })();
