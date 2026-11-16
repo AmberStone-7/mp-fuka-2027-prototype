@@ -1898,3 +1898,21 @@ body.h5 {
   background: #f0cf8e;
   color: #5a1a0e;
 }
+
+
+/* 活动细则在线阅读 */
+.rule-doc { padding: 4px 2px 60px; }
+.rule-doc__h1 {
+  margin: 10px 0 16px; text-align: center; font-family: var(--h5-serif);
+  font-size: 24px; letter-spacing: .12em; color: #f6e3b0;
+}
+.rule-doc__h2 {
+  margin: 20px 0 8px; padding-left: 9px; border-left: 3px solid #d9a951;
+  font-family: var(--h5-serif); font-size: 16px; color: #f6e3b0; letter-spacing: .04em;
+}
+.rule-doc__h3 { margin: 14px 0 6px; font-size: 13.5px; color: #f3dfb0; }
+.rule-doc__p {
+  margin: 0 0 7px; font-size: 12.5px; line-height: 1.85;
+  color: rgba(255, 244, 230, .82); word-break: break-word;
+}
+.rule-doc__download { margin-top: 28px; text-align: center; }
