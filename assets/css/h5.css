@@ -1872,3 +1872,6 @@ body.h5 {
 .guide-tiers span { font-size: 10px; color: rgba(246,227,176,.8); }
 .guide-tiers b { font-family: var(--h5-serif); font-size: 28px; line-height: 1.1; color: #f6e3b0; }
 .guide-tiers em { font-size: 10px; font-style: normal; color: rgba(246,227,176,.7); }
+
+
+.guide-card__car { mix-blend-mode: screen; }
