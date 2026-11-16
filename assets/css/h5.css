@@ -1875,3 +1875,26 @@ body.h5 {
 
 
 .guide-card__car { mix-blend-mode: screen; }
+
+
+/* 活动指南：统一深红金色，不在下方内容切换颜色 */
+.guide-card,
+.guide-card--cumulative,
+.guide-card--invite,
+.guide-card--free {
+  background: linear-gradient(155deg, rgba(111, 26, 18, .94), rgba(54, 12, 9, .97));
+  border-color: rgba(217, 169, 81, .42);
+}
+.guide-card__label,
+.guide-card__label--dark,
+.guide-card__label--gold,
+.guide-card__label--light {
+  background: rgba(246, 227, 176, .14);
+  color: #f6e3b0;
+  border: 1px solid rgba(246, 227, 176, .4);
+}
+.guide-card__badge,
+.guide-card__badge--free {
+  background: #f0cf8e;
+  color: #5a1a0e;
+}
