@@ -837,3 +837,20 @@ input[type="radio"] { accent-color: #1677ff; }
   background: rgba(214, 169, 44, 0.18);
   border-color: rgba(122, 74, 0, 0.3);
 }
+
+
+/* 2027 福卡发放邮件模板 */
+.em-mail__banner-text {
+  margin: 4px 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  color: #b3261e;
+}
+.em-mail__banner {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+.em-mail__link { word-break: break-all; color: #1677ff; }
