@@ -854,3 +854,8 @@ input[type="radio"] { accent-color: #1677ff; }
   border-radius: 6px;
 }
 .em-mail__link { word-break: break-all; color: #1677ff; }
+
+
+.em-mail__brands { margin:16px 0 10px; padding-top:12px; border-top:1px solid #eee; }
+.em-mail__brands img { display:block; width:100%; height:auto; margin:0 0 10px; }
+.em-mail__legal { margin:8px 0 6px; font-size:11px; line-height:1.65; color:#888; text-align:justify; }
