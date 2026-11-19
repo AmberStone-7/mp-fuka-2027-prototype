@@ -31,6 +31,7 @@
     .draw-check__tag { display:inline-block;padding:1px 7px;border-radius:3px;font-size:11px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;margin-left:6px }
     .draw-check.is-bad .draw-check__tag { background:#fff2f0;border-color:#ffccc7;color:#cf1322 }
     .adm-input.is-invalid { border-color:#ff4d4f !important; box-shadow:0 0 0 2px rgba(255,77,79,.12) !important; }
+    .adm-form-item.is-partial .adm-form-item__err { display:block; }
     .draw-summary b { color:#262626 }
     .adm-modal__box--wide { width:900px;max-width:96vw }
     .draw-st--draft { color:#d48806 }
@@ -305,6 +306,7 @@
     box.innerHTML = "";
     $("#err-num").textContent = "";
     $("#item-num").classList.remove("is-error");
+    $("#item-num").classList.remove("is-partial");
     if (!p) { $("#r-quota").value = ""; return; }
     if (p.digits === 1) {
       $("#r-quota").value = "1,500（末位匹配）";
@@ -327,7 +329,10 @@
         inp.setAttribute("maxlength", "5");
         inp.placeholder = "幸运数字 " + (i + 1) + "（00001–20000）";
         inp.value = prefill && prefill[i] ? prefill[i] : "";
-        inp.oninput = function () { this.classList.remove("is-invalid"); };
+        inp.oninput = function () {
+          this.classList.remove("is-invalid");
+          if (!document.querySelector("#r-nums .is-invalid")) { $("#item-num").classList.remove("is-partial"); $("#err-num").textContent = ""; }
+        };
         box.appendChild(inp);
       }
       $("#num-tip").textContent = "中奖数量 " + p.quota + " 个，请填写 " + p.quota + " 个 5 位全匹配幸运数字。";
@@ -341,7 +346,7 @@
     $("#err-num").textContent = msg;
     $("#item-num").classList.add("is-error");
   }
-  function clearError() { $("#err-num").textContent = ""; $("#item-num").classList.remove("is-error"); }
+  function clearError() { $("#err-num").textContent = ""; $("#item-num").classList.remove("is-error"); $("#item-num").classList.remove("is-partial"); }
 
   function validateAndMatch(pool, prize, nums) {
     clearError();
@@ -408,7 +413,8 @@
         if (field) field.classList.add("is-invalid");
       });
       $("#err-num").textContent = "上一次抽奖存在未匹配号码，请修改红色输入框后重新提交";
-      $("#item-num").classList.add("is-error");
+      $("#item-num").classList.remove("is-error");
+      $("#item-num").classList.add("is-partial");
     }
     $("#modal-result-title").textContent = id ? "编辑抽奖结果 · " + id : "添加抽奖结果";
     $("#num-checks").innerHTML = "";
