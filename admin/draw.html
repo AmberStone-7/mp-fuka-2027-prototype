@@ -19,6 +19,17 @@
     .draw-match-pager button { min-width:28px;height:28px;border:1px solid #d9d9d9;background:#fff;border-radius:4px;cursor:pointer }
     .draw-match-pager button.is-active { border-color:#1677ff;color:#1677ff }
     .draw-summary { font-size:13px;color:#595959;margin-bottom:10px;line-height:1.8 }
+    .draw-checks { margin-bottom:12px;border:1px solid #f0f0f0;border-radius:8px;overflow:hidden }
+    .draw-check { display:flex;align-items:center;gap:12px;padding:9px 12px;border-bottom:1px solid #f5f5f5;font-size:13px }
+    .draw-check:last-child { border-bottom:0 }
+    .draw-check__no { width:82px;color:#8c8c8c }
+    .draw-check__num { width:74px;font-family:Menlo,monospace;font-weight:700;color:#262626 }
+    .draw-check__result { flex:1;color:#389e0d }
+    .draw-check.is-bad { background:#fff2f0 }
+    .draw-check.is-bad .draw-check__num,
+    .draw-check.is-bad .draw-check__result { color:#cf1322 }
+    .draw-check__tag { display:inline-block;padding:1px 7px;border-radius:3px;font-size:11px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;margin-left:6px }
+    .draw-check.is-bad .draw-check__tag { background:#fff2f0;border-color:#ffccc7;color:#cf1322 }
     .draw-summary b { color:#262626 }
     .adm-modal__box--wide { width:900px;max-width:96vw }
     .draw-st--draft { color:#d48806 }
@@ -138,6 +149,7 @@
   <div class="adm-modal__box adm-modal__box--wide" role="dialog" aria-modal="true" aria-labelledby="modal-match-title">
     <div class="adm-modal__head"><span class="adm-modal__title" id="modal-match-title">抽奖结果</span><button class="adm-modal__close" type="button" data-close>×</button></div>
     <div class="adm-modal__body">
+      <div id="num-checks" class="draw-checks"></div>
       <div class="draw-summary" id="match-summary"></div>
       <div class="draw-match-wrap">
         <table class="draw-match"><thead><tr><th>账套</th><th>幸运福卡卡号</th><th>客户号</th><th>业务员号</th><th>客户手机号</th><th>发票号</th></tr></thead><tbody id="match-rows"></tbody></table>
@@ -174,6 +186,7 @@
       "终极一等奖：5 位全匹配，可持续重抽至中奖；参与奖：末位匹配、同一 CIF 只保留 1 个（最早发票）、1,500 名截取、不补抽。",
       "生成结果后状态直接为「待发布」；待发布可发布、编辑、查看。",
       "发布前提示「发布后无法进行修改，请确认」；发布后仅可查看，不可编辑。",
+      "全部号码匹配后显示「确认开奖结果」；存在未匹配号码时隐藏该按钮，仅可重新抽奖。",
       "无复核环节。"
     ],
     changes: [
@@ -182,7 +195,7 @@
       "新增重抽（重新生成）与待发布状态。",
       "新增列表「中奖数量」列。",
       "按所选奖池、奖项自动带出中奖数量，并生成对应数量的幸运数字输入框。",
-      "填写后校验对应奖池卡池，无匹配提示「无匹配中奖号码，请重新抽奖」；匹配后才可生成结果。",
+      "确认后弹窗逐号展示匹配结果：已匹配显示福卡号，未匹配号码标红并提示重新抽奖。",
       "编辑抽奖结果同样按中奖数量生成输入并校验。",
       "生成结果后直接待发布，可发布/编辑/查看。",
       "发布后仅可查看，不可修改。",
@@ -323,27 +336,40 @@
 
   function validateAndMatch(pool, prize, nums) {
     clearError();
+    var checks = [], rows = [];
     if (prize.digits === 1) {
       if (!/^\d$/.test(nums[0])) { markError("请输入末位 0–9 的一位数字"); return null; }
       var matches = CARD_POOL[pool].filter(function (c) { return c.slice(-1) === nums[0]; });
-      if (!matches.length) { markError("无匹配中奖号码，请重新抽奖"); return null; }
-      state.match = { pool: pool, prize: prize, nums: nums, rows: buildRows(1500, pool), count: 1500 };
-      state.matchPage = 1; state.matchSize = 10;
-      return state.match;
+      checks.push({ num: nums[0], card: matches[0] || null, count: matches.length });
+      rows = matches.length ? buildRows(1500, pool) : [];
+      state.match = { pool: pool, prize: prize, nums: nums, checks: checks, rows: rows, valid: matches.length > 0, count: rows.length };
+    } else {
+      for (var i = 0; i < nums.length; i++) {
+        if (!/^\d{5}$/.test(nums[i]) || parseInt(nums[i], 10) < 1) { markError("幸运数字 " + (i + 1) + " 需为 00001–20000 的 5 位数字"); return null; }
+      }
+      if (new Set(nums).size !== nums.length) { markError("幸运数字不能重复"); return null; }
+      for (var j = 0; j < nums.length; j++) {
+        var card = CARD_POOL[pool].find(function (c) { return c === nums[j]; });
+        checks.push({ num: nums[j], card: card || null });
+        if (card) rows.push(cardRow(card, pool));
+      }
+      state.match = { pool: pool, prize: prize, nums: nums, checks: checks, rows: rows, valid: checks.every(function (c) { return !!c.card; }), count: rows.length };
     }
-    for (var i = 0; i < nums.length; i++) {
-      if (!/^\d{5}$/.test(nums[i]) || parseInt(nums[i], 10) < 1) { markError("幸运数字 " + (i + 1) + " 需为 00001–20000 的 5 位数字"); return null; }
-    }
-    if (new Set(nums).size !== nums.length) { markError("幸运数字不能重复"); return null; }
-    var rows = [];
-    for (var j = 0; j < nums.length; j++) {
-      var card = CARD_POOL[pool].find(function (c) { return c === nums[j]; });
-      if (!card) { markError("无匹配中奖号码，请重新抽奖"); return null; }
-      rows.push(cardRow(card, pool));
-    }
-    state.match = { pool: pool, prize: prize, nums: nums, rows: rows, count: rows.length };
     state.matchPage = 1; state.matchSize = 10;
     return state.match;
+  }
+
+  function renderChecks(m) {
+    var box = $("#num-checks");
+    box.innerHTML = m.checks.map(function (c, i) {
+      var ok = !!c.card;
+      return '<div class="draw-check ' + (ok ? "" : "is-bad") + '">' +
+        '<span class="draw-check__no">号码 ' + (i + 1) + '</span>' +
+        '<span class="draw-check__num">' + (m.prize.digits === 1 ? "末位 " + c.num : c.num) + '</span>' +
+        '<span class="draw-check__result">' + (ok ? "匹配福卡 " + c.card : "未匹配，请重新抽奖") + '</span>' +
+        '<span class="draw-check__tag">' + (ok ? "已匹配" : "未匹配") + '</span>' +
+        '</div>';
+    }).join("");
   }
 
   function cardRow(card, pool) {
@@ -367,6 +393,7 @@
     $("#r-prize").dispatchEvent(new Event("change", { bubbles: true }));
     renderNumInputs(r ? (r.luckies || [r.lucky]) : []);
     $("#modal-result-title").textContent = id ? "编辑抽奖结果 · " + id : "添加抽奖结果";
+    $("#num-checks").innerHTML = "";
     openModal("modal-result");
   }
 
@@ -384,9 +411,11 @@
     closeModal(document.getElementById("modal-result"));
     $("#btn-match-close").style.display = "none";
     $("#btn-regenerate").style.display = "";
-    $("#btn-save-result").style.display = "";
-    $("#modal-match-title").textContent = "抽奖结果";
-    $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[m.pool] + "</b>　奖品：<b>" + m.prize.name + "</b>　中奖数量：<b>" + fmt(m.prize.quota) + "</b>　幸运数字：<b>" + (m.prize.digits === 1 ? "末位 " + m.nums[0] : m.nums.join("、")) + "</b>　匹配：<b>" + fmt(m.rows.length) + "</b> 条";
+    $("#btn-regenerate").textContent = m.valid ? "重新生成" : "重新抽奖";
+    $("#btn-save-result").style.display = m.valid ? "" : "none";
+    $("#modal-match-title").textContent = m.valid ? "抽奖结果" : "号码匹配校验";
+    renderChecks(m);
+    $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[m.pool] + "</b>　奖品：<b>" + m.prize.name + "</b>　中奖数量：<b>" + fmt(m.prize.quota) + "</b>　号码校验：<b>" + m.checks.filter(function (c) { return !!c.card; }).length + " / " + m.checks.length + " 匹配</b>" + (m.valid ? "" : "　<span style='color:#cf1322'>存在未匹配号码，请重新抽奖</span>");
     renderMatch(); openModal("modal-match");
   };
 
@@ -408,6 +437,7 @@
   $("#btn-regenerate").onclick = function () { closeModal(document.getElementById("modal-match")); openAdd(state.editId); };
   $("#btn-save-result").onclick = function () {
     var m = state.match;
+    if (!m || !m.valid) { U.toast("存在未匹配号码，请重新抽奖"); return; }
     var row = { id: state.editId || ("B-" + Date.now().toString().slice(-6)), pool: m.pool, prize: m.prize.name, quota: m.prize.quota, luckies: m.nums.slice(), matched: m.rows.length, matchRows: m.rows.slice(), status: "pending", time: "2027-02-26 21:00" };
     if (state.editId) {
       var idx = state.rows.findIndex(function (x) { return x.id === state.editId; });
@@ -422,13 +452,15 @@
     var r = find(id);
     var p = prizeOf(r.pool, r.prize) || { digits: 5, quota: r.quota };
     var rows = r.matchRows ? r.matchRows.slice() : (p.digits === 1 ? buildRows(1500, r.pool) : (r.luckies || []).map(function (n) { return cardRow(n, r.pool); }).filter(Boolean));
-    state.match = { pool: r.pool, prize: p, nums: r.luckies || [], rows: rows, count: rows.length };
+    var checks = (r.luckies || []).map(function (n) { return { num: n, card: (p.digits === 1 ? rows[0] && rows[0].card : n) }; });
+    state.match = { pool: r.pool, prize: p, nums: r.luckies || [], checks: checks, rows: rows, valid: true, count: rows.length };
     state.matchPage = 1; state.matchSize = 10;
     $("#btn-match-close").style.display = "";
     $("#btn-regenerate").style.display = "none";
     $("#btn-save-result").style.display = "none";
     $("#modal-match-title").textContent = "抽奖详情（只读）";
-    $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　中奖数量：<b>" + fmt(r.quota) + "</b>　幸运数字：<b>" + luckyText(r) + "</b>　匹配：<b>" + fmt(rows.length) + "</b> 条　状态：<b>" + STATUS[r.status] + "</b>";
+    renderChecks(state.match);
+    $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　中奖数量：<b>" + fmt(r.quota) + "</b>　号码校验：<b>" + checks.length + " / " + checks.length + " 匹配</b>　匹配记录：<b>" + fmt(rows.length) + "</b> 条　状态：<b>" + STATUS[r.status] + "</b>";
     renderMatch();
     openModal("modal-match");
   }
