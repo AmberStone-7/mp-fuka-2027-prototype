@@ -30,6 +30,7 @@
     .draw-check.is-bad .draw-check__result { color:#cf1322 }
     .draw-check__tag { display:inline-block;padding:1px 7px;border-radius:3px;font-size:11px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;margin-left:6px }
     .draw-check.is-bad .draw-check__tag { background:#fff2f0;border-color:#ffccc7;color:#cf1322 }
+    .adm-input.is-invalid { border-color:#ff4d4f !important; box-shadow:0 0 0 2px rgba(255,77,79,.12) !important; }
     .draw-summary b { color:#262626 }
     .adm-modal__box--wide { width:900px;max-width:96vw }
     .draw-st--draft { color:#d48806 }
@@ -247,7 +248,8 @@
       { id: "B20270226-01", pool: "ultimate", prize: "一等奖 · Tesla Model 3", quota: 1, luckies: ["01208"], matched: 1, status: "pending", time: "2027-02-26 21:00" },
       { id: "B20270226-02", pool: "ultimate", prize: "参与奖 · MP 定制礼盒", quota: 1500, luckies: ["6"], matched: 1500, status: "pending", time: "2027-02-26 20:58" }
     ],
-    all: null, page: 1, editId: null, pool: "m12", match: null, matchPage: 1, matchSize: 10
+    all: null, page: 1, editId: null, pool: "m12", match: null, matchPage: 1, matchSize: 10,
+    lastNums: null, lastInvalid: [], lastPrize: null
   };
   state.all = state.rows.filter(function (r) { return r.pool === "m12"; });
 
@@ -325,6 +327,7 @@
         inp.setAttribute("maxlength", "5");
         inp.placeholder = "幸运数字 " + (i + 1) + "（00001–20000）";
         inp.value = prefill && prefill[i] ? prefill[i] : "";
+        inp.oninput = function () { this.classList.remove("is-invalid"); };
         box.appendChild(inp);
       }
       $("#num-tip").textContent = "中奖数量 " + p.quota + " 个，请填写 " + p.quota + " 个 5 位全匹配幸运数字。";
@@ -388,16 +391,25 @@
     return a;
   }
 
-  function openAdd(id) {
+  function openAdd(id, restore) {
     state.editId = id || null;
     var r = id ? find(id) : null;
     if (r) state.pool = r.pool;
     state.pool = state.pool || "m12";
     $("#r-pool").value = state.pool;
     $("#r-pool").dispatchEvent(new Event("change", { bubbles: true }));
-    $("#r-prize").value = r ? (prizeOf(state.pool, r.prize) || PRIZES[state.pool][0]).key : PRIZES[state.pool][0].key;
+    var prizeKey = restore && restore.prizeKey ? restore.prizeKey : (r ? (prizeOf(state.pool, r.prize) || PRIZES[state.pool][0]).key : PRIZES[state.pool][0].key);
+    $("#r-prize").value = prizeKey;
     $("#r-prize").dispatchEvent(new Event("change", { bubbles: true }));
-    renderNumInputs(r ? (r.luckies || [r.lucky]) : []);
+    renderNumInputs(restore ? restore.nums : (r ? (r.luckies || [r.lucky]) : []));
+    if (restore && restore.invalid && restore.invalid.length) {
+      restore.invalid.forEach(function (idx) {
+        var field = document.getElementById("r-num-" + idx);
+        if (field) field.classList.add("is-invalid");
+      });
+      $("#err-num").textContent = "上一次抽奖存在未匹配号码，请修改红色输入框后重新提交";
+      $("#item-num").classList.add("is-error");
+    }
     $("#modal-result-title").textContent = id ? "编辑抽奖结果 · " + id : "添加抽奖结果";
     $("#num-checks").innerHTML = "";
     openModal("modal-result");
@@ -414,6 +426,9 @@
     var nums = readNums();
     var m = validateAndMatch(state.pool, p, nums);
     if (!m) return;
+    state.lastNums = nums.slice();
+    state.lastInvalid = m.checks.map(function (c, i) { return c.card ? -1 : i; }).filter(function (i) { return i >= 0; });
+    state.lastPrize = p.key;
     closeModal(document.getElementById("modal-result"));
     $("#btn-match-close").style.display = "none";
     $("#btn-regenerate").style.display = "";
@@ -440,7 +455,11 @@
     $("#match-next").onclick = function () { if (state.matchPage < pages) { state.matchPage++; renderMatch(); } };
     $("#match-size").onchange = function () { state.matchSize = parseInt(this.value, 10) || 10; state.matchPage = 1; renderMatch(); };
   }
-  $("#btn-regenerate").onclick = function () { closeModal(document.getElementById("modal-match")); openAdd(state.editId); };
+  $("#btn-regenerate").onclick = function () {
+    var restore = { nums: (state.lastNums || []).slice(), invalid: (state.lastInvalid || []).slice(), prizeKey: state.lastPrize };
+    closeModal(document.getElementById("modal-match"));
+    openAdd(state.editId, restore);
+  };
   $("#btn-save-result").onclick = function () {
     var m = state.match;
     if (!m || !m.valid) { U.toast("存在未匹配号码，请重新抽奖"); return; }
