@@ -63,8 +63,7 @@
       <label for="f-status">状态</label>
       <select class="adm-select" id="f-status">
         <option value="">全部状态</option>
-        <option value="draft">草稿</option>
-        <option value="reviewed">已复核（待发布）</option>
+        <option value="pending">待发布</option>
         <option value="published">已发布</option>
       </select>
     </div>
@@ -127,7 +126,7 @@
           <p class="adm-form-tip" id="num-tip"></p>
         </div>
       </div>
-      <p class="adm-form-tip">确认后展示匹配福卡，核对后保存草稿；提交复核通过后才能发布。</p>
+      <p class="adm-form-tip">确认后展示匹配福卡，核对后生成抽奖结果；生成后状态为「待发布」。</p>
     </div>
     <div class="adm-modal__foot"><button class="adm-btn" type="button" data-close>取 消</button><button class="adm-btn adm-btn--primary" type="button" id="btn-confirm">确 认</button></div>
   </div>
@@ -145,7 +144,7 @@
       </div>
       <div class="draw-match-pager"><span id="match-total"></span><button type="button" id="match-prev">‹</button><span id="match-page-btns" style="display:flex;gap:6px"></span><button type="button" id="match-next">›</button><select id="match-size"><option value="10">10 条/页</option><option value="20">20 条/页</option><option value="50">50 条/页</option></select></div>
     </div>
-    <div class="adm-modal__foot"><button class="adm-btn" type="button" id="btn-regenerate">重新生成</button><button class="adm-btn adm-btn--primary" type="button" id="btn-save-result">确认开奖结果</button></div>
+    <div class="adm-modal__foot"><button class="adm-btn" type="button" data-close id="btn-match-close">关 闭</button><button class="adm-btn" type="button" id="btn-regenerate">重新生成</button><button class="adm-btn adm-btn--primary" type="button" id="btn-save-result">确认开奖结果</button></div>
   </div>
 </div>
 
@@ -156,7 +155,7 @@
     <div class="adm-modal__head"><span class="adm-modal__title" id="modal-publish-title">发布中奖结果</span><button class="adm-modal__close" type="button" data-close>×</button></div>
     <div class="adm-modal__body">
       <div class="draw-summary" id="publish-summary"></div>
-      <div class="adm-alert" style="margin-top:4px"><span class="adm-alert__ico">!</span><span><b class="draw-warn">发布后不可撤回。</b>发布后福卡状态与中奖公示将同步到 H5。</span></div>
+      <div class="adm-alert" style="margin-top:4px"><span class="adm-alert__ico">!</span><span><b class="draw-warn">发布后无法进行修改，请确认是否发布。</b>发布后福卡状态与中奖公示将同步到 H5。</span></div>
     </div>
     <div class="adm-modal__foot"><button class="adm-btn" type="button" data-close>取 消</button><button class="adm-btn adm-btn--primary" type="button" id="btn-publish-ok">确认发布</button></div>
   </div>
@@ -165,28 +164,31 @@
 <script>
   window.PAGE_META = {
     id: "ADM-03", title: "抽奖管理", live: "yes",
-    note: "V2.0：双奖池 + 重抽 + 发布前复核",
+    note: "V2.0：双奖池 + 重抽 + 待发布",
     fr: ["FR-015"], ac: ["AC-065", "AC-066", "AC-067", "AC-069"],
-    goal: "按奖池录入幸运数字：12 月/1 月/2 月各 4 档、终极 2 档（抽奖前先选奖池）；校验通过展示匹配福卡，保存草稿→提交复核→发布；发布后同步 H5，不可撤回。",
+    goal: "按奖池录入幸运数字：12 月/1 月/2 月各 4 档、终极 2 档（抽奖前先选奖池）；校验通过展示匹配福卡，生成后直接待发布；可发布/编辑/查看，发布后不可修改。",
     states: [
       "列表展示每个奖项的中奖数量；录入时自动带出且不可修改。",
       "一等奖 1 个号码、二等奖 1 个、三等奖 2 个、四等奖 3 个；参与奖输入 1 位末位数字。",
       "月度 1–4 等奖：5 位全匹配；无中奖可重抽（按细则 1 次）。",
       "终极一等奖：5 位全匹配，可持续重抽至中奖；参与奖：末位匹配、同一 CIF 只保留 1 个（最早发票）、1,500 名截取、不补抽。",
-      "状态：草稿 → 已复核 → 已发布；发布前必须复核。",
-      "发布后不可撤回。"
+      "生成结果后状态直接为「待发布」；待发布可发布、编辑、查看。",
+      "发布前提示「发布后无法进行修改，请确认」；发布后仅可查看，不可编辑。",
+      "无复核环节。"
     ],
     changes: [
       "新增奖池选择：12 月/1 月/2 月/终极。",
       "奖品按奖池切换：月度 4 档、终极 2 档。",
-      "新增重抽（重新生成）与发布前复核状态。",
+      "新增重抽（重新生成）与待发布状态。",
       "新增列表「中奖数量」列。",
       "按所选奖池、奖项自动带出中奖数量，并生成对应数量的幸运数字输入框。",
       "填写后校验对应奖池卡池，无匹配提示「无匹配中奖号码，请重新抽奖」；匹配后才可生成结果。",
       "编辑抽奖结果同样按中奖数量生成输入并校验。",
+      "生成结果后直接待发布，可发布/编辑/查看。",
+      "发布后仅可查看，不可修改。",
       "发布后同步 H5 福卡与中奖公示。"
     ],
-    notes: ["系统记录投球结果与重抽记录。", "发布后不可撤回。"],
+    notes: ["系统记录投球结果与重抽记录。", "无复核环节；发布后无法修改。"],
     todo: ["月度无中奖最终处理待运营确认。"]
   };
 </script>
@@ -215,16 +217,16 @@
     m2: ["03112", "04218", "05120", "06133", "07108", "07215", "07322"],
     ultimate: ["01208", "01136", "02145", "02266", "02377", "02488"]
   };
-  var STATUS = { draft: "草稿", reviewed: "已复核（待发布）", published: "已发布" };
+  var STATUS = { pending: "待发布", published: "已发布" };
   var PAGE_SIZE = 10;
 
   var state = {
     rows: [
-      { id: "B20261231-01", pool: "m12", prize: "一等奖 · 5888€ MP 随您购", quota: 1, luckies: ["03112"], matched: 1, status: "draft", time: "2026-12-31 20:10" },
-      { id: "B20261231-02", pool: "m12", prize: "二等奖 · iPhone Duo 512G", quota: 1, luckies: ["04218"], matched: 1, status: "reviewed", time: "2026-12-31 20:05" },
+      { id: "B20261231-01", pool: "m12", prize: "一等奖 · 5888€ MP 随您购", quota: 1, luckies: ["03112"], matched: 1, status: "pending", time: "2026-12-31 20:10" },
+      { id: "B20261231-02", pool: "m12", prize: "二等奖 · iPhone Duo 512G", quota: 1, luckies: ["04218"], matched: 1, status: "pending", time: "2026-12-31 20:05" },
       { id: "B20261231-03", pool: "m12", prize: "三等奖 · iPhone 18 Pro Max", quota: 2, luckies: ["05120", "06133"], matched: 2, status: "published", time: "2026-12-31 20:00" },
-      { id: "B20270226-01", pool: "ultimate", prize: "一等奖 · Tesla Model 3", quota: 1, luckies: ["01208"], matched: 1, status: "draft", time: "2027-02-26 21:00" },
-      { id: "B20270226-02", pool: "ultimate", prize: "参与奖 · MP 定制礼盒", quota: 1500, luckies: ["6"], matched: 1500, status: "draft", time: "2027-02-26 20:58" }
+      { id: "B20270226-01", pool: "ultimate", prize: "一等奖 · Tesla Model 3", quota: 1, luckies: ["01208"], matched: 1, status: "pending", time: "2027-02-26 21:00" },
+      { id: "B20270226-02", pool: "ultimate", prize: "参与奖 · MP 定制礼盒", quota: 1500, luckies: ["6"], matched: 1500, status: "pending", time: "2027-02-26 20:58" }
     ],
     all: null, page: 1, editId: null, pool: "m12", match: null, matchPage: 1, matchSize: 10
   };
@@ -241,8 +243,7 @@
   function render() {
     $("#rows").innerHTML = pageRows().map(function (r) {
       var ops = '<button type="button" data-act="view" data-id="' + r.id + '">查看</button>';
-      if (r.status === "draft") ops = '<button type="button" data-act="edit" data-id="' + r.id + '">编辑</button><button type="button" data-act="review" data-id="' + r.id + '">提交复核</button>' + ops;
-      if (r.status === "reviewed") ops = '<button type="button" data-act="publish" data-id="' + r.id + '">发布</button>' + ops;
+      if (r.status === "pending") ops = '<button type="button" data-act="publish" data-id="' + r.id + '">发布</button><button type="button" data-act="edit" data-id="' + r.id + '">编辑</button>' + ops;
       return "<tr><td class='num'>" + (state.rows.indexOf(r) + 1) + "</td><td>" + POOL_NAME[r.pool] + "</td><td>" + r.prize + "</td><td class='num'>" + fmt(r.quota) + "</td><td class='num'>" + luckyText(r) + "</td><td class='num'>" + fmt(r.matched) + "</td><td><span class='adm-status draw-st--" + r.status + "'>" + STATUS[r.status] + "</span></td><td class='muted nowrap'>" + r.time + "</td><td><span class='adm-table__op'>" + ops + "</span></td></tr>";
     }).join("");
     var pages = Math.max(1, Math.ceil(state.all.length / PAGE_SIZE));
@@ -260,9 +261,8 @@
       var act = b.getAttribute("data-act"), id = b.getAttribute("data-id");
       b.onclick = function () {
         if (act === "edit") openAdd(id);
-        if (act === "review") { var r = find(id); r.status = "reviewed"; render(); U.toast("已提交复核（复核人：管理员 A）"); }
         if (act === "publish") openPublish(id);
-        if (act === "view") { var x = find(id); U.toast(POOL_NAME[x.pool] + " · " + x.prize + " · 中奖 " + fmt(x.quota) + " 个 · 匹配 " + fmt(x.matched) + " 条"); }
+        if (act === "view") openView(id);
       };
     });
   }
@@ -382,6 +382,10 @@
     var m = validateAndMatch(state.pool, p, nums);
     if (!m) return;
     closeModal(document.getElementById("modal-result"));
+    $("#btn-match-close").style.display = "none";
+    $("#btn-regenerate").style.display = "";
+    $("#btn-save-result").style.display = "";
+    $("#modal-match-title").textContent = "抽奖结果";
     $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[m.pool] + "</b>　奖品：<b>" + m.prize.name + "</b>　中奖数量：<b>" + fmt(m.prize.quota) + "</b>　幸运数字：<b>" + (m.prize.digits === 1 ? "末位 " + m.nums[0] : m.nums.join("、")) + "</b>　匹配：<b>" + fmt(m.rows.length) + "</b> 条";
     renderMatch(); openModal("modal-match");
   };
@@ -404,19 +408,34 @@
   $("#btn-regenerate").onclick = function () { closeModal(document.getElementById("modal-match")); openAdd(state.editId); };
   $("#btn-save-result").onclick = function () {
     var m = state.match;
-    var row = { id: state.editId || ("B-" + Date.now().toString().slice(-6)), pool: m.pool, prize: m.prize.name, quota: m.prize.quota, luckies: m.nums.slice(), matched: m.rows.length, status: "draft", time: "2027-02-26 21:00" };
+    var row = { id: state.editId || ("B-" + Date.now().toString().slice(-6)), pool: m.pool, prize: m.prize.name, quota: m.prize.quota, luckies: m.nums.slice(), matched: m.rows.length, matchRows: m.rows.slice(), status: "pending", time: "2027-02-26 21:00" };
     if (state.editId) {
       var idx = state.rows.findIndex(function (x) { return x.id === state.editId; });
       if (idx >= 0) state.rows[idx] = row;
     } else state.rows.unshift(row);
     state.all = state.rows.filter(function (r) { return r.pool === state.pool; });
     state.page = 1;
-    closeModal(document.getElementById("modal-match")); render(); U.toast("已保存为草稿，请提交复核");
+    closeModal(document.getElementById("modal-match")); render(); U.toast("已生成抽奖结果，状态为待发布");
   };
+
+  function openView(id) {
+    var r = find(id);
+    var p = prizeOf(r.pool, r.prize) || { digits: 5, quota: r.quota };
+    var rows = r.matchRows ? r.matchRows.slice() : (p.digits === 1 ? buildRows(1500, r.pool) : (r.luckies || []).map(function (n) { return cardRow(n, r.pool); }).filter(Boolean));
+    state.match = { pool: r.pool, prize: p, nums: r.luckies || [], rows: rows, count: rows.length };
+    state.matchPage = 1; state.matchSize = 10;
+    $("#btn-match-close").style.display = "";
+    $("#btn-regenerate").style.display = "none";
+    $("#btn-save-result").style.display = "none";
+    $("#modal-match-title").textContent = "抽奖详情（只读）";
+    $("#match-summary").innerHTML = "奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　中奖数量：<b>" + fmt(r.quota) + "</b>　幸运数字：<b>" + luckyText(r) + "</b>　匹配：<b>" + fmt(rows.length) + "</b> 条　状态：<b>" + STATUS[r.status] + "</b>";
+    renderMatch();
+    openModal("modal-match");
+  }
 
   function openPublish(id) {
     var r = find(id); state.publishId = id;
-    $("#publish-summary").innerHTML = "序号：<b>" + (state.rows.indexOf(r) + 1) + "</b>　奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　中奖数量：<b>" + fmt(r.quota) + "</b>　匹配：<b>" + fmt(r.matched) + "</b> 条";
+    $("#publish-summary").innerHTML = "序号：<b>" + (state.rows.indexOf(r) + 1) + "</b>　奖池：<b>" + POOL_NAME[r.pool] + "</b>　奖品：<b>" + r.prize + "</b>　中奖数量：<b>" + fmt(r.quota) + "</b>　匹配：<b>" + fmt(r.matched) + "</b> 条<br><span style='color:#cf1322'>发布后无法进行修改，请确认是否发布。</span>";
     openModal("modal-publish");
   }
   $("#btn-publish-ok").onclick = function () {
