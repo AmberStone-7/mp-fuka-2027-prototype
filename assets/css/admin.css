@@ -859,3 +859,10 @@ input[type="radio"] { accent-color: #1677ff; }
 .em-mail__brands { margin:16px 0 10px; padding-top:12px; border-top:1px solid #eee; }
 .em-mail__brands img { display:block; width:100%; height:auto; margin:0 0 10px; }
 .em-mail__legal { margin:8px 0 6px; font-size:11px; line-height:1.65; color:#888; text-align:justify; }
+
+
+.em-mail__video { margin:14px 0; padding:12px; border:1px solid #eee; border-radius:6px; background:#fafafa; text-align:center; }
+.em-mail__video-title { margin:0; font-size:14px; font-weight:700; color:#b3261e; }
+.em-mail__video-sub { margin:2px 0 8px; font-size:12px; color:#666; }
+.em-mail__video img { display:block; width:150px; max-width:100%; margin:0 auto 8px; }
+.em-mail__video-times { margin:0; font-size:12px; line-height:1.8; color:#333; }
