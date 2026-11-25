@@ -866,3 +866,8 @@ input[type="radio"] { accent-color: #1677ff; }
 .em-mail__video-sub { margin:2px 0 8px; font-size:12px; color:#666; }
 .em-mail__video img { display:block; width:150px; max-width:100%; margin:0 auto 8px; }
 .em-mail__video-times { margin:0; font-size:12px; line-height:1.8; color:#333; }
+
+
+.em-video-qrs { margin:0 auto 8px; border-collapse:collapse; }
+.em-video-qrs td { padding:0 8px; text-align:center; font-size:11px; color:#666; }
+.em-video-qrs img { display:block; width:130px; height:auto; margin:0 auto 3px; }
